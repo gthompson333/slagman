@@ -10,8 +10,9 @@ import SpriteKit
 import CoreMotion
 
 enum GameState {
-  case waitingForStartTap
+  case levelStarting
   case playing
+  case levelEnding
 }
 
 enum PlayerState {
@@ -33,17 +34,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
   var bgNode: SKNode!
   var fgNode: SKNode!
+  var exitDoor: SKNode!
   
   var bgNodeHeight: CGFloat!
   var player: SKSpriteNode!
   
-  var lastFGOverlayNode: SKSpriteNode!
+  var lastFGLayerNode: SKSpriteNode!
   var lastFGLayerPosition = CGPoint.zero
-  var lastFGLayerHeight: CGFloat = 0.0
   var levelPositionY: CGFloat = 0.0
-  var numLevelUpdates = 0
+  var countOfLevelLayers = 1
   
-  var gameState = GameState.waitingForStartTap
+  var gameState = GameState.levelStarting
   var playerState = PlayerState.idle
   
   let motionManager = CMMotionManager()
@@ -80,7 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if gameState == .waitingForStartTap {
+    if gameState == .levelStarting {
       startGame()
     }
     
@@ -121,18 +122,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupNodes() {
     worldNode = childNode(withName: "world")!
-    
-    player = worldNode.childNode(withName: "player") as! SKSpriteNode
-    
+
     bgNode = worldNode.childNode(withName: "background")!
     bgNodeHeight = bgNode.calculateAccumulatedFrame().height
     
     fgNode = worldNode.childNode(withName: "foreground")!
-    lastFGOverlayNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
-    lastFGOverlayNode.childNode(withName: "landingPlatform")!.run(SKAction.hide())
+    lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
+    player = fgNode.childNode(withName: "player") as! SKSpriteNode
     
-    lastFGLayerPosition = lastFGOverlayNode.position
-    lastFGLayerHeight = lastFGOverlayNode.size.height
+    exitDoor = lastFGLayerNode.childNode(withName: "exitDoor")!
+    exitDoor.removeFromParent()
+    
+    lastFGLayerPosition = lastFGLayerNode.position
     
     addChild(cameraNode)
     camera = cameraNode
@@ -140,19 +141,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func createForegroundOverlay() {
     let fgOverlay = fgNode.childNode(withName: "objectLayer")
-    lastFGOverlayNode = fgOverlay!.copy() as! SKSpriteNode
+    lastFGLayerNode = fgOverlay!.copy() as! SKSpriteNode
     
-    lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGOverlayNode.size.height
-    lastFGLayerHeight = lastFGOverlayNode.size.height
-    lastFGOverlayNode.position = lastFGLayerPosition
+    countOfLevelLayers += 1
     
-    fgNode.addChild(lastFGOverlayNode)
-  }
-  
-  func createBackgroundOverlay() {
-    let backgroundOverlay = bgNode.copy() as! SKNode
-    backgroundOverlay.position = CGPoint(x: 0.0, y: levelPositionY)
-    bgNode.addChild(backgroundOverlay)
+    lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGLayerNode.size.height
+    lastFGLayerNode.position = lastFGLayerPosition
+    
+    fgNode.addChild(lastFGLayerNode)
+    
+    let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
+    let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
+    newBGOverlay.position.y = bgOverlay.position.y + bgOverlay.size.height
+    bgNode.addChild(newBGOverlay)
+    
     levelPositionY += bgNodeHeight
   }
   
@@ -196,21 +198,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updateLevel() {
-    if numLevelUpdates >= 2 {
+    if countOfLevelLayers >= 2 {
       endLevel()
       return
     }
     
-    let cameraPos = camera!.position
-    
-    if cameraPos.y > levelPositionY - size.height {
-      createBackgroundOverlay()
-      numLevelUpdates += 1
-    }
-    
-    while lastFGLayerPosition.y < levelPositionY {
+    if camera!.position.y > (levelPositionY - size.height) {
       createForegroundOverlay()
-      lastFGOverlayNode.childNode(withName: "launchPlatform")?.removeFromParent()
+      lastFGLayerNode.childNode(withName: "launchPlatform")?.removeFromParent()
+      
+      if countOfLevelLayers >= 2 && gameState == .playing  {
+        lastFGLayerNode.addChild(exitDoor)
+      }
     }
   }
   
@@ -229,8 +228,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func endLevel() {
-    gameState = .waitingForStartTap
-    lastFGOverlayNode.childNode(withName: "landingPlatform")!.run(SKAction.unhide())
+    //gameState = .waitingForStartTap
   }
   
   func sceneCropAmount() -> CGFloat {
