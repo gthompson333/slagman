@@ -16,7 +16,7 @@ enum GameState {
 }
 
 enum PlayerState {
-  case idle
+  case standing
   case jetting
   case falling
   case dead
@@ -45,7 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var countOfLevelLayers = 1
   
   var gameState = GameState.levelStarting
-  var playerState = PlayerState.idle
+  var playerState = PlayerState.standing
   
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
@@ -177,7 +177,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // Check player state
-    if player.physicsBody!.velocity.dy < CGFloat(0.0) && playerState != .falling {
+    if player.physicsBody!.velocity.dy == CGFloat(0.0) {
+      playerState = .standing
+    } else if player.physicsBody!.velocity.dy < CGFloat(0.0) {
       playerState = .falling
     }
     
@@ -218,7 +220,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let targetPositionY = playerPositionScene.y - (size.height * 0.10)
     let diff = (targetPositionY - camera!.position.y) * 0.2
     let newCameraPositionY = camera!.position.y + diff
-    
     camera!.position.y = newCameraPositionY
   }
   
