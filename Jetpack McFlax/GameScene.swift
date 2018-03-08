@@ -9,43 +9,22 @@
 import SpriteKit
 import CoreMotion
 
-enum GameState {
-  case levelStarting
-  case playing
-  case levelEnding
-}
-
-enum PlayerState {
-  case standing
-  case jetting
-  case falling
-  case dead
-}
-
-struct PhysicsCategory {
-  static let None: UInt32              = 0        // 0
-  static let Player: UInt32            = 0b1      // 1
-  static let JetBoost: UInt32          = 0b10     // 2
-  static let Platform: UInt32          = 0b100    // 4
-  static let Edges: UInt32             = 0b1000   // 8
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
   var bgNode: SKNode!
   var fgNode: SKNode!
+  var skyNode: SKNode!
   var exitDoor: SKNode!
   
   var bgNodeHeight: CGFloat!
-  var player: SKSpriteNode!
+  var player: PlayerNode!
   
   var lastFGLayerNode: SKSpriteNode!
   var lastFGLayerPosition = CGPoint.zero
   var levelPositionY: CGFloat = 0.0
   var countOfLevelLayers = 1
   
-  var gameState = GameState.levelStarting
-  var playerState = PlayerState.standing
+  var gameState = GameState.starting
   
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
@@ -81,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if gameState == .levelStarting {
+    if gameState == .starting {
       startGame()
     }
     
@@ -121,17 +100,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func setupNodes() {
-    worldNode = childNode(withName: "world")!
+    worldNode = childNode(withName: "world")
 
-    bgNode = worldNode.childNode(withName: "background")!
+    bgNode = worldNode.childNode(withName: "background")
     bgNodeHeight = bgNode.calculateAccumulatedFrame().height
     
-    fgNode = worldNode.childNode(withName: "foreground")!
+    fgNode = worldNode.childNode(withName: "foreground")
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
-    player = fgNode.childNode(withName: "player") as! SKSpriteNode
+    player = fgNode.childNode(withName: "player") as! PlayerNode
     
-    exitDoor = lastFGLayerNode.childNode(withName: "exitDoor")!
+    exitDoor = lastFGLayerNode.childNode(withName: "exitDoor")
     exitDoor.removeFromParent()
+    
+    skyNode = worldNode.childNode(withName: "sky")
+    skyNode.removeFromParent()
     
     lastFGLayerPosition = lastFGLayerNode.position
     
@@ -178,13 +160,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Check player state
     if player.physicsBody!.velocity.dy == CGFloat(0.0) {
-      playerState = .standing
+      player.movementState = .standing
     } else if player.physicsBody!.velocity.dy < CGFloat(0.0) {
-      playerState = .falling
+      player.movementState = .falling
     }
     
     // Animate player
-    if playerState == .jetting {
+    if player.movementState == .jetting {
       if abs(player.physicsBody!.velocity.dx) > 100.0 {
         if player.physicsBody!.velocity.dx > 0 {
           runPlayerAnimation(playerAnimationSteerRight)
@@ -194,7 +176,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       } else {
         runPlayerAnimation(playerAnimationJet)
       }
-    } else if playerState == .falling {
+    } else if player.movementState == .falling {
       runPlayerAnimation(playerAnimationFall)
     }
   }
@@ -211,6 +193,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
       if countOfLevelLayers >= 2 && gameState == .playing  {
         lastFGLayerNode.addChild(exitDoor)
+        skyNode.position = CGPoint(x: skyNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
+        worldNode.addChild(skyNode)
       }
     }
   }
@@ -273,7 +257,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func jetBoostPlayer() {
-    playerState = .jetting
+    player.movementState = .jetting
     run(soundBoost)
     setPlayerVelocity(1400)
   }
