@@ -19,16 +19,15 @@ class PlayerNode: SKSpriteNode {
     fileprivate func changeState(player: PlayerNode) {
       switch self {
       case .standing:
-        player.stand()
+        break
       case .jetting:
+        player.jetting()
         break
-        //player.walk()
       case .falling:
+        player.falling()
         break
-        //player.climb(up: true)
       case .dead:
         break
-        //player.climb(up: false)
       }
       print("Movement state is now: \(self)")
     }
@@ -44,6 +43,8 @@ class PlayerNode: SKSpriteNode {
   // Collection of player actions, sounds, and animations.
   private var actions: [String : SKAction] = [:]
   
+  private var currentMovementAnimation: SKAction!
+  
   // Animation timing constant.
   private var animationTimePerFrame: TimeInterval = 0.2
   
@@ -53,32 +54,58 @@ class PlayerNode: SKSpriteNode {
     createActions()
   }
   
-  func update(_ currentTime: TimeInterval) {
-    // Is Hardhat falling? Aaaarrrrrrgh!!!!
-    checkIfFalling()
+  func update() {
+    guard let scene = scene as? GameScene else {
+      return
+    }
     
-    switch movementState {
-    case .standing:
-      break
-    case .jetting:
-      break
-    default:
-      break
+    // Set velocity based on core motion
+    physicsBody!.velocity.dx = scene.xAcceleration * 1000.0
+    
+    // Wrap player around edges of screen
+    var playerPosition = convert(position, from: scene.fgNode)
+    let rightLimit = scene.size.width/2 - scene.sceneCropAmount()/2 + size.width/2
+    let leftLimit = -rightLimit
+    
+    if playerPosition.x < leftLimit {
+      playerPosition = convert(CGPoint(x: rightLimit, y: 0.0), to: scene.fgNode)
+      position.x = playerPosition.x
+    } else if playerPosition.x > rightLimit {
+      playerPosition = convert(CGPoint(x: leftLimit, y: 0.0), to: scene.fgNode)
+      position.x = playerPosition.x
+    }
+    
+    // Check player state
+    if physicsBody!.velocity.dy == CGFloat(0.0) {
+      movementState = .standing
+    } else if physicsBody!.velocity.dy < CGFloat(0.0) {
+      movementState = .falling
     }
   }
   
-  func jet() {
+  func setPlayerVelocity(_ amount: CGFloat) {
+    let gain: CGFloat = 1.5
+    physicsBody!.velocity.dy = max(physicsBody!.velocity.dy, amount * gain)
   }
   
   // MARK: - Actions
-  private func stand() {
-    /*if hasActions() {
-      removeAllActions()
+  func jetting() {
+    if abs(physicsBody!.velocity.dx) > 100.0 {
+      if physicsBody!.velocity.dx > 0 {
+        runPlayerAnimation(actions["steeringRight"]!)
+      } else {
+        runPlayerAnimation(actions["steeringLeft"]!)
+      }
+    } else {
+      runPlayerAnimation(actions["jetting"]!)
     }
     
-    physicsBody!.affectedByGravity = true
-    self.texture = SKTexture(pixelImageNamed: "player_stand")
-    physicsBody!.velocity = CGVector.zero*/
+    run(actions["jettingSound"]!)
+    setPlayerVelocity(1000)
+  }
+  
+  func falling() {
+    runPlayerAnimation(actions["falling"]!)
   }
   
   private func blinkPulse(color: SKColor) {
@@ -91,63 +118,33 @@ class PlayerNode: SKSpriteNode {
     run(SKAction.repeat(SKAction.group([blink, pulse]), count: 3))
   }
   
-  private func checkIfFalling() {
-    if let velocity = physicsBody?.velocity {
-      // if not already falling.
-      if movementState != .falling {
-        if velocity.dy < -800 {
-          print("Player is falling with velocity: \(velocity.dy).")
-          movementState = .falling
-          run(actions["fallingsound"]!)
-        }
-      }
-    }
-  }
-  
   // MARK: - Animations
-  
-  // Run a movement animation based on a Direction enum value.
-  private func startMoveAnimation(direction: Direction) {
-    if direction == .left {
-      xScale = -abs(xScale)
+  func runPlayerAnimation(_ animation: SKAction) {
+    if animation != currentMovementAnimation {
+      removeAction(forKey: "playerAnimation")
+      run(animation, withKey: "playerAnimation")
+      currentMovementAnimation = animation
     }
-    
-    if direction == .right {
-      xScale = abs(xScale)
-    }
-    
-    run(actions["walking"]!, withKey: ActionKeys.MoveAnimation)
-  }
-  
-  // Maps a Direction enum value from a velocity vector.
-  private func moveDirection(for directionVector: CGVector) -> Direction {
-    let direction: Direction
-    
-    if abs(directionVector.dy) > abs(directionVector.dx) {
-      direction = directionVector.dy < 0 ? .down : .up
-    } else {
-      direction = directionVector.dx < 0 ? .left : .right
-    }
-    
-    return direction
   }
   
   // Load up the movement animations collection.
   private func createActions() {
-    let walkingAction = SKAction.animate(with: [SKTexture(pixelImageNamed: "player_walk1"),
-                                                SKTexture(pixelImageNamed: "player_walk2")], timePerFrame: animationTimePerFrame)
+    actions["jetting"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: 0.1)
+    actions["jettingSound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
+
+    actions["falling"] = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
+    actions["steeringLeft"] = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: 0.1)
+    actions["steeringRight"] = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: 0.1)
+  }
+  
+  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {
+    var textures: [SKTexture] = []
     
-    actions["walking"] = SKAction.repeatForever(walkingAction)
-    actions["walkingsound"] = SKAction.playSoundFileNamed("Walking.m4a", waitForCompletion: false)
+    for i in start ... end {
+      textures.append(SKTexture(imageNamed: "\(prefix)\(i)"))
+    }
     
-    let climbingAction = SKAction.animate(with: [SKTexture(pixelImageNamed: "player_climb1"),
-                                                 SKTexture(pixelImageNamed: "player_climb2")], timePerFrame: animationTimePerFrame)
-    
-    actions["climbing"] = SKAction.repeatForever(climbingAction)
-    actions["climbingupsound"] = SKAction.playSoundFileNamed("ClimbingUp.m4a", waitForCompletion: true)
-    actions["climbingdownsound"] = SKAction.playSoundFileNamed("ClimbingDown.m4a", waitForCompletion: true)
-    actions["jumpingsound"] = SKAction.playSoundFileNamed("Jumping.m4a", waitForCompletion: true)
-    actions["fallingsound"] = SKAction.playSoundFileNamed("Falling.m4a", waitForCompletion: false)
+    return SKAction.animate(with: textures, timePerFrame: timePerFrame)
   }
 }
 

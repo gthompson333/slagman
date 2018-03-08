@@ -31,29 +31,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   let cameraNode = SKCameraNode()
   
-  var playerAnimationJet: SKAction!
-  var playerAnimationFall: SKAction!
-  var playerAnimationSteerLeft: SKAction!
-  var playerAnimationSteerRight: SKAction!
-  var currentPlayerAnimation: SKAction!
-  
-  let soundBoost = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
-  
   // MARK: - SpriteKit Methods
   override func didMove(to view: SKView) {
     physicsWorld.contactDelegate = self
     setupCoreMotion()
     setupNodes()
-    
-    playerAnimationJet = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: 0.1)
-    playerAnimationFall = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
-    playerAnimationSteerLeft = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: 0.1)
-    playerAnimationSteerRight = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: 0.1)
   }
   
   override func update(_ currentTime: TimeInterval) {
     if gameState == .playing {
-      updatePlayer()
+      player.update()
       updateCamera()
       updateLevel()
     }
@@ -64,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       startGame()
     }
     
-    jetBoostPlayer()
+    player.movementState = .jetting
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
@@ -72,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
-      jetBoostPlayer()
+      player.movementState = .jetting
     default:
       break
     }
@@ -141,46 +128,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   // MARK: - Update Methods
-  func updatePlayer() {
-    // Set velocity based on core motion
-    player.physicsBody!.velocity.dx = xAcceleration * 1000.0
-    
-    // Wrap player around edges of screen
-    var playerPosition = convert(player.position, from: fgNode)
-    let rightLimit = size.width/2 - sceneCropAmount()/2 + player.size.width/2
-    let leftLimit = -rightLimit
-    
-    if playerPosition.x < leftLimit {
-      playerPosition = convert(CGPoint(x: rightLimit, y: 0.0), to: fgNode)
-      player.position.x = playerPosition.x
-    } else if playerPosition.x > rightLimit {
-      playerPosition = convert(CGPoint(x: leftLimit, y: 0.0), to: fgNode)
-      player.position.x = playerPosition.x
-    }
-    
-    // Check player state
-    if player.physicsBody!.velocity.dy == CGFloat(0.0) {
-      player.movementState = .standing
-    } else if player.physicsBody!.velocity.dy < CGFloat(0.0) {
-      player.movementState = .falling
-    }
-    
-    // Animate player
-    if player.movementState == .jetting {
-      if abs(player.physicsBody!.velocity.dx) > 100.0 {
-        if player.physicsBody!.velocity.dx > 0 {
-          runPlayerAnimation(playerAnimationSteerRight)
-        } else {
-          runPlayerAnimation(playerAnimationSteerLeft)
-        }
-      } else {
-        runPlayerAnimation(playerAnimationJet)
-      }
-    } else if player.movementState == .falling {
-      runPlayerAnimation(playerAnimationFall)
-    }
-  }
-  
   func updateLevel() {
     if countOfLevelLayers >= 2 {
       endLevel()
@@ -231,34 +178,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     return true
-  }
-  
-  func setPlayerVelocity(_ amount: CGFloat) {
-    let gain: CGFloat = 1.5
-    player.physicsBody!.velocity.dy = max(player.physicsBody!.velocity.dy, amount * gain)
-  }
-  
-  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {
-    var textures: [SKTexture] = []
-    
-    for i in start ... end {
-      textures.append(SKTexture(imageNamed: "\(prefix)\(i)"))
-    }
-    
-    return SKAction.animate(with: textures, timePerFrame: timePerFrame)
-  }
-  
-  func runPlayerAnimation(_ animation: SKAction) {
-    if animation != currentPlayerAnimation {
-      player.removeAction(forKey: "playerAnimation")
-      player.run(animation, withKey: "playerAnimation")
-      currentPlayerAnimation = animation
-    }
-  }
-  
-  func jetBoostPlayer() {
-    player.movementState = .jetting
-    run(soundBoost)
-    setPlayerVelocity(1400)
   }
 }
