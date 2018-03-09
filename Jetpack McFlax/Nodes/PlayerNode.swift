@@ -101,6 +101,21 @@ class PlayerNode: SKSpriteNode {
     }
     
     run(actions["jettingSound"]!)
+    setPlayerVelocity(700)
+  }
+  
+  func powerJet() {
+    if abs(physicsBody!.velocity.dx) > 100.0 {
+      if physicsBody!.velocity.dx > 0 {
+        runPlayerAnimation(actions["steeringRight"]!)
+      } else {
+        runPlayerAnimation(actions["steeringLeft"]!)
+      }
+    } else {
+      runPlayerAnimation(actions["jetting"]!)
+    }
+    
+    run(actions["jettingSound"]!)
     setPlayerVelocity(1000)
   }
   

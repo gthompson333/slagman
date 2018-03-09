@@ -13,8 +13,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
   var bgNode: SKNode!
   var fgNode: SKNode!
+  var exitPlatform: SKNode!
   var skyNode: SKNode!
-  var exitDoor: SKNode!
+  var currentLevel = 1
   
   var bgNodeHeight: CGFloat!
   var player: PlayerNode!
@@ -30,6 +31,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var xAcceleration = CGFloat(0)
   
   let cameraNode = SKCameraNode()
+  
+  class func sceneFor(levelNumber: Int) -> SKScene? {
+    if let scene = GameScene(fileNamed: "Level\(levelNumber)") {
+      scene.currentLevel = levelNumber
+      return scene
+    }
+    
+    let scene = GameScene(fileNamed: "Level1")!
+    scene.currentLevel = 1
+    //assertionFailure("No scene for level \(levelNumber)")
+    return scene
+  }
   
   // MARK: - SpriteKit Methods
   override func didMove(to view: SKView) {
@@ -59,7 +72,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
-      player.movementState = .jetting
+      player.powerJet()
+      other.node?.removeFromParent()
+    case PhysicsCategory.Object:
+      if other.node?.name == "exitPlatform" {
+        if let scene = GameScene.sceneFor(levelNumber: currentLevel + 1) {
+          scene.scaleMode = .aspectFill
+          view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+        }
+      }
     default:
       break
     }
@@ -96,8 +117,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
-    exitDoor = lastFGLayerNode.childNode(withName: "exitDoor")
-    exitDoor.removeFromParent()
+    exitPlatform = lastFGLayerNode.childNode(withName: "exitPlatform")
+    exitPlatform.removeFromParent()
     
     skyNode = worldNode.childNode(withName: "sky")
     skyNode.removeFromParent()
@@ -139,7 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       lastFGLayerNode.childNode(withName: "launchPlatform")?.removeFromParent()
       
       if countOfLevelLayers >= 2 && gameState == .playing  {
-        lastFGLayerNode.addChild(exitDoor)
+        lastFGLayerNode.addChild(exitPlatform)
         skyNode.position = CGPoint(x: skyNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
         worldNode.addChild(skyNode)
       }

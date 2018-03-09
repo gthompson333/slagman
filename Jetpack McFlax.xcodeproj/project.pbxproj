@@ -22,9 +22,8 @@
 		378E8EE92051AAE7006FCF4D /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8EDD2051AAE7006FCF4D /* Vector3.swift */; };
 		378E8EEF2051AB0A006FCF4D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8EEB2051AB0A006FCF4D /* Extensions.swift */; };
 		378E8EF02051AB0A006FCF4D /* GregoriusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8EEC2051AB0A006FCF4D /* GregoriusViewController.swift */; };
-		378E8EF12051AB0A006FCF4D /* TapStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8EED2051AB0A006FCF4D /* TapStartViewController.swift */; };
 		378E8EF22051AB0A006FCF4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8EEE2051AB0A006FCF4D /* Utilities.swift */; };
-		37A0DBF2204F12300046715C /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* boost.wav */; };
+		37A0DBF2204F12300046715C /* boost2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* boost2.wav */; };
 		37B4FFBD204D9E6500FAEC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */; };
 		37B4FFBF204D9E6500FAEC3E /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFBE204D9E6500FAEC3E /* Level1.sks */; };
 		37B4FFC3204D9E6500FAEC3E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFC2204D9E6500FAEC3E /* GameScene.swift */; };
@@ -32,6 +31,8 @@
 		37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC6204D9E6500FAEC3E /* Main.storyboard */; };
 		37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */; };
 		37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFCB204D9E6500FAEC3E /* LaunchScreen.storyboard */; };
+		37E7F58E205238F20076E828 /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F58D205238F20076E828 /* boost.wav */; };
+		37E7F5962052FFC00076E828 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F5952052FFBF0076E828 /* Level2.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,9 +51,8 @@
 		378E8EDD2051AAE7006FCF4D /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		378E8EEB2051AB0A006FCF4D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		378E8EEC2051AB0A006FCF4D /* GregoriusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GregoriusViewController.swift; sourceTree = "<group>"; };
-		378E8EED2051AB0A006FCF4D /* TapStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapStartViewController.swift; sourceTree = "<group>"; };
 		378E8EEE2051AB0A006FCF4D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		37A0DBF1204F12300046715C /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
+		37A0DBF1204F12300046715C /* boost2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost2.wav; sourceTree = "<group>"; };
 		37B4FFB9204D9E6500FAEC3E /* Jetpack McFlax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jetpack McFlax.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B4FFBE204D9E6500FAEC3E /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B4FFCC204D9E6500FAEC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B4FFCE204D9E6500FAEC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E7F58D205238F20076E828 /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
+		37E7F5952052FFBF0076E828 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				37B4FFBE204D9E6500FAEC3E /* Level1.sks */,
+				37E7F5952052FFBF0076E828 /* Level2.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 			children = (
 				378E8EEB2051AB0A006FCF4D /* Extensions.swift */,
 				378E8EEC2051AB0A006FCF4D /* GregoriusViewController.swift */,
-				378E8EED2051AB0A006FCF4D /* TapStartViewController.swift */,
 				378E8EEE2051AB0A006FCF4D /* Utilities.swift */,
 			);
 			path = Other;
@@ -124,7 +126,8 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				37A0DBF1204F12300046715C /* boost.wav */,
+				37E7F58D205238F20076E828 /* boost.wav */,
+				37A0DBF1204F12300046715C /* boost2.wav */,
 			);
 			name = Sounds;
 			path = "Jetpack McFlax/Sounds";
@@ -224,10 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E7F58E205238F20076E828 /* boost.wav in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				37B4FFBF204D9E6500FAEC3E /* Level1.sks in Resources */,
-				37A0DBF2204F12300046715C /* boost.wav in Resources */,
+				37A0DBF2204F12300046715C /* boost2.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
+				37E7F5962052FFC00076E828 /* Level2.sks in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,7 +249,6 @@
 				378E8EE82051AAE7006FCF4D /* SKTTimingFunctions.swift in Sources */,
 				378E8EE22051AAE7006FCF4D /* SKAction+Extensions.swift in Sources */,
 				37B4FFC3204D9E6500FAEC3E /* GameScene.swift in Sources */,
-				378E8EF12051AB0A006FCF4D /* TapStartViewController.swift in Sources */,
 				378E8EE02051AAE7006FCF4D /* CGVector+Extensions.swift in Sources */,
 				378E8EE62051AAE7006FCF4D /* SKTAudio.swift in Sources */,
 				378E8EDE2051AAE7006FCF4D /* CGFloat+Extensions.swift in Sources */,
