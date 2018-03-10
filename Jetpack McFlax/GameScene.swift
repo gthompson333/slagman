@@ -36,11 +36,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if let scene = GameScene(fileNamed: "Level\(levelNumber)") {
       scene.currentLevel = levelNumber
       return scene
+    } else {
+      //assertionFailure("No scene for level \(levelNumber)")
     }
     
     let scene = GameScene(fileNamed: "Level1")!
     scene.currentLevel = 1
-    //assertionFailure("No scene for level \(levelNumber)")
+    
     return scene
   }
   
@@ -61,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if gameState == .starting {
-      startGame()
+      gameState = .playing
     }
     
     player.movementState = .jetting
@@ -151,7 +153,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK: - Update Methods
   func updateLevel() {
     if countOfLevelLayers >= 2 {
-      endLevel()
       return
     }
     
@@ -169,6 +170,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updateCamera() {
     let playerPositionScene = convert(player.position, from: fgNode)
+    
+    if playerPositionScene.y < 120 {
+      return
+    }
+    
     let targetPositionY = playerPositionScene.y - (size.height * 0.10)
     let diff = (targetPositionY - camera!.position.y) * 0.2
     let newCameraPositionY = camera!.position.y + diff
@@ -176,28 +182,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   // MARK: - Utility Methods
-  func startGame() {
-    gameState = .playing
-  }
-  
-  func endLevel() {
-    //gameState = .waitingForStartTap
-  }
-  
   func sceneCropAmount() -> CGFloat {
     let scale = view!.bounds.size.height / size.height
     let scaledWidth = size.width * scale
     let scaledOverlap = scaledWidth - view!.bounds.size.width
     return scaledOverlap / scale
-  }
-  
-  func isNodeVisible(_ node: SKNode, positionY: CGFloat) -> Bool {
-    if !camera!.contains(node) {
-      if positionY < camera!.position.y - size.height * 2.0 {
-        return false
-      }
-    }
-    
-    return true
   }
 }

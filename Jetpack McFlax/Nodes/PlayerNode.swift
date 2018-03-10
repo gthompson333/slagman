@@ -29,7 +29,7 @@ class PlayerNode: SKSpriteNode {
       case .dead:
         break
       }
-      print("Movement state is now: \(self)")
+      //print("Movement state is now: \(self)")
     }
   }
   
