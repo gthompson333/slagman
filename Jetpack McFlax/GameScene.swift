@@ -74,8 +74,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
+      if let gateBoost = other.node as? GateBoostNode {
+        gateBoost.explode()
+      }
+      
       player.powerJet()
-      other.node?.removeFromParent()
     case PhysicsCategory.Object:
       if other.node?.name == "exitPlatform" {
         if let scene = GameScene.sceneFor(levelNumber: currentLevel + 1) {
