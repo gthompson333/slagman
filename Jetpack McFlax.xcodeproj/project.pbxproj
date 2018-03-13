@@ -16,10 +16,11 @@
 		37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC6204D9E6500FAEC3E /* Main.storyboard */; };
 		37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */; };
 		37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFCB204D9E6500FAEC3E /* LaunchScreen.storyboard */; };
+		37C10D49205710FC00DAF46E /* fireball.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D48205710FC00DAF46E /* fireball.wav */; };
 		37CB242A2056D989001742D8 /* GateBoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* GateBoostNode.swift */; };
 		37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37CB242B2056DA37001742D8 /* boostexplosion.sks */; };
+		37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D3F7322057042A00820D83 /* playerdeadexplosion.sks */; };
 		37E7F58E205238F20076E828 /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F58D205238F20076E828 /* boost.wav */; };
-		37E7F5962052FFC00076E828 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F5952052FFBF0076E828 /* Level2.sks */; };
 		37E7F59B205330710076E828 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F598205330700076E828 /* Extensions.swift */; };
 		37E7F59C205330710076E828 /* GregoriusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F599205330700076E828 /* GregoriusViewController.swift */; };
 		37E7F59D205330710076E828 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F59A205330710076E828 /* Utilities.swift */; };
@@ -54,10 +55,11 @@
 		37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B4FFCC204D9E6500FAEC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B4FFCE204D9E6500FAEC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37C10D48205710FC00DAF46E /* fireball.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fireball.wav; sourceTree = "<group>"; };
 		37CB24292056D989001742D8 /* GateBoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GateBoostNode.swift; sourceTree = "<group>"; };
 		37CB242B2056DA37001742D8 /* boostexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostexplosion.sks; sourceTree = "<group>"; };
+		37D3F7322057042A00820D83 /* playerdeadexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerdeadexplosion.sks; sourceTree = "<group>"; };
 		37E7F58D205238F20076E828 /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
-		37E7F5952052FFBF0076E828 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		37E7F598205330700076E828 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		37E7F599205330700076E828 /* GregoriusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GregoriusViewController.swift; sourceTree = "<group>"; };
 		37E7F59A205330710076E828 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				376F708E2054B07500A9785D /* boostparticles.sks */,
 				37CB242B2056DA37001742D8 /* boostexplosion.sks */,
+				37D3F7322057042A00820D83 /* playerdeadexplosion.sks */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -116,7 +119,6 @@
 				37E7F5BF2054704F0076E828 /* SpaceGate2.sks */,
 				37E7F5C02054704F0076E828 /* SpaceGate3.sks */,
 				37E7F5B720543D3A0076E828 /* Level1.sks */,
-				37E7F5952052FFBF0076E828 /* Level2.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -124,6 +126,7 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				37C10D48205710FC00DAF46E /* fireball.wav */,
 				37E7F5C32054AA710076E828 /* spacegame.caf */,
 				37E7F58D205238F20076E828 /* boost.wav */,
 				37A0DBF1204F12300046715C /* powerboost.wav */,
@@ -262,12 +265,13 @@
 				37E7F5C1205470500076E828 /* SpaceGate2.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
-				37E7F5962052FFC00076E828 /* Level2.sks in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 				37E7F5B820543D3A0076E828 /* Level1.sks in Resources */,
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
+				37C10D49205710FC00DAF46E /* fireball.wav in Resources */,
 				37E7F5C2205470500076E828 /* SpaceGate3.sks in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
+				37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

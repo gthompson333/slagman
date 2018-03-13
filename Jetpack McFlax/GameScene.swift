@@ -66,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       gameState = .playing
     }
     
-    player.movementState = .jetting
+    player.playerState = .boosting
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
@@ -78,13 +78,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gateBoost.explode()
       }
       
-      player.powerJet()
+      player.powerBoost()
     case PhysicsCategory.Object:
       if other.node?.name == "exitPlatform" {
         if let scene = GameScene.sceneFor(levelNumber: currentLevel + 1) {
           scene.scaleMode = .aspectFill
           view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
         }
+      }
+      
+      if let _ = other.node?.userData?["deadly"] {
+        player.playerState = .dead
+        
+        run(SKAction.afterDelay(2.0, runBlock: {
+          if let scene = GameScene.sceneFor(levelNumber: self.currentLevel) {
+            scene.scaleMode = .aspectFill
+            self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+          }
+        }))
       }
     default:
       break

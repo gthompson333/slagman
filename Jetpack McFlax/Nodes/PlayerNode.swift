@@ -9,10 +9,9 @@
 import SpriteKit
 
 class PlayerNode: SKSpriteNode {
-  // MARK: - Movement State Machine
-  enum MovementState {
+  enum PlayerState {
     case standing
-    case jetting
+    case boosting
     case falling
     case dead
     
@@ -20,22 +19,23 @@ class PlayerNode: SKSpriteNode {
       switch self {
       case .standing:
         break
-      case .jetting:
-        player.jetting()
+      case .boosting:
+        player.boosting()
         break
       case .falling:
         player.falling()
         break
       case .dead:
+        player.doneDeaded()
         break
       }
       //print("Movement state is now: \(self)")
     }
   }
   
-  var movementState: MovementState = .standing {
+  var playerState: PlayerState = .standing {
     didSet {
-      movementState.changeState(player: self)
+      playerState.changeState(player: self)
     }
   }
   
@@ -43,28 +43,16 @@ class PlayerNode: SKSpriteNode {
   // Collection of player actions, sounds, and animations.
   private var actions: [String : SKAction] = [:]
   
-  private var currentMovementAnimation: SKAction!
-  
   // Animation timing constant.
-  private var animationTimePerFrame: TimeInterval = 0.2
+  private let animationTimePerFrame: TimeInterval = 0.2
   
-  var jetParticleTrail: SKEmitterNode?
+  private var boostParticlesTrail: SKEmitterNode!
   
   // MARK: - Methods
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     createActions()
-  }
-  
-  func createTrail(name: String) -> SKEmitterNode? {
-    guard let trail = SKEmitterNode(fileNamed: name) else {
-      assertionFailure("Missing \(name) particles file.")
-      return nil
-    }
-    
-    trail.targetNode = parent
-    return trail
-  }
+   }
   
   func update() {
     guard let scene = scene as? GameScene else {
@@ -89,9 +77,9 @@ class PlayerNode: SKSpriteNode {
     
     // Check player state
     if physicsBody!.velocity.dy == CGFloat(0.0) {
-      movementState = .standing
+      playerState = .standing
     } else if physicsBody!.velocity.dy < CGFloat(0.0) {
-      movementState = .falling
+      playerState = .falling
     }
   }
   
@@ -101,45 +89,45 @@ class PlayerNode: SKSpriteNode {
   }
   
   // MARK: - Actions
-  func jetting() {
+  func boosting() {
+    if boostParticlesTrail == nil {
+      boostParticlesTrail = SKEmitterNode(fileNamed: "boostparticles")!
+      boostParticlesTrail.position = CGPoint(x: boostParticlesTrail.position.x, y: boostParticlesTrail.position.y - 70)
+      boostParticlesTrail.targetNode = parent
+      addChild(boostParticlesTrail)
+    }
+    
     if abs(physicsBody!.velocity.dx) > 100.0 {
       if physicsBody!.velocity.dx > 0 {
-        runPlayerAnimation(actions["steeringright"]!)
+        run(actions["steeringright"]!)
       } else {
-        runPlayerAnimation(actions["steeringleft"]!)
+        run(actions["steeringleft"]!)
       }
     } else {
-      runPlayerAnimation(actions["jetting"]!)
+      run(actions["jetting"]!)
     }
     
     run(actions["boostsound"]!)
     setPlayerVelocity(700)
     
-    if jetParticleTrail == nil {
-      if let jetParticleTrail = createTrail(name: "boostparticles") {
-        addChild(jetParticleTrail)
-        self.jetParticleTrail = jetParticleTrail
-      }
-    }
-    
-    if jetParticleTrail?.particleBirthRate == 0 {
-      jetParticleTrail?.particleBirthRate = 400
+    //if boostParticlesTrail.particleBirthRate == 0 {
+      boostParticlesTrail.particleBirthRate = 400
       
       run(SKAction.afterDelay(0.25, runBlock: {
-        self.jetParticleTrail?.particleBirthRate = 0
+        self.boostParticlesTrail.particleBirthRate = 0
       }))
-    }
+    //}
   }
   
-  func powerJet() {
+  func powerBoost() {
     if abs(physicsBody!.velocity.dx) > 100.0 {
       if physicsBody!.velocity.dx > 0 {
-        runPlayerAnimation(actions["steeringright"]!)
+        run(actions["steeringright"]!)
       } else {
-        runPlayerAnimation(actions["steeringleft"]!)
+        run(actions["steeringleft"]!)
       }
     } else {
-      runPlayerAnimation(actions["jetting"]!)
+      run(actions["jetting"]!)
     }
     
     run(actions["powerboostsound"]!)
@@ -147,34 +135,32 @@ class PlayerNode: SKSpriteNode {
   }
   
   func falling() {
-    runPlayerAnimation(actions["falling"]!)
+    run(actions["falling"]!)
   }
   
-  private func blinkPulse(color: SKColor) {
-    let blink = SKAction.sequence([SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.2),
-                                   SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.2)])
+  func doneDeaded() {
+    guard let explode = SKEmitterNode(fileNamed: "playerdeadexplosion") else {
+      assertionFailure("Missing playerdeadexplosion.sks particles file.")
+      return
+    }
     
-    let pulse = SKAction.sequence([SKAction.scale(to: 1.4, duration: 0.2),
-                                   SKAction.scale(to: 1.2, duration: 0.2)])
+    removeAllActions()
     
-    run(SKAction.repeat(SKAction.group([blink, pulse]), count: 3))
+    explode.position = position
+    explode.targetNode = parent
+    parent?.addChild(explode)
+    
+    SKAction.playSoundFileNamed("fireball.wav", waitForCompletion: true)
+    self.removeFromParent()
   }
   
   // MARK: - Animations
-  func runPlayerAnimation(_ animation: SKAction) {
-    if animation != currentMovementAnimation {
-      removeAction(forKey: "player_animation")
-      run(animation, withKey: "player_animation")
-      currentMovementAnimation = animation
-    }
-  }
-  
   // Load up the movement animations collection.
   private func createActions() {
     actions["jetting"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: 0.1)
     actions["boostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
-
+    
     actions["falling"] = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
     actions["steeringleft"] = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: 0.1)
     actions["steeringright"] = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: 0.1)
