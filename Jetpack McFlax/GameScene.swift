@@ -75,12 +75,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
       if let gateBoost = other.node as? GateBoostNode {
+        
+        let gateBoostParentNode = gateBoost.parent
+        
+        let slagNode = SKSpriteNode(imageNamed: "slag")
+        slagNode.position = CGPoint(x: gateBoost.position.x, y: gateBoost.position.y - 60)
+        slagNode.size = gateBoost.size
+        slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
+        slagNode.physicsBody?.isDynamic = false
+        slagNode.physicsBody?.affectedByGravity = false
+        slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
+        slagNode.userData = ["deadly" : true]
+        
+        run(SKAction.afterDelay(0.5, runBlock: {
+          assert(gateBoostParentNode != nil, "Gate boost parent node is nil.")
+          gateBoostParentNode?.addChild(slagNode)
+        }))
+        
         gateBoost.explode()
       }
       
       player.powerBoost()
     case PhysicsCategory.Object:
-      if other.node?.name == "exitPlatform" {
+      if other.node?.name == "finishorb" {
         if let scene = GameScene.sceneFor(levelNumber: currentLevel + 1) {
           scene.scaleMode = .aspectFill
           view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
@@ -133,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
-    exitPlatform = lastFGLayerNode.childNode(withName: "exitPlatform")
+    exitPlatform = lastFGLayerNode.childNode(withName: "finishgate_ref")
     exitPlatform.removeFromParent()
     
     skyNode = worldNode.childNode(withName: "sky")
@@ -172,7 +189,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     if camera!.position.y > (levelPositionY - size.height) {
       createForegroundOverlay()
-      lastFGLayerNode.childNode(withName: "launchPlatform")?.removeFromParent()
+      lastFGLayerNode.childNode(withName: "launchplatform_ref")?.removeFromParent()
       
       if countOfLevelLayers >= 2 && gameState == .playing  {
         lastFGLayerNode.addChild(exitPlatform)

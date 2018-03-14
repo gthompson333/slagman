@@ -43,9 +43,6 @@ class PlayerNode: SKSpriteNode {
   // Collection of player actions, sounds, and animations.
   private var actions: [String : SKAction] = [:]
   
-  // Animation timing constant.
-  private let animationTimePerFrame: TimeInterval = 0.2
-  
   private var boostParticlesTrail: SKEmitterNode!
   
   // MARK: - Methods
@@ -104,19 +101,17 @@ class PlayerNode: SKSpriteNode {
         run(actions["steeringleft"]!)
       }
     } else {
-      run(actions["jetting"]!)
+      run(actions["jetboost"]!)
     }
     
-    run(actions["boostsound"]!)
+    run(actions["jetboostsound"]!)
     setPlayerVelocity(700)
     
-    //if boostParticlesTrail.particleBirthRate == 0 {
-      boostParticlesTrail.particleBirthRate = 400
-      
-      run(SKAction.afterDelay(0.25, runBlock: {
-        self.boostParticlesTrail.particleBirthRate = 0
-      }))
-    //}
+    boostParticlesTrail.particleBirthRate = 400
+    
+    run(SKAction.afterDelay(0.25, runBlock: {
+      self.boostParticlesTrail.particleBirthRate = 0
+    }))
   }
   
   func powerBoost() {
@@ -127,7 +122,7 @@ class PlayerNode: SKSpriteNode {
         run(actions["steeringleft"]!)
       }
     } else {
-      run(actions["jetting"]!)
+      run(actions["jetboost"]!)
     }
     
     run(actions["powerboostsound"]!)
@@ -144,26 +139,28 @@ class PlayerNode: SKSpriteNode {
       return
     }
     
-    removeAllActions()
+    parent?.run(actions["explosionsound"]!)
     
     explode.position = position
     explode.targetNode = parent
     parent?.addChild(explode)
     
-    SKAction.playSoundFileNamed("fireball.wav", waitForCompletion: true)
     self.removeFromParent()
   }
   
   // MARK: - Animations
   // Load up the movement animations collection.
   private func createActions() {
-    actions["jetting"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: 0.1)
-    actions["boostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
-    actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
+    let timePerFrame: TimeInterval = 0.1
     
-    actions["falling"] = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
-    actions["steeringleft"] = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: 0.1)
-    actions["steeringright"] = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: 0.1)
+    actions["jetboost"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: timePerFrame)
+    actions["falling"] = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: timePerFrame)
+    actions["steeringleft"] = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: timePerFrame)
+    actions["steeringright"] = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: timePerFrame)
+    
+    actions["jetboostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
+    actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
+    actions["explosionsound"] = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
   }
   
   func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {

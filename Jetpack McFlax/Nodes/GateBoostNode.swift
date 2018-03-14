@@ -15,9 +15,9 @@ class GateBoostNode: SKSpriteNode {
       return
     }
     
-    //explode.run(SKAction.removeFromParentAfterDelay(1.0))
     explode.position = position
-    parent!.addChild(explode)
+    parent?.addChild(explode)
+    
     removeFromParent()
   }
 }
