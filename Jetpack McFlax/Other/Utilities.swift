@@ -9,20 +9,14 @@
 import SpriteKit
 
 enum GameState {
-  case starting, playing, win, lose
+  case starting, playing
 }
 
-enum Direction {
-  case right, left, up, down
-}
-
-enum ActionKeys {
+/*enum ActionKeys {
   static let MoveAnimation = "moveAnimation"
-}
+}*/
 
 struct PhysicsCategory {
-  static let None: UInt32              = 0
-  static let All: UInt32               = 0xFFFFFFFF
   static let Player: UInt32            = 0b1      // 1
   static let JetBoost: UInt32          = 0b10     // 2
   static let Object: UInt32            = 0b100    // 4

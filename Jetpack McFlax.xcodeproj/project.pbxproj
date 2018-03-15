@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37146502205A07ED00D574D4 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146501205A07ED00D574D4 /* Level2.sks */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37146501205A07ED00D574D4 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
@@ -119,12 +121,13 @@
 		378E8ED02051A8CE006FCF4D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				37E7F5B720543D3A0076E828 /* Level1.sks */,
+				37146501205A07ED00D574D4 /* Level2.sks */,
 				37C10D522059871E00DAF46E /* LaunchPlatform.sks */,
 				37C10D4E20589C4200DAF46E /* FinishGate.sks */,
 				37E7F5B9205452630076E828 /* SpaceGate1.sks */,
 				37E7F5BF2054704F0076E828 /* SpaceGate2.sks */,
 				37E7F5C02054704F0076E828 /* SpaceGate3.sks */,
-				37E7F5B720543D3A0076E828 /* Level1.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
+				37146502205A07ED00D574D4 /* Level2.sks in Resources */,
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				37E7F5BA205452630076E828 /* SpaceGate1.sks in Resources */,

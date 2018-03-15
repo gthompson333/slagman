@@ -12,18 +12,18 @@ import CoreMotion
 class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
   var bgNode: SKNode!
+  var topBGNode: SKNode!
   var fgNode: SKNode!
-  var exitPlatform: SKNode!
-  var skyNode: SKNode!
-  var currentLevel = 1
-  
-  var bgNodeHeight: CGFloat!
+  var lastFGLayerNode: SKSpriteNode!
+  var finishGateNode: SKNode!
   var player: PlayerNode!
   
-  var lastFGLayerNode: SKSpriteNode!
+  var bgNodeHeight: CGFloat!
   var lastFGLayerPosition = CGPoint.zero
   var levelPositionY: CGFloat = 0.0
-  var countOfLevelLayers = 1
+  var countOfSceneLayers = 1
+  let maximumNumberOfSceneLayers = 2
+  var currentChallengeNumber = 1
   
   var gameState = GameState.starting
   
@@ -34,16 +34,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   class func sceneFor(levelNumber: Int) -> SKScene? {
     if let scene = GameScene(fileNamed: "Level\(levelNumber)") {
-      scene.currentLevel = levelNumber
+      scene.currentChallengeNumber = levelNumber
       return scene
-    } else {
-      //assertionFailure("No scene for level \(levelNumber)")
+    } else if let scene = GameScene(fileNamed: "Level1") {
+      scene.currentChallengeNumber = 1
+      return scene
     }
     
-    let scene = GameScene(fileNamed: "Level1")!
-    scene.currentLevel = 1
-    
-    return scene
+    assertionFailure("Unable to load a scene file for level \(levelNumber) or level 1.")
+    return nil
   }
   
   // MARK: - SpriteKit Methods
@@ -57,15 +56,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if gameState == .playing {
       player.update()
       updateCamera()
-      updateLevel()
+      addLayers()
     }
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if gameState == .starting {
       gameState = .playing
+      
+      if let spaceGatesLabel = fgNode.childNode(withName: "spacegateslabel") as? SKLabelNode {
+        spaceGatesLabel.run(SKAction.scale(to: 0, duration: 0.5))
+      }
+      
+      if let startLabel = fgNode.childNode(withName: "startlabel") as? SKLabelNode {
+        startLabel.run(SKAction.scale(to: 0, duration: 0.5))
+      }
     }
     
+    // Initial player jet boost, after tapping to start the level.
     player.playerState = .boosting
   }
   
@@ -74,31 +82,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
-      if let gateBoost = other.node as? GateBoostNode {
+      if let gateBoostNode = other.node as? GateBoostNode {
         
-        let gateBoostParentNode = gateBoost.parent
-        
-        let slagNode = SKSpriteNode(imageNamed: "slag")
-        slagNode.position = CGPoint(x: gateBoost.position.x, y: gateBoost.position.y - 60)
-        slagNode.size = gateBoost.size
-        slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
-        slagNode.physicsBody?.isDynamic = false
-        slagNode.physicsBody?.affectedByGravity = false
-        slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
-        slagNode.userData = ["deadly" : true]
+        let gateBoostParentNode = gateBoostNode.parent
+        let slagNode = gateBoostNode.createSlagNode()
         
         run(SKAction.afterDelay(0.5, runBlock: {
           assert(gateBoostParentNode != nil, "Gate boost parent node is nil.")
           gateBoostParentNode?.addChild(slagNode)
         }))
         
-        gateBoost.explode()
+        gateBoostNode.explode()
       }
       
       player.powerBoost()
     case PhysicsCategory.Object:
       if other.node?.name == "finishorb" {
-        if let scene = GameScene.sceneFor(levelNumber: currentLevel + 1) {
+        if let scene = GameScene.sceneFor(levelNumber: currentChallengeNumber + 1) {
           scene.scaleMode = .aspectFill
           view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
         }
@@ -108,7 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.playerState = .dead
         
         run(SKAction.afterDelay(2.0, runBlock: {
-          if let scene = GameScene.sceneFor(levelNumber: self.currentLevel) {
+          if let scene = GameScene.sceneFor(levelNumber: self.currentChallengeNumber) {
             scene.scaleMode = .aspectFill
             self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
           }
@@ -142,59 +142,71 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupNodes() {
     worldNode = childNode(withName: "world")
-
+    
     bgNode = worldNode.childNode(withName: "background")
     bgNodeHeight = bgNode.calculateAccumulatedFrame().height
     
     fgNode = worldNode.childNode(withName: "foreground")
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
+    lastFGLayerPosition = lastFGLayerNode.position
+    
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
-    exitPlatform = lastFGLayerNode.childNode(withName: "finishgate_ref")
-    exitPlatform.removeFromParent()
+    finishGateNode = lastFGLayerNode.childNode(withName: "finishgate_ref")
+    finishGateNode.removeFromParent()
     
-    skyNode = worldNode.childNode(withName: "sky")
-    skyNode.removeFromParent()
+    topBGNode = worldNode.childNode(withName: "backgroundtop")
+    topBGNode.removeFromParent()
     
-    lastFGLayerPosition = lastFGLayerNode.position
+    if let spaceGatesLabel = fgNode.childNode(withName: "spacegateslabel") as? SKLabelNode {
+      spaceGatesLabel.text = "Space Gates \(currentChallengeNumber)"
+    }
     
     addChild(cameraNode)
     camera = cameraNode
   }
   
-  func createForegroundOverlay() {
-    let fgOverlay = fgNode.childNode(withName: "objectLayer")
-    lastFGLayerNode = fgOverlay!.copy() as! SKSpriteNode
-    
-    countOfLevelLayers += 1
-    
-    lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGLayerNode.size.height
-    lastFGLayerNode.position = lastFGLayerPosition
-    
-    fgNode.addChild(lastFGLayerNode)
-    
-    let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
-    let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
-    newBGOverlay.position.y = bgOverlay.position.y + bgOverlay.size.height
-    bgNode.addChild(newBGOverlay)
-    
-    levelPositionY += bgNodeHeight
+  func createLayers() {
+      if let fgOverlay = fgNode.childNode(withName: "objectLayer") {
+      lastFGLayerNode = fgOverlay.copy() as! SKSpriteNode
+      
+      countOfSceneLayers += 1
+      
+      lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGLayerNode.size.height
+      lastFGLayerNode.position = lastFGLayerPosition
+      
+      fgNode.addChild(lastFGLayerNode)
+      
+      let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
+      let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
+      newBGOverlay.position.y = bgOverlay.position.y + bgOverlay.size.height
+      bgNode.addChild(newBGOverlay)
+      
+      levelPositionY += bgNodeHeight
+    } else {
+      assertionFailure("Foreground object layer node is nil.")
+    }
   }
   
   // MARK: - Update Methods
-  func updateLevel() {
-    if countOfLevelLayers >= 2 {
+  // The challenge scene is built by stacking copies of the foreground overlay and background nodes
+  // on top of the scene.
+  // This function creates copies of new nodes and places them on the top of the scene.
+  func addLayers() {
+    if countOfSceneLayers >= maximumNumberOfSceneLayers {
       return
     }
     
     if camera!.position.y > (levelPositionY - size.height) {
-      createForegroundOverlay()
+      // Create a copy of the foreground and background layer nodes, and add them to the top of the scene.
+      createLayers()
+      
       lastFGLayerNode.childNode(withName: "launchplatform_ref")?.removeFromParent()
       
-      if countOfLevelLayers >= 2 && gameState == .playing  {
-        lastFGLayerNode.addChild(exitPlatform)
-        skyNode.position = CGPoint(x: skyNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
-        worldNode.addChild(skyNode)
+      if countOfSceneLayers >= maximumNumberOfSceneLayers && gameState == .playing  {
+        lastFGLayerNode.addChild(finishGateNode)
+        topBGNode.position = CGPoint(x: topBGNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
+        worldNode.addChild(topBGNode)
       }
     }
   }

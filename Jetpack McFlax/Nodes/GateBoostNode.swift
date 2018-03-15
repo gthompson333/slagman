@@ -20,4 +20,16 @@ class GateBoostNode: SKSpriteNode {
     
     removeFromParent()
   }
+  
+  func createSlagNode() -> SKSpriteNode {
+    let slagNode = SKSpriteNode(imageNamed: "slag")
+    slagNode.position = CGPoint(x: position.x, y: position.y - 60)
+    slagNode.size = CGSize(width: size.width+70, height: size.height)
+    slagNode.physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+    slagNode.physicsBody?.isDynamic = false
+    slagNode.physicsBody?.affectedByGravity = false
+    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
+    slagNode.userData = ["deadly" : true]
+    return slagNode
+  }
 }
