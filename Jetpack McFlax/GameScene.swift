@@ -32,16 +32,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   let cameraNode = SKCameraNode()
   
-  class func sceneFor(levelNumber: Int) -> SKScene? {
-    if let scene = GameScene(fileNamed: "Level\(levelNumber)") {
-      scene.currentChallengeNumber = levelNumber
+  var countOfSlagsCreated = 0
+  var totalCountOfSlagsCreated = 0
+  
+  class func sceneFor(challengeNumber: Int) -> SKScene? {
+    if let scene = GameScene(fileNamed: "Challenge\(challengeNumber)") {
+      scene.currentChallengeNumber = challengeNumber
       return scene
-    } else if let scene = GameScene(fileNamed: "Level1") {
+    } else if let scene = GameScene(fileNamed: "Challenge1") {
       scene.currentChallengeNumber = 1
       return scene
     }
     
-    assertionFailure("Unable to load a scene file for level \(levelNumber) or level 1.")
+    assertionFailure("Unable to load a scene file for challenge \(challengeNumber) or challenge 1.")
     return nil
   }
   
@@ -64,8 +67,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if gameState == .starting {
       gameState = .playing
       
-      if let spaceGatesLabel = fgNode.childNode(withName: "spacegateslabel") as? SKLabelNode {
-        spaceGatesLabel.run(SKAction.scale(to: 0, duration: 0.5))
+      if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
+        challengeLabel.run(SKAction.scale(to: 0, duration: 0.5))
       }
       
       if let startLabel = fgNode.childNode(withName: "startlabel") as? SKLabelNode {
@@ -82,25 +85,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
-      if let gateBoostNode = other.node as? GateBoostNode {
+      if let boostNode = other.node as? BoostNode {
         
-        let gateBoostParentNode = gateBoostNode.parent
-        let slagNode = gateBoostNode.createSlagNode()
+        let boostParentNode = boostNode.parent
         
-        run(SKAction.afterDelay(0.5, runBlock: {
-          assert(gateBoostParentNode != nil, "Gate boost parent node is nil.")
-          gateBoostParentNode?.addChild(slagNode)
-        }))
+        if let _ = boostNode.userData?["slag"] {
+          let slagNode = boostNode.createSlagNode()
+          
+          run(SKAction.afterDelay(0.5, runBlock: {
+            assert(boostParentNode != nil, "Boost parent node is nil.")
+            boostParentNode?.addChild(slagNode)
+          }))
+        } else {
+          boostNode.removeFromParent()
+        }
         
-        gateBoostNode.explode()
+        countOfSlagsCreated += 1
+        boostNode.explode()
       }
       
       player.powerBoost()
     case PhysicsCategory.Object:
       if other.node?.name == "finishorb" {
-        if let scene = GameScene.sceneFor(levelNumber: currentChallengeNumber + 1) {
-          scene.scaleMode = .aspectFill
-          view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+        if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
+          challengeCompleted.challengeNumberCompleted = currentChallengeNumber
+          challengeCompleted.slagsCreated = countOfSlagsCreated
+          challengeCompleted.totalSlagsCreated = totalCountOfSlagsCreated
+          
+          challengeCompleted.scaleMode = .aspectFill
+          view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
         }
       }
       
@@ -108,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.playerState = .dead
         
         run(SKAction.afterDelay(2.0, runBlock: {
-          if let scene = GameScene.sceneFor(levelNumber: self.currentChallengeNumber) {
+          if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
             scene.scaleMode = .aspectFill
             self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
           }
@@ -158,8 +171,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     topBGNode = worldNode.childNode(withName: "backgroundtop")
     topBGNode.removeFromParent()
     
-    if let spaceGatesLabel = fgNode.childNode(withName: "spacegateslabel") as? SKLabelNode {
-      spaceGatesLabel.text = "Space Gates \(currentChallengeNumber)"
+    if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
+      challengeLabel.text = "Challenge \(currentChallengeNumber)"
     }
     
     addChild(cameraNode)

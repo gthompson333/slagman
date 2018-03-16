@@ -13,8 +13,8 @@
         <array key="ChalkboardSE.ttc">
             <string>ChalkboardSE-Bold</string>
         </array>
-        <array key="Noteworthy.ttc">
-            <string>Noteworthy-Bold</string>
+        <array key="MarkerFeltWide.ttf">
+            <string>MarkerFelt-Wide</string>
         </array>
     </customFonts>
     <scenes>
@@ -42,12 +42,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="F3g-qf-IIF">
-                                <rect key="frame" x="17.5" y="294" width="340.5" height="80"/>
+                                <rect key="frame" x="27.5" y="298" width="321" height="71.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GREGORIUS T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k70-za-5xW">
-                                        <rect key="frame" x="0.0" y="0.0" width="340.5" height="80"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="50"/>
-                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="71.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="55"/>
+                                        <color key="textColor" red="1" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

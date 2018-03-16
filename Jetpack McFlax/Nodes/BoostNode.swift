@@ -1,5 +1,5 @@
 //
-//  GateBoostNode.swift
+//  BoostNode.swift
 //  Jetpack McFlax
 //
 //  Created by Greg M. Thompson on 3/12/18.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GateBoostNode: SKSpriteNode {
+class BoostNode: SKSpriteNode {
   func explode() {
     guard let explode = SKEmitterNode(fileNamed: "boostexplosion") else {
       assertionFailure("Missing boostexplosion.sks particles file.")
@@ -25,7 +25,7 @@ class GateBoostNode: SKSpriteNode {
     let slagNode = SKSpriteNode(imageNamed: "slag")
     slagNode.position = CGPoint(x: position.x, y: position.y - 60)
     slagNode.size = CGSize(width: size.width+70, height: size.height)
-    slagNode.physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+    slagNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: slagNode.size.width, height: slagNode.size.height-20))
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false
     slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
