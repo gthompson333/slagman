@@ -9,7 +9,7 @@
 import SpriteKit
 
 enum GameState {
-  case starting, playing
+  case starting, playing, paused
 }
 
 /*enum ActionKeys {

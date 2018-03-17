@@ -22,10 +22,10 @@ class ChallengeCompleted: SKScene {
     completedLabel.text = "Challenge \(challengeNumberCompleted) Completed!"
     
     slagsCreatedLabel = childNode(withName: "slagsCreatedLabel") as! SKLabelNode
-    slagsCreatedLabel.text = "\(slagsCreated) Slags Created."
+    slagsCreatedLabel.text = "\(slagsCreated) Slags Points Earned!"
     
     totalSlagsCreatedLabel = childNode(withName: "totalSlagsCreatedLabel") as! SKLabelNode
-    totalSlagsCreatedLabel.text = "\(totalSlagsCreated) Slags Created in Total."
+    totalSlagsCreatedLabel.text = "\(totalSlagsCreated) Slag Points Since Last Crash!"
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

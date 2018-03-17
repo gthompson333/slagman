@@ -13,6 +13,7 @@
 		3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146507205B3E3800D574D4 /* BoostGate1.sks */; };
 		3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146508205B3E3800D574D4 /* BoostGate3.sks */; };
 		3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146509205B3E3900D574D4 /* BoostGate2.sks */; };
+		3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* backgroundmusic.wav */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
@@ -55,6 +56,7 @@
 		37146507205B3E3800D574D4 /* BoostGate1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate1.sks; sourceTree = "<group>"; };
 		37146508205B3E3800D574D4 /* BoostGate3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate3.sks; sourceTree = "<group>"; };
 		37146509205B3E3900D574D4 /* BoostGate2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate2.sks; sourceTree = "<group>"; };
+		3714650D205C84E100D574D4 /* backgroundmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundmusic.wav; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				3714650D205C84E100D574D4 /* backgroundmusic.wav */,
 				37C10D4A2058362300DAF46E /* explosion.wav */,
 				37E7F5C32054AA710076E828 /* spacegame.caf */,
 				37E7F58D205238F20076E828 /* boost.wav */,
@@ -282,6 +285,7 @@
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
+				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 				37E7F5B820543D3A0076E828 /* Challenge1.sks in Resources */,
