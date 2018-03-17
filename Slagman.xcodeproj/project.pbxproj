@@ -60,7 +60,7 @@
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
-		37B4FFB9204D9E6500FAEC3E /* Jetpack McFlax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jetpack McFlax.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37B4FFB9204D9E6500FAEC3E /* Slagman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slagman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B4FFC2204D9E6500FAEC3E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		37B4FFC4204D9E6500FAEC3E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		37B4FFB0204D9E6500FAEC3E = {
 			isa = PBXGroup;
 			children = (
-				37B4FFBB204D9E6500FAEC3E /* Jetpack McFlax */,
+				37B4FFBB204D9E6500FAEC3E /* Slagman */,
 				37B4FFBA204D9E6500FAEC3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,12 +162,12 @@
 		37B4FFBA204D9E6500FAEC3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37B4FFB9204D9E6500FAEC3E /* Jetpack McFlax.app */,
+				37B4FFB9204D9E6500FAEC3E /* Slagman.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		37B4FFBB204D9E6500FAEC3E /* Jetpack McFlax */ = {
+		37B4FFBB204D9E6500FAEC3E /* Slagman */ = {
 			isa = PBXGroup;
 			children = (
 				37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */,
@@ -185,7 +185,7 @@
 				37E7F59E205330820076E828 /* SKTUtils */,
 				37E7F597205330700076E828 /* Other */,
 			);
-			path = "Jetpack McFlax";
+			path = Slagman;
 			sourceTree = "<group>";
 		};
 		37E7F597205330700076E828 /* Other */ = {
@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37B4FFB8204D9E6500FAEC3E /* Jetpack McFlax */ = {
+		37B4FFB8204D9E6500FAEC3E /* Slagman */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37B4FFD1204D9E6500FAEC3E /* Build configuration list for PBXNativeTarget "Jetpack McFlax" */;
+			buildConfigurationList = 37B4FFD1204D9E6500FAEC3E /* Build configuration list for PBXNativeTarget "Slagman" */;
 			buildPhases = (
 				37B4FFB5204D9E6500FAEC3E /* Sources */,
 				37B4FFB6204D9E6500FAEC3E /* Frameworks */,
@@ -232,9 +232,9 @@
 			);
 			dependencies = (
 			);
-			name = "Jetpack McFlax";
+			name = Slagman;
 			productName = "Jetpack McFlax";
-			productReference = 37B4FFB9204D9E6500FAEC3E /* Jetpack McFlax.app */;
+			productReference = 37B4FFB9204D9E6500FAEC3E /* Slagman.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +253,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 37B4FFB4204D9E6500FAEC3E /* Build configuration list for PBXProject "Jetpack McFlax" */;
+			buildConfigurationList = 37B4FFB4204D9E6500FAEC3E /* Build configuration list for PBXProject "Slagman" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -266,7 +266,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37B4FFB8204D9E6500FAEC3E /* Jetpack McFlax */,
+				37B4FFB8204D9E6500FAEC3E /* Slagman */,
 			);
 		};
 /* End PBXProject section */
@@ -464,9 +464,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSRP34SCGL;
-				INFOPLIST_FILE = "Jetpack McFlax/Info.plist";
+				INFOPLIST_FILE = Slagman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gregoriust.Jetpack-McFlax";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -479,9 +479,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSRP34SCGL;
-				INFOPLIST_FILE = "Jetpack McFlax/Info.plist";
+				INFOPLIST_FILE = Slagman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gregoriust.Jetpack-McFlax";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,7 +491,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37B4FFB4204D9E6500FAEC3E /* Build configuration list for PBXProject "Jetpack McFlax" */ = {
+		37B4FFB4204D9E6500FAEC3E /* Build configuration list for PBXProject "Slagman" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37B4FFCF204D9E6500FAEC3E /* Debug */,
@@ -500,7 +500,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37B4FFD1204D9E6500FAEC3E /* Build configuration list for PBXNativeTarget "Jetpack McFlax" */ = {
+		37B4FFD1204D9E6500FAEC3E /* Build configuration list for PBXNativeTarget "Slagman" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37B4FFD2204D9E6500FAEC3E /* Debug */,
