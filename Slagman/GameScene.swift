@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var currentChallengeNumber = 1
   
   var gameState = GameState.starting
-  
+
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
   
@@ -127,6 +127,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
     lastFGLayerPosition = lastFGLayerNode.position
     
+    lastFGLayerNode.enumerateChildNodes(withName: "//boost") { (node, stop) in
+      if let boostNode = node as? BoostNode {
+        boostNode.startAnimating()
+      }
+    }
+
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
     finishGateNode = lastFGLayerNode.childNode(withName: "finishgate_ref")
@@ -144,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   private func createLayers() {
-      if let fgOverlay = fgNode.childNode(withName: "objectLayer") {
+    if let fgOverlay = fgNode.childNode(withName: "objectLayer") {
       lastFGLayerNode = fgOverlay.copy() as! SKSpriteNode
       
       countOfSceneLayers += 1
@@ -256,22 +262,7 @@ extension GameScene {
       }
       
       player.powerBoost()
-    case PhysicsCategory.Object:
-      if other.node?.name == "finishorb" {
-        var storedTotalSlagsCreated = UserDefaults.standard.integer(forKey: "totalslagscreated")
-        storedTotalSlagsCreated += countOfSlagsCreated
-        UserDefaults.standard.set(storedTotalSlagsCreated, forKey: "totalslagscreated")
-        
-        if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
-          challengeCompleted.challengeNumberCompleted = currentChallengeNumber
-          challengeCompleted.slagsCreated = countOfSlagsCreated
-          challengeCompleted.totalSlagsCreated = storedTotalSlagsCreated
-          
-          challengeCompleted.scaleMode = .aspectFill
-          view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
-        }
-      }
-      
+    case PhysicsCategory.CollidableObject:
       if let _ = other.node?.userData?["deadly"] {
         player.playerState = .dead
         
@@ -279,6 +270,23 @@ extension GameScene {
           if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
             scene.scaleMode = .aspectFill
             self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+          }
+        }))
+      }
+    case PhysicsCategory.NonCollidableObject:
+      if other.node?.name == "finishorb" {
+        var storedTotalSlagsCreated = UserDefaults.standard.integer(forKey: "totalslagscreated")
+        storedTotalSlagsCreated += countOfSlagsCreated
+        UserDefaults.standard.set(storedTotalSlagsCreated, forKey: "totalslagscreated")
+        
+        run(SKAction.afterDelay(1.0, runBlock: {
+          if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
+            challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
+            challengeCompleted.slagsCreated = self.countOfSlagsCreated
+            challengeCompleted.totalSlagsCreated = storedTotalSlagsCreated
+            
+            challengeCompleted.scaleMode = .aspectFill
+            self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
           }
         }))
       }

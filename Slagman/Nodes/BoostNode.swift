@@ -9,6 +9,12 @@
 import SpriteKit
 
 class BoostNode: SKSpriteNode {
+  var animation = SKAction.repeatForever(createAnimationActionWithFilePrefix("boostgold", start: 1, end: 6, timePerFrame: 0.08))
+  
+  func startAnimating() {
+    run(animation)
+  }
+  
   func explode() {
     guard let explode = SKEmitterNode(fileNamed: "boostexplosion") else {
       assertionFailure("Missing boostexplosion.sks particles file.")
@@ -28,7 +34,7 @@ class BoostNode: SKSpriteNode {
     slagNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: slagNode.size.width, height: slagNode.size.height-20))
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false
-    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Object
+    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.CollidableObject
     slagNode.userData = ["deadly" : true]
     return slagNode
   }
