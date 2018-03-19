@@ -9,11 +9,16 @@
 import SpriteKit
 
 class BoostNode: SKSpriteNode {
-  var animation = SKAction.repeatForever(createAnimationActionWithFilePrefix("boostgold", start: 1, end: 6, timePerFrame: 0.08))
+  /*var animation = SKAction.repeatForever(createAnimationActionWithFilePrefix("boostgold", start: 1, end: 6, timePerFrame: 0.08))
   
-  func startAnimating() {
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
     run(animation)
   }
+  
+  override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    super.init(texture: texture, color: color, size: size)
+  }*/
   
   func explode() {
     guard let explode = SKEmitterNode(fileNamed: "boostexplosion") else {
@@ -30,8 +35,8 @@ class BoostNode: SKSpriteNode {
   func createSlagNode() -> SKSpriteNode {
     let slagNode = SKSpriteNode(imageNamed: "slag")
     slagNode.position = CGPoint(x: position.x, y: position.y - 60)
-    slagNode.size = CGSize(width: size.width+70, height: size.height)
-    slagNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: slagNode.size.width, height: slagNode.size.height-20))
+    slagNode.size = size
+    slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false
     slagNode.physicsBody?.categoryBitMask = PhysicsCategory.CollidableObject

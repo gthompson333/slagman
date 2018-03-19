@@ -127,12 +127,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
     lastFGLayerPosition = lastFGLayerNode.position
     
-    lastFGLayerNode.enumerateChildNodes(withName: "//boost") { (node, stop) in
-      if let boostNode = node as? BoostNode {
-        boostNode.startAnimating()
-      }
-    }
-
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
     finishGateNode = lastFGLayerNode.childNode(withName: "finishgate_ref")
@@ -274,7 +268,7 @@ extension GameScene {
         }))
       }
     case PhysicsCategory.NonCollidableObject:
-      if other.node?.name == "finishorb" {
+      if other.node?.name == "finishboost" {
         var storedTotalSlagsCreated = UserDefaults.standard.integer(forKey: "totalslagscreated")
         storedTotalSlagsCreated += countOfSlagsCreated
         UserDefaults.standard.set(storedTotalSlagsCreated, forKey: "totalslagscreated")

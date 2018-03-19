@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "slag.png",
+      "filename" : "object_asteroid_03.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "object_asteroid_03@2x.png",
       "scale" : "2x"
     },
     {
