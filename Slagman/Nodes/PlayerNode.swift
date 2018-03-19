@@ -60,15 +60,15 @@ class PlayerNode: SKSpriteNode {
     physicsBody!.velocity.dx = scene.xAcceleration * 1000.0
     
     // Wrap player around edges of screen
-    var playerPosition = convert(position, from: scene.fgNode)
+    var playerPosition = scene.convert(position, from: scene.fgNode)
     let rightLimit = scene.size.width/2 - scene.sceneCropAmount()/2 + size.width/2
     let leftLimit = -rightLimit
     
     if playerPosition.x < leftLimit {
-      playerPosition = convert(CGPoint(x: rightLimit, y: 0.0), to: scene.fgNode)
+      playerPosition = scene.convert(CGPoint(x: rightLimit, y: 0.0), to: scene.fgNode)
       position.x = playerPosition.x
     } else if playerPosition.x > rightLimit {
-      playerPosition = convert(CGPoint(x: leftLimit, y: 0.0), to: scene.fgNode)
+      playerPosition = scene.convert(CGPoint(x: leftLimit, y: 0.0), to: scene.fgNode)
       position.x = playerPosition.x
     }
     

@@ -29,7 +29,12 @@ class ChallengeCompleted: SKScene {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let scene = GameScene.sceneFor(challengeNumber: challengeNumberCompleted + 1) {
+    let nextChallengeNumber = challengeNumberCompleted + 1
+    
+    if let scene = GameScene.sceneFor(challengeNumber: nextChallengeNumber) {
+      print("Persisting to user defaults challenge number: \(nextChallengeNumber)")
+      UserDefaults.standard.set(nextChallengeNumber, forKey: "challengenumber")
+      
       scene.scaleMode = .aspectFill
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }

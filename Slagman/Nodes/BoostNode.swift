@@ -36,6 +36,13 @@ class BoostNode: SKSpriteNode {
     let slagNode = SKSpriteNode(imageNamed: "slag")
     slagNode.position = CGPoint(x: position.x, y: position.y - 60)
     slagNode.size = size
+    
+    let pulsedRed = SKAction.sequence([
+      SKAction.colorize(with: .orange, colorBlendFactor: 1.0, duration: 0.15),
+      SKAction.wait(forDuration: 0.1),
+      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
+    slagNode.run(SKAction.repeat(pulsedRed, count: 5))
+
     slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false

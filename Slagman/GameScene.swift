@@ -9,6 +9,8 @@
 import SpriteKit
 import CoreMotion
 
+var totalSlagsSinceLastCrash = 0
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
   var bgNode: SKNode!
@@ -21,9 +23,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var bgNodeHeight: CGFloat!
   var lastFGLayerPosition = CGPoint.zero
   var levelPositionY: CGFloat = 0.0
+  
   var countOfSceneLayers = 1
   let maximumNumberOfSceneLayers = 2
   var currentChallengeNumber = 1
+  var countOfSlagsCreated = 0
   
   var gameState = GameState.starting
 
@@ -31,8 +35,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var xAcceleration = CGFloat(0)
   
   let cameraNode = SKCameraNode()
-  
-  var countOfSlagsCreated = 0
   
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
@@ -224,8 +226,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 extension GameScene {
   func applicationWillResignActive() {
     print("applicationWillResignActive")
-    print("Persisting to user defaults challenge number: \(currentChallengeNumber)")
-    UserDefaults.standard.set(currentChallengeNumber, forKey: "challengenumber")
   }
 }
 
@@ -259,6 +259,7 @@ extension GameScene {
     case PhysicsCategory.CollidableObject:
       if let _ = other.node?.userData?["deadly"] {
         player.playerState = .dead
+        totalSlagsSinceLastCrash = 0
         
         run(SKAction.afterDelay(2.0, runBlock: {
           if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
@@ -269,15 +270,20 @@ extension GameScene {
       }
     case PhysicsCategory.NonCollidableObject:
       if other.node?.name == "finishboost" {
-        var storedTotalSlagsCreated = UserDefaults.standard.integer(forKey: "totalslagscreated")
-        storedTotalSlagsCreated += countOfSlagsCreated
-        UserDefaults.standard.set(storedTotalSlagsCreated, forKey: "totalslagscreated")
+        if gameState == .challengeEnded {
+          return
+        }
+        
+        gameState = .challengeEnded
+        print("Challenge ended.")
+        
+        totalSlagsSinceLastCrash += countOfSlagsCreated
         
         run(SKAction.afterDelay(1.0, runBlock: {
           if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
             challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
             challengeCompleted.slagsCreated = self.countOfSlagsCreated
-            challengeCompleted.totalSlagsCreated = storedTotalSlagsCreated
+            challengeCompleted.totalSlagsCreated = totalSlagsSinceLastCrash
             
             challengeCompleted.scaleMode = .aspectFill
             self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))

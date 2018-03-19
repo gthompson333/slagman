@@ -9,7 +9,7 @@
 import SpriteKit
 
 enum GameState {
-  case starting, playing, paused
+  case starting, playing, paused, challengeEnded
 }
 
 struct PhysicsCategory {
