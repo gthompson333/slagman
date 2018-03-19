@@ -237,22 +237,40 @@ extension GameScene {
     switch other.categoryBitMask {
     case PhysicsCategory.JetBoost:
       if let boostNode = other.node as? BoostNode {
-        
         let boostParentNode = boostNode.parent
         
-        if let _ = boostNode.userData?["slag"] {
+        if let _ = boostNode.userData?["finish"] {
+          if gameState == .challengeEnded {
+            return
+          }
+          
+          gameState = .challengeEnded
+          print("Challenge ended.")
+          
+          totalSlagsSinceLastCrash += countOfSlagsCreated
+          
+          run(SKAction.afterDelay(1.5, runBlock: {
+            if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
+              challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
+              challengeCompleted.slagsCreated = self.countOfSlagsCreated
+              challengeCompleted.totalSlagsCreated = totalSlagsSinceLastCrash
+              
+              challengeCompleted.scaleMode = .aspectFill
+              self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
+            }
+          }))
+          boostNode.finishExplosion()
+        } else {
           let slagNode = boostNode.createSlagNode()
           
           run(SKAction.afterDelay(0.5, runBlock: {
             assert(boostParentNode != nil, "Boost parent node is nil.")
             boostParentNode?.addChild(slagNode)
           }))
-        } else {
-          boostNode.removeFromParent()
+          
+          countOfSlagsCreated += 1
+          boostNode.explode()
         }
-        
-        countOfSlagsCreated += 1
-        boostNode.explode()
       }
       
       player.powerBoost()
@@ -265,28 +283,6 @@ extension GameScene {
           if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
             scene.scaleMode = .aspectFill
             self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
-          }
-        }))
-      }
-    case PhysicsCategory.NonCollidableObject:
-      if other.node?.name == "finishboost" {
-        if gameState == .challengeEnded {
-          return
-        }
-        
-        gameState = .challengeEnded
-        print("Challenge ended.")
-        
-        totalSlagsSinceLastCrash += countOfSlagsCreated
-        
-        run(SKAction.afterDelay(1.0, runBlock: {
-          if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
-            challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
-            challengeCompleted.slagsCreated = self.countOfSlagsCreated
-            challengeCompleted.totalSlagsCreated = totalSlagsSinceLastCrash
-            
-            challengeCompleted.scaleMode = .aspectFill
-            self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
           }
         }))
       }
