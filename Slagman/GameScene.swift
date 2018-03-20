@@ -138,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     topBGNode.removeFromParent()
     
     if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
-      challengeLabel.text = "Challenge \(currentChallengeNumber)"
+      challengeLabel.text = "Slag Challenge \(currentChallengeNumber)"
     }
     
     addChild(cameraNode)
