@@ -17,7 +17,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var topBGNode: SKNode!
   var fgNode: SKNode!
   var lastFGLayerNode: SKSpriteNode!
-  var finishGateNode: SKNode!
   var player: PlayerNode!
   
   var bgNodeHeight: CGFloat!
@@ -25,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  let maximumNumberOfSceneLayers = 2
+  let maximumNumberOfSceneLayers = 3
   var currentChallengeNumber = 1
   var countOfSlagsCreated = 0
   
@@ -33,8 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
-  
-  let cameraNode = SKCameraNode()
   
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
@@ -50,22 +47,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     return nil
   }
   
-  override func sceneDidLoad() {
-    addObservers()
-  }
-  
   // MARK: - SpriteKit Methods
   override func didMove(to view: SKView) {
     physicsWorld.contactDelegate = self
     setupCoreMotion()
     setupNodes()
     playBackgroundMusic(name: "backgroundmusic.wav")
-  }
-  
-  private func addObservers() {
-    NotificationCenter.default.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: nil) { [weak self] _ in
-      self?.applicationWillResignActive()
-    }
   }
   
   deinit {
@@ -131,34 +118,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
-    finishGateNode = lastFGLayerNode.childNode(withName: "finishgate_ref")
-    finishGateNode.removeFromParent()
-    
     topBGNode = worldNode.childNode(withName: "backgroundtop")
-    topBGNode.removeFromParent()
     
     if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
       challengeLabel.text = "Slag Challenge \(currentChallengeNumber)"
     }
     
+    let cameraNode = SKCameraNode()
+    cameraNode.position = CGPoint(x: cameraNode.position.x, y: cameraNode.position.y - 300)
     addChild(cameraNode)
     camera = cameraNode
   }
   
   private func createLayers() {
     if let fgOverlay = fgNode.childNode(withName: "objectLayer") {
+      let lastLayerPosition = lastFGLayerPosition
       lastFGLayerNode = fgOverlay.copy() as! SKSpriteNode
-      
-      countOfSceneLayers += 1
-      
       lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGLayerNode.size.height
       lastFGLayerNode.position = lastFGLayerPosition
-      
       fgNode.addChild(lastFGLayerNode)
       
       let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
       let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
-      newBGOverlay.position.y = bgOverlay.position.y + bgOverlay.size.height
+      newBGOverlay.position.y = lastLayerPosition.y + bgOverlay.size.height
       bgNode.addChild(newBGOverlay)
       
       levelPositionY += bgNodeHeight
@@ -178,22 +160,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     if camera!.position.y > (levelPositionY - size.height) {
       // Create a copy of the foreground and background layer nodes, and add them to the top of the scene.
+      print("New Layers")
+      countOfSceneLayers += 1
       createLayers()
       
-      lastFGLayerNode.childNode(withName: "launchplatform_ref")?.removeFromParent()
-      
-      if countOfSceneLayers >= maximumNumberOfSceneLayers && gameState == .playing  {
-        lastFGLayerNode.addChild(finishGateNode)
-        topBGNode.position = CGPoint(x: topBGNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
-        worldNode.addChild(topBGNode)
-      }
+      topBGNode.position = CGPoint(x: topBGNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
     }
   }
   
   private func updateCamera() {
     let playerPositionScene = convert(player.position, from: fgNode)
     
-    if playerPositionScene.y < 120 {
+    if playerPositionScene.y < 200 {
       return
     }
     
@@ -212,20 +190,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func playBackgroundMusic(name: String) {
-    if let backgroundMusic = childNode(withName: "backgroundmusic") {
-      backgroundMusic.removeFromParent()
+    if let _ = childNode(withName: "backgroundmusic") {
+      return
     }
+    
     let music = SKAudioNode(fileNamed: name)
     music.name = "backgroundmusic"
     music.autoplayLooped = true
     addChild(music)
-  }
-}
-
-// MARK: - Application Event Handlers
-extension GameScene {
-  func applicationWillResignActive() {
-    print("applicationWillResignActive")
   }
 }
 

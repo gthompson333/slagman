@@ -79,9 +79,10 @@ class BoostNode: SKSpriteNode {
     slagNode.size = size
     
     let pulsedRed = SKAction.sequence([
-      SKAction.colorize(with: .orange, colorBlendFactor: 1.0, duration: 0.15),
-      SKAction.wait(forDuration: 0.1),
-      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15)])
+      SKAction.colorize(with: .yellow, colorBlendFactor: 2.0, duration: 0.15),
+      //SKAction.wait(forDuration: 0.1),
+      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15),
+      SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),])
     slagNode.run(SKAction.repeat(pulsedRed, count: 5))
 
     slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
