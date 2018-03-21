@@ -29,6 +29,9 @@
 		37CB242A2056D989001742D8 /* BoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* BoostNode.swift */; };
 		37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37CB242B2056DA37001742D8 /* boostexplosion.sks */; };
 		37D2E9D82061B72400C7523B /* finishBoostExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9D62061B72400C7523B /* finishBoostExplosion.sks */; };
+		37D2E9DC2062C1EE00C7523B /* Challenge3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DB2062C1EE00C7523B /* Challenge3.sks */; };
+		37D2E9E02062D46000C7523B /* slagmanvoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DF2062D46000C7523B /* slagmanvoice.m4a */; };
+		37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */; };
 		37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D3F7322057042A00820D83 /* playerdeadexplosion.sks */; };
 		37E7F58E205238F20076E828 /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F58D205238F20076E828 /* boost.wav */; };
 		37E7F59B205330710076E828 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F598205330700076E828 /* Extensions.swift */; };
@@ -75,6 +78,9 @@
 		37CB24292056D989001742D8 /* BoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostNode.swift; sourceTree = "<group>"; };
 		37CB242B2056DA37001742D8 /* boostexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostexplosion.sks; sourceTree = "<group>"; };
 		37D2E9D62061B72400C7523B /* finishBoostExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = finishBoostExplosion.sks; sourceTree = "<group>"; };
+		37D2E9DB2062C1EE00C7523B /* Challenge3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge3.sks; sourceTree = "<group>"; };
+		37D2E9DF2062D46000C7523B /* slagmanvoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagmanvoice.m4a; sourceTree = "<group>"; };
+		37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		37D3F7322057042A00820D83 /* playerdeadexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerdeadexplosion.sks; sourceTree = "<group>"; };
 		37E7F58D205238F20076E828 /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
 		37E7F598205330700076E828 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -130,11 +136,10 @@
 		378E8ED02051A8CE006FCF4D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				37D2E9DA2062C1B800C7523B /* Challenges */,
 				37146507205B3E3800D574D4 /* BoostGate1.sks */,
 				37146509205B3E3900D574D4 /* BoostGate2.sks */,
 				37146508205B3E3800D574D4 /* BoostGate3.sks */,
-				37E7F5B720543D3A0076E828 /* Challenge1.sks */,
-				37146501205A07ED00D574D4 /* Challenge2.sks */,
 				37C10D522059871E00DAF46E /* LaunchPlatform.sks */,
 				37C10D4E20589C4200DAF46E /* FinishGate.sks */,
 				37146503205AFE9200D574D4 /* ChallengeCompleted.sks */,
@@ -145,6 +150,7 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				37D2E9DF2062D46000C7523B /* slagmanvoice.m4a */,
 				3714650D205C84E100D574D4 /* backgroundmusic.wav */,
 				37C10D4A2058362300DAF46E /* explosion.wav */,
 				37E7F5C32054AA710076E828 /* spacegame.caf */,
@@ -191,11 +197,22 @@
 			path = Slagman;
 			sourceTree = "<group>";
 		};
+		37D2E9DA2062C1B800C7523B /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				37E7F5B720543D3A0076E828 /* Challenge1.sks */,
+				37146501205A07ED00D574D4 /* Challenge2.sks */,
+				37D2E9DB2062C1EE00C7523B /* Challenge3.sks */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
 		37E7F597205330700076E828 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				37E7F598205330700076E828 /* Extensions.swift */,
 				37E7F599205330700076E828 /* GregoriusViewController.swift */,
+				37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */,
 				37E7F59A205330710076E828 /* Utilities.swift */,
 			);
 			path = Other;
@@ -285,7 +302,9 @@
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
 				37146502205A07ED00D574D4 /* Challenge2.sks in Resources */,
+				37D2E9E02062D46000C7523B /* slagmanvoice.m4a in Resources */,
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
+				37D2E9DC2062C1EE00C7523B /* Challenge3.sks in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
@@ -309,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */,
 				37E7F5AD205330830076E828 /* CGVector+Extensions.swift in Sources */,
 				37E7F59C205330710076E828 /* GregoriusViewController.swift in Sources */,
 				37E7F5B2205330830076E828 /* SKNode+Extensions.swift in Sources */,

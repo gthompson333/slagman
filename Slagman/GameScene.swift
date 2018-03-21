@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var bgNode: SKNode!
   var topBGNode: SKNode!
   var fgNode: SKNode!
-  var lastFGLayerNode: SKSpriteNode!
+  var originalFGLayerNode: SKSpriteNode!
   var player: PlayerNode!
   
   var bgNodeHeight: CGFloat!
@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  let maximumNumberOfSceneLayers = 3
+  let maximumNumberOfSceneLayers = 2
   var currentChallengeNumber = 1
   var countOfSlagsCreated = 0
   
@@ -113,8 +113,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     bgNodeHeight = bgNode.calculateAccumulatedFrame().height
     
     fgNode = worldNode.childNode(withName: "foreground")
-    lastFGLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
-    lastFGLayerPosition = lastFGLayerNode.position
+    let fgLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
+    originalFGLayerNode = fgLayerNode.copy() as! SKSpriteNode
+    lastFGLayerPosition = originalFGLayerNode.position
     
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
@@ -131,22 +132,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   private func createLayers() {
-    if let fgOverlay = fgNode.childNode(withName: "objectLayer") {
-      let lastLayerPosition = lastFGLayerPosition
-      lastFGLayerNode = fgOverlay.copy() as! SKSpriteNode
-      lastFGLayerPosition.y = lastFGLayerPosition.y + lastFGLayerNode.size.height
-      lastFGLayerNode.position = lastFGLayerPosition
-      fgNode.addChild(lastFGLayerNode)
-      
-      let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
-      let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
-      newBGOverlay.position.y = lastLayerPosition.y + bgOverlay.size.height
-      bgNode.addChild(newBGOverlay)
-      
-      levelPositionY += bgNodeHeight
-    } else {
-      assertionFailure("Foreground object layer node is nil.")
-    }
+    let lastLayerPosition = lastFGLayerPosition
+    let newFGlayerNode = originalFGLayerNode.copy() as! SKSpriteNode
+    lastFGLayerPosition.y = lastFGLayerPosition.y + newFGlayerNode.size.height
+    newFGlayerNode.position = lastFGLayerPosition
+    fgNode.addChild(newFGlayerNode)
+    
+    let bgOverlay = bgNode.childNode(withName: "overlay") as! SKSpriteNode
+    let newBGOverlay = bgOverlay.copy() as! SKSpriteNode
+    newBGOverlay.position.y = lastLayerPosition.y + bgOverlay.size.height
+    bgNode.addChild(newBGOverlay)
+    
+    levelPositionY += bgNodeHeight
   }
   
   // MARK: - Update Methods
@@ -164,14 +161,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       countOfSceneLayers += 1
       createLayers()
       
-      topBGNode.position = CGPoint(x: topBGNode.position.x, y: levelPositionY + lastFGLayerNode.size.height)
+      topBGNode.position = CGPoint(x: topBGNode.position.x, y: levelPositionY + originalFGLayerNode.size.height)
     }
   }
   
   private func updateCamera() {
     let playerPositionScene = convert(player.position, from: fgNode)
     
-    if playerPositionScene.y < 200 {
+    if playerPositionScene.y < -20 {
       return
     }
     
@@ -247,16 +244,18 @@ extension GameScene {
       
       player.powerBoost()
     case PhysicsCategory.CollidableObject:
-      if let _ = other.node?.userData?["deadly"] {
-        player.playerState = .dead
-        totalSlagsSinceLastCrash = 0
-        
-        run(SKAction.afterDelay(2.0, runBlock: {
-          if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
-            scene.scaleMode = .aspectFill
-            self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
-          }
-        }))
+      if gameState == .playing {
+        if let _ = other.node?.userData?["deadly"] {
+          player.playerState = .dead
+          totalSlagsSinceLastCrash = 0
+          
+          run(SKAction.afterDelay(2.0, runBlock: {
+            if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
+              scene.scaleMode = .aspectFill
+              self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+            }
+          }))
+        }
       }
     default:
       break

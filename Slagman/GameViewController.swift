@@ -20,18 +20,14 @@ class GameViewController: UIViewController {
       print("Challenge number \(storedChallengeNumber) retrieved from user defaults.")
       
       if let scene = GameScene.sceneFor(challengeNumber: storedChallengeNumber) {
-        //if let scene = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
-        
-        // Present the scene
         view.presentScene(scene)
       }
       
       view.ignoresSiblingOrder = true
-      
-      view.showsFPS = true
-      view.showsNodeCount = true
+      view.showsFPS = false
+      view.showsNodeCount = false
       view.showsPhysics = false
     }
   }
