@@ -24,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  let maximumNumberOfSceneLayers = 2
   var currentChallengeNumber = 1
   var countOfSlagsCreated = 0
   
@@ -151,7 +150,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // on top of the scene.
   // This function creates copies of new nodes and places them on the top of the scene.
   private func addLayers() {
-    if countOfSceneLayers >= maximumNumberOfSceneLayers {
+    var layerCount = 2
+    
+    if let sceneLayerCount = userData?["layercount"] as? Int {
+      layerCount = sceneLayerCount
+    }
+    
+    if countOfSceneLayers >= layerCount {
       return
     }
     
