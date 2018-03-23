@@ -113,12 +113,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     fgNode = worldNode.childNode(withName: "foreground")
     let fgLayerNode = fgNode.childNode(withName: "objectLayer") as! SKSpriteNode
+    
+    fgLayerNode.enumerateChildNodes(withName: "proximityslag") { (node, _) in
+      if let slagNode = node as? SlagNode {
+        slagNode.createPhysicsForProximityNode()
+      }
+    }
+    
     originalFGLayerNode = fgLayerNode.copy() as! SKSpriteNode
     lastFGLayerPosition = originalFGLayerNode.position
     
     player = fgNode.childNode(withName: "player") as! PlayerNode
     
     topBGNode = worldNode.childNode(withName: "backgroundtop")
+    
+    
     
     if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
       challengeLabel.text = "Slag Challenge \(currentChallengeNumber)"
@@ -213,6 +222,7 @@ extension GameScene {
       if let boostNode = other.node as? BoostNode {
         let boostParentNode = boostNode.parent
         
+        // If it's a node at the finish line.
         if let _ = boostNode.userData?["finish"] {
           if gameState == .challengeEnded {
             return
@@ -234,6 +244,7 @@ extension GameScene {
             }
           }))
           boostNode.finishExplosion()
+        // It's just a regular power node.
         } else {
           let slagNode = boostNode.createSlagNode()
           
@@ -250,6 +261,7 @@ extension GameScene {
       player.powerBoost()
     case PhysicsCategory.CollidableObject:
       if gameState == .playing {
+        // If Slagman should die upon touching this object.
         if let _ = other.node?.userData?["deadly"] {
           player.playerState = .dead
           totalSlagsSinceLastCrash = 0
@@ -260,6 +272,10 @@ extension GameScene {
               self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
             }
           }))
+        } else if let _ = other.node?.userData?["proximity"] {
+          if let slagNode = other.node as? SlagNode {
+            slagNode.explode()
+          }
         }
       }
     default:

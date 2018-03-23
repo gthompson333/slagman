@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "object_asteroid_03.png",
+      "filename" : "powerup04_6.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "object_asteroid_03@2x.png",
+      "filename" : "powerup04_6@2x.png",
       "scale" : "2x"
     },
     {

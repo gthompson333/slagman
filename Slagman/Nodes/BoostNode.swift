@@ -51,7 +51,7 @@ class BoostNode: SKSpriteNode {
     emitter.run(SKAction.removeFromParentAfterDelay(2.0))
     
     let sequence = SKKeyframeSequence(capacity: 5)
-    sequence.addKeyframeValue(SKColor.green, time: 0)
+    sequence.addKeyframeValue(SKColor.green, time: 0.10)
     sequence.addKeyframeValue(SKColor.yellow, time: 0.10)
     sequence.addKeyframeValue(SKColor.orange, time: 0.15)
     sequence.addKeyframeValue(SKColor.white, time: 0.75)
@@ -73,23 +73,18 @@ class BoostNode: SKSpriteNode {
     removeFromParent()
   }
   
-  func createSlagNode() -> SKSpriteNode {
-    let slagNode = SKSpriteNode(imageNamed: "slag")
+  func createSlagNode() -> SlagNode {
+    let slagNode = SlagNode(imageNamed: "slag")
     slagNode.position = CGPoint(x: position.x, y: position.y - 60)
     slagNode.size = size
     
-    let pulsedRed = SKAction.sequence([
-      SKAction.colorize(with: .yellow, colorBlendFactor: 2.0, duration: 0.15),
-      //SKAction.wait(forDuration: 0.1),
-      SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.15),
-      SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.15),])
-    slagNode.run(SKAction.repeat(pulsedRed, count: 5))
-
     slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false
     slagNode.physicsBody?.categoryBitMask = PhysicsCategory.CollidableObject
     slagNode.userData = ["deadly" : true]
+    slagNode.deadly()
+    
     return slagNode
   }
 }

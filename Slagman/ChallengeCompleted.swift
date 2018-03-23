@@ -19,10 +19,10 @@ class ChallengeCompleted: SKScene {
   
   override func didMove(to view: SKView) {
     completedLabel = childNode(withName: "completedLabel") as! SKLabelNode
-    completedLabel.text = "Challenge \(challengeNumberCompleted) Completed!"
+    completedLabel.text = "Slag Challenge \(challengeNumberCompleted) Completed!"
     
     slagsCreatedLabel = childNode(withName: "slagsCreatedLabel") as! SKLabelNode
-    slagsCreatedLabel.text = "\(slagsCreated) Slags Points Earned!"
+    slagsCreatedLabel.text = "\(slagsCreated) Slag Points Earned!"
     
     totalSlagsCreatedLabel = childNode(withName: "totalSlagsCreatedLabel") as! SKLabelNode
     totalSlagsCreatedLabel.text = "\(totalSlagsCreated) Slag Points Since Last Crash!"
