@@ -45,6 +45,8 @@ class PlayerNode: SKSpriteNode {
   
   private var boostParticlesTrail: SKEmitterNode!
   
+  var controlEnabled = true
+  
   // MARK: - Methods
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -53,6 +55,10 @@ class PlayerNode: SKSpriteNode {
   
   func update() {
     guard let scene = scene as? GameScene else {
+      return
+    }
+    
+    if controlEnabled == false {
       return
     }
     
@@ -80,7 +86,7 @@ class PlayerNode: SKSpriteNode {
     }
   }
   
-  func setPlayerVelocity(_ amount: CGFloat) {
+  private func setJumpVelocity(_ amount: CGFloat) {
     let gain: CGFloat = 1.5
     physicsBody!.velocity.dy = max(physicsBody!.velocity.dy, amount * gain)
   }
@@ -105,7 +111,7 @@ class PlayerNode: SKSpriteNode {
     }
     
     run(actions["jetboostsound"]!)
-    setPlayerVelocity(700)
+    setJumpVelocity(700)
     
     boostParticlesTrail.particleBirthRate = 400
     
@@ -126,7 +132,7 @@ class PlayerNode: SKSpriteNode {
     }
     
     run(actions["powerboostsound"]!)
-    setPlayerVelocity(1000)
+    setJumpVelocity(1000)
   }
   
   func falling() {

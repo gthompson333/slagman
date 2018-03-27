@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     fgLayerNode.enumerateChildNodes(withName: "proximityslag") { (node, _) in
       if let slagNode = node as? SlagNode {
-        slagNode.createPhysicsForProximityNode()
+        slagNode.createPhysicsForProximitySlag()
       }
     }
     
@@ -272,10 +272,12 @@ extension GameScene {
               self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
             }
           }))
-        } else if let _ = other.node?.userData?["proximity"] {
-          if let slagNode = other.node as? SlagNode {
-            slagNode.explode()
-          }
+        }
+      }
+    case PhysicsCategory.ContactableObject:
+      if let _ = other.node?.userData?["proximity"] {
+        if let slagNode = other.node as? SlagNode {
+          slagNode.contactWithProximitySlag(player: player)
         }
       }
     default:

@@ -9,6 +9,8 @@
 import SpriteKit
 
 class SlagNode: SKSpriteNode {
+  var turbulenceNode: SKFieldNode?
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
@@ -24,8 +26,6 @@ class SlagNode: SKSpriteNode {
   }
   
   func deadly() {
-    removeAllActions()
-    
     let colorPulse = SKAction.sequence([
       SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
@@ -37,8 +37,6 @@ class SlagNode: SKSpriteNode {
   }
   
   func proximity() {
-    removeAllActions()
-    
     let colorPulse = SKAction.sequence([
       SKAction.colorize(with: .green, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
@@ -46,49 +44,45 @@ class SlagNode: SKSpriteNode {
     run(SKAction.repeatForever(colorPulse))
   }
   
-  func createPhysicsForProximityNode() {
+  func createPhysicsForProximitySlag() {
     physicsBody = SKPhysicsBody(circleOfRadius: size.width)
     physicsBody?.isDynamic = false
     physicsBody?.affectedByGravity = false
     physicsBody?.allowsRotation = false
-    physicsBody?.categoryBitMask = PhysicsCategory.CollidableObject
+    physicsBody?.categoryBitMask = PhysicsCategory.ContactableObject
+    
+    turbulenceNode = SKFieldNode.turbulenceField(withSmoothness: 1.0, animationSpeed: 1.0)
+    turbulenceNode!.strength = 0.4
+    turbulenceNode!.categoryBitMask = 1
+    turbulenceNode!.minimumRadius = 0
+    //turbulenceNode!.falloff = 1.0
+    turbulenceNode!.isEnabled = false
+    addChild(turbulenceNode!)
   }
   
-  func explode() {
-    let explode = explosion(intensity: 1.0)
+  func contactWithProximitySlag(player: PlayerNode) {
+    if turbulenceNode?.isEnabled == true {
+      return
+    } else {
+      turbulenceNode?.isEnabled = true
+    }
+    
+    player.controlEnabled = false
+    
+    guard let explode = SKEmitterNode(fileNamed: "proximityexplosion") else {
+      assertionFailure("Missing proximityexplosion.sks particles file.")
+      return
+    }
+    
     explode.position = position
     parent?.addChild(explode)
     
-    removeFromParent()
-  }
-  
-  func explosion(intensity: CGFloat) -> SKEmitterNode {
-    let emitter = SKEmitterNode()
-    let particleTexture = SKTexture(imageNamed: "spark")
+    parent?.run(SKAction.playSoundFileNamed("proximity.wav", waitForCompletion: false))
     
-    emitter.zPosition = 2
-    emitter.particleTexture = particleTexture
-    emitter.particleBirthRate = 200 * intensity
-    emitter.numParticlesToEmit = Int(200 * intensity)
-    emitter.particleLifetime = 0.5
-    emitter.emissionAngle = CGFloat(360.0).degreesToRadians()
-    emitter.emissionAngleRange = CGFloat(360.0).degreesToRadians()
-    emitter.particleSpeed = 1000 * intensity
-    emitter.particleSpeedRange = 500 * intensity
-    emitter.particleAlpha = 1.0
-    emitter.particleAlphaRange = 0.25
-    emitter.particleScale = 1.0
-    emitter.particleScaleRange = 1.0
-    emitter.particleColorBlendFactor = 1
-    emitter.particleBlendMode = SKBlendMode.add
-    emitter.run(SKAction.removeFromParentAfterDelay(0.5))
-    
-    let sequence = SKKeyframeSequence(capacity: 2)
-    sequence.addKeyframeValue(SKColor.green, time: 0.25)
-    sequence.addKeyframeValue(SKColor.yellow, time: 0.25)
-    emitter.particleColorSequence = sequence
-    
-    return emitter
+    run(SKAction.afterDelay(1.0, runBlock: {
+      player.controlEnabled = true
+      self.removeFromParent()
+    }))
   }
 }
 

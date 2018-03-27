@@ -19,6 +19,8 @@
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
+		37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */; };
+		37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7D2069ADA600F0F921 /* proximity.wav */; };
 		37B4FFBD204D9E6500FAEC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */; };
 		37B4FFC3204D9E6500FAEC3E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFC2204D9E6500FAEC3E /* GameScene.swift */; };
 		37B4FFC5204D9E6500FAEC3E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFC4204D9E6500FAEC3E /* GameViewController.swift */; };
@@ -30,7 +32,6 @@
 		37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D522059871E00DAF46E /* LaunchPlatform.sks */; };
 		37CB242A2056D989001742D8 /* BoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* BoostNode.swift */; };
 		37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37CB242B2056DA37001742D8 /* boostexplosion.sks */; };
-		37D2E9D82061B72400C7523B /* finishBoostExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9D62061B72400C7523B /* finishBoostExplosion.sks */; };
 		37D2E9DC2062C1EE00C7523B /* Challenge2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DB2062C1EE00C7523B /* Challenge2.sks */; };
 		37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */; };
 		37D2E9E420635B9200C7523B /* Challenge4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E320635B9100C7523B /* Challenge4.sks */; };
@@ -71,6 +72,8 @@
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
+		37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = proximityexplosion.sks; sourceTree = "<group>"; };
+		37B02F7D2069ADA600F0F921 /* proximity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = proximity.wav; sourceTree = "<group>"; };
 		37B4FFB9204D9E6500FAEC3E /* Slagman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slagman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B4FFC2204D9E6500FAEC3E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -84,7 +87,6 @@
 		37C10D522059871E00DAF46E /* LaunchPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaunchPlatform.sks; sourceTree = "<group>"; };
 		37CB24292056D989001742D8 /* BoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostNode.swift; sourceTree = "<group>"; };
 		37CB242B2056DA37001742D8 /* boostexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostexplosion.sks; sourceTree = "<group>"; };
-		37D2E9D62061B72400C7523B /* finishBoostExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = finishBoostExplosion.sks; sourceTree = "<group>"; };
 		37D2E9DB2062C1EE00C7523B /* Challenge2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge2.sks; sourceTree = "<group>"; };
 		37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		37D2E9E320635B9100C7523B /* Challenge4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge4.sks; sourceTree = "<group>"; };
@@ -126,10 +128,10 @@
 		376F708D2054B05100A9785D /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */,
 				376F708E2054B07500A9785D /* boostparticles.sks */,
 				37CB242B2056DA37001742D8 /* boostexplosion.sks */,
 				37D3F7322057042A00820D83 /* playerdeadexplosion.sks */,
-				37D2E9D62061B72400C7523B /* finishBoostExplosion.sks */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				37B02F7D2069ADA600F0F921 /* proximity.wav */,
 				37D2E9E7206408E400C7523B /* slagmanvoice.m4a */,
 				3714650D205C84E100D574D4 /* backgroundmusic.wav */,
 				37C10D4A2058362300DAF46E /* explosion.wav */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */,
+				37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */,
 				37D2E9E420635B9200C7523B /* Challenge4.sks in Resources */,
 				3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */,
 				37E7F58E205238F20076E828 /* boost.wav in Resources */,
@@ -328,11 +332,11 @@
 				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
-				37D2E9D82061B72400C7523B /* finishBoostExplosion.sks in Resources */,
 				37E7F5B820543D3A0076E828 /* Challenge1.sks in Resources */,
 				3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */,
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
 				3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */,
+				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
 				37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */,
 				37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */,
