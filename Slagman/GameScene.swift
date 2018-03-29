@@ -25,12 +25,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var countOfSceneLayers = 1
   var currentChallengeNumber = 1
-  var countOfSlagsCreated = 0
+  var countOfSlagPoints = 0
   
   var gameState = GameState.starting
 
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
+  var hud = HUD()
   
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
@@ -51,7 +52,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     setupCoreMotion()
     setupNodes()
-    playBackgroundMusic(name: "backgroundmusic.wav")
+    setupHUD()
+    //playBackgroundMusic(name: "backgroundmusic.wav")
   }
   
   deinit {
@@ -154,6 +156,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     levelPositionY += bgNodeHeight
   }
   
+  func setupHUD() {
+    camera?.addChild(hud)
+    hud.updatePointDisplay(points: countOfSlagPoints)
+  }
+  
   // MARK: - Update Methods
   // The challenge scene is built by stacking copies of the foreground overlay and background nodes
   // on top of the scene.
@@ -218,7 +225,7 @@ extension GameScene {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
     switch other.categoryBitMask {
-    case PhysicsCategory.JetBoost:
+    case PhysicsCategory.Contactable:
       if let boostNode = other.node as? BoostNode {
         let boostParentNode = boostNode.parent
         
@@ -231,13 +238,13 @@ extension GameScene {
           gameState = .challengeEnded
           print("Challenge ended.")
           
-          totalSlagsSinceLastCrash += countOfSlagsCreated
+          totalSlagsSinceLastCrash += countOfSlagPoints
           
           run(SKAction.afterDelay(1.5, runBlock: {
             if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
               challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
-              challengeCompleted.slagsCreated = self.countOfSlagsCreated
-              challengeCompleted.totalSlagsCreated = totalSlagsSinceLastCrash
+              challengeCompleted.slagCreated = self.countOfSlagPoints
+              challengeCompleted.totalSlagCreated = totalSlagsSinceLastCrash
               
               challengeCompleted.scaleMode = .aspectFill
               self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
@@ -253,13 +260,15 @@ extension GameScene {
             boostParentNode?.addChild(slagNode)
           }))
           
-          countOfSlagsCreated += 1
+          countOfSlagPoints += 10
+          hud.updatePointDisplay(points: countOfSlagPoints)
           boostNode.explode()
         }
+        player.powerBoost()
+      } else if let slagNode = other.node as? SlagNode, let _ = other.node?.userData?["proximity"] {
+        slagNode.contactWithProximitySlag(player: player)
       }
-      
-      player.powerBoost()
-    case PhysicsCategory.CollidableObject:
+    case PhysicsCategory.Collidable:
       if gameState == .playing {
         // If Slagman should die upon touching this object.
         if let _ = other.node?.userData?["deadly"] {
@@ -272,12 +281,6 @@ extension GameScene {
               self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
             }
           }))
-        }
-      }
-    case PhysicsCategory.ContactableObject:
-      if let _ = other.node?.userData?["proximity"] {
-        if let slagNode = other.node as? SlagNode {
-          slagNode.contactWithProximitySlag(player: player)
         }
       }
     default:

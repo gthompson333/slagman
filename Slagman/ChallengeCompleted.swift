@@ -10,22 +10,27 @@ import SpriteKit
 
 class ChallengeCompleted: SKScene {
   var completedLabel: SKLabelNode!
-  var slagsCreatedLabel: SKLabelNode!
-  var totalSlagsCreatedLabel: SKLabelNode!
+  var slagCreatedLabel: SKLabelNode!
+  var totalSlagCreatedLabel: SKLabelNode!
+  var lifetimeSlagLabel: SKLabelNode!
   
   var challengeNumberCompleted = 0
-  var slagsCreated = 0
-  var totalSlagsCreated = 0
+  var slagCreated = 0
+  var totalSlagCreated = 0
+  var lifetimeSlag = 0
   
   override func didMove(to view: SKView) {
-    completedLabel = childNode(withName: "completedLabel") as! SKLabelNode
-    completedLabel.text = "Slag Challenge \(challengeNumberCompleted) Completed!"
+    completedLabel = childNode(withName: "completedlabel") as! SKLabelNode
+    completedLabel.text = "Conslagulations!"
     
-    slagsCreatedLabel = childNode(withName: "slagsCreatedLabel") as! SKLabelNode
-    slagsCreatedLabel.text = "\(slagsCreated) Slag Points Earned!"
+    slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
+    slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
-    totalSlagsCreatedLabel = childNode(withName: "totalSlagsCreatedLabel") as! SKLabelNode
-    totalSlagsCreatedLabel.text = "\(totalSlagsCreated) Slag Points Since Last Crash!"
+    totalSlagCreatedLabel = childNode(withName: "totalslagcreatedlabel") as! SKLabelNode
+    totalSlagCreatedLabel.text = "\(totalSlagCreated) Slag Since Last Crash!"
+    
+    lifetimeSlagLabel = childNode(withName: "lifetimeslaglabel") as! SKLabelNode
+    lifetimeSlagLabel.text = "\(lifetimeSlag) Lifetime Slag!"
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

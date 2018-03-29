@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
       let storedChallengeNumber = UserDefaults.standard.integer(forKey: "challengenumber")
       print("Challenge number \(storedChallengeNumber) retrieved from user defaults.")
       
-      if let scene = GameScene.sceneFor(challengeNumber: 6) {
+      if let scene = GameScene.sceneFor(challengeNumber: storedChallengeNumber) {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
         view.presentScene(scene)
@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
       view.ignoresSiblingOrder = true
       view.showsFPS = false
       view.showsNodeCount = false
-      view.showsPhysics = false
+      view.showsPhysics = true
     }
   }
   

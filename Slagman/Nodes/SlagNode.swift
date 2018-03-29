@@ -9,8 +9,6 @@
 import SpriteKit
 
 class SlagNode: SKSpriteNode {
-  var turbulenceNode: SKFieldNode?
-  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
@@ -49,18 +47,18 @@ class SlagNode: SKSpriteNode {
     physicsBody?.isDynamic = false
     physicsBody?.affectedByGravity = false
     physicsBody?.allowsRotation = false
-    physicsBody?.categoryBitMask = PhysicsCategory.ContactableObject
+    physicsBody?.categoryBitMask = PhysicsCategory.Contactable
     
-    turbulenceNode = SKFieldNode.turbulenceField(withSmoothness: 1.0, animationSpeed: 1.0)
-    turbulenceNode!.strength = 0.4
-    turbulenceNode!.categoryBitMask = 1
-    turbulenceNode!.minimumRadius = 0
-    //turbulenceNode!.falloff = 1.0
-    turbulenceNode!.isEnabled = false
-    addChild(turbulenceNode!)
+    let turbulenceNode = SKFieldNode.turbulenceField(withSmoothness: 1.0, animationSpeed: 1.0)
+    turbulenceNode.name = "turbulence"
+    turbulenceNode.categoryBitMask = 1
+    turbulenceNode.isEnabled = false
+    addChild(turbulenceNode)
   }
   
   func contactWithProximitySlag(player: PlayerNode) {
+    let turbulenceNode = childNode(withName: "turbulence") as? SKFieldNode
+    
     if turbulenceNode?.isEnabled == true {
       return
     } else {
@@ -79,7 +77,7 @@ class SlagNode: SKSpriteNode {
     
     parent?.run(SKAction.playSoundFileNamed("proximity.wav", waitForCompletion: false))
     
-    run(SKAction.afterDelay(1.0, runBlock: {
+    run(SKAction.afterDelay(0.5, runBlock: {
       player.controlEnabled = true
       self.removeFromParent()
     }))

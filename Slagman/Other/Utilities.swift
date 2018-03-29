@@ -13,10 +13,9 @@ enum GameState {
 }
 
 struct PhysicsCategory {
-  static let Player: UInt32                    = 0b1      // 1
-  static let JetBoost: UInt32                  = 0b10     // 2
-  static let CollidableObject: UInt32          = 0b100    // 4
-  static let ContactableObject: UInt32         = 0b1000   // 8
+  static let Player: UInt32              = 0b1      // 1
+  static let Contactable: UInt32         = 0b10     // 2
+  static let Collidable: UInt32          = 0b100    // 4
  }
 
 func createAnimationActionWithFilePrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {

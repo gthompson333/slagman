@@ -81,7 +81,7 @@ class BoostNode: SKSpriteNode {
     slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
     slagNode.physicsBody?.isDynamic = false
     slagNode.physicsBody?.affectedByGravity = false
-    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.CollidableObject
+    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Collidable
     slagNode.userData = ["deadly" : true]
     slagNode.deadly()
     

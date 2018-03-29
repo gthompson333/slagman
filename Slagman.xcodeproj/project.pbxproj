@@ -15,12 +15,14 @@
 		3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146509205B3E3900D574D4 /* BoostGate2.sks */; };
 		3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* backgroundmusic.wav */; };
 		374294042064C62D00E52496 /* Challenge5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374294032064C62C00E52496 /* Challenge5.sks */; };
-		374294062064CC8E00E52496 /* Challenge6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374294052064CC8E00E52496 /* Challenge6.sks */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
 		37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */; };
 		37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7D2069ADA600F0F921 /* proximity.wav */; };
+		37B02F80206AE6B700F0F921 /* Challenge6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7F206AE6B700F0F921 /* Challenge6.sks */; };
+		37B02F82206B242100F0F921 /* Challenge7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F81206B242100F0F921 /* Challenge7.sks */; };
+		37B02F84206C21B400F0F921 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B02F83206C21B400F0F921 /* HUD.swift */; };
 		37B4FFBD204D9E6500FAEC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */; };
 		37B4FFC3204D9E6500FAEC3E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFC2204D9E6500FAEC3E /* GameScene.swift */; };
 		37B4FFC5204D9E6500FAEC3E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4FFC4204D9E6500FAEC3E /* GameViewController.swift */; };
@@ -68,12 +70,14 @@
 		37146509205B3E3900D574D4 /* BoostGate2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate2.sks; sourceTree = "<group>"; };
 		3714650D205C84E100D574D4 /* backgroundmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundmusic.wav; sourceTree = "<group>"; };
 		374294032064C62C00E52496 /* Challenge5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge5.sks; sourceTree = "<group>"; };
-		374294052064CC8E00E52496 /* Challenge6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge6.sks; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
 		37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = proximityexplosion.sks; sourceTree = "<group>"; };
 		37B02F7D2069ADA600F0F921 /* proximity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = proximity.wav; sourceTree = "<group>"; };
+		37B02F7F206AE6B700F0F921 /* Challenge6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge6.sks; sourceTree = "<group>"; };
+		37B02F81206B242100F0F921 /* Challenge7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge7.sks; sourceTree = "<group>"; };
+		37B02F83206C21B400F0F921 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		37B4FFB9204D9E6500FAEC3E /* Slagman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slagman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B4FFBC204D9E6500FAEC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B4FFC2204D9E6500FAEC3E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -220,7 +224,8 @@
 				37146501205A07ED00D574D4 /* Challenge3.sks */,
 				37D2E9E320635B9100C7523B /* Challenge4.sks */,
 				374294032064C62C00E52496 /* Challenge5.sks */,
-				374294052064CC8E00E52496 /* Challenge6.sks */,
+				37B02F7F206AE6B700F0F921 /* Challenge6.sks */,
+				37B02F81206B242100F0F921 /* Challenge7.sks */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				37E7F599205330700076E828 /* GregoriusViewController.swift */,
 				37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */,
 				37E7F59A205330710076E828 /* Utilities.swift */,
+				37B02F83206C21B400F0F921 /* HUD.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -328,7 +334,8 @@
 				37D2E9DC2062C1EE00C7523B /* Challenge2.sks in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
-				374294062064CC8E00E52496 /* Challenge6.sks in Resources */,
+				37B02F80206AE6B700F0F921 /* Challenge6.sks in Resources */,
+				37B02F82206B242100F0F921 /* Challenge7.sks in Resources */,
 				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
@@ -371,6 +378,7 @@
 				37E7F5AB205330830076E828 /* CGFloat+Extensions.swift in Sources */,
 				37CB242A2056D989001742D8 /* BoostNode.swift in Sources */,
 				37E7F5B4205330830076E828 /* SKTEffects.swift in Sources */,
+				37B02F84206C21B400F0F921 /* HUD.swift in Sources */,
 				37E7F5B6205330830076E828 /* Vector3.swift in Sources */,
 				37146506205B0BEA00D574D4 /* ChallengeCompleted.swift in Sources */,
 				37B4FFBD204D9E6500FAEC3E /* AppDelegate.swift in Sources */,
