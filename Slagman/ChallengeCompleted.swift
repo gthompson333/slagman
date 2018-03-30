@@ -11,8 +11,8 @@ import SpriteKit
 class ChallengeCompleted: SKScene {
   var completedLabel: SKLabelNode!
   var slagCreatedLabel: SKLabelNode!
-  var totalSlagCreatedLabel: SKLabelNode!
-  var lifetimeSlagLabel: SKLabelNode!
+  var slagRunLabel: SKLabelNode!
+  var lifetimeSlagCreatedLabel: SKLabelNode!
   
   var challengeNumberCompleted = 0
   var slagCreated = 0
@@ -26,20 +26,18 @@ class ChallengeCompleted: SKScene {
     slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
     slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
-    totalSlagCreatedLabel = childNode(withName: "totalslagcreatedlabel") as! SKLabelNode
-    totalSlagCreatedLabel.text = "\(totalSlagCreated) Slag Since Last Crash!"
+    slagRunLabel = childNode(withName: "totalslagcreatedlabel") as! SKLabelNode
+    slagRunLabel.text = "\(totalSlagCreated) No Crash Slag Run!"
     
-    lifetimeSlagLabel = childNode(withName: "lifetimeslaglabel") as! SKLabelNode
-    lifetimeSlagLabel.text = "\(lifetimeSlag) Lifetime Slag!"
+    lifetimeSlagCreatedLabel = childNode(withName: "lifetimeslaglabel") as! SKLabelNode
+    lifetimeSlagCreatedLabel.text = "\(lifetimeSlag) Total Lifetime Slag Earned!"
+    
+    print("Persisting to user defaults challenge number: \(challengeNumberCompleted + 1)")
+    UserDefaults.standard.set(challengeNumberCompleted + 1, forKey: "challengenumber")
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    let nextChallengeNumber = challengeNumberCompleted + 1
-    
-    if let scene = GameScene.sceneFor(challengeNumber: nextChallengeNumber) {
-      print("Persisting to user defaults challenge number: \(nextChallengeNumber)")
-      UserDefaults.standard.set(nextChallengeNumber, forKey: "challengenumber")
-      
+    if let scene = GameScene.sceneFor(challengeNumber: challengeNumberCompleted + 1) {
       scene.scaleMode = .aspectFill
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }

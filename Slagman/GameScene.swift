@@ -9,7 +9,8 @@
 import SpriteKit
 import CoreMotion
 
-var totalSlagsSinceLastCrash = 0
+var lifetimeSlagPoints = 0
+var slagRunPoints = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   var worldNode: SKNode!
@@ -25,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var countOfSceneLayers = 1
   var currentChallengeNumber = 1
-  var countOfSlagPoints = 0
+  var slagPoints = 0
   
   var gameState = GameState.starting
 
@@ -53,7 +54,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupCoreMotion()
     setupNodes()
     setupHUD()
-    //playBackgroundMusic(name: "backgroundmusic.wav")
+    playBackgroundMusic(name: "backgroundmusic.wav")
+    
+    lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
+    print("\(lifetimeSlagPoints) lifetime slag points retrieved from user defaults.")
   }
   
   deinit {
@@ -158,7 +162,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupHUD() {
     camera?.addChild(hud)
-    hud.updatePointDisplay(points: countOfSlagPoints)
+    hud.updateSlagLabel(points: slagPoints)
+    hud.updateSlagRunLabel(points: slagRunPoints)
   }
   
   // MARK: - Update Methods
@@ -238,13 +243,16 @@ extension GameScene {
           gameState = .challengeEnded
           print("Challenge ended.")
           
-          totalSlagsSinceLastCrash += countOfSlagPoints
+          lifetimeSlagPoints += slagPoints
+          print("Persisting to user defaults lifetime slag points: \(lifetimeSlagPoints)")
+          UserDefaults.standard.set(lifetimeSlagPoints, forKey: "lifetimeslagpoints")
           
           run(SKAction.afterDelay(1.5, runBlock: {
             if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
               challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
-              challengeCompleted.slagCreated = self.countOfSlagPoints
-              challengeCompleted.totalSlagCreated = totalSlagsSinceLastCrash
+              challengeCompleted.slagCreated = self.slagPoints
+              challengeCompleted.totalSlagCreated = slagRunPoints
+              challengeCompleted.lifetimeSlag = lifetimeSlagPoints
               
               challengeCompleted.scaleMode = .aspectFill
               self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
@@ -260,8 +268,10 @@ extension GameScene {
             boostParentNode?.addChild(slagNode)
           }))
           
-          countOfSlagPoints += 10
-          hud.updatePointDisplay(points: countOfSlagPoints)
+          slagPoints += 10
+          slagRunPoints += 10
+          hud.updateSlagLabel(points: slagPoints)
+          hud.updateSlagRunLabel(points: slagRunPoints)
           boostNode.explode()
         }
         player.powerBoost()
@@ -273,7 +283,7 @@ extension GameScene {
         // If Slagman should die upon touching this object.
         if let _ = other.node?.userData?["deadly"] {
           player.playerState = .dead
-          totalSlagsSinceLastCrash = 0
+          slagRunPoints = 0
           
           run(SKAction.afterDelay(2.0, runBlock: {
             if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {

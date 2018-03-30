@@ -11,11 +11,12 @@ import SpriteKit
 enum HUDSettings {
   static let font = "MarkerFelt-Wide"
   static let fontSize: CGFloat = 50
-  static let fontColor = UIColor(red: 255, green: 147, blue: 0, alpha: 0.8)
+  static let fontColor: UIColor = .orange
 }
 
 class HUD: SKNode {
-  var pointLabel: SKLabelNode!
+  var slagLabel: SKLabelNode!
+  var slagRunLabel: SKLabelNode!
   
   override init() {
     super.init()
@@ -26,24 +27,41 @@ class HUD: SKNode {
     super.init(coder: aDecoder)
   }
   
-  func updatePointDisplay(points: Int) {
-    if pointLabel == nil {
-      createPointDisplay(points: 0)
+  func updateSlagLabel(points: Int) {
+    if slagLabel == nil {
+      createPointDisplay()
     }
     
-    pointLabel?.text = "Slag: \(points)"
+    slagLabel?.text = "Slag: \(points)"
   }
   
-  func createPointDisplay(points: Int) {
+  func updateSlagRunLabel(points: Int) {
+    if slagRunLabel == nil {
+      createPointDisplay()
+    }
+    
+    slagRunLabel?.text = "No Crash Slag Run: \(points)"
+  }
+  
+  func createPointDisplay() {
     guard let scene = scene else { return }
     
-    pointLabel = SKLabelNode(fontNamed: HUDSettings.font)
-    pointLabel.name = "pointdisplay"
-    pointLabel.fontSize = HUDSettings.fontSize
-    pointLabel.fontColor = HUDSettings.fontColor
-    pointLabel.position = CGPoint(x: 300, y: scene.frame.height/2 - 80)
-    pointLabel.zPosition = 5
-    addChild(pointLabel)
-    updatePointDisplay(points: points)
+    slagLabel = SKLabelNode(fontNamed: HUDSettings.font)
+    slagLabel.name = "slaglabel"
+    slagLabel.fontSize = HUDSettings.fontSize
+    slagLabel.fontColor = HUDSettings.fontColor
+    slagLabel.position = CGPoint(x: 530, y: scene.frame.height/2 - 150)
+    slagLabel.zPosition = 5
+    slagLabel.horizontalAlignmentMode = .right
+    addChild(slagLabel)
+    
+    slagRunLabel = SKLabelNode(fontNamed: HUDSettings.font)
+    slagRunLabel.name = "slagrunlabel"
+    slagRunLabel.fontSize = HUDSettings.fontSize
+    slagRunLabel.fontColor = HUDSettings.fontColor
+    slagRunLabel.position = CGPoint(x: 530, y: scene.frame.height/2 - 80)
+    slagRunLabel.zPosition = 5
+    slagRunLabel.horizontalAlignmentMode = .right
+    addChild(slagRunLabel)
   }
 }
