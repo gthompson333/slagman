@@ -15,6 +15,16 @@
 		3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146509205B3E3900D574D4 /* BoostGate2.sks */; };
 		3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* backgroundmusic.wav */; };
 		374294042064C62D00E52496 /* Challenge6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374294032064C62C00E52496 /* Challenge6.sks */; };
+		3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3745069D206EAE3D00AEF948 /* Challenge8.sks */; };
+		374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3745069F206EB36E00AEF948 /* Challenge9.sks */; };
+		374506A6206F19BB00AEF948 /* canyouslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506A5206F19BB00AEF948 /* canyouslag.m4a */; };
+		374506A8206F558B00AEF948 /* gityerslagon.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506A7206F558B00AEF948 /* gityerslagon.m4a */; };
+		374506AF206F58F500AEF948 /* gravtotheslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506A9206F58F400AEF948 /* gravtotheslag.m4a */; };
+		374506B0206F58F500AEF948 /* watchforslaggrav.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AA206F58F400AEF948 /* watchforslaggrav.m4a */; };
+		374506B1206F58F500AEF948 /* areyouslaggy.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AB206F58F400AEF948 /* areyouslaggy.m4a */; };
+		374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AC206F58F500AEF948 /* linktheslag.m4a */; };
+		374506B3206F58F500AEF948 /* littleslaggrab.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AD206F58F500AEF948 /* littleslaggrab.m4a */; };
+		374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AE206F58F500AEF948 /* watchforslagmines.m4a */; };
 		374F4BF2206DB642004ED85D /* Challenge5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374F4BF1206DB642004ED85D /* Challenge5.sks */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
@@ -70,6 +80,16 @@
 		37146509205B3E3900D574D4 /* BoostGate2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate2.sks; sourceTree = "<group>"; };
 		3714650D205C84E100D574D4 /* backgroundmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundmusic.wav; sourceTree = "<group>"; };
 		374294032064C62C00E52496 /* Challenge6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge6.sks; sourceTree = "<group>"; };
+		3745069D206EAE3D00AEF948 /* Challenge8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge8.sks; sourceTree = "<group>"; };
+		3745069F206EB36E00AEF948 /* Challenge9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge9.sks; sourceTree = "<group>"; };
+		374506A5206F19BB00AEF948 /* canyouslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = canyouslag.m4a; sourceTree = "<group>"; };
+		374506A7206F558B00AEF948 /* gityerslagon.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gityerslagon.m4a; sourceTree = "<group>"; };
+		374506A9206F58F400AEF948 /* gravtotheslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gravtotheslag.m4a; sourceTree = "<group>"; };
+		374506AA206F58F400AEF948 /* watchforslaggrav.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watchforslaggrav.m4a; sourceTree = "<group>"; };
+		374506AB206F58F400AEF948 /* areyouslaggy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = areyouslaggy.m4a; sourceTree = "<group>"; };
+		374506AC206F58F500AEF948 /* linktheslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = linktheslag.m4a; sourceTree = "<group>"; };
+		374506AD206F58F500AEF948 /* littleslaggrab.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = littleslaggrab.m4a; sourceTree = "<group>"; };
+		374506AE206F58F500AEF948 /* watchforslagmines.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watchforslagmines.m4a; sourceTree = "<group>"; };
 		374F4BF1206DB642004ED85D /* Challenge5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge5.sks; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
@@ -168,6 +188,14 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				374506AB206F58F400AEF948 /* areyouslaggy.m4a */,
+				374506A9206F58F400AEF948 /* gravtotheslag.m4a */,
+				374506AC206F58F500AEF948 /* linktheslag.m4a */,
+				374506AD206F58F500AEF948 /* littleslaggrab.m4a */,
+				374506AE206F58F500AEF948 /* watchforslagmines.m4a */,
+				374506AA206F58F400AEF948 /* watchforslaggrav.m4a */,
+				374506A7206F558B00AEF948 /* gityerslagon.m4a */,
+				374506A5206F19BB00AEF948 /* canyouslag.m4a */,
 				37B02F7D2069ADA600F0F921 /* proximity.wav */,
 				37D2E9E7206408E400C7523B /* slagmanvoice.m4a */,
 				3714650D205C84E100D574D4 /* backgroundmusic.wav */,
@@ -226,6 +254,8 @@
 				374F4BF1206DB642004ED85D /* Challenge5.sks */,
 				374294032064C62C00E52496 /* Challenge6.sks */,
 				37B02F7F206AE6B700F0F921 /* Challenge7.sks */,
+				3745069D206EAE3D00AEF948 /* Challenge8.sks */,
+				3745069F206EB36E00AEF948 /* Challenge9.sks */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -325,25 +355,35 @@
 				37D2E9E420635B9200C7523B /* Challenge4.sks in Resources */,
 				3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */,
 				37E7F58E205238F20076E828 /* boost.wav in Resources */,
+				374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */,
+				374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */,
 				37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */,
+				374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */,
 				374294042064C62D00E52496 /* Challenge6.sks in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
+				3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
 				37146502205A07ED00D574D4 /* Challenge3.sks in Resources */,
+				374506A6206F19BB00AEF948 /* canyouslag.m4a in Resources */,
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
+				374506B3206F58F500AEF948 /* littleslaggrab.m4a in Resources */,
+				374506A8206F558B00AEF948 /* gityerslagon.m4a in Resources */,
 				37D2E9DC2062C1EE00C7523B /* Challenge2.sks in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge5.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
+				374506B0206F58F500AEF948 /* watchforslaggrav.m4a in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
 				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
+				374506B1206F58F500AEF948 /* areyouslaggy.m4a in Resources */,
 				37E7F5B820543D3A0076E828 /* Challenge1.sks in Resources */,
 				3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */,
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
 				3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */,
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
+				374506AF206F58F500AEF948 /* gravtotheslag.m4a in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
 				37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */,
 				37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */,

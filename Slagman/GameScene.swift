@@ -54,7 +54,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupCoreMotion()
     setupNodes()
     setupHUD()
-    playBackgroundMusic(name: "backgroundmusic.wav")
+    
+    if let introSound = userData?["introsound"] as? String {
+      run(SKAction.sequence([SKAction.playSoundFileNamed(introSound, waitForCompletion: true),
+                             SKAction.run {
+                              self.playBackgroundMusic(name: "backgroundmusic.wav")}]))
+    }
     
     lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
     print("\(lifetimeSlagPoints) lifetime slag points retrieved from user defaults.")
