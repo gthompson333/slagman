@@ -51,18 +51,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK: - SpriteKit Methods
   override func didMove(to view: SKView) {
     physicsWorld.contactDelegate = self
+    
     setupCoreMotion()
     setupNodes()
     setupHUD()
     
-    if let introSound = userData?["introsound"] as? String {
-      run(SKAction.sequence([SKAction.playSoundFileNamed(introSound, waitForCompletion: true),
-                             SKAction.run {
-                              self.playBackgroundMusic(name: "backgroundmusic.wav")}]))
-    }
+    let backgroundMusic = userData?["backgroundmusic"] as? String
+    let introVoice = userData?["introvoice"] as? String
+    
+    let bgMusic = backgroundMusic != nil ? backgroundMusic! : "lunarlove.wav"
+    let iVoice = introVoice != nil ? introVoice! : "slagmanvoice.m4a"
+    
+    run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
+                           SKAction.run {
+                            self.playBackgroundMusic(name: bgMusic)}]))
     
     lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
-    print("\(lifetimeSlagPoints) lifetime slag points retrieved from user defaults.")
   }
   
   deinit {
@@ -232,6 +236,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 // MARK: - SKPhysicsContactDelegate
 extension GameScene {
   func didBegin(_ contact: SKPhysicsContact) {
+    print("didBegin")
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
     switch other.categoryBitMask {
@@ -266,6 +271,10 @@ extension GameScene {
           boostNode.finishExplosion()
         // It's just a regular power node.
         } else {
+          if boostParentNode == nil {
+            return
+          }
+          
           let slagNode = boostNode.createSlagNode()
           
           run(SKAction.afterDelay(0.5, runBlock: {

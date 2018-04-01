@@ -13,7 +13,7 @@
 		3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146507205B3E3800D574D4 /* BoostGate1.sks */; };
 		3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146508205B3E3800D574D4 /* BoostGate3.sks */; };
 		3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146509205B3E3900D574D4 /* BoostGate2.sks */; };
-		3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* backgroundmusic.wav */; };
+		3714650E205C84E100D574D4 /* lunarlove.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* lunarlove.wav */; };
 		374294042064C62D00E52496 /* Challenge6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374294032064C62C00E52496 /* Challenge6.sks */; };
 		3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3745069D206EAE3D00AEF948 /* Challenge8.sks */; };
 		374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3745069F206EB36E00AEF948 /* Challenge9.sks */; };
@@ -26,6 +26,7 @@
 		374506B3206F58F500AEF948 /* littleslaggrab.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AD206F58F500AEF948 /* littleslaggrab.m4a */; };
 		374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AE206F58F500AEF948 /* watchforslagmines.m4a */; };
 		374F4BF2206DB642004ED85D /* Challenge5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374F4BF1206DB642004ED85D /* Challenge5.sks */; };
+		375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFBED206FEBB9008CCA70 /* slumsofrage.wav */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
@@ -78,7 +79,7 @@
 		37146507205B3E3800D574D4 /* BoostGate1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate1.sks; sourceTree = "<group>"; };
 		37146508205B3E3800D574D4 /* BoostGate3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate3.sks; sourceTree = "<group>"; };
 		37146509205B3E3900D574D4 /* BoostGate2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate2.sks; sourceTree = "<group>"; };
-		3714650D205C84E100D574D4 /* backgroundmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundmusic.wav; sourceTree = "<group>"; };
+		3714650D205C84E100D574D4 /* lunarlove.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lunarlove.wav; sourceTree = "<group>"; };
 		374294032064C62C00E52496 /* Challenge6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge6.sks; sourceTree = "<group>"; };
 		3745069D206EAE3D00AEF948 /* Challenge8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge8.sks; sourceTree = "<group>"; };
 		3745069F206EB36E00AEF948 /* Challenge9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge9.sks; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		374506AD206F58F500AEF948 /* littleslaggrab.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = littleslaggrab.m4a; sourceTree = "<group>"; };
 		374506AE206F58F500AEF948 /* watchforslagmines.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watchforslagmines.m4a; sourceTree = "<group>"; };
 		374F4BF1206DB642004ED85D /* Challenge5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge5.sks; sourceTree = "<group>"; };
+		375EFBED206FEBB9008CCA70 /* slumsofrage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slumsofrage.wav; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
@@ -149,6 +151,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		375EFBEB206FEB2B008CCA70 /* Background Music */ = {
+			isa = PBXGroup;
+			children = (
+				375EFBED206FEBB9008CCA70 /* slumsofrage.wav */,
+				3714650D205C84E100D574D4 /* lunarlove.wav */,
+			);
+			path = "Background Music";
+			sourceTree = "<group>";
+		};
+		375EFBEC206FEB40008CCA70 /* Intro Voices */ = {
+			isa = PBXGroup;
+			children = (
+				374506AB206F58F400AEF948 /* areyouslaggy.m4a */,
+				374506A9206F58F400AEF948 /* gravtotheslag.m4a */,
+				374506AC206F58F500AEF948 /* linktheslag.m4a */,
+				374506AD206F58F500AEF948 /* littleslaggrab.m4a */,
+				374506AE206F58F500AEF948 /* watchforslagmines.m4a */,
+				374506AA206F58F400AEF948 /* watchforslaggrav.m4a */,
+				374506A7206F558B00AEF948 /* gityerslagon.m4a */,
+				374506A5206F19BB00AEF948 /* canyouslag.m4a */,
+				37D2E9E7206408E400C7523B /* slagmanvoice.m4a */,
+			);
+			path = "Intro Voices";
+			sourceTree = "<group>";
+		};
 		376F708D2054B05100A9785D /* Particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,17 +215,9 @@
 		37A0DBF0204F12300046715C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				374506AB206F58F400AEF948 /* areyouslaggy.m4a */,
-				374506A9206F58F400AEF948 /* gravtotheslag.m4a */,
-				374506AC206F58F500AEF948 /* linktheslag.m4a */,
-				374506AD206F58F500AEF948 /* littleslaggrab.m4a */,
-				374506AE206F58F500AEF948 /* watchforslagmines.m4a */,
-				374506AA206F58F400AEF948 /* watchforslaggrav.m4a */,
-				374506A7206F558B00AEF948 /* gityerslagon.m4a */,
-				374506A5206F19BB00AEF948 /* canyouslag.m4a */,
+				375EFBEC206FEB40008CCA70 /* Intro Voices */,
+				375EFBEB206FEB2B008CCA70 /* Background Music */,
 				37B02F7D2069ADA600F0F921 /* proximity.wav */,
-				37D2E9E7206408E400C7523B /* slagmanvoice.m4a */,
-				3714650D205C84E100D574D4 /* backgroundmusic.wav */,
 				37C10D4A2058362300DAF46E /* explosion.wav */,
 				37E7F5C32054AA710076E828 /* spacegame.caf */,
 				37E7F58D205238F20076E828 /* boost.wav */,
@@ -318,7 +337,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Gregorius T";
 				TargetAttributes = {
 					37B4FFB8204D9E6500FAEC3E = {
@@ -362,6 +381,7 @@
 				374294042064C62D00E52496 /* Challenge6.sks in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */,
+				375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
 				37146502205A07ED00D574D4 /* Challenge3.sks in Resources */,
 				374506A6206F19BB00AEF948 /* canyouslag.m4a in Resources */,
@@ -374,7 +394,7 @@
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				374506B0206F58F500AEF948 /* watchforslaggrav.m4a in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
-				3714650E205C84E100D574D4 /* backgroundmusic.wav in Resources */,
+				3714650E205C84E100D574D4 /* lunarlove.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 				374506B1206F58F500AEF948 /* areyouslaggy.m4a in Resources */,
@@ -461,6 +481,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -468,6 +489,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -518,6 +540,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -525,6 +548,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
