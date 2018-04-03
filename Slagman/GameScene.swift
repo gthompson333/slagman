@@ -13,6 +13,8 @@ var lifetimeSlagPoints = 0
 var slagRunPoints = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+  weak var gameViewController: GameViewController?
+  
   var worldNode: SKNode!
   var bgNode: SKNode!
   var topBGNode: SKNode!
@@ -50,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // MARK: - SpriteKit Methods
   override func didMove(to view: SKView) {
+    print("GameScene didMove()")
     physicsWorld.contactDelegate = self
     
     setupCoreMotion()
@@ -64,13 +67,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
                            SKAction.run {
-                            self.playBackgroundMusic(name: bgMusic)}]))
+                            if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
+                              self.playBackgroundMusic(name: bgMusic)
+                            }}]))
     
     lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
   }
   
   deinit {
-    print("GameScene Deinit")
+    print("GameScene deinit()")
     motionManager.stopAccelerometerUpdates()
   }
   
@@ -84,13 +89,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if gameState == .starting {
+      if let positionInScene = touches.first?.location(in: self) {
+        let touchedNode = self.atPoint(positionInScene)
+        
+        if let name = touchedNode.name
+        {
+          if name == "homebutton"
+          {
+            if gameViewController != nil {
+              gameViewController!.transitionToHome()
+              return
+            }
+          }
+        }
+      }
+      
       gameState = .playing
       
-      if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
+      if let challengeLabel = fgNode.childNode(withName: "introlabel") as? SKLabelNode {
         challengeLabel.run(SKAction.scale(to: 0, duration: 0.5))
       }
       
-      if let startLabel = fgNode.childNode(withName: "startlabel") as? SKLabelNode {
+      if let startLabel = fgNode.childNode(withName: "taplabel") as? SKLabelNode {
         startLabel.run(SKAction.scale(to: 0, duration: 0.5))
       }
     }
@@ -236,7 +256,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 // MARK: - SKPhysicsContactDelegate
 extension GameScene {
   func didBegin(_ contact: SKPhysicsContact) {
-    print("didBegin")
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
     switch other.categoryBitMask {
@@ -295,13 +314,17 @@ extension GameScene {
     case PhysicsCategory.Collidable:
       if gameState == .playing {
         // If Slagman should die upon touching this object.
-        if let _ = other.node?.userData?["deadly"] {
+        if other.node?.userData?["deadly"] != nil {
           player.playerState = .dead
           slagRunPoints = 0
           
           run(SKAction.afterDelay(2.0, runBlock: {
             if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
               scene.scaleMode = .aspectFill
+              
+              let gameScene = scene as! GameScene
+              gameScene.gameViewController = self.gameViewController
+              
               self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
             }
           }))

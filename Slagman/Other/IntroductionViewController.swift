@@ -22,8 +22,16 @@ class IntroductionViewController: UIViewController {
       slagmanVoiceSound = try AVAudioPlayer(contentsOf: url)
       slagmanVoiceSound?.play()
     } catch {
-      print("No slagmanvoice sound file.")
+      assertionFailure("Missing slagmanvoice.m4a file.")
     }
+  }
+  
+  @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue)
+  {
+  }
+  
+  @IBAction func unwindFromGameToIntroduction(sender: UIStoryboardSegue)
+  {
   }
   
   override func didReceiveMemoryWarning() {

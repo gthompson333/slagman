@@ -12,6 +12,11 @@ enum GameState {
   case starting, playing, paused, challengeEnded
 }
 
+enum SettingsKeys {
+  static let music = "musicsetting"
+  static let sounds = "soundssetting"
+}
+
 struct PhysicsCategory {
   static let Player: UInt32              = 0b1      // 1
   static let Contactable: UInt32         = 0b10     // 2

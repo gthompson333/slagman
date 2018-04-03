@@ -11,7 +11,6 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -19,9 +18,13 @@ class GameViewController: UIViewController {
       let storedChallengeNumber = UserDefaults.standard.integer(forKey: "challengenumber")
       print("Challenge number \(storedChallengeNumber) retrieved from user defaults.")
       
-      if let scene = GameScene.sceneFor(challengeNumber: 1) {
+      if let scene = GameScene.sceneFor(challengeNumber: storedChallengeNumber) {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
+        
+        let gameScene = scene as! GameScene
+        gameScene.gameViewController = self
+        
         view.presentScene(scene)
       }
       
@@ -30,6 +33,11 @@ class GameViewController: UIViewController {
       view.showsNodeCount = false
       view.showsPhysics = false
     }
+  }
+  
+  func transitionToHome() {
+    print("transitioning to home")
+    performSegue(withIdentifier: "unwindFromGameToIntroduction", sender: self)
   }
   
   override var shouldAutorotate: Bool {

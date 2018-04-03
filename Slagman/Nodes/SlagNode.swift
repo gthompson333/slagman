@@ -12,15 +12,27 @@ class SlagNode: SKSpriteNode {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
-    if let _ = userData?["proximity"] {
+    if userData?["proximity"] != nil {
       proximity()
-    } else if let _ = userData?["deadly"] {
+    }
+    
+    if userData?["deadly"] != nil {
       deadly()
+    }
+    
+    if let patrolDistance = userData?["patrols"] as? Int {
+      patrolling(distance: patrolDistance)
     }
   }
   
   override init(texture: SKTexture?, color: UIColor, size: CGSize) {
     super.init(texture: texture, color: color, size: size)
+  }
+  
+  func patrolling(distance: Int) {
+    let move = SKAction.moveBy(x: CGFloat(distance), y: 0, duration: 2.0)
+    let repeatMove = SKAction.repeatForever(SKAction.sequence([move, move.reversed()]))
+    run(repeatMove)
   }
   
   func deadly() {
@@ -75,7 +87,9 @@ class SlagNode: SKSpriteNode {
     explode.position = position
     parent?.addChild(explode)
     
-    parent?.run(SKAction.playSoundFileNamed("proximity.wav", waitForCompletion: false))
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      parent?.run(SKAction.playSoundFileNamed("proximity.wav", waitForCompletion: false))
+    }
     
     run(SKAction.afterDelay(0.5, runBlock: {
       player.controlEnabled = true

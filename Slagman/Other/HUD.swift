@@ -29,7 +29,7 @@ class HUD: SKNode {
   
   func updateSlagLabel(points: Int) {
     if slagLabel == nil {
-      createPointDisplay()
+      createDisplay()
     }
     
     slagLabel?.text = "Slag: \(points)"
@@ -37,13 +37,13 @@ class HUD: SKNode {
   
   func updateSlagRunLabel(points: Int) {
     if slagRunLabel == nil {
-      createPointDisplay()
+      createDisplay()
     }
     
     slagRunLabel?.text = "No Crash Slag Run: \(points)"
   }
   
-  func createPointDisplay() {
+  func createDisplay() {
     guard let scene = scene else { return }
     
     slagLabel = SKLabelNode(fontNamed: HUDSettings.font)
@@ -63,5 +63,11 @@ class HUD: SKNode {
     slagRunLabel.zPosition = 5
     slagRunLabel.horizontalAlignmentMode = .right
     addChild(slagRunLabel)
+    
+    let homeButton = SKSpriteNode(imageNamed: "homeicon")
+    homeButton.name = "homebutton"
+    homeButton.position = CGPoint(x: -490, y: scene.frame.height/2 - 90)
+    homeButton.zPosition = 5
+    addChild(homeButton)
   }
 }

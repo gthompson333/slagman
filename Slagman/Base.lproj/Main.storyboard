@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,15 +20,19 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <segue destination="phi-U4-mvj" kind="unwind" identifier="unwindFromGameToIntroduction" unwindAction="unwindFromGameToIntroductionWithSender:" id="eVW-FX-rKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <exit id="phi-U4-mvj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="729" y="125"/>
         </scene>
         <!--Gregorius View Controller-->
         <scene sceneID="Q0O-aL-ast">
             <objects>
-                <viewController id="G2Y-ba-bu7" customClass="GregoriusViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gregoriusviewcontroller" id="G2Y-ba-bu7" customClass="GregoriusViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CxJ-8C-n0S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,12 +57,116 @@
                         <viewLayoutGuide key="safeArea" id="eOR-g9-N8g"/>
                     </view>
                     <connections>
-                        <segue destination="Uto-fM-6AD" kind="showDetail" identifier="gregoriustotapstart" id="m1Q-Cj-9AB"/>
+                        <segue destination="Uto-fM-6AD" kind="show" identifier="gregoriustotapstart" id="m1Q-Cj-9AB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rK-Bf-94S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1070" y="125"/>
+        </scene>
+        <!--Slag Settings-->
+        <scene sceneID="FOu-c1-9rg">
+            <objects>
+                <viewController title="Slag Settings" id="Ric-i1-7ds" customClass="SettingsViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zZJ-j1-Cwq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slag Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O74-0d-ifD">
+                                <rect key="frame" x="74" y="40" width="227" height="52"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaT-ws-blp">
+                                <rect key="frame" x="50" y="137" width="67" height="33"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJu-8a-ocu">
+                                <rect key="frame" x="50" y="215" width="78" height="33"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-wv-rZj">
+                                <rect key="frame" x="252" y="137" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="musicSwitchTapped:" destination="Ric-i1-7ds" eventType="valueChanged" id="CE8-RB-hym"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-nM-jN1">
+                                <rect key="frame" x="252" y="215" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="soundsSwitchTapped:" destination="Ric-i1-7ds" eventType="valueChanged" id="kaO-Kt-EYn"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvL-7n-0Mn">
+                                <rect key="frame" x="140" y="341" width="94" height="64"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HYJ-IO-UUy" kind="unwind" unwindAction="unwindFromSettingsToIntroductionWithSender:" id="QAm-09-62P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O74-0d-ifD" firstAttribute="top" secondItem="fmO-Bh-VNW" secondAttribute="top" constant="20" id="0Sx-NE-F2M"/>
+                            <constraint firstItem="O1Q-wv-rZj" firstAttribute="leading" secondItem="PU2-nM-jN1" secondAttribute="leading" id="1Tf-4Y-WPe"/>
+                            <constraint firstItem="O74-0d-ifD" firstAttribute="centerX" secondItem="zZJ-j1-Cwq" secondAttribute="centerX" id="5GO-hP-v8W"/>
+                            <constraint firstItem="RvL-7n-0Mn" firstAttribute="centerX" secondItem="zZJ-j1-Cwq" secondAttribute="centerX" id="9Pc-c3-2iy"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dJu-8a-ocu" secondAttribute="trailing" constant="20" symbolic="YES" id="Ane-eF-9v2"/>
+                            <constraint firstItem="dJu-8a-ocu" firstAttribute="leading" secondItem="kaT-ws-blp" secondAttribute="leading" id="Lag-Xj-wMI"/>
+                            <constraint firstItem="kaT-ws-blp" firstAttribute="top" secondItem="O74-0d-ifD" secondAttribute="bottom" constant="45" id="SPn-9k-bBe"/>
+                            <constraint firstItem="PU2-nM-jN1" firstAttribute="top" secondItem="O1Q-wv-rZj" secondAttribute="bottom" constant="47" id="SfF-DW-Fyv"/>
+                            <constraint firstItem="O1Q-wv-rZj" firstAttribute="top" secondItem="kaT-ws-blp" secondAttribute="top" id="bV3-sp-9DX"/>
+                            <constraint firstItem="RvL-7n-0Mn" firstAttribute="top" secondItem="O74-0d-ifD" secondAttribute="bottom" constant="249" id="eDg-ux-dK0"/>
+                            <constraint firstItem="kaT-ws-blp" firstAttribute="leading" secondItem="fmO-Bh-VNW" secondAttribute="leading" constant="50" id="gHF-qY-nGy"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kaT-ws-blp" secondAttribute="trailing" constant="20" symbolic="YES" id="kl9-SO-0fa"/>
+                            <constraint firstItem="O1Q-wv-rZj" firstAttribute="trailing" secondItem="O74-0d-ifD" secondAttribute="trailing" id="ljG-Wg-CM3"/>
+                            <constraint firstItem="dJu-8a-ocu" firstAttribute="top" secondItem="kaT-ws-blp" secondAttribute="bottom" constant="45" id="tsZ-Of-D57"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fmO-Bh-VNW"/>
+                    </view>
+                    <connections>
+                        <outlet property="musicSwitch" destination="O1Q-wv-rZj" id="Rq1-vm-9MX"/>
+                        <outlet property="soundsSwitch" destination="PU2-nM-jN1" id="0T3-7l-Ibg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7F-GA-ByV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HYJ-IO-UUy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="-674"/>
+        </scene>
+        <!--Challenge Selection-->
+        <scene sceneID="uSm-3Y-xPb">
+            <objects>
+                <viewController title="Challenge Selection" id="bIf-ha-e12" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXP-rq-g2S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Challenges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc5-oP-Gcf">
+                                <rect key="frame" x="102" y="60" width="139" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AjS-Op-qr2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3zq-zA-VSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-674"/>
         </scene>
         <!--Introduction View Controller-->
         <scene sceneID="TaW-VJ-YBg">
@@ -71,27 +179,44 @@
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialintro" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-Wb-3nD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQZ-xT-JZc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQZ-xT-JZc" userLabel="startSlaggingButton">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="V4Z-5M-9gK"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="V4Z-5M-9gK"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJl-rm-u0c" userLabel="settingsButton">
+                                <rect key="frame" x="10" y="30" width="50" height="50"/>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <segue destination="Ric-i1-7ds" kind="show" id="B7W-CM-dGX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="challengesButton">
+                                <rect key="frame" x="315" y="30" width="50" height="50"/>
+                                <state key="normal" image="challenges"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XJl-rm-u0c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="0wd-fl-XDB"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="Abr-HK-95k"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="PeR-Wb-3nD" secondAttribute="bottom" id="Kw3-4y-zLF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XJl-rm-u0c" secondAttribute="trailing" constant="20" symbolic="YES" id="Pi9-Jx-C5e"/>
                             <constraint firstItem="bQZ-xT-JZc" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" id="TtS-8w-asq"/>
                             <constraint firstItem="bQZ-xT-JZc" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="Tzv-gG-f63"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="bQZ-xT-JZc" secondAttribute="bottom" id="WRl-xl-zub"/>
+                            <constraint firstItem="v0c-PF-J3c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e2a-c9-lzM" secondAttribute="leading" constant="20" symbolic="YES" id="WTd-GI-SLy"/>
+                            <constraint firstAttribute="trailing" secondItem="v0c-PF-J3c" secondAttribute="trailing" constant="10" id="acn-n3-rAh"/>
                             <constraint firstItem="bQZ-xT-JZc" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="jUL-1t-5W9"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" id="lOx-Eg-EAK"/>
+                            <constraint firstItem="XJl-rm-u0c" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="10" id="p5A-MM-eIy"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="vmU-8t-UY4"/>
+                            <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="xFw-ZD-cX9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="36p-BL-qFc"/>
                     </view>
@@ -102,6 +227,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="challenges" width="50" height="50"/>
+        <image name="settings" width="50" height="50"/>
         <image name="tutorialintro" width="900" height="1300"/>
     </resources>
 </document>

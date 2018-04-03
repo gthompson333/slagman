@@ -110,7 +110,10 @@ class PlayerNode: SKSpriteNode {
       run(actions["jetboost"]!)
     }
     
-    run(actions["jetboostsound"]!)
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      run(actions["jetboostsound"]!)
+    }
+    
     setJumpVelocity(700)
     
     boostParticlesTrail.particleBirthRate = 400
@@ -131,7 +134,10 @@ class PlayerNode: SKSpriteNode {
       run(actions["jetboost"]!)
     }
     
-    run(actions["powerboostsound"]!)
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      run(actions["powerboostsound"]!)
+    }
+    
     setJumpVelocity(1000)
   }
   
@@ -145,7 +151,9 @@ class PlayerNode: SKSpriteNode {
       return
     }
     
-    parent?.run(actions["explosionsound"]!)
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      parent?.run(actions["explosionsound"]!)
+    }
     
     explode.position = position
     explode.targetNode = parent
