@@ -9,19 +9,27 @@
 import SpriteKit
 
 class SlagNode: SKSpriteNode {
+  var originalPosition: CGPoint!
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
+    originalPosition = position
+    
     if userData?["proximity"] != nil {
-      proximity()
+      proximityAnimation()
     }
     
     if userData?["deadly"] != nil {
-      deadly()
+      deadlyAnimation()
     }
     
     if let patrolDistance = userData?["patrols"] as? Int {
       patrolling(distance: patrolDistance)
+    }
+    
+    if let distance = userData?["wanders"] as? Int {
+      wandering(distance: distance)
     }
   }
   
@@ -35,7 +43,17 @@ class SlagNode: SKSpriteNode {
     run(repeatMove)
   }
   
-  func deadly() {
+  func wandering(distance: Int) {
+    let move1 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y + CGFloat(distance)), duration: 1.5)
+    let move2 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(2*distance), y: originalPosition.y), duration: 1.5)
+    let move3 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y - CGFloat(distance)), duration: 1.5)
+    let move4 = SKAction.move(to: CGPoint(x: originalPosition.x, y: originalPosition.y), duration: 1.5)
+    
+    let repeatMove = SKAction.repeatForever(SKAction.sequence([move1, move2, move3, move4]))
+    run(repeatMove)
+  }
+  
+  func deadlyAnimation() {
     let colorPulse = SKAction.sequence([
       SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
@@ -46,7 +64,7 @@ class SlagNode: SKSpriteNode {
     run(SKAction.repeatForever(SKAction.group([colorPulse, scalePulse])))
   }
   
-  func proximity() {
+  func proximityAnimation() {
     let colorPulse = SKAction.sequence([
       SKAction.colorize(with: .green, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])

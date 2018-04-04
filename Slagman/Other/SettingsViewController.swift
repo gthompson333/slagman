@@ -55,6 +55,21 @@ class SettingsViewController: UIViewController {
     }
   }
   
+  @IBAction func resetButtonTapped(_ sender: UIButton) {
+    let alert = UIAlertController(title: "Reset to Slag Noob?", message: "Everything resets to zero.", preferredStyle: .alert)
+    
+    alert.addAction(UIAlertAction(title: "Slag Yeah!", style: .default, handler: { _ in
+      print("Persisting to user defaults challenge number 1.")
+      UserDefaults.standard.set(1, forKey: "challengenumber")
+      
+      print("Persisting to user defaults 0 lifetime slag points.")
+      UserDefaults.standard.set(0, forKey: "lifetimeslagpoints")
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Slag No!", style: .cancel, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

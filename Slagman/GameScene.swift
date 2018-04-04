@@ -65,11 +65,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bgMusic = backgroundMusic != nil ? backgroundMusic! : "lunarlove.wav"
     let iVoice = introVoice != nil ? introVoice! : "slagmanvoice.m4a"
     
-    run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
-                           SKAction.run {
-                            if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
-                              self.playBackgroundMusic(name: bgMusic)
-                            }}]))
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
+                             SKAction.run {
+                              if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
+                                self.playBackgroundMusic(name: bgMusic)
+                              }}]))
+    } else {
+      run(SKAction.run {
+        if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
+          self.playBackgroundMusic(name: bgMusic)
+        }
+      })
+    }
     
     lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
   }
@@ -282,8 +290,8 @@ extension GameScene {
               challengeCompleted.slagCreated = self.slagPoints
               challengeCompleted.totalSlagCreated = slagRunPoints
               challengeCompleted.lifetimeSlag = lifetimeSlagPoints
-              
               challengeCompleted.scaleMode = .aspectFill
+              challengeCompleted.gameViewController = self.gameViewController
               self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
             }
           }))

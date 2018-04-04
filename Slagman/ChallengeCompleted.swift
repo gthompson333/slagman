@@ -19,6 +19,8 @@ class ChallengeCompleted: SKScene {
   var totalSlagCreated = 0
   var lifetimeSlag = 0
   
+  var gameViewController: GameViewController?
+  
   override func didMove(to view: SKView) {
     completedLabel = childNode(withName: "completedlabel") as! SKLabelNode
     completedLabel.text = "Conslagulations!"
@@ -39,6 +41,12 @@ class ChallengeCompleted: SKScene {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if let scene = GameScene.sceneFor(challengeNumber: challengeNumberCompleted + 1) {
       scene.scaleMode = .aspectFill
+      
+      if gameViewController != nil {
+        let gameScene = scene as! GameScene
+        gameScene.gameViewController = gameViewController!
+      }
+      
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
   }

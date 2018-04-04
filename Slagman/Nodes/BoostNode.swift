@@ -83,7 +83,7 @@ class BoostNode: SKSpriteNode {
     slagNode.physicsBody?.affectedByGravity = false
     slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Collidable
     slagNode.userData = ["deadly" : true]
-    slagNode.deadly()
+    slagNode.deadlyAnimation()
     
     return slagNode
   }
