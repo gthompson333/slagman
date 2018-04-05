@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-1070" y="125"/>
         </scene>
-        <!--Slag Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="FOu-c1-9rg">
             <objects>
-                <viewController title="Slag Settings" id="Ric-i1-7ds" customClass="SettingsViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ric-i1-7ds" customClass="SettingsViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zZJ-j1-Cwq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,31 +158,39 @@
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="-674.21289355322347"/>
         </scene>
-        <!--Slag Adventures-->
+        <!--Slag Travels-->
         <scene sceneID="gnU-71-pZT">
             <objects>
-                <tableViewController id="Zxm-XF-8uc" customClass="SlagAdventures" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4X-3v-Ret">
+                <tableViewController id="Zxm-XF-8uc" customClass="SlagTravels" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4X-3v-Ret">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="slagadventurecell" rowHeight="90" id="xmV-jL-yf6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="travelcell" rowHeight="90" id="xmV-jL-yf6">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xmV-jL-yf6" id="bzh-3s-GiK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Slad Adventures Part 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-b7-6tz">
-                                            <rect key="frame" x="16" y="26" width="306" height="39"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slag Travels 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-b7-6tz">
+                                            <rect key="frame" x="36" y="26" width="277" height="38"/>
                                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                             <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tjd-b7-6tz" firstAttribute="top" secondItem="bzh-3s-GiK" secondAttribute="topMargin" constant="15" id="cv7-rW-dcn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tjd-b7-6tz" secondAttribute="trailing" constant="20" id="uVs-E3-BcN"/>
+                                        <constraint firstItem="tjd-b7-6tz" firstAttribute="leading" secondItem="bzh-3s-GiK" secondAttribute="leadingMargin" constant="20" id="yEO-jP-6He"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tjd-b7-6tz" secondAttribute="bottom" constant="15" id="ypx-yi-5OY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="iMM-bU-gLc" kind="show" id="FUE-Qc-k5R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -193,6 +202,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sez-WC-1vS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="-674"/>
+        </scene>
+        <!--Slag Travel Challenges-->
+        <scene sceneID="Gco-RL-qWT">
+            <objects>
+                <tableViewController id="iMM-bU-gLc" customClass="SlagTravelChallenges" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="G8D-D5-BaE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="challengecell" rowHeight="90" id="GyW-x5-nih">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GyW-x5-nih" id="ZPG-Tw-BSg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can You Slag?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yj8-Me-AoN">
+                                            <rect key="frame" x="36" y="26" width="303" height="38"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                            <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yj8-Me-AoN" secondAttribute="bottom" constant="15" id="9UX-sb-XfG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yj8-Me-AoN" secondAttribute="trailing" constant="20" id="A9A-xf-prn"/>
+                                        <constraint firstItem="yj8-Me-AoN" firstAttribute="leading" secondItem="ZPG-Tw-BSg" secondAttribute="leadingMargin" constant="20" id="aIW-Pd-arh"/>
+                                        <constraint firstItem="yj8-Me-AoN" firstAttribute="top" secondItem="ZPG-Tw-BSg" secondAttribute="topMargin" constant="15" id="aea-fT-1DC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iMM-bU-gLc" id="8Gp-3u-ZFc"/>
+                            <outlet property="delegate" destination="iMM-bU-gLc" id="qND-G3-Pj9"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="segueFromChallengesToGame" id="9QR-zu-rlz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pfe-tw-9Fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="-674.21289355322347"/>
         </scene>
         <!--Introduction View Controller-->
         <scene sceneID="TaW-VJ-YBg">
@@ -266,4 +320,7 @@
         <image name="settings" width="50" height="50"/>
         <image name="tutorialintro" width="900" height="1300"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9QR-zu-rlz"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,10 @@ class IntroductionViewController: UIViewController {
     }
   }
   
+  deinit {
+    print("Deinit IntroductionViewController")
+  }
+  
   @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue)
   {
   }

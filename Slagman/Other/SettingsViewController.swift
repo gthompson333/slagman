@@ -38,6 +38,10 @@ class SettingsViewController: UIViewController {
     }
   }
   
+  deinit {
+    print("Deinit SettingsViewController")
+  }
+  
   @IBAction func musicSwitchTapped(_ sender: UISwitch) {
     if sender.isOn {
       UserDefaults.standard.set(true, forKey: SettingsKeys.music)

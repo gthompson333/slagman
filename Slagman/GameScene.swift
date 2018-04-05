@@ -83,7 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   deinit {
-    print("GameScene deinit()")
+    print("Deinit GameScene")
     motionManager.stopAccelerometerUpdates()
   }
   

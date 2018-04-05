@@ -16,4 +16,8 @@ class GregoriusViewController: UIViewController {
       self.performSegue(withIdentifier:"gregoriustotapstart",sender: self)
     })
   }
+  
+  deinit {
+    print("Deinit GregoriusViewController")
+  }
 }

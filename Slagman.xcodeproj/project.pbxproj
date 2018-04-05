@@ -31,7 +31,8 @@
 		375EFBF220729402008CCA70 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBF120729402008CCA70 /* SettingsViewController.swift */; };
 		375EFBF52074314B008CCA70 /* timetoslagup.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFBF32074314B008CCA70 /* timetoslagup.m4a */; };
 		375EFBF62074314B008CCA70 /* theslagwanders.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFBF42074314B008CCA70 /* theslagwanders.m4a */; };
-		375EFBFA207477EF008CCA70 /* SlagAdventures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBF9207477EF008CCA70 /* SlagAdventures.swift */; };
+		375EFBFA207477EF008CCA70 /* SlagTravels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBF9207477EF008CCA70 /* SlagTravels.swift */; };
+		375EFBFC20754D41008CCA70 /* SlagTravelChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBFB20754D41008CCA70 /* SlagTravelChallenges.swift */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
@@ -102,7 +103,8 @@
 		375EFBF120729402008CCA70 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		375EFBF32074314B008CCA70 /* timetoslagup.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = timetoslagup.m4a; sourceTree = "<group>"; };
 		375EFBF42074314B008CCA70 /* theslagwanders.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = theslagwanders.m4a; sourceTree = "<group>"; };
-		375EFBF9207477EF008CCA70 /* SlagAdventures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagAdventures.swift; sourceTree = "<group>"; };
+		375EFBF9207477EF008CCA70 /* SlagTravels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagTravels.swift; sourceTree = "<group>"; };
+		375EFBFB20754D41008CCA70 /* SlagTravelChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagTravelChallenges.swift; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
@@ -298,7 +300,8 @@
 				37E7F599205330700076E828 /* GregoriusViewController.swift */,
 				37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */,
 				375EFBF120729402008CCA70 /* SettingsViewController.swift */,
-				375EFBF9207477EF008CCA70 /* SlagAdventures.swift */,
+				375EFBF9207477EF008CCA70 /* SlagTravels.swift */,
+				375EFBFB20754D41008CCA70 /* SlagTravelChallenges.swift */,
 				37E7F598205330700076E828 /* Extensions.swift */,
 				37E7F59A205330710076E828 /* Utilities.swift */,
 				37B02F83206C21B400F0F921 /* HUD.swift */,
@@ -455,9 +458,10 @@
 				37E7F5B3205330830076E828 /* SKTAudio.swift in Sources */,
 				37E7F5AB205330830076E828 /* CGFloat+Extensions.swift in Sources */,
 				37CB242A2056D989001742D8 /* BoostNode.swift in Sources */,
+				375EFBFC20754D41008CCA70 /* SlagTravelChallenges.swift in Sources */,
 				37E7F5B4205330830076E828 /* SKTEffects.swift in Sources */,
 				37B02F84206C21B400F0F921 /* HUD.swift in Sources */,
-				375EFBFA207477EF008CCA70 /* SlagAdventures.swift in Sources */,
+				375EFBFA207477EF008CCA70 /* SlagTravels.swift in Sources */,
 				37E7F5B6205330830076E828 /* Vector3.swift in Sources */,
 				375EFBF220729402008CCA70 /* SettingsViewController.swift in Sources */,
 				37146506205B0BEA00D574D4 /* ChallengeCompleted.swift in Sources */,
