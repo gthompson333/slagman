@@ -10,13 +10,12 @@ import SpriteKit
 
 enum HUDSettings {
   static let font = "MarkerFelt-Wide"
-  static let fontSize: CGFloat = 50
+  static let fontSize: CGFloat = 60
   static let fontColor: UIColor = .orange
 }
 
 class HUD: SKNode {
-  var slagLabel: SKLabelNode!
-  var slagRunLabel: SKLabelNode!
+  var slagTimeLabel: SKLabelNode!
   
   override init() {
     super.init()
@@ -27,42 +26,36 @@ class HUD: SKNode {
     super.init(coder: aDecoder)
   }
   
-  func updateSlagLabel(points: Int) {
-    if slagLabel == nil {
+  func updateSlagTimeLabel(time: TimeInterval) {
+    if slagTimeLabel == nil {
       createDisplay()
     }
     
-    slagLabel?.text = "Slag: \(points)"
-  }
-  
-  func updateSlagRunLabel(points: Int) {
-    if slagRunLabel == nil {
-      createDisplay()
-    }
+    var incomingTime = time
+
+    let minutes = UInt8(incomingTime / 60.0)
+    incomingTime -= (TimeInterval(minutes) * 60)
     
-    slagRunLabel?.text = "No Crash Slag Run: \(points)"
+    let seconds = UInt8(incomingTime)
+    incomingTime -= TimeInterval(seconds)
+    
+    let milliseconds = UInt8(incomingTime * 100)
+    
+    let strSeconds = String(format: "%02d", seconds)
+    let strMilliseconds = String(format: "%02d", milliseconds)
+    
+    slagTimeLabel?.text = "Slag Time: \(strSeconds):\(strMilliseconds) seconds"
   }
   
   func createDisplay() {
     guard let scene = scene else { return }
     
-    slagLabel = SKLabelNode(fontNamed: HUDSettings.font)
-    slagLabel.name = "slaglabel"
-    slagLabel.fontSize = HUDSettings.fontSize
-    slagLabel.fontColor = HUDSettings.fontColor
-    slagLabel.position = CGPoint(x: 530, y: scene.frame.height/2 - 150)
-    slagLabel.zPosition = 5
-    slagLabel.horizontalAlignmentMode = .right
-    addChild(slagLabel)
-    
-    slagRunLabel = SKLabelNode(fontNamed: HUDSettings.font)
-    slagRunLabel.name = "slagrunlabel"
-    slagRunLabel.fontSize = HUDSettings.fontSize
-    slagRunLabel.fontColor = HUDSettings.fontColor
-    slagRunLabel.position = CGPoint(x: 530, y: scene.frame.height/2 - 80)
-    slagRunLabel.zPosition = 5
-    slagRunLabel.horizontalAlignmentMode = .right
-    addChild(slagRunLabel)
+    slagTimeLabel = SKLabelNode(fontNamed: HUDSettings.font)
+    slagTimeLabel.fontSize = HUDSettings.fontSize
+    slagTimeLabel.fontColor = HUDSettings.fontColor
+    slagTimeLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
+    slagTimeLabel.zPosition = 5
+    addChild(slagTimeLabel)
     
     let homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"

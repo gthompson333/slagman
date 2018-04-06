@@ -11,12 +11,12 @@ import SpriteKit
 class ChallengeCompleted: SKScene {
   var completedLabel: SKLabelNode!
   var slagCreatedLabel: SKLabelNode!
-  var slagRunLabel: SKLabelNode!
+  var slagTimeLabel: SKLabelNode!
   var lifetimeSlagCreatedLabel: SKLabelNode!
   
   var challengeNumberCompleted = 0
   var slagCreated = 0
-  var totalSlagCreated = 0
+  var slagTime = TimeInterval.leastNonzeroMagnitude
   var lifetimeSlag = 0
   
   var gameViewController: GameViewController?
@@ -28,8 +28,8 @@ class ChallengeCompleted: SKScene {
     slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
     slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
-    slagRunLabel = childNode(withName: "totalslagcreatedlabel") as! SKLabelNode
-    slagRunLabel.text = "\(totalSlagCreated) No Crash Slag Run!"
+    slagTimeLabel = childNode(withName: "slagtimelabel") as! SKLabelNode
+    updateSlagTimeLabel()
     
     lifetimeSlagCreatedLabel = childNode(withName: "lifetimeslaglabel") as! SKLabelNode
     lifetimeSlagCreatedLabel.text = "\(lifetimeSlag) Total Lifetime Slag Earned!"
@@ -49,5 +49,20 @@ class ChallengeCompleted: SKScene {
       
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
+  }
+  
+  func updateSlagTimeLabel() {
+    let minutes = UInt8(slagTime / 60.0)
+    slagTime -= (TimeInterval(minutes) * 60)
+    
+    let seconds = UInt8(slagTime)
+    slagTime -= TimeInterval(seconds)
+    
+    let milliseconds = UInt8(slagTime * 100)
+    
+    let strSeconds = String(format: "%02d", seconds)
+    let strMilliseconds = String(format: "%02d", milliseconds)
+    
+    slagTimeLabel?.text = "Slag Time: \(strSeconds):\(strMilliseconds) seconds"
   }
 }
