@@ -15,10 +15,10 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     if let view = self.view as! SKView? {
-      let storedChallengeNumber = UserDefaults.standard.integer(forKey: "challengenumber")
-      print("Challenge number \(storedChallengeNumber) retrieved from user defaults.")
+      let currentChallenge = SessionData.sharedInstance.currentChallenge
+      print("Challenge number \(currentChallenge) retrieved from session data.")
       
-      if let scene = GameScene.sceneFor(challengeNumber: storedChallengeNumber) {
+      if let scene = GameScene.sceneFor(challengeNumber: currentChallenge) {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
         

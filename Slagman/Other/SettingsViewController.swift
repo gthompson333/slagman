@@ -63,11 +63,12 @@ class SettingsViewController: UIViewController {
     let alert = UIAlertController(title: "Reset to Slag Noob?", message: "Everything resets to zero.", preferredStyle: .alert)
     
     alert.addAction(UIAlertAction(title: "Slag Yeah!", style: .default, handler: { _ in
-      print("Persisting to user defaults challenge number 1.")
-      UserDefaults.standard.set(1, forKey: "challengenumber")
+      print("Saving to session data, challenge number 1.")
+      SessionData.sharedInstance.currentChallenge = 1
       
-      print("Persisting to user defaults 0 lifetime slag points.")
-      UserDefaults.standard.set(0, forKey: "lifetimeslagpoints")
+      print("Saving to session data, 0 total game slag.")
+      SessionData.sharedInstance.earnedSlag = 0
+      SessionData.saveData()
     }))
     
     alert.addAction(UIAlertAction(title: "Slag No!", style: .cancel, handler: nil))

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlagTravelChallenges: UITableViewController {
+class SlagChallengesViewController: UITableViewController {
   let challenges = [["name" : "Can You Slag?!", "locked" : false],
                      ["name" : "Git Yer Slag On!", "locked" : false],
                      ["name" : "Link the Slag!", "locked" : false],
@@ -64,8 +64,9 @@ class SlagTravelChallenges: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("Persisting to user defaults challenge number: \(indexPath.row + 1)")
-    UserDefaults.standard.set(indexPath.row + 1, forKey: "challengenumber")
+    print("Saving to session data, challenge number: \(indexPath.row + 1)")
+    SessionData.sharedInstance.currentChallenge = indexPath.row + 1
+    SessionData.saveData()
     
     performSegue(withIdentifier: "segueFromChallengesToGame", sender: self)
   }

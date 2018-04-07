@@ -8,16 +8,17 @@
 
 import SpriteKit
 
-class ChallengeCompleted: SKScene {
+class ChallengeCompletedScene: SKScene {
   var completedLabel: SKLabelNode!
+  var newTimeLabel: SKLabelNode!
   var slagCreatedLabel: SKLabelNode!
   var slagTimeLabel: SKLabelNode!
-  var lifetimeSlagCreatedLabel: SKLabelNode!
+  var earnedSlagLabel: SKLabelNode!
   
   var challengeNumberCompleted = 0
   var slagCreated = 0
   var slagTime = TimeInterval.leastNonzeroMagnitude
-  var lifetimeSlag = 0
+  var earnedSlag = 0
   
   var gameViewController: GameViewController?
   
@@ -25,17 +26,28 @@ class ChallengeCompleted: SKScene {
     completedLabel = childNode(withName: "completedlabel") as! SKLabelNode
     completedLabel.text = "Conslagulations!"
     
+    newTimeLabel = childNode(withName: "newtimelabel") as! SKLabelNode
+    
     slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
     slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
     slagTimeLabel = childNode(withName: "slagtimelabel") as! SKLabelNode
+    
+    let timeData = SessionData.sharedInstance.recordBestTime(newTime: slagTime, challengeNumber: challengeNumberCompleted)
+    slagTime = timeData.bestTime
+    
     updateSlagTimeLabel()
     
-    lifetimeSlagCreatedLabel = childNode(withName: "lifetimeslaglabel") as! SKLabelNode
-    lifetimeSlagCreatedLabel.text = "\(lifetimeSlag) Total Lifetime Slag Earned!"
+    if timeData.isNewBestTime {
+      pulseNewTimeLabel()
+    }
     
-    print("Persisting to user defaults challenge number: \(challengeNumberCompleted + 1)")
-    UserDefaults.standard.set(challengeNumberCompleted + 1, forKey: "challengenumber")
+    earnedSlagLabel = childNode(withName: "earnedslaglabel") as! SKLabelNode
+    earnedSlagLabel.text = "\(earnedSlag) Total Game Slag"
+    
+    print("Saving to session data, challenge number: \(challengeNumberCompleted + 1)")
+    SessionData.sharedInstance.currentChallenge = challengeNumberCompleted + 1
+    SessionData.saveData()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,6 +61,15 @@ class ChallengeCompleted: SKScene {
       
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
+  }
+  
+  func pulseNewTimeLabel() {
+    newTimeLabel.isHidden = false
+    
+    let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
+                                        SKAction.scale(to: 1.0, duration: 0.5)])
+    
+    newTimeLabel.run(SKAction.repeatForever(scalePulse))
   }
   
   func updateSlagTimeLabel() {

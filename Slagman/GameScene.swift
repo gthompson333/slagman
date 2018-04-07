@@ -9,7 +9,7 @@
 import SpriteKit
 import CoreMotion
 
-var lifetimeSlagPoints = 0
+var earnedSlag = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   weak var gameViewController: GameViewController?
@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       })
     }
     
-    lifetimeSlagPoints = UserDefaults.standard.integer(forKey: "lifetimeslagpoints")
+    earnedSlag = SessionData.sharedInstance.earnedSlag
   }
   
   deinit {
@@ -289,18 +289,18 @@ extension GameScene {
           print("Challenge ended.")
           gameState = .challengeEnded
           
-          lifetimeSlagPoints += slagPoints
+          earnedSlag += slagPoints
           finishTime = elapsedTime
           
-          print("Persisting to user defaults lifetime slag points: \(lifetimeSlagPoints)")
-          UserDefaults.standard.set(lifetimeSlagPoints, forKey: "lifetimeslagpoints")
+          print("Saving to session data, earned slag: \(earnedSlag)")
+          SessionData.sharedInstance.earnedSlag = earnedSlag
           
           run(SKAction.afterDelay(1.5, runBlock: {
-            if let challengeCompleted = ChallengeCompleted(fileNamed: "ChallengeCompleted") {
+            if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
               challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
               challengeCompleted.slagCreated = self.slagPoints
               challengeCompleted.slagTime = self.finishTime
-              challengeCompleted.lifetimeSlag = lifetimeSlagPoints
+              challengeCompleted.earnedSlag = earnedSlag
               challengeCompleted.scaleMode = .aspectFill
               challengeCompleted.gameViewController = self.gameViewController
               self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
@@ -332,6 +332,7 @@ extension GameScene {
         // If Slagman should die upon touching this object.
         if other.node?.userData?["deadly"] != nil {
           player.playerState = .dead
+          gameState = .challengeEnded
           
           run(SKAction.afterDelay(2.0, runBlock: {
             if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {

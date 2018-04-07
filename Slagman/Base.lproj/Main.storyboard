@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uto-fM-6AD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="-674.21289355322347"/>
         </scene>
-        <!--Slag Travels-->
+        <!--Slag Travels View Controller-->
         <scene sceneID="gnU-71-pZT">
             <objects>
-                <tableViewController id="Zxm-XF-8uc" customClass="SlagTravels" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Zxm-XF-8uc" customClass="SlagTravelsViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f4X-3v-Ret">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="729" y="-674"/>
         </scene>
-        <!--Slag Travel Challenges-->
+        <!--Slag Challenges View Controller-->
         <scene sceneID="Gco-RL-qWT">
             <objects>
-                <tableViewController id="iMM-bU-gLc" customClass="SlagTravelChallenges" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iMM-bU-gLc" customClass="SlagChallengesViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="G8D-D5-BaE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,6 +321,6 @@
         <image name="tutorialintro" width="900" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V4Z-5M-9gK"/>
+        <segue reference="9QR-zu-rlz"/>
     </inferredMetricsTieBreakers>
 </document>

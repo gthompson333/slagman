@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlagTravels: UITableViewController {
+class SlagTravelsViewController: UITableViewController {
   let travelItems = [["name" : "Slag Travels 1", "locked" : false],
                      ["name" : "Future Slag Travels 2", "locked" : true],
                      ["name" : "Future Salg Travels 3", "locked" : true]]
