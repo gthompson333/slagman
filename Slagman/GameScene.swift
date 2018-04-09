@@ -9,8 +9,6 @@
 import SpriteKit
 import CoreMotion
 
-var earnedSlag = 0
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
   weak var gameViewController: GameViewController?
   
@@ -26,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  var currentChallengeNumber = 1
   var slagPoints = 0
   
   var gameState = GameState.starting
@@ -42,10 +39,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
     if let scene = GameScene(fileNamed: "Challenge\(challengeNumber)") {
-      scene.currentChallengeNumber = challengeNumber
       return scene
     } else if let scene = GameScene(fileNamed: "Challenge1") {
-      scene.currentChallengeNumber = 1
+      SessionData.sharedInstance.currentChallenge = 1
       return scene
     }
     
@@ -81,8 +77,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       })
     }
-    
-    earnedSlag = SessionData.sharedInstance.earnedSlag
   }
   
   deinit {
@@ -183,7 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
-      challengeLabel.text = "Slag Challenge \(currentChallengeNumber)"
+      challengeLabel.text = "Slag Challenge \(SessionData.sharedInstance.currentChallenge)"
     }
     
     let cameraNode = SKCameraNode()
@@ -289,23 +283,30 @@ extension GameScene {
           print("Challenge ended.")
           gameState = .challengeEnded
           
-          earnedSlag += slagPoints
           finishTime = elapsedTime
           
-          print("Saving to session data, earned slag: \(earnedSlag)")
-          SessionData.sharedInstance.earnedSlag = earnedSlag
+          if SessionData.sharedInstance.currentChallenge > 0 {
+            run(SKAction.afterDelay(1.5, runBlock: {
+              if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
+                challengeCompleted.challengeNumberCompleted = SessionData.sharedInstance.currentChallenge
+                challengeCompleted.slagCreated = self.slagPoints
+                challengeCompleted.slagTime = self.finishTime
+                challengeCompleted.scaleMode = .aspectFill
+                challengeCompleted.gameViewController = self.gameViewController
+                self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
+              }
+            }))
+          } else {
+            run(SKAction.afterDelay(1.5, runBlock: {
+              if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
+                tutorialCompleted.challengeNumberCompleted = SessionData.sharedInstance.currentChallenge
+                tutorialCompleted.scaleMode = .aspectFill
+                tutorialCompleted.gameViewController = self.gameViewController
+                self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
+              }
+            }))
+          }
           
-          run(SKAction.afterDelay(1.5, runBlock: {
-            if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
-              challengeCompleted.challengeNumberCompleted = self.currentChallengeNumber
-              challengeCompleted.slagCreated = self.slagPoints
-              challengeCompleted.slagTime = self.finishTime
-              challengeCompleted.earnedSlag = earnedSlag
-              challengeCompleted.scaleMode = .aspectFill
-              challengeCompleted.gameViewController = self.gameViewController
-              self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
-            }
-          }))
           boostNode.finishExplosion()
         // It's just a regular power node.
         } else {
@@ -335,7 +336,7 @@ extension GameScene {
           gameState = .challengeEnded
           
           run(SKAction.afterDelay(2.0, runBlock: {
-            if let scene = GameScene.sceneFor(challengeNumber: self.currentChallengeNumber) {
+            if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.currentChallenge) {
               scene.scaleMode = .aspectFill
               
               let gameScene = scene as! GameScene

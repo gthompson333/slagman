@@ -11,7 +11,7 @@ import Foundation
 class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
-  var currentChallenge = 1
+  var currentChallenge = 0
   var earnedSlag = 0
   var bestTimes = Array(repeating: TimeInterval.infinity, count: 11)
 
@@ -25,12 +25,17 @@ class SessionData: NSObject, NSCoding {
     
     currentChallenge = aDecoder.decodeInteger(forKey: "currentchallenge")
     earnedSlag = aDecoder.decodeInteger(forKey: "earnedslag")
+    
+    if let decodedTimes = aDecoder.decodeObject(forKey: "besttimes") as? [Double] {
+      bestTimes = decodedTimes
+    }
   }
   
   func encode(with aCoder: NSCoder) {
     print("encoding")
     aCoder.encode(currentChallenge, forKey: "currentchallenge")
     aCoder.encode(earnedSlag, forKey: "earnedslag")
+    aCoder.encode(bestTimes, forKey: "besttimes")
   }
   
   func recordBestTime(newTime: TimeInterval, challengeNumber: Int) -> (bestTime: TimeInterval, isNewBestTime: Bool) {

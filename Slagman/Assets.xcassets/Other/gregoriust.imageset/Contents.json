@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "powerup04_6.png",
+      "filename" : "gregoriust.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "powerup04_6@2x.png",
       "scale" : "2x"
     },
     {

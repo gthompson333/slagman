@@ -9,16 +9,17 @@
 import UIKit
 
 class SlagChallengesViewController: UITableViewController {
-  let challenges = [["name" : "Can You Slag?!", "locked" : false],
-                     ["name" : "Git Yer Slag On!", "locked" : false],
-                     ["name" : "Link the Slag!", "locked" : false],
-                     ["name" : "Watch for Slag Mines!", "locked" : false],
-                     ["name" : "Are You Slaggy?!", "locked" : false],
-                     ["name" : "Grav to The Slag!", "locked" : false],
-                     ["name" : "Little Slag Grab!", "locked" : false],
-                     ["name" : "Watch for Slag Grav!", "locked" : false],
-                     ["name" : "Time to Slag Up!", "locked" : false],
-                     ["name" : "The Slag Wanders!", "locked" : false]]
+  let challenges = [["name" : "Learn to Slag!", "locked" : false],
+                    ["name" : "Can You Slag?!", "locked" : false],
+                    ["name" : "Git Yer Slag On!", "locked" : false],
+                    ["name" : "Link the Slag!", "locked" : false],
+                    ["name" : "Watch for Slag Mines!", "locked" : false],
+                    ["name" : "Are You Slaggy?!", "locked" : false],
+                    ["name" : "Grav to The Slag!", "locked" : false],
+                    ["name" : "Little Slag Grab!", "locked" : false],
+                    ["name" : "Watch for Slag Grav!", "locked" : false],
+                    ["name" : "Time to Slag Up!", "locked" : false],
+                    ["name" : "The Slag Wanders!", "locked" : false]]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,8 +65,8 @@ class SlagChallengesViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("Saving to session data, challenge number: \(indexPath.row + 1)")
-    SessionData.sharedInstance.currentChallenge = indexPath.row + 1
+    print("Saving to session data, challenge number: \(indexPath.row)")
+    SessionData.sharedInstance.currentChallenge = indexPath.row
     SessionData.saveData()
     
     performSegue(withIdentifier: "segueFromChallengesToGame", sender: self)

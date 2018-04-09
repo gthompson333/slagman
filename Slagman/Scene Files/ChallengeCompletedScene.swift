@@ -18,7 +18,6 @@ class ChallengeCompletedScene: SKScene {
   var challengeNumberCompleted = 0
   var slagCreated = 0
   var slagTime = TimeInterval.leastNonzeroMagnitude
-  var earnedSlag = 0
   
   var gameViewController: GameViewController?
   
@@ -42,8 +41,11 @@ class ChallengeCompletedScene: SKScene {
       pulseNewTimeLabel()
     }
     
+    SessionData.sharedInstance.earnedSlag += slagCreated
+    print("\(SessionData.sharedInstance.earnedSlag) earned slag saved to session data.")
+    
     earnedSlagLabel = childNode(withName: "earnedslaglabel") as! SKLabelNode
-    earnedSlagLabel.text = "\(earnedSlag) Total Game Slag"
+    earnedSlagLabel.text = "\(SessionData.sharedInstance.earnedSlag) Total Game Slag"
     
     print("Saving to session data, challenge number: \(challengeNumberCompleted + 1)")
     SessionData.sharedInstance.currentChallenge = challengeNumberCompleted + 1
