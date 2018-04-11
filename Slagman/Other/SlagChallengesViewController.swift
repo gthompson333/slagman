@@ -10,16 +10,16 @@ import UIKit
 
 class SlagChallengesViewController: UITableViewController {
   let challenges = [["name" : "Learn to Slag!", "locked" : false],
-                    ["name" : "Can You Slag?!", "locked" : false],
-                    ["name" : "Git Yer Slag On!", "locked" : false],
+                    ["name" : "Let's Slag!", "locked" : false],
                     ["name" : "Link the Slag!", "locked" : false],
                     ["name" : "Watch for Slag Mines!", "locked" : false],
+                    ["name" : "Power to The Slag!", "locked" : false],
                     ["name" : "Are You Slaggy?!", "locked" : false],
                     ["name" : "Grav to The Slag!", "locked" : false],
-                    ["name" : "Little Slag Grab!", "locked" : false],
-                    ["name" : "Watch for Slag Grav!", "locked" : false],
+                    ["name" : "Little Grabby Slags!", "locked" : false],
+                    ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
                     ["name" : "Time to Slag Up!", "locked" : false],
-                    ["name" : "The Slag Wanders!", "locked" : false]]
+                    ["name" : "Bust a Slag Move!", "locked" : false]]
   
   override func viewDidLoad() {
     super.viewDidLoad()

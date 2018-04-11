@@ -300,6 +300,8 @@ extension GameScene {
             run(SKAction.afterDelay(1.5, runBlock: {
               if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
                 tutorialCompleted.challengeNumberCompleted = SessionData.sharedInstance.currentChallenge
+                tutorialCompleted.slagCreated = self.slagPoints
+                tutorialCompleted.slagTime = self.finishTime
                 tutorialCompleted.scaleMode = .aspectFill
                 tutorialCompleted.gameViewController = self.gameViewController
                 self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
