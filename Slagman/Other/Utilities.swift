@@ -33,5 +33,21 @@ func createAnimationActionWithFilePrefix(_ prefix: String, start: Int, end: Int,
   return SKAction.animate(with: textures, timePerFrame: timePerFrame)
 }
 
-
+extension SKLabelNode {
+  func formatText(time: TimeInterval) {
+    var mutableTime = time
+    let minutes = UInt8(mutableTime / 60.0)
+    mutableTime -= (TimeInterval(minutes) * 60)
+    
+    let seconds = UInt8(time)
+    mutableTime -= TimeInterval(seconds)
+    
+    let milliseconds = UInt8(mutableTime * 100)
+    
+    let strSeconds = String(format: "%02d", seconds)
+    let strMilliseconds = String(format: "%02d", milliseconds)
+    
+    text = "Slag Time: \(strSeconds):\(strMilliseconds) seconds"
+  }
+}
 

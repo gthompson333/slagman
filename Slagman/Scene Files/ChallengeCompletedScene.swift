@@ -22,20 +22,17 @@ class ChallengeCompletedScene: SKScene {
   var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
-    completedLabel = childNode(withName: "completedlabel") as! SKLabelNode
-    completedLabel.text = "Conslagulations!"
-    
-    newTimeLabel = childNode(withName: "newtimelabel") as! SKLabelNode
-    
     slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
     slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
     slagTimeLabel = childNode(withName: "slagtimelabel") as! SKLabelNode
+    slagTimeLabel.formatText(time: slagTime)
     
     let timeData = SessionData.sharedInstance.recordBestTime(newTime: slagTime, challengeNumber: challengeNumberCompleted)
-    slagTime = timeData.bestTime
     
-    updateSlagTimeLabel()
+    newTimeLabel = childNode(withName: "newtimelabel") as! SKLabelNode
+    newTimeLabel.formatText(time: timeData.bestTime)
+    newTimeLabel.text = "TOP " + newTimeLabel.text!
     
     if timeData.isNewBestTime {
       pulseNewTimeLabel()
@@ -66,26 +63,11 @@ class ChallengeCompletedScene: SKScene {
   }
   
   func pulseNewTimeLabel() {
-    newTimeLabel.isHidden = false
-    
     let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
                                         SKAction.scale(to: 1.0, duration: 0.5)])
     
     newTimeLabel.run(SKAction.repeatForever(scalePulse))
   }
-  
-  func updateSlagTimeLabel() {
-    let minutes = UInt8(slagTime / 60.0)
-    slagTime -= (TimeInterval(minutes) * 60)
-    
-    let seconds = UInt8(slagTime)
-    slagTime -= TimeInterval(seconds)
-    
-    let milliseconds = UInt8(slagTime * 100)
-    
-    let strSeconds = String(format: "%02d", seconds)
-    let strMilliseconds = String(format: "%02d", milliseconds)
-    
-    slagTimeLabel?.text = "Slag Time: \(strSeconds):\(strMilliseconds) seconds"
-  }
 }
+
+

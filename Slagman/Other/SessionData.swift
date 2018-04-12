@@ -93,13 +93,13 @@ class SessionData: NSObject, NSCoding {
     
     if FileManager.default.fileExists(atPath: url.path) {
       sessionData = NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? SessionData
-      _ = try? FileManager.default.removeItem(at: url)
     }
     
     if sessionData == nil {
       print("Unable to read session data from library directory.")
       return SessionData()
     }
+    
     print("Session data successfully read from library directory.")
     return sessionData!
   }
