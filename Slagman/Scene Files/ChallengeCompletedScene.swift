@@ -22,6 +22,20 @@ class ChallengeCompletedScene: SKScene {
   var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
+    let backgroundMusic = userData?["backgroundmusic"] as? String
+    let introVoice = userData?["introvoice"] as? String
+    
+    let bgMusic = backgroundMusic != nil ? backgroundMusic! : "lunarlove.wav"
+    let iVoice = introVoice != nil ? introVoice! : "slagmanvoice.m4a"
+    
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
+                             SKAction.run {
+                              if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
+                                self.playBackgroundMusic(name: bgMusic)
+                              }}]))
+    }
+    
     slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
     slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
     
@@ -67,6 +81,17 @@ class ChallengeCompletedScene: SKScene {
                                         SKAction.scale(to: 1.0, duration: 0.5)])
     
     newTimeLabel.run(SKAction.repeatForever(scalePulse))
+  }
+  
+  func playBackgroundMusic(name: String) {
+    if let _ = childNode(withName: "backgroundmusic") {
+      return
+    }
+    
+    let music = SKAudioNode(fileNamed: name)
+    music.name = "backgroundmusic"
+    music.autoplayLooped = true
+    addChild(music)
   }
 }
 

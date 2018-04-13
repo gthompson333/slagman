@@ -42,10 +42,8 @@ class PlayerNode: SKSpriteNode {
   // MARK: - Private properties.
   // Collection of player actions, sounds, and animations.
   private var actions: [String : SKAction] = [:]
-  
-  private var boostParticlesTrail: SKEmitterNode!
-  
   var controlEnabled = true
+  private var numBoosts = 0
   
   // MARK: - Methods
   required init?(coder aDecoder: NSCoder) {
@@ -93,13 +91,13 @@ class PlayerNode: SKSpriteNode {
   
   // MARK: - Actions
   func boosting() {
-    if boostParticlesTrail == nil {
-      boostParticlesTrail = SKEmitterNode(fileNamed: "boostparticles")!
-      boostParticlesTrail.position = CGPoint(x: boostParticlesTrail.position.x, y: boostParticlesTrail.position.y - 70)
-      boostParticlesTrail.targetNode = parent
-      addChild(boostParticlesTrail)
+    numBoosts += 1
+    
+    if numBoosts > 3 {
+      return
     }
     
+    // Movement animation
     if abs(physicsBody!.velocity.dx) > 100.0 {
       if physicsBody!.velocity.dx > 0 {
         run(actions["steeringright"]!)
@@ -107,23 +105,62 @@ class PlayerNode: SKSpriteNode {
         run(actions["steeringleft"]!)
       }
     } else {
-      run(actions["jetboost"]!)
+      run(actions["boost"]!)
     }
     
+    // Sounds
     if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
-      run(actions["jetboostsound"]!)
+      switch numBoosts {
+      case 1:
+        run(actions["boostsound"]!)
+      case 2:
+        run(actions["smallboostsound"]!)
+      case 3:
+        run(actions["fizzleboostsound"]!)
+      default:
+        break
+      }
     }
     
-    setJumpVelocity(700)
+    // Boost particles
+    childNode(withName: "boostparticles")?.removeFromParent()
     
-    boostParticlesTrail.particleBirthRate = 400
+    switch numBoosts {
+    case 1:
+      let boostParticles = SKEmitterNode(fileNamed: "boostparticles")!
+      boostParticles.name = "boostparticles"
+      boostParticles.particleBirthRate = 400
+      boostParticles.position = CGPoint(x: boostParticles.position.x, y: boostParticles.position.y - 70)
+      boostParticles.targetNode = parent
+      addChild(boostParticles)
+      setJumpVelocity(700)
+    case 2,3:
+      let boostParticles = SKEmitterNode(fileNamed: "smallboostparticles")!
+      boostParticles.name = "boostparticles"
+      boostParticles.particleBirthRate = 400
+      boostParticles.position = CGPoint(x: boostParticles.position.x, y: boostParticles.position.y - 70)
+      boostParticles.targetNode = parent
+      addChild(boostParticles)
+      
+      if numBoosts == 2 {
+        setJumpVelocity(600)
+      } else {
+        setJumpVelocity(300)
+      }
+    default:
+      break
+    }
     
     run(SKAction.afterDelay(0.25, runBlock: {
-      self.boostParticlesTrail.particleBirthRate = 0
+      if let boostParticles = self.childNode(withName: "boostparticles") as? SKEmitterNode {
+        boostParticles.particleBirthRate = 0
+      }
     }))
   }
   
   func powerBoost() {
+    numBoosts = 0
+    
     if abs(physicsBody!.velocity.dx) > 100.0 {
       if physicsBody!.velocity.dx > 0 {
         run(actions["steeringright"]!)
@@ -131,14 +168,14 @@ class PlayerNode: SKSpriteNode {
         run(actions["steeringleft"]!)
       }
     } else {
-      run(actions["jetboost"]!)
+      run(actions["boost"]!)
     }
     
     if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
       run(actions["powerboostsound"]!)
     }
     
-    setJumpVelocity(1000)
+    setJumpVelocity(900)
   }
   
   func falling() {
@@ -167,13 +204,15 @@ class PlayerNode: SKSpriteNode {
   private func createActions() {
     let timePerFrame: TimeInterval = 0.1
     
-    actions["jetboost"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: timePerFrame)
+    actions["boost"] = setupAnimationWithPrefix("player01_jet_", start: 1, end: 4, timePerFrame: timePerFrame)
     actions["falling"] = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: timePerFrame)
     actions["steeringleft"] = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 2, timePerFrame: timePerFrame)
     actions["steeringright"] = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 2, timePerFrame: timePerFrame)
     
-    actions["jetboostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
+    actions["boostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
+    actions["smallboostsound"] = SKAction.playSoundFileNamed("smallboost.wav", waitForCompletion: false)
+    actions["fizzleboostsound"] = SKAction.playSoundFileNamed("fizzleboost.wav", waitForCompletion: false)
     actions["explosionsound"] = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
   }
   

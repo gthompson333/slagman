@@ -39,6 +39,10 @@
 		375EFC18207F068A008CCA70 /* mrslaggysayshello.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC12207F068A008CCA70 /* mrslaggysayshello.m4a */; };
 		375EFC19207F068A008CCA70 /* letsslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC13207F068A008CCA70 /* letsslag.m4a */; };
 		375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC14207F068A008CCA70 /* littlegrabbyslags.m4a */; };
+		375EFC1C207FB90D008CCA70 /* smallboostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1B207FB90C008CCA70 /* smallboostparticles.sks */; };
+		375EFC1E207FC5AF008CCA70 /* fizzleboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */; };
+		375EFC2020802E54008CCA70 /* smallboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1F20802E53008CCA70 /* smallboost.wav */; };
+		375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2120803020008CCA70 /* challengevoice.m4a */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
@@ -115,6 +119,10 @@
 		375EFC12207F068A008CCA70 /* mrslaggysayshello.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrslaggysayshello.m4a; sourceTree = "<group>"; };
 		375EFC13207F068A008CCA70 /* letsslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = letsslag.m4a; sourceTree = "<group>"; };
 		375EFC14207F068A008CCA70 /* littlegrabbyslags.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = littlegrabbyslags.m4a; sourceTree = "<group>"; };
+		375EFC1B207FB90C008CCA70 /* smallboostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smallboostparticles.sks; sourceTree = "<group>"; };
+		375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fizzleboost.wav; sourceTree = "<group>"; };
+		375EFC1F20802E53008CCA70 /* smallboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smallboost.wav; sourceTree = "<group>"; };
+		375EFC2120803020008CCA70 /* challengevoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengevoice.m4a; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
@@ -183,6 +191,7 @@
 		375EFBEC206FEB40008CCA70 /* Intro Voices */ = {
 			isa = PBXGroup;
 			children = (
+				375EFC2120803020008CCA70 /* challengevoice.m4a */,
 				375EFC10207F0689008CCA70 /* bustaslagmove.m4a */,
 				375EFC11207F068A008CCA70 /* learntoslag.m4a */,
 				375EFC13207F068A008CCA70 /* letsslag.m4a */,
@@ -213,6 +222,7 @@
 			children = (
 				37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */,
 				376F708E2054B07500A9785D /* boostparticles.sks */,
+				375EFC1B207FB90C008CCA70 /* smallboostparticles.sks */,
 				37CB242B2056DA37001742D8 /* boostexplosion.sks */,
 				37D3F7322057042A00820D83 /* playerdeadexplosion.sks */,
 			);
@@ -254,6 +264,8 @@
 				37C10D4A2058362300DAF46E /* explosion.wav */,
 				37E7F5C32054AA710076E828 /* spacegame.caf */,
 				37E7F58D205238F20076E828 /* boost.wav */,
+				375EFC1F20802E53008CCA70 /* smallboost.wav */,
+				375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */,
 				37A0DBF1204F12300046715C /* powerboost.wav */,
 			);
 			path = Sounds;
@@ -417,6 +429,7 @@
 				37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */,
 				375EFC16207F068A008CCA70 /* bustaslagmove.m4a in Resources */,
 				374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */,
+				375EFC1C207FB90D008CCA70 /* smallboostparticles.sks in Resources */,
 				374294042064C62D00E52496 /* Challenge6.sks in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */,
@@ -432,10 +445,12 @@
 				37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge5.sks in Resources */,
+				375EFC2020802E54008CCA70 /* smallboost.wav in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
 				375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */,
 				3714650E205C84E100D574D4 /* lunarlove.wav in Resources */,
+				375EFC1E207FC5AF008CCA70 /* fizzleboost.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 				374506B1206F58F500AEF948 /* areyouslaggy.m4a in Resources */,
@@ -447,6 +462,7 @@
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
 				375EFC18207F068A008CCA70 /* mrslaggysayshello.m4a in Resources */,
 				375EFC19207F068A008CCA70 /* letsslag.m4a in Resources */,
+				375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */,
 				37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */,
 				375EFC02207A83E5008CCA70 /* Challenge0.sks in Resources */,
 				37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */,
