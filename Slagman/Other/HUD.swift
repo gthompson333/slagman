@@ -8,14 +8,15 @@
 
 import SpriteKit
 
-enum HUDSettings {
+private enum HUDSettings {
   static let font = "MarkerFelt-Wide"
   static let fontSize: CGFloat = 60
   static let fontColor: UIColor = .orange
 }
 
 class HUD: SKNode {
-  var slagTimeLabel: SKLabelNode!
+  private var slagTimeLabel: SKLabelNode!
+  var homeButton: SKSpriteNode!
   
   override init() {
     super.init()
@@ -57,7 +58,7 @@ class HUD: SKNode {
     slagTimeLabel.zPosition = 5
     addChild(slagTimeLabel)
     
-    let homeButton = SKSpriteNode(imageNamed: "homeicon")
+    homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"
     homeButton.position = CGPoint(x: -490, y: scene.frame.height/2 - 90)
     homeButton.zPosition = 5

@@ -91,7 +91,11 @@ class PlayerNode: SKSpriteNode {
   
   // MARK: - Actions
   func boosting() {
-    numBoosts += 1
+    if SessionData.sharedInstance.currentChallenge == 0 {
+      numBoosts = 1
+    } else {
+      numBoosts += 1
+    }
     
     if numBoosts > 3 {
       return
@@ -211,7 +215,7 @@ class PlayerNode: SKSpriteNode {
     
     actions["boostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
-    actions["smallboostsound"] = SKAction.playSoundFileNamed("smallboost.wav", waitForCompletion: false)
+    actions["smallboostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["fizzleboostsound"] = SKAction.playSoundFileNamed("fizzleboost.wav", waitForCompletion: false)
     actions["explosionsound"] = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
   }

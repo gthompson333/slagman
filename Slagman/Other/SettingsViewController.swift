@@ -73,6 +73,7 @@ class SettingsViewController: UIViewController {
       SessionData.sharedInstance.bestTimes = Array(repeating: TimeInterval.infinity, count: 11)
       
       SessionData.saveData()
+      self.performSegue(withIdentifier: "settingstointroduction", sender: self)
     }))
     
     alert.addAction(UIAlertAction(title: "Slag No!", style: .cancel, handler: nil))

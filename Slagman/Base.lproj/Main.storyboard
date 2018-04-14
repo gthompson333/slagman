@@ -106,7 +106,7 @@
                                     <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HYJ-IO-UUy" kind="unwind" unwindAction="unwindFromSettingsToIntroductionWithSender:" id="QAm-09-62P"/>
+                                    <segue destination="HYJ-IO-UUy" kind="unwind" identifier="settingstointroduction" unwindAction="unwindFromSettingsToIntroductionWithSender:" id="QAm-09-62P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z9-IH-JJN">

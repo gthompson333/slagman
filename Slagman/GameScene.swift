@@ -117,6 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
       
       gameState = .playing
+      hud.homeButton.removeFromParent()
       
       if let challengeLabel = fgNode.childNode(withName: "introlabel") as? SKLabelNode {
         challengeLabel.run(SKAction.scale(to: 0, duration: 0.5))
