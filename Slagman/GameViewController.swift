@@ -35,6 +35,16 @@ class GameViewController: UIViewController {
     }
   }
   
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    
+    if #available(iOS 11.0, *) {
+      if let window = view.window {
+        view.frame = window.safeAreaLayoutGuide.layoutFrame
+      }
+    }
+  }
+  
   deinit {
     print("Deinit GameViewController")
   }

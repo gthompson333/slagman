@@ -30,7 +30,7 @@
 		375EFBFC20754D41008CCA70 /* SlagChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBFB20754D41008CCA70 /* SlagChallengesViewController.swift */; };
 		375EFBFE207805E7008CCA70 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBFD207805E7008CCA70 /* SessionData.swift */; };
 		375EFC02207A83E5008CCA70 /* Challenge0.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC01207A83E5008CCA70 /* Challenge0.sks */; };
-		375EFC0A207B2384008CCA70 /* Challenge3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC09207B2383008CCA70 /* Challenge3.sks */; };
+		375EFC0A207B2384008CCA70 /* Challenge4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC09207B2383008CCA70 /* Challenge4.sks */; };
 		375EFC0C207BD772008CCA70 /* TutorialCompletedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFC0B207BD772008CCA70 /* TutorialCompletedScene.swift */; };
 		375EFC0E207BD77F008CCA70 /* TutorialCompleted.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC0D207BD77F008CCA70 /* TutorialCompleted.sks */; };
 		375EFC15207F068A008CCA70 /* powertotheslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC0F207F0689008CCA70 /* powertotheslag.m4a */; };
@@ -64,7 +64,7 @@
 		37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37CB242B2056DA37001742D8 /* boostexplosion.sks */; };
 		37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DB2062C1EE00C7523B /* Challenge1.sks */; };
 		37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */; };
-		37D2E9E420635B9200C7523B /* Challenge4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E320635B9100C7523B /* Challenge4.sks */; };
+		37D2E9E420635B9200C7523B /* Challenge3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E320635B9100C7523B /* Challenge3.sks */; };
 		37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E7206408E400C7523B /* slagmanvoice.m4a */; };
 		37D2E9EA2064103B00C7523B /* SlagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E92064103B00C7523B /* SlagNode.swift */; };
 		37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D3F7322057042A00820D83 /* playerdeadexplosion.sks */; };
@@ -111,7 +111,7 @@
 		375EFBFB20754D41008CCA70 /* SlagChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagChallengesViewController.swift; sourceTree = "<group>"; };
 		375EFBFD207805E7008CCA70 /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
 		375EFC01207A83E5008CCA70 /* Challenge0.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge0.sks; sourceTree = "<group>"; };
-		375EFC09207B2383008CCA70 /* Challenge3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge3.sks; sourceTree = "<group>"; };
+		375EFC09207B2383008CCA70 /* Challenge4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge4.sks; sourceTree = "<group>"; };
 		375EFC0B207BD772008CCA70 /* TutorialCompletedScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialCompletedScene.swift; sourceTree = "<group>"; };
 		375EFC0D207BD77F008CCA70 /* TutorialCompleted.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialCompleted.sks; sourceTree = "<group>"; };
 		375EFC0F207F0689008CCA70 /* powertotheslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = powertotheslag.m4a; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		37CB242B2056DA37001742D8 /* boostexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostexplosion.sks; sourceTree = "<group>"; };
 		37D2E9DB2062C1EE00C7523B /* Challenge1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge1.sks; sourceTree = "<group>"; };
 		37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
-		37D2E9E320635B9100C7523B /* Challenge4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge4.sks; sourceTree = "<group>"; };
+		37D2E9E320635B9100C7523B /* Challenge3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge3.sks; sourceTree = "<group>"; };
 		37D2E9E7206408E400C7523B /* slagmanvoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagmanvoice.m4a; sourceTree = "<group>"; };
 		37D2E9E92064103B00C7523B /* SlagNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagNode.swift; sourceTree = "<group>"; };
 		37D3F7322057042A00820D83 /* playerdeadexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerdeadexplosion.sks; sourceTree = "<group>"; };
@@ -220,6 +220,24 @@
 			path = "Scene Files";
 			sourceTree = "<group>";
 		};
+		375EFC252084F6FB008CCA70 /* Chapter 1 */ = {
+			isa = PBXGroup;
+			children = (
+				375EFC01207A83E5008CCA70 /* Challenge0.sks */,
+				37D2E9DB2062C1EE00C7523B /* Challenge1.sks */,
+				37146501205A07ED00D574D4 /* Challenge2.sks */,
+				37D2E9E320635B9100C7523B /* Challenge3.sks */,
+				375EFC09207B2383008CCA70 /* Challenge4.sks */,
+				374294032064C62C00E52496 /* Challenge5.sks */,
+				374F4BF1206DB642004ED85D /* Challenge6.sks */,
+				37B02F7F206AE6B700F0F921 /* Challenge7.sks */,
+				3745069D206EAE3D00AEF948 /* Challenge8.sks */,
+				3745069F206EB36E00AEF948 /* Challenge9.sks */,
+				375EFBEF2071C46B008CCA70 /* Challenge10.sks */,
+			);
+			path = "Chapter 1";
+			sourceTree = "<group>";
+		};
 		376F708D2054B05100A9785D /* Particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +264,7 @@
 		378E8ED02051A8CE006FCF4D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				37D2E9DA2062C1B800C7523B /* Challenges */,
+				37D2E9DA2062C1B800C7523B /* Travels */,
 				37146507205B3E3800D574D4 /* BoostGate1.sks */,
 				37146509205B3E3900D574D4 /* BoostGate2.sks */,
 				37146508205B3E3800D574D4 /* BoostGate3.sks */,
@@ -311,22 +329,12 @@
 			path = Slagman;
 			sourceTree = "<group>";
 		};
-		37D2E9DA2062C1B800C7523B /* Challenges */ = {
+		37D2E9DA2062C1B800C7523B /* Travels */ = {
 			isa = PBXGroup;
 			children = (
-				375EFC01207A83E5008CCA70 /* Challenge0.sks */,
-				37D2E9DB2062C1EE00C7523B /* Challenge1.sks */,
-				37146501205A07ED00D574D4 /* Challenge2.sks */,
-				375EFC09207B2383008CCA70 /* Challenge3.sks */,
-				37D2E9E320635B9100C7523B /* Challenge4.sks */,
-				374294032064C62C00E52496 /* Challenge5.sks */,
-				374F4BF1206DB642004ED85D /* Challenge6.sks */,
-				37B02F7F206AE6B700F0F921 /* Challenge7.sks */,
-				3745069D206EAE3D00AEF948 /* Challenge8.sks */,
-				3745069F206EB36E00AEF948 /* Challenge9.sks */,
-				375EFBEF2071C46B008CCA70 /* Challenge10.sks */,
+				375EFC252084F6FB008CCA70 /* Chapter 1 */,
 			);
-			path = Challenges;
+			path = Travels;
 			sourceTree = "<group>";
 		};
 		37E7F597205330700076E828 /* Other */ = {
@@ -424,7 +432,7 @@
 			files = (
 				37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */,
 				37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */,
-				37D2E9E420635B9200C7523B /* Challenge4.sks in Resources */,
+				37D2E9E420635B9200C7523B /* Challenge3.sks in Resources */,
 				3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */,
 				37E7F58E205238F20076E828 /* boost.wav in Resources */,
 				374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */,
@@ -444,7 +452,7 @@
 				37146502205A07ED00D574D4 /* Challenge2.sks in Resources */,
 				375EFC17207F068A008CCA70 /* learntoslag.m4a in Resources */,
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
-				375EFC0A207B2384008CCA70 /* Challenge3.sks in Resources */,
+				375EFC0A207B2384008CCA70 /* Challenge4.sks in Resources */,
 				37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */,
 				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge6.sks in Resources */,
@@ -585,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -638,7 +646,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -653,6 +661,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSRP34SCGL;
 				INFOPLIST_FILE = Slagman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -668,6 +677,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BSRP34SCGL;
 				INFOPLIST_FILE = Slagman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
