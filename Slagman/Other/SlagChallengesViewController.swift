@@ -19,7 +19,8 @@ class SlagChallengesViewController: UITableViewController {
                     ["name" : "Little Grabby Slags!", "locked" : false],
                     ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
                     ["name" : "Time to Slag Up!", "locked" : false],
-                    ["name" : "Bust a Slag Move!", "locked" : false]]
+                    ["name" : "Bust a Slag Move!", "locked" : false],
+                    ["name" : "Slag to the Right!", "locked" : false]]
   
   override func viewDidLoad() {
     super.viewDidLoad()
