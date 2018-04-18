@@ -77,6 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       })
     }
+    
+    enumerateChildNodes(withName: "//rotatinggate") { (node, _) in
+      node.isPaused = false
+    }
   }
   
   deinit {

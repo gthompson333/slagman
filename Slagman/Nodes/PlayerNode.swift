@@ -29,7 +29,6 @@ class PlayerNode: SKSpriteNode {
         player.doneDeaded()
         break
       }
-      //print("Movement state is now: \(self)")
     }
   }
   

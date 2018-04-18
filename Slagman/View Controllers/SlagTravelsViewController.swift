@@ -13,16 +13,8 @@ class SlagTravelsViewController: UITableViewController {
                      ["name" : "Future Slag Travels 2", "locked" : true],
                      ["name" : "Future Salg Travels 3", "locked" : true]]
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
   deinit {
     print("Deinit SlagTravels")
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
   }
   
   // MARK: - Table view data source
@@ -50,15 +42,4 @@ class SlagTravelsViewController: UITableViewController {
     
     return cell
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }

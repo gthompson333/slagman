@@ -9,22 +9,10 @@
 import SpriteKit
 
 class BoostNode: SKSpriteNode {
-  /*var animation = SKAction.repeatForever(createAnimationActionWithFilePrefix("boostgold", start: 1, end: 6, timePerFrame: 0.08))
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    run(animation)
-  }
-  
-  override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-    super.init(texture: texture, color: color, size: size)
-  }*/
-  
   func finishExplosion() {
     let explode = explosion(intensity: 1.0)
     explode.position = position
     parent?.addChild(explode)
-    
     removeFromParent()
   }
   
