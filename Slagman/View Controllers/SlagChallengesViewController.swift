@@ -9,7 +9,7 @@
 import UIKit
 
 class SlagChallengesViewController: UITableViewController {
-  let challenges = [["name" : "Learn to Slag!", "locked" : false],
+  let travels = [[["name" : "Learn to Slag!", "locked" : false],
                     ["name" : "Let's Slag!", "locked" : false],
                     ["name" : "Link the Slag!", "locked" : false],
                     ["name" : "Power to The Slag!", "locked" : false],
@@ -19,39 +19,33 @@ class SlagChallengesViewController: UITableViewController {
                     ["name" : "Little Grabby Slags!", "locked" : false],
                     ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
                     ["name" : "Time to Slag Up!", "locked" : false],
-                    ["name" : "Bust a Slag Move!", "locked" : false],
-                    ["name" : "Slag to the Right!", "locked" : false]]
+                    ["name" : "Bust a Slag Move!", "locked" : false]],
+                  [["name" : "Slag Hard or Die!", "locked" : false]]]
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  var selectedTravelsIndex = 0 {
+    didSet {
+      assert(selectedTravelsIndex < travels.count)
+    }
   }
   
   deinit {
     print("Deinit SlagTravelChallenges")
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   // MARK: - Table view data source
-  
   override func numberOfSections(in tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
     return 1
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return challenges.count
+    return travels[selectedTravelsIndex].count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "challengecell", for: indexPath)
     let nameLabel = cell.viewWithTag(1) as! UILabel
     
-    let item = challenges[indexPath.row]
+    let item = travels[selectedTravelsIndex][indexPath.row]
     nameLabel.text = (item["name"] as! String)
     
     if (item["locked"] as! Bool) == true {
@@ -65,8 +59,10 @@ class SlagChallengesViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("Saving to session data, challenge number: \(indexPath.row)")
-    SessionData.sharedInstance.currentChallenge = indexPath.row
+    let challengeNumber = indexPath.row + (selectedTravelsIndex * 100)
+    print("Saving to session data, challenge number: \(challengeNumber)")
+    SessionData.sharedInstance.currentChallenge = challengeNumber
+    
     SessionData.saveData()
     performSegue(withIdentifier: "segueFromChallengesToGame", sender: self)
   }

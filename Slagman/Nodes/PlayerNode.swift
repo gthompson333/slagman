@@ -148,7 +148,7 @@ class PlayerNode: SKSpriteNode {
       if numBoosts == 2 {
         setJumpVelocity(600)
       } else {
-        setJumpVelocity(300)
+        setJumpVelocity(400)
       }
     default:
       break

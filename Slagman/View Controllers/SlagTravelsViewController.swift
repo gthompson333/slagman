@@ -10,13 +10,21 @@ import UIKit
 
 class SlagTravelsViewController: UITableViewController {
   let travelItems = [["name" : "Slag Travels 1", "locked" : false],
-                     ["name" : "Future Slag Travels 2", "locked" : true],
-                     ["name" : "Future Salg Travels 3", "locked" : true]]
+                     ["name" : "Slag Travels 2", "locked" : false],
+                     ["name" : "Future Slag Travels 3", "locked" : true]]
   
   deinit {
     print("Deinit SlagTravels")
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let destController = segue.destination as? SlagChallengesViewController {
+      if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        destController.selectedTravelsIndex = selectedIndexPath.row
+      }
+    }
+  }
+
   // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1

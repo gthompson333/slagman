@@ -77,10 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       })
     }
-    
-    enumerateChildNodes(withName: "//rotatinggate") { (node, _) in
-      node.isPaused = false
-    }
+    UnPauseAnimations()
   }
   
   deinit {
@@ -176,10 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lastFGLayerPosition = originalFGLayerNode.position
     
     player = fgNode.childNode(withName: "player") as! PlayerNode
-    
     topBGNode = worldNode.childNode(withName: "backgroundtop")
-    
-    
     
     if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
       challengeLabel.text = "Slag Challenge \(SessionData.sharedInstance.currentChallenge)"
@@ -204,6 +198,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     bgNode.addChild(newBGOverlay)
     
     levelPositionY += bgNodeHeight
+    UnPauseAnimations()
   }
   
   func setupHUD() {
@@ -266,6 +261,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     music.name = "backgroundmusic"
     music.autoplayLooped = true
     addChild(music)
+  }
+  
+  func UnPauseAnimations() {
+    enumerateChildNodes(withName: "//rotatinggate") { (node, _) in
+      node.isPaused = false
+    }
   }
 }
 
