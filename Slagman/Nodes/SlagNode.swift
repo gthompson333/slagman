@@ -55,7 +55,7 @@ class SlagNode: SKSpriteNode {
   
   func deadlyAnimation() {
     let colorPulse = SKAction.sequence([
-      SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5),
+      SKAction.colorize(with: .blue, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
     
     let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),

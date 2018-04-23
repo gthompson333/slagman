@@ -45,8 +45,11 @@
 		375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2120803020008CCA70 /* challengevoice.m4a */; };
 		375EFC2420812499008CCA70 /* eightballcafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2320812499008CCA70 /* eightballcafe.wav */; };
 		375EFC2720864A0D008CCA70 /* Challenge100.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2620864A0D008CCA70 /* Challenge100.sks */; };
-		375EFC2D2086C2C2008CCA70 /* RotatingGate1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2C2086C2C1008CCA70 /* RotatingGate1.sks */; };
+		375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2C2086C2C1008CCA70 /* RotatingGateCenter.sks */; };
 		376F708F2054B07600A9785D /* boostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 376F708E2054B07500A9785D /* boostparticles.sks */; };
+		377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593620897030005F0B84 /* RotatingGateRight.sks */; };
+		377F593920897031005F0B84 /* RotatingGateLeft.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593720897031005F0B84 /* RotatingGateLeft.sks */; };
+		377F593B2089764C005F0B84 /* Challenge101.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593A2089764B005F0B84 /* Challenge101.sks */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
 		37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */; };
@@ -127,8 +130,11 @@
 		375EFC2120803020008CCA70 /* challengevoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengevoice.m4a; sourceTree = "<group>"; };
 		375EFC2320812499008CCA70 /* eightballcafe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eightballcafe.wav; sourceTree = "<group>"; };
 		375EFC2620864A0D008CCA70 /* Challenge100.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge100.sks; sourceTree = "<group>"; };
-		375EFC2C2086C2C1008CCA70 /* RotatingGate1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGate1.sks; sourceTree = "<group>"; };
+		375EFC2C2086C2C1008CCA70 /* RotatingGateCenter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGateCenter.sks; sourceTree = "<group>"; };
 		376F708E2054B07500A9785D /* boostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostparticles.sks; sourceTree = "<group>"; };
+		377F593620897030005F0B84 /* RotatingGateRight.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGateRight.sks; sourceTree = "<group>"; };
+		377F593720897031005F0B84 /* RotatingGateLeft.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGateLeft.sks; sourceTree = "<group>"; };
+		377F593A2089764B005F0B84 /* Challenge101.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge101.sks; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
 		37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = proximityexplosion.sks; sourceTree = "<group>"; };
@@ -243,7 +249,9 @@
 		375EFC2820864A58008CCA70 /* Gates */ = {
 			isa = PBXGroup;
 			children = (
-				375EFC2C2086C2C1008CCA70 /* RotatingGate1.sks */,
+				377F593720897031005F0B84 /* RotatingGateLeft.sks */,
+				377F593620897030005F0B84 /* RotatingGateRight.sks */,
+				375EFC2C2086C2C1008CCA70 /* RotatingGateCenter.sks */,
 				37146507205B3E3800D574D4 /* BoostGate1.sks */,
 				37146509205B3E3900D574D4 /* BoostGate2.sks */,
 				37146508205B3E3800D574D4 /* BoostGate3.sks */,
@@ -255,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				375EFC2620864A0D008CCA70 /* Challenge100.sks */,
+				377F593A2089764B005F0B84 /* Challenge101.sks */,
 			);
 			path = "Travels 1";
 			sourceTree = "<group>";
@@ -468,11 +477,13 @@
 				37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */,
 				375EFC16207F068A008CCA70 /* bustaslagmove.m4a in Resources */,
 				374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */,
+				377F593B2089764C005F0B84 /* Challenge101.sks in Resources */,
 				375EFC1C207FB90D008CCA70 /* smallboostparticles.sks in Resources */,
 				374294042064C62D00E52496 /* Challenge5.sks in Resources */,
 				37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */,
 				3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */,
 				375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */,
+				377F593920897031005F0B84 /* RotatingGateLeft.sks in Resources */,
 				375EFBF02071C46C008CCA70 /* Challenge10.sks in Resources */,
 				375EFC15207F068A008CCA70 /* powertotheslag.m4a in Resources */,
 				375EFBF52074314B008CCA70 /* timetoslagup.m4a in Resources */,
@@ -498,9 +509,10 @@
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
 				3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */,
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
-				375EFC2D2086C2C2008CCA70 /* RotatingGate1.sks in Resources */,
+				375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */,
 				374506AF206F58F500AEF948 /* gravtotheslag.m4a in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
+				377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */,
 				375EFC18207F068A008CCA70 /* mrslaggysayshello.m4a in Resources */,
 				375EFC19207F068A008CCA70 /* letsslag.m4a in Resources */,
 				375EFC2420812499008CCA70 /* eightballcafe.wav in Resources */,

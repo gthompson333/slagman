@@ -64,7 +64,7 @@ class ChallengeCompletedScene: SKScene {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let scene = GameScene.sceneFor(challengeNumber: challengeNumberCompleted + 1) {
+    if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.currentChallenge) {
       scene.scaleMode = .aspectFill
       
       if gameViewController != nil {

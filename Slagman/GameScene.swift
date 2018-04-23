@@ -40,9 +40,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   class func sceneFor(challengeNumber: Int) -> SKScene? {
     if let scene = GameScene(fileNamed: "Challenge\(challengeNumber)") {
       return scene
-    } else if let scene = GameScene(fileNamed: "Challenge1") {
-      SessionData.sharedInstance.currentChallenge = 1
-      return scene
+    } else {
+      let newChallengeTravels = ((challengeNumber / 100) + 1) * 100
+      
+      if let scene = GameScene(fileNamed: "Challenge\(newChallengeTravels)") {
+        SessionData.sharedInstance.currentChallenge = newChallengeTravels
+        return scene
+      } else if let scene = GameScene(fileNamed: "Challenge1") {
+        SessionData.sharedInstance.currentChallenge = 1
+        return scene
+      }
     }
     
     assertionFailure("Unable to load a scene file for challenge \(challengeNumber) or challenge 1.")
