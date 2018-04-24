@@ -25,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var countOfSceneLayers = 1
   var slagPoints = 0
+  static var theme: String?
   
   var gameState = GameState.starting
 
@@ -67,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let backgroundMusic = userData?["backgroundmusic"] as? String
     let introVoice = userData?["introvoice"] as? String
+    GameScene.theme = userData?["theme"] as? String
     
     let bgMusic = backgroundMusic != nil ? backgroundMusic! : "lunarlove.wav"
     let iVoice = introVoice != nil ? introVoice! : "slagmanvoice.m4a"
@@ -241,11 +243,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   private func updateCamera() {
     let playerPositionScene = convert(player.position, from: fgNode)
     
-    if playerPositionScene.y < -20 {
+    if playerPositionScene.y < -600 {
       return
     }
     
-    let targetPositionY = playerPositionScene.y - (size.height * 0.10)
+    let targetPositionY = playerPositionScene.y + (size.height * 0.15)
     let diff = (targetPositionY - camera!.position.y) * 0.2
     let newCameraPositionY = camera!.position.y + diff
     camera!.position.y = newCameraPositionY
