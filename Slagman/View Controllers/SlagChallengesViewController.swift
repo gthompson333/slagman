@@ -20,8 +20,10 @@ class SlagChallengesViewController: UITableViewController {
                     ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
                     ["name" : "Time to Slag Up!", "locked" : false],
                     ["name" : "Bust a Slag Move!", "locked" : false]],
-                  [["name" : "Slag Hard!", "locked" : false],
-                   ["name" : "It's a Good Day to Slag!", "locked" : false]]]
+                  [["name" : "It's a Good Day to Slag!", "locked" : false],
+                   ["name" : "Slag Hard!", "locked" : false],
+                   ["name" : "Git Off Your Slag!", "locked" : false],
+                   ["name" : "For a Few Slag More!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {
@@ -60,9 +62,15 @@ class SlagChallengesViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let challengeNumber = indexPath.row + (selectedTravelsIndex * 100)
-    print("Saving to session data, challenge number: \(challengeNumber)")
-    SessionData.sharedInstance.currentChallenge = challengeNumber
+    let challengeNumber = indexPath.row + (selectedTravelsIndex * 10)
+    
+    if selectedTravelsIndex > 0 {
+      print("Saving to session data, challenge number: \(challengeNumber + 1)")
+      SessionData.sharedInstance.currentChallenge = challengeNumber + 1
+    } else {
+      print("Saving to session data, challenge number: \(challengeNumber)")
+      SessionData.sharedInstance.currentChallenge = challengeNumber
+    }
     
     SessionData.saveData()
     performSegue(withIdentifier: "segueFromChallengesToGame", sender: self)

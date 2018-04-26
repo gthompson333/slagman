@@ -39,18 +39,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
+    // Attempt to load the scene for the challenge being asked for. Otherwise, load the
+    // scene for challenge 1.
     if let scene = GameScene(fileNamed: "Challenge\(challengeNumber)") {
       return scene
-    } else {
-      let newChallengeTravels = ((challengeNumber / 100) + 1) * 100
-      
-      if let scene = GameScene(fileNamed: "Challenge\(newChallengeTravels)") {
-        SessionData.sharedInstance.currentChallenge = newChallengeTravels
-        return scene
-      } else if let scene = GameScene(fileNamed: "Challenge1") {
-        SessionData.sharedInstance.currentChallenge = 1
-        return scene
-      }
+    } else if let scene = GameScene(fileNamed: "Challenge1") {
+      SessionData.sharedInstance.currentChallenge = 1
+      return scene
     }
     
     assertionFailure("Unable to load a scene file for challenge \(challengeNumber) or challenge 1.")
@@ -183,10 +178,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     player = fgNode.childNode(withName: "player") as! PlayerNode
     topBGNode = worldNode.childNode(withName: "backgroundtop")
-    
-    if let challengeLabel = fgNode.childNode(withName: "challengelabel") as? SKLabelNode {
-      challengeLabel.text = "Slag Challenge \(SessionData.sharedInstance.currentChallenge)"
-    }
     
     let cameraNode = SKCameraNode()
     cameraNode.position = CGPoint(x: cameraNode.position.x, y: cameraNode.position.y - 300)
