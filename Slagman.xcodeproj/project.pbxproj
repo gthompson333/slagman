@@ -59,6 +59,10 @@
 		3793FA3D208FC65C00827990 /* BoostGateLeftSilver.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA3A208FC65C00827990 /* BoostGateLeftSilver.sks */; };
 		3793FA3F208FC94E00827990 /* Challenge13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA3E208FC94E00827990 /* Challenge13.sks */; };
 		3793FA412090CF8300827990 /* Challenge14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA402090CF8200827990 /* Challenge14.sks */; };
+		3793FA4320922B1F00827990 /* Challenge15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA4220922B1E00827990 /* Challenge15.sks */; };
+		3793FA452092921A00827990 /* Challenge16.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA442092921A00827990 /* Challenge16.sks */; };
+		3793FA472092C22700827990 /* Challenge17.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA462092C22700827990 /* Challenge17.sks */; };
+		3793FA492092C7BC00827990 /* Challenge18.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA482092C7BC00827990 /* Challenge18.sks */; };
 		37A0DBF2204F12300046715C /* powerboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37A0DBF1204F12300046715C /* powerboost.wav */; };
 		37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */; };
 		37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B02F7D2069ADA600F0F921 /* proximity.wav */; };
@@ -152,6 +156,10 @@
 		3793FA3A208FC65C00827990 /* BoostGateLeftSilver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateLeftSilver.sks; sourceTree = "<group>"; };
 		3793FA3E208FC94E00827990 /* Challenge13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge13.sks; sourceTree = "<group>"; };
 		3793FA402090CF8200827990 /* Challenge14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge14.sks; sourceTree = "<group>"; };
+		3793FA4220922B1E00827990 /* Challenge15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge15.sks; sourceTree = "<group>"; };
+		3793FA442092921A00827990 /* Challenge16.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge16.sks; sourceTree = "<group>"; };
+		3793FA462092C22700827990 /* Challenge17.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge17.sks; sourceTree = "<group>"; };
+		3793FA482092C7BC00827990 /* Challenge18.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge18.sks; sourceTree = "<group>"; };
 		37A0DBF1204F12300046715C /* powerboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = powerboost.wav; sourceTree = "<group>"; };
 		37B02F7B2068C93B00F0F921 /* proximityexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = proximityexplosion.sks; sourceTree = "<group>"; };
 		37B02F7D2069ADA600F0F921 /* proximity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = proximity.wav; sourceTree = "<group>"; };
@@ -286,6 +294,10 @@
 				375EFC2620864A0D008CCA70 /* Challenge12.sks */,
 				3793FA3E208FC94E00827990 /* Challenge13.sks */,
 				3793FA402090CF8200827990 /* Challenge14.sks */,
+				3793FA4220922B1E00827990 /* Challenge15.sks */,
+				3793FA442092921A00827990 /* Challenge16.sks */,
+				3793FA462092C22700827990 /* Challenge17.sks */,
+				3793FA482092C7BC00827990 /* Challenge18.sks */,
 			);
 			path = "Travels 1";
 			sourceTree = "<group>";
@@ -538,6 +550,7 @@
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
 				3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */,
 				3793FA33208EB7FC00827990 /* FinishGateSilver.sks in Resources */,
+				3793FA492092C7BC00827990 /* Challenge18.sks in Resources */,
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
 				3793FA3D208FC65C00827990 /* BoostGateLeftSilver.sks in Resources */,
 				375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */,
@@ -546,10 +559,13 @@
 				377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */,
 				375EFC18207F068A008CCA70 /* mrslaggysayshello.m4a in Resources */,
 				375EFC19207F068A008CCA70 /* letsslag.m4a in Resources */,
+				3793FA452092921A00827990 /* Challenge16.sks in Resources */,
 				375EFC2420812499008CCA70 /* eightballcafe.wav in Resources */,
+				3793FA472092C22700827990 /* Challenge17.sks in Resources */,
 				375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */,
 				37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */,
 				375EFC02207A83E5008CCA70 /* Challenge0.sks in Resources */,
+				3793FA4320922B1F00827990 /* Challenge15.sks in Resources */,
 				37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */,
 				375EFC0E207BD77F008CCA70 /* TutorialCompleted.sks in Resources */,
 			);
