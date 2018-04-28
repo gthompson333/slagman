@@ -11,23 +11,25 @@ import UIKit
 class SlagChallengesViewController: UITableViewController {
   let travels = [[["name" : "Learn to Slag!", "locked" : false],
                     ["name" : "Let's Slag!", "locked" : false],
-                    ["name" : "Link the Slag!", "locked" : false],
+                    ["name" : "Link The Slag!", "locked" : false],
                     ["name" : "Power to The Slag!", "locked" : false],
                     ["name" : "Watch for Slag Mines!", "locked" : false],
                     ["name" : "Grav to The Slag!", "locked" : false],
-                    ["name" : "Are You Slaggy?!", "locked" : false],
+                    ["name" : "Are You Feeling Slaggy?!", "locked" : false],
                     ["name" : "Little Grabby Slags!", "locked" : false],
                     ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
                     ["name" : "Time to Slag Up!", "locked" : false],
                     ["name" : "Bust a Slag Move!", "locked" : false]],
                   [["name" : "It's a Good Day to Slag!", "locked" : false],
                    ["name" : "Slag Hard!", "locked" : false],
-                   ["name" : "Git Off Your Slag!", "locked" : false],
+                   ["name" : "Slag Harder!", "locked" : false],
                    ["name" : "For a Few Slag More!", "locked" : false],
                    ["name" : "Escape from The Slag!", "locked" : false],
-                   ["name" : "It's a Slag Thing!", "locked" : false],
+                   ["name" : "Slag Wars!", "locked" : false],
                    ["name" : "The Good, The Bad, and The Slag!", "locked" : false],
-                   ["name" : "The Slag Abides!", "locked" : false]]]
+                   ["name" : "The Big Slagski!", "locked" : false],
+                   ["name" : "Pulp Slag!", "locked" : false],
+                   ["name" : "Guardians of The Slag!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {

@@ -13,7 +13,7 @@ class SessionData: NSObject, NSCoding {
   
   var currentChallenge = 0
   var earnedSlag = 0
-  var bestTimes = Array(repeating: TimeInterval.infinity, count: 19)
+  var bestTimes = Array(repeating: TimeInterval.infinity, count: 21)
 
   override init() {
     super.init()

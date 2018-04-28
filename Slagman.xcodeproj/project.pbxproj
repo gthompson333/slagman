@@ -10,9 +10,6 @@
 		37146502205A07ED00D574D4 /* Challenge2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146501205A07ED00D574D4 /* Challenge2.sks */; };
 		37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146503205AFE9200D574D4 /* ChallengeCompleted.sks */; };
 		37146506205B0BEA00D574D4 /* ChallengeCompletedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37146505205B0BEA00D574D4 /* ChallengeCompletedScene.swift */; };
-		3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146507205B3E3800D574D4 /* BoostGate1.sks */; };
-		3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146508205B3E3800D574D4 /* BoostGate3.sks */; };
-		3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146509205B3E3900D574D4 /* BoostGate2.sks */; };
 		3714650E205C84E100D574D4 /* lunarlove.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* lunarlove.wav */; };
 		374294042064C62D00E52496 /* Challenge5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374294032064C62C00E52496 /* Challenge5.sks */; };
 		3745069E206EAE3D00AEF948 /* Challenge8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3745069D206EAE3D00AEF948 /* Challenge8.sks */; };
@@ -22,6 +19,13 @@
 		374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AC206F58F500AEF948 /* linktheslag.m4a */; };
 		374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 374506AE206F58F500AEF948 /* watchforslagmines.m4a */; };
 		374F4BF2206DB642004ED85D /* Challenge6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 374F4BF1206DB642004ED85D /* Challenge6.sks */; };
+		375A390B2094D78000136A63 /* BoostGateLeftRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A39082094D77F00136A63 /* BoostGateLeftRed.sks */; };
+		375A390C2094D78000136A63 /* BoostGateRightRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A39092094D78000136A63 /* BoostGateRightRed.sks */; };
+		375A390D2094D78000136A63 /* BoostGateCenterRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A390A2094D78000136A63 /* BoostGateCenterRed.sks */; };
+		375A39102094D79600136A63 /* FinishGateRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A390E2094D79600136A63 /* FinishGateRed.sks */; };
+		375A39112094D79600136A63 /* LaunchPlatformRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A390F2094D79600136A63 /* LaunchPlatformRed.sks */; };
+		375A39142094E54200136A63 /* Challenge20.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A39122094E54200136A63 /* Challenge20.sks */; };
+		375A39152094E54200136A63 /* Challenge19.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375A39132094E54200136A63 /* Challenge19.sks */; };
 		375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFBED206FEBB9008CCA70 /* slumsofrage.wav */; };
 		375EFBF02071C46C008CCA70 /* Challenge10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFBEF2071C46B008CCA70 /* Challenge10.sks */; };
 		375EFBF220729402008CCA70 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375EFBF120729402008CCA70 /* SettingsViewController.swift */; };
@@ -75,8 +79,6 @@
 		37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */; };
 		37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFCB204D9E6500FAEC3E /* LaunchScreen.storyboard */; };
 		37C10D4B2058362300DAF46E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D4A2058362300DAF46E /* explosion.wav */; };
-		37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D4E20589C4200DAF46E /* FinishGate.sks */; };
-		37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D522059871E00DAF46E /* LaunchPlatform.sks */; };
 		37CB242A2056D989001742D8 /* BoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* BoostNode.swift */; };
 		37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37CB242B2056DA37001742D8 /* boostexplosion.sks */; };
 		37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DB2062C1EE00C7523B /* Challenge1.sks */; };
@@ -107,9 +109,6 @@
 		37146501205A07ED00D574D4 /* Challenge2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge2.sks; sourceTree = "<group>"; };
 		37146503205AFE9200D574D4 /* ChallengeCompleted.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChallengeCompleted.sks; sourceTree = "<group>"; };
 		37146505205B0BEA00D574D4 /* ChallengeCompletedScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompletedScene.swift; sourceTree = "<group>"; };
-		37146507205B3E3800D574D4 /* BoostGate1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate1.sks; sourceTree = "<group>"; };
-		37146508205B3E3800D574D4 /* BoostGate3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate3.sks; sourceTree = "<group>"; };
-		37146509205B3E3900D574D4 /* BoostGate2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGate2.sks; sourceTree = "<group>"; };
 		3714650D205C84E100D574D4 /* lunarlove.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lunarlove.wav; sourceTree = "<group>"; };
 		374294032064C62C00E52496 /* Challenge5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge5.sks; sourceTree = "<group>"; };
 		3745069D206EAE3D00AEF948 /* Challenge8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge8.sks; sourceTree = "<group>"; };
@@ -119,6 +118,13 @@
 		374506AC206F58F500AEF948 /* linktheslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = linktheslag.m4a; sourceTree = "<group>"; };
 		374506AE206F58F500AEF948 /* watchforslagmines.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watchforslagmines.m4a; sourceTree = "<group>"; };
 		374F4BF1206DB642004ED85D /* Challenge6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge6.sks; sourceTree = "<group>"; };
+		375A39082094D77F00136A63 /* BoostGateLeftRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateLeftRed.sks; sourceTree = "<group>"; };
+		375A39092094D78000136A63 /* BoostGateRightRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateRightRed.sks; sourceTree = "<group>"; };
+		375A390A2094D78000136A63 /* BoostGateCenterRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateCenterRed.sks; sourceTree = "<group>"; };
+		375A390E2094D79600136A63 /* FinishGateRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinishGateRed.sks; sourceTree = "<group>"; };
+		375A390F2094D79600136A63 /* LaunchPlatformRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaunchPlatformRed.sks; sourceTree = "<group>"; };
+		375A39122094E54200136A63 /* Challenge20.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge20.sks; sourceTree = "<group>"; };
+		375A39132094E54200136A63 /* Challenge19.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge19.sks; sourceTree = "<group>"; };
 		375EFBED206FEBB9008CCA70 /* slumsofrage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slumsofrage.wav; sourceTree = "<group>"; };
 		375EFBEF2071C46B008CCA70 /* Challenge10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge10.sks; sourceTree = "<group>"; };
 		375EFBF120729402008CCA70 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -174,8 +180,6 @@
 		37B4FFCC204D9E6500FAEC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B4FFCE204D9E6500FAEC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37C10D4A2058362300DAF46E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
-		37C10D4E20589C4200DAF46E /* FinishGate.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinishGate.sks; sourceTree = "<group>"; };
-		37C10D522059871E00DAF46E /* LaunchPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaunchPlatform.sks; sourceTree = "<group>"; };
 		37CB24292056D989001742D8 /* BoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostNode.swift; sourceTree = "<group>"; };
 		37CB242B2056DA37001742D8 /* boostexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boostexplosion.sks; sourceTree = "<group>"; };
 		37D2E9DB2062C1EE00C7523B /* Challenge1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge1.sks; sourceTree = "<group>"; };
@@ -274,15 +278,15 @@
 		375EFC2820864A58008CCA70 /* Gates */ = {
 			isa = PBXGroup;
 			children = (
+				375A39092094D78000136A63 /* BoostGateRightRed.sks */,
 				3793FA39208FC65C00827990 /* BoostGateRightSilver.sks */,
+				375A39082094D77F00136A63 /* BoostGateLeftRed.sks */,
 				3793FA3A208FC65C00827990 /* BoostGateLeftSilver.sks */,
+				375A390A2094D78000136A63 /* BoostGateCenterRed.sks */,
 				3793FA38208FC65B00827990 /* BoostGateCenterSilver.sks */,
 				377F593720897031005F0B84 /* RotatingGateLeft.sks */,
 				377F593620897030005F0B84 /* RotatingGateRight.sks */,
 				375EFC2C2086C2C1008CCA70 /* RotatingGateCenter.sks */,
-				37146507205B3E3800D574D4 /* BoostGate1.sks */,
-				37146509205B3E3900D574D4 /* BoostGate2.sks */,
-				37146508205B3E3800D574D4 /* BoostGate3.sks */,
 			);
 			path = Gates;
 			sourceTree = "<group>";
@@ -298,6 +302,8 @@
 				3793FA442092921A00827990 /* Challenge16.sks */,
 				3793FA462092C22700827990 /* Challenge17.sks */,
 				3793FA482092C7BC00827990 /* Challenge18.sks */,
+				375A39132094E54200136A63 /* Challenge19.sks */,
+				375A39122094E54200136A63 /* Challenge20.sks */,
 			);
 			path = "Travels 1";
 			sourceTree = "<group>";
@@ -339,9 +345,9 @@
 			children = (
 				375EFC2820864A58008CCA70 /* Gates */,
 				37D2E9DA2062C1B800C7523B /* Travels */,
-				37C10D522059871E00DAF46E /* LaunchPlatform.sks */,
+				375A390F2094D79600136A63 /* LaunchPlatformRed.sks */,
 				3793FA30208EB72700827990 /* LaunchPlatformSilver.sks */,
-				37C10D4E20589C4200DAF46E /* FinishGate.sks */,
+				375A390E2094D79600136A63 /* FinishGateRed.sks */,
 				3793FA32208EB7FC00827990 /* FinishGateSilver.sks */,
 				37146503205AFE9200D574D4 /* ChallengeCompleted.sks */,
 				375EFC0D207BD77F008CCA70 /* TutorialCompleted.sks */,
@@ -506,11 +512,9 @@
 				37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */,
 				37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */,
 				37D2E9E420635B9200C7523B /* Challenge3.sks in Resources */,
-				3714650B205B3E3900D574D4 /* BoostGate3.sks in Resources */,
 				37E7F58E205238F20076E828 /* boost.wav in Resources */,
 				374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */,
 				374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */,
-				37C10D4F20589C4200DAF46E /* FinishGate.sks in Resources */,
 				375EFC16207F068A008CCA70 /* bustaslagmove.m4a in Resources */,
 				374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */,
 				377F593B2089764C005F0B84 /* Challenge11.sks in Resources */,
@@ -522,17 +526,18 @@
 				375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */,
 				377F593920897031005F0B84 /* RotatingGateLeft.sks in Resources */,
 				375EFBF02071C46C008CCA70 /* Challenge10.sks in Resources */,
+				375A39112094D79600136A63 /* LaunchPlatformRed.sks in Resources */,
 				375EFC15207F068A008CCA70 /* powertotheslag.m4a in Resources */,
 				375EFBF52074314B008CCA70 /* timetoslagup.m4a in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
 				375EFC2720864A0D008CCA70 /* Challenge12.sks in Resources */,
 				37146502205A07ED00D574D4 /* Challenge2.sks in Resources */,
 				375EFC17207F068A008CCA70 /* learntoslag.m4a in Resources */,
+				375A390B2094D78000136A63 /* BoostGateLeftRed.sks in Resources */,
 				3793FA31208EB72800827990 /* LaunchPlatformSilver.sks in Resources */,
 				37C10D4B2058362300DAF46E /* explosion.wav in Resources */,
 				375EFC0A207B2384008CCA70 /* Challenge4.sks in Resources */,
 				37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */,
-				37C10D532059871E00DAF46E /* LaunchPlatform.sks in Resources */,
 				3793FA412090CF8300827990 /* Challenge14.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge6.sks in Resources */,
 				3793FA3B208FC65C00827990 /* BoostGateCenterSilver.sks in Resources */,
@@ -541,19 +546,21 @@
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
 				375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */,
+				375A39142094E54200136A63 /* Challenge20.sks in Resources */,
 				3714650E205C84E100D574D4 /* lunarlove.wav in Resources */,
+				375A39152094E54200136A63 /* Challenge19.sks in Resources */,
 				375EFC1E207FC5AF008CCA70 /* fizzleboost.wav in Resources */,
 				37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */,
 				37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */,
 				374506B1206F58F500AEF948 /* areyouslaggy.m4a in Resources */,
-				3714650A205B3E3900D574D4 /* BoostGate1.sks in Resources */,
+				375A390C2094D78000136A63 /* BoostGateRightRed.sks in Resources */,
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
-				3714650C205B3E3900D574D4 /* BoostGate2.sks in Resources */,
 				3793FA33208EB7FC00827990 /* FinishGateSilver.sks in Resources */,
 				3793FA492092C7BC00827990 /* Challenge18.sks in Resources */,
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
 				3793FA3D208FC65C00827990 /* BoostGateLeftSilver.sks in Resources */,
 				375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */,
+				375A390D2094D78000136A63 /* BoostGateCenterRed.sks in Resources */,
 				374506AF206F58F500AEF948 /* gravtotheslag.m4a in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
 				377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */,
@@ -568,6 +575,7 @@
 				3793FA4320922B1F00827990 /* Challenge15.sks in Resources */,
 				37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */,
 				375EFC0E207BD77F008CCA70 /* TutorialCompleted.sks in Resources */,
+				375A39102094D79600136A63 /* FinishGateRed.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
