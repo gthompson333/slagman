@@ -29,7 +29,8 @@ class SlagChallengesViewController: UITableViewController {
                    ["name" : "The Good, The Bad, and The Slag!", "locked" : false],
                    ["name" : "The Big Slagski!", "locked" : false],
                    ["name" : "Pulp Slag!", "locked" : false],
-                   ["name" : "Guardians of The Slag!", "locked" : false]]]
+                   ["name" : "Guardians of The Slag!", "locked" : false]],
+                  [["name" : "Scotty, Slag Me Up!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {

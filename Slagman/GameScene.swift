@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   static var theme: String?
   
   var gameState = GameState.starting
-
+  
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
   var hud = HUD()
@@ -277,6 +277,7 @@ extension GameScene {
     
     switch other.categoryBitMask {
     case PhysicsCategory.Contactable:
+      // BoostNode
       if let boostNode = other.node as? BoostNode {
         let boostParentNode = boostNode.parent
         
@@ -316,7 +317,7 @@ extension GameScene {
           }
           
           boostNode.finishExplosion()
-        // It's just a regular power node.
+          // It's just a regular power node.
         } else {
           if boostParentNode == nil {
             return
@@ -333,6 +334,7 @@ extension GameScene {
           boostNode.explode()
         }
         player.powerBoost()
+        // SlagNode
       } else if let slagNode = other.node as? SlagNode, let _ = other.node?.userData?["proximity"] {
         slagNode.contactWithProximitySlag(player: player)
       }
@@ -354,6 +356,32 @@ extension GameScene {
             }
           }))
         }
+      }
+    default:
+      break
+    }
+  }
+  
+  func didEnd(_ contact: SKPhysicsContact) {
+    let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
+    
+    switch other.categoryBitMask {
+    case PhysicsCategory.Contactable:
+      if let transportNode = other.node as? TransportNode {
+        if transportNode.parent == nil {
+          return
+        }
+        
+        let parentNode = transportNode.parent
+        let slagNode = transportNode.createSlagNode()
+        
+        run(SKAction.afterDelay(0.5, runBlock: {
+          assert(parentNode != nil, "Transport parent node is nil.")
+          parentNode?.addChild(slagNode)
+        }))
+        
+        slagPoints += 10
+        player.transport(from: transportNode)
       }
     default:
       break

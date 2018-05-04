@@ -181,6 +181,28 @@ class PlayerNode: SKSpriteNode {
     setJumpVelocity(900)
   }
   
+  func transport(from node: TransportNode) {
+    guard let scene = scene as? GameScene else {
+      return
+    }
+    
+    if let offset = node.userData?["xoffset"] as? Int {
+      physicsBody?.isDynamic = false
+      isHidden = true
+      let convert = node.convert(node.position, to: scene.fgNode)
+      let moveActionY = SKAction.moveTo(y: convert.y, duration: 0.5)
+      let moveActionX = SKAction.moveTo(x: position.x + CGFloat(offset), duration: 0.5)
+      let sequence = SKAction.sequence([moveActionY, moveActionX])
+      
+      run(sequence) {
+        self.physicsBody?.isDynamic = true
+        self.isHidden = false
+        self.powerBoost()
+      }
+      node.explode()
+    }
+  }
+  
   func falling() {
     run(actions["falling"]!)
   }
