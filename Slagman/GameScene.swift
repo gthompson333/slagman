@@ -24,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  var slagPoints = 0
   static var theme: String?
   
   var gameState = GameState.starting
@@ -32,10 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
   var hud = HUD()
-  
-  var startTime: TimeInterval = 0
-  var elapsedTime: TimeInterval = 0
-  var finishTime: TimeInterval = 0
   
   // MARK: - Class Methods
   class func sceneFor(challengeNumber: Int) -> SKScene? {
@@ -95,12 +90,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       updateCamera()
       addLayers()
       
-      if startTime == 0 {
-        startTime = currentTime
+      if hud.slagAmount < SessionData.sharedInstance.currentSlagRun {
+        hud.slagAmount += 1
       }
-      
-      elapsedTime = currentTime - startTime
-      hud.updateSlagTimeLabel(time: elapsedTime)
     }
   }
   
@@ -203,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupHUD() {
     camera?.addChild(hud)
-    hud.updateSlagTimeLabel(time: 0)
+    hud.slagAmount = SessionData.sharedInstance.currentSlagRun
   }
   
   // MARK: - Update Methods
@@ -290,14 +282,9 @@ extension GameScene {
           print("Challenge ended.")
           gameState = .challengeEnded
           
-          finishTime = elapsedTime
-          
           if SessionData.sharedInstance.currentChallenge > 0 {
             run(SKAction.afterDelay(1.5, runBlock: {
               if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
-                challengeCompleted.challengeNumberCompleted = SessionData.sharedInstance.currentChallenge
-                challengeCompleted.slagCreated = self.slagPoints
-                challengeCompleted.slagTime = self.finishTime
                 challengeCompleted.scaleMode = .aspectFill
                 challengeCompleted.gameViewController = self.gameViewController
                 self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
@@ -306,9 +293,6 @@ extension GameScene {
           } else {
             run(SKAction.afterDelay(1.5, runBlock: {
               if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
-                tutorialCompleted.challengeNumberCompleted = SessionData.sharedInstance.currentChallenge
-                tutorialCompleted.slagCreated = self.slagPoints
-                tutorialCompleted.slagTime = self.finishTime
                 tutorialCompleted.scaleMode = .aspectFill
                 tutorialCompleted.gameViewController = self.gameViewController
                 self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
@@ -330,7 +314,7 @@ extension GameScene {
             boostParentNode?.addChild(slagNode)
           }))
           
-          slagPoints += 10
+          SessionData.sharedInstance.currentSlagRun += 10
           boostNode.explode()
         }
         player.powerBoost()
@@ -344,6 +328,7 @@ extension GameScene {
         if other.node?.userData?["deadly"] != nil {
           player.playerState = .dead
           gameState = .challengeEnded
+          SessionData.sharedInstance.currentSlagRun = 0
           
           run(SKAction.afterDelay(2.0, runBlock: {
             if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.currentChallenge) {
@@ -381,7 +366,7 @@ extension GameScene {
           transportNode.removeFromParent()
         }))
         
-        slagPoints += 10
+        SessionData.sharedInstance.currentSlagRun += 10
         player.transport(from: transportNode)
       }
     default:

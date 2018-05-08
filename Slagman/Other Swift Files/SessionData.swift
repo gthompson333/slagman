@@ -12,8 +12,14 @@ class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
   var currentChallenge = 0
-  var earnedSlag = 0
-  var bestTimes = Array(repeating: TimeInterval.infinity, count: 22)
+  var currentSlagRun = 0 {
+    didSet {
+      if currentSlagRun > bestSlagRun {
+        bestSlagRun = currentSlagRun
+      }
+    }
+  }
+  var bestSlagRun = 0
 
   override init() {
     super.init()
@@ -24,41 +30,19 @@ class SessionData: NSObject, NSCoding {
     print("SessionData init coder")
     
     currentChallenge = aDecoder.decodeInteger(forKey: "currentchallenge")
-    earnedSlag = aDecoder.decodeInteger(forKey: "earnedslag")
-    
-    if let decodedTimes = aDecoder.decodeObject(forKey: "besttimes") as? [Double] {
-      bestTimes = decodedTimes
-    }
+    currentSlagRun = aDecoder.decodeInteger(forKey: "currentslagrun")
+    bestSlagRun = aDecoder.decodeInteger(forKey: "bestslagrun")
   }
   
   func encode(with aCoder: NSCoder) {
-    print("encoding")
     aCoder.encode(currentChallenge, forKey: "currentchallenge")
-    aCoder.encode(earnedSlag, forKey: "earnedslag")
-    aCoder.encode(bestTimes, forKey: "besttimes")
-  }
-  
-  func recordBestTime(newTime: TimeInterval, challengeNumber: Int) -> (bestTime: TimeInterval, isNewBestTime: Bool) {
-    var returnTime = newTime
-    var isNewBestTime = false
-    
-    guard challengeNumber < bestTimes.count else {
-      assertionFailure("User game data challenge number is out of range of best times array.")
-      return (returnTime, isNewBestTime)
-    }
-    
-    returnTime = TimeInterval.minimum(newTime, bestTimes[challengeNumber])
-    bestTimes[challengeNumber] = returnTime
-    
-    if returnTime == newTime {
-      isNewBestTime = true
-    }
-    
-    return (returnTime, isNewBestTime)
+    aCoder.encode(currentSlagRun, forKey: "currentslagrun")
+    aCoder.encode(bestSlagRun, forKey: "bestslagrun")
   }
   
   class func saveData() {
     print("Saving session data.")
+    
     guard let directory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else
     {
       assertionFailure("Unable to get file manager library directory.")

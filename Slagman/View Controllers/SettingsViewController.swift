@@ -66,11 +66,11 @@ class SettingsViewController: UIViewController {
       print("Saving to session data, challenge number 1.")
       SessionData.sharedInstance.currentChallenge = 0
       
-      print("Saving to session data, 0 total game slag.")
-      SessionData.sharedInstance.earnedSlag = 0
+      print("Saving to session data, current slag run: 0.")
+      SessionData.sharedInstance.currentSlagRun = 0
       
-      print("Saving to session data, infinity best times.")
-      SessionData.sharedInstance.bestTimes = Array(repeating: TimeInterval.infinity, count: 11)
+      print("Saving to session data, best slag run: 0.")
+      SessionData.sharedInstance.bestSlagRun = 0
       
       SessionData.saveData()
       self.performSegue(withIdentifier: "settingstointroduction", sender: self)

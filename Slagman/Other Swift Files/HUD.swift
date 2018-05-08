@@ -16,6 +16,14 @@ private enum HUDSettings {
 
 class HUD: SKNode {
   private var slagTimeLabel: SKLabelNode!
+  private var slagLabel: SKLabelNode!
+  
+  var slagAmount: Int = 0 {
+    didSet {
+      updateSlagLabel(slag: slagAmount)
+    }
+  }
+  
   var homeButton: SKSpriteNode!
   
   override init() {
@@ -27,36 +35,23 @@ class HUD: SKNode {
     super.init(coder: aDecoder)
   }
   
-  func updateSlagTimeLabel(time: TimeInterval) {
-    if slagTimeLabel == nil {
+  private func updateSlagLabel(slag: Int) {
+    if slagLabel == nil {
       createDisplay()
     }
     
-    var incomingTime = time
-
-    let minutes = UInt8(incomingTime / 60.0)
-    incomingTime -= (TimeInterval(minutes) * 60)
-    
-    let seconds = UInt8(incomingTime)
-    incomingTime -= TimeInterval(seconds)
-    
-    let milliseconds = UInt8(incomingTime * 100)
-    
-    let strSeconds = String(format: "%02d", seconds)
-    let strMilliseconds = String(format: "%02d", milliseconds)
-    
-    slagTimeLabel?.text = "Slag Time: \(strSeconds):\(strMilliseconds) seconds"
+    slagLabel?.text = "Slag: \(slag)"
   }
   
   func createDisplay() {
     guard let scene = scene else { return }
     
-    slagTimeLabel = SKLabelNode(fontNamed: HUDSettings.font)
-    slagTimeLabel.fontSize = HUDSettings.fontSize
-    slagTimeLabel.fontColor = HUDSettings.fontColor
-    slagTimeLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
-    slagTimeLabel.zPosition = 5
-    addChild(slagTimeLabel)
+    slagLabel = SKLabelNode(fontNamed: HUDSettings.font)
+    slagLabel.fontSize = HUDSettings.fontSize
+    slagLabel.fontColor = HUDSettings.fontColor
+    slagLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
+    slagLabel.zPosition = 5
+    addChild(slagLabel)
     
     homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"

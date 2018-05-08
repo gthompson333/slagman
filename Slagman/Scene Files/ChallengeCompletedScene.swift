@@ -10,15 +10,8 @@ import SpriteKit
 
 class ChallengeCompletedScene: SKScene {
   var completedLabel: SKLabelNode!
-  var newTimeLabel: SKLabelNode!
-  var slagCreatedLabel: SKLabelNode!
-  var slagTimeLabel: SKLabelNode!
-  var earnedSlagLabel: SKLabelNode!
-  
-  var challengeNumberCompleted = 0
-  var slagCreated = 0
-  var slagTime = TimeInterval.leastNonzeroMagnitude
-  
+  var currentSlagRunLabel: SKLabelNode!
+  var bestSlagRunLabel: SKLabelNode!
   var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
@@ -36,30 +29,15 @@ class ChallengeCompletedScene: SKScene {
                               }}]))
     }
     
-    slagCreatedLabel = childNode(withName: "slagcreatedlabel") as! SKLabelNode
-    slagCreatedLabel.text = "\(slagCreated) Slag Earned!"
+    currentSlagRunLabel = childNode(withName: "currentslagrunlabel") as! SKLabelNode
+    currentSlagRunLabel.text = "Current Slag Run: \(SessionData.sharedInstance.currentSlagRun)"
     
-    slagTimeLabel = childNode(withName: "slagtimelabel") as! SKLabelNode
-    slagTimeLabel.formatText(time: slagTime)
+    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
+    bestSlagRunLabel.text = "Best Slag Run: \(SessionData.sharedInstance.bestSlagRun)"
+
+    SessionData.sharedInstance.currentChallenge += 1
+    print("Saving to session data, challenge number: \(SessionData.sharedInstance.currentChallenge)")
     
-    let timeData = SessionData.sharedInstance.recordBestTime(newTime: slagTime, challengeNumber: challengeNumberCompleted)
-    
-    newTimeLabel = childNode(withName: "newtimelabel") as! SKLabelNode
-    newTimeLabel.formatText(time: timeData.bestTime)
-    newTimeLabel.text = "TOP " + newTimeLabel.text!
-    
-    if timeData.isNewBestTime {
-      pulseNewTimeLabel()
-    }
-    
-    SessionData.sharedInstance.earnedSlag += slagCreated
-    print("\(SessionData.sharedInstance.earnedSlag) earned slag saved to session data.")
-    
-    earnedSlagLabel = childNode(withName: "earnedslaglabel") as! SKLabelNode
-    earnedSlagLabel.text = "\(SessionData.sharedInstance.earnedSlag) Total Game Slag"
-    
-    print("Saving to session data, challenge number: \(challengeNumberCompleted + 1)")
-    SessionData.sharedInstance.currentChallenge = challengeNumberCompleted + 1
     SessionData.saveData()
   }
   
@@ -74,13 +52,6 @@ class ChallengeCompletedScene: SKScene {
       
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
-  }
-  
-  func pulseNewTimeLabel() {
-    let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
-                                        SKAction.scale(to: 1.0, duration: 0.5)])
-    
-    newTimeLabel.run(SKAction.repeatForever(scalePulse))
   }
   
   func playBackgroundMusic(name: String) {
