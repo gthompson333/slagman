@@ -33,6 +33,21 @@ func createAnimationActionWithFilePrefix(_ prefix: String, start: Int, end: Int,
   return SKAction.animate(with: textures, timePerFrame: timePerFrame)
 }
 
+func createSlagNode(for node: SKSpriteNode) -> SlagNode {
+  let slagNode = SlagNode(imageNamed: "slag")
+  slagNode.position = CGPoint(x: node.position.x, y: node.position.y)
+  slagNode.size = node.size
+  
+  slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
+  slagNode.physicsBody?.isDynamic = false
+  slagNode.physicsBody?.affectedByGravity = false
+  slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Collidable
+  slagNode.userData = ["deadly" : true]
+  slagNode.deadlyAnimation()
+  
+  return slagNode
+}
+
 extension SKLabelNode {
   func formatText(time: TimeInterval) {
     var mutableTime = time

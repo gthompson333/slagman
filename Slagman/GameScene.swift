@@ -323,7 +323,7 @@ extension GameScene {
             return
           }
           
-          let slagNode = boostNode.createSlagNode()
+          let slagNode = createSlagNode(for: boostNode)
           
           run(SKAction.afterDelay(0.5, runBlock: {
             assert(boostParentNode != nil, "Boost parent node is nil.")
@@ -367,17 +367,18 @@ extension GameScene {
     
     switch other.categoryBitMask {
     case PhysicsCategory.Contactable:
-      if let transportNode = other.node as? TransportNode {
+      if other.node?.name == "transporternode", let transportNode = other.node as? SKSpriteNode {
         if transportNode.parent == nil {
           return
         }
         
         let parentNode = transportNode.parent
-        let slagNode = transportNode.createSlagNode()
+        let slagNode = createSlagNode(for: transportNode)
         
         run(SKAction.afterDelay(0.5, runBlock: {
           assert(parentNode != nil, "Transport parent node is nil.")
           parentNode?.addChild(slagNode)
+          transportNode.removeFromParent()
         }))
         
         slagPoints += 10

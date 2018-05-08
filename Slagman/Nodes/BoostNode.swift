@@ -60,19 +60,4 @@ class BoostNode: SKSpriteNode {
     
     removeFromParent()
   }
-  
-  func createSlagNode() -> SlagNode {
-    let slagNode = SlagNode(imageNamed: "slag")
-    slagNode.position = CGPoint(x: position.x, y: position.y - 60)
-    slagNode.size = size
-    
-    slagNode.physicsBody = SKPhysicsBody(circleOfRadius: slagNode.size.width/2)
-    slagNode.physicsBody?.isDynamic = false
-    slagNode.physicsBody?.affectedByGravity = false
-    slagNode.physicsBody?.categoryBitMask = PhysicsCategory.Collidable
-    slagNode.userData = ["deadly" : true]
-    slagNode.deadlyAnimation()
-    
-    return slagNode
-  }
 }

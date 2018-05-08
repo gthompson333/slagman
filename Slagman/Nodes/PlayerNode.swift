@@ -181,25 +181,40 @@ class PlayerNode: SKSpriteNode {
     setJumpVelocity(900)
   }
   
-  func transport(from node: TransportNode) {
+  func transport(from node: SKSpriteNode) {
     guard let scene = scene as? GameScene else {
       return
     }
     
     if let offset = node.userData?["xoffset"] as? Int {
       physicsBody?.isDynamic = false
-      isHidden = true
       let convert = node.convert(node.position, to: scene.fgNode)
       let moveActionY = SKAction.moveTo(y: convert.y, duration: 0.5)
       let moveActionX = SKAction.moveTo(x: position.x + CGFloat(offset), duration: 0.5)
-      let sequence = SKAction.sequence([moveActionY, moveActionX])
+      let scaleAction = SKAction.scale(to: 0.0, duration: 0.5)
+      
+      let soundScale = SKAction.group([actions["transportsound"]!, scaleAction])
+      var sequence = SKAction.sequence([soundScale, moveActionY, moveActionX])
+      
+      if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == false {
+        sequence = SKAction.sequence([scaleAction, moveActionY, moveActionX])
+      }
       
       run(sequence) {
         self.physicsBody?.isDynamic = true
-        self.isHidden = false
+        self.run(SKAction.scale(to: 0.9, duration: 0.5))
+        
+        guard let transportEffect = SKEmitterNode(fileNamed: "playertransporteffect") else {
+          assertionFailure("Missing playertransporteffect.sks particles file.")
+          return
+        }
+        
+        transportEffect.position = self.position
+        transportEffect.targetNode = self.parent
+        self.parent?.addChild(transportEffect)
+        
         self.powerBoost()
       }
-      node.explode()
     }
   }
   
@@ -239,6 +254,7 @@ class PlayerNode: SKSpriteNode {
     actions["smallboostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["fizzleboostsound"] = SKAction.playSoundFileNamed("fizzleboost.wav", waitForCompletion: false)
     actions["explosionsound"] = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+    actions["transportsound"] = SKAction.playSoundFileNamed("transport.wav", waitForCompletion: false)
   }
   
   func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {
