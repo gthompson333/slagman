@@ -39,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if let scene = GameScene(fileNamed: "Challenge\(challengeNumber)") {
       return scene
     } else if let scene = GameScene(fileNamed: "Challenge1") {
-      SessionData.sharedInstance.currentChallenge = 1
+      SessionData.sharedInstance.freestyleChallenge = 1
       return scene
     }
     
@@ -90,7 +90,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       updateCamera()
       addLayers()
       
-      if hud.slagAmount < SessionData.sharedInstance.currentSlagRun {
+      // Slag amount is only used in Slag Run mode.
+      if (SessionData.sharedInstance.gameMode == .slagrun) && (hud.slagAmount < SessionData.sharedInstance.slagRun) {
         hud.slagAmount += 1
       }
     }
@@ -195,7 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupHUD() {
     camera?.addChild(hud)
-    hud.slagAmount = SessionData.sharedInstance.currentSlagRun
+    hud.slagAmount = SessionData.sharedInstance.slagRun
   }
   
   // MARK: - Update Methods
@@ -282,22 +283,40 @@ extension GameScene {
           print("Challenge ended.")
           gameState = .challengeEnded
           
-          if SessionData.sharedInstance.currentChallenge > 0 {
+          if SessionData.sharedInstance.gameMode == .slagrun {
+            SessionData.sharedInstance.slagrunChallenge = SessionData.sharedInstance.slagrunChallenge + 1
+            
             run(SKAction.afterDelay(1.5, runBlock: {
-              if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
-                challengeCompleted.scaleMode = .aspectFill
-                challengeCompleted.gameViewController = self.gameViewController
-                self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
+              if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.slagrunChallenge) {
+                scene.scaleMode = .aspectFill
+                
+                if self.gameViewController != nil {
+                  let gameScene = scene as! GameScene
+                  gameScene.gameViewController = self.gameViewController!
+                }
+                
+                self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
               }
+              
             }))
           } else {
-            run(SKAction.afterDelay(1.5, runBlock: {
-              if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
-                tutorialCompleted.scaleMode = .aspectFill
-                tutorialCompleted.gameViewController = self.gameViewController
-                self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
-              }
-            }))
+            if SessionData.sharedInstance.freestyleChallenge > 0 {
+              run(SKAction.afterDelay(1.5, runBlock: {
+                if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
+                  challengeCompleted.scaleMode = .aspectFill
+                  challengeCompleted.gameViewController = self.gameViewController
+                  self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
+                }
+              }))
+            } else {
+              run(SKAction.afterDelay(1.5, runBlock: {
+                if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
+                  tutorialCompleted.scaleMode = .aspectFill
+                  tutorialCompleted.gameViewController = self.gameViewController
+                  self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
+                }
+              }))
+            }
           }
           
           boostNode.finishExplosion()
@@ -314,7 +333,7 @@ extension GameScene {
             boostParentNode?.addChild(slagNode)
           }))
           
-          SessionData.sharedInstance.currentSlagRun += 10
+          SessionData.sharedInstance.slagRun += 10
           boostNode.explode()
         }
         player.powerBoost()
@@ -328,18 +347,25 @@ extension GameScene {
         if other.node?.userData?["deadly"] != nil {
           player.playerState = .dead
           gameState = .challengeEnded
-          SessionData.sharedInstance.currentSlagRun = 0
           
-          run(SKAction.afterDelay(2.0, runBlock: {
-            if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.currentChallenge) {
-              scene.scaleMode = .aspectFill
-              
-              let gameScene = scene as! GameScene
-              gameScene.gameViewController = self.gameViewController
-              
-              self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
-            }
-          }))
+          if SessionData.sharedInstance.gameMode == .slagrun {
+            run(SKAction.afterDelay(1.5, runBlock: {
+              if let slagRunCompleted = SlagRunCompletedScene(fileNamed: "SlagRunCompleted") {
+                slagRunCompleted.scaleMode = .aspectFill
+                slagRunCompleted.gameViewController = self.gameViewController
+                self.view!.presentScene(slagRunCompleted, transition: SKTransition.doorway(withDuration:1))
+              }
+            }))
+          } else {
+            run(SKAction.afterDelay(1.5, runBlock: {
+              if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.freestyleChallenge) {
+                scene.scaleMode = .aspectFill
+                let gameScene = scene as! GameScene
+                gameScene.gameViewController = self.gameViewController
+                self.view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+              }
+            }))
+          }
         }
       }
     default:
@@ -366,7 +392,7 @@ extension GameScene {
           transportNode.removeFromParent()
         }))
         
-        SessionData.sharedInstance.currentSlagRun += 10
+        SessionData.sharedInstance.slagRun += 10
         player.transport(from: transportNode)
       }
     default:

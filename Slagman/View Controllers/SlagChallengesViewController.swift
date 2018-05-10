@@ -30,7 +30,8 @@ class SlagChallengesViewController: UITableViewController {
                    ["name" : "The Big Slagski!", "locked" : false],
                    ["name" : "Pulp Slag!", "locked" : false],
                    ["name" : "Guardians of The Slag!", "locked" : false]],
-                  [["name" : "Scotty, Slag Me Up!", "locked" : false]]]
+                  [["name" : "Transport the Slag!", "locked" : false],
+                   ["name" : "Slag Warp!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {
@@ -73,10 +74,10 @@ class SlagChallengesViewController: UITableViewController {
     
     if selectedTravelsIndex > 0 {
       print("Saving to session data, challenge number: \(challengeNumber + 1)")
-      SessionData.sharedInstance.currentChallenge = challengeNumber + 1
+      SessionData.sharedInstance.freestyleChallenge = challengeNumber + 1
     } else {
       print("Saving to session data, challenge number: \(challengeNumber)")
-      SessionData.sharedInstance.currentChallenge = challengeNumber
+      SessionData.sharedInstance.freestyleChallenge = challengeNumber
     }
     
     SessionData.saveData()

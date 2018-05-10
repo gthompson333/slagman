@@ -15,10 +15,16 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     if let view = self.view as! SKView? {
-      let currentChallenge = SessionData.sharedInstance.currentChallenge
-      print("Challenge number \(currentChallenge) retrieved from session data.")
+      var challengeNumber = SessionData.sharedInstance.freestyleChallenge
+      print("Challenge number \(challengeNumber) retrieved from session data.")
       
-      if let scene = GameScene.sceneFor(challengeNumber: currentChallenge) {
+      // Slag Run mode always starts with the first challenge.
+      if SessionData.sharedInstance.gameMode == .slagrun {
+        challengeNumber = SessionData.sharedInstance.slagrunChallenge
+        print("Slag Run challenge number \(challengeNumber) retrieved from session data.")
+      }
+      
+      if let scene = GameScene.sceneFor(challengeNumber: challengeNumber) {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
         

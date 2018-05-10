@@ -12,6 +12,15 @@ enum GameState {
   case starting, playing, paused, challengeEnded
 }
 
+// Freestyle mode is like an arcade mode. The player can select any challenge and freely attempt
+// to complete the challenge. No slag points are tracked, or stored.
+// Slag Run mode always starts with the first challenge. Slag points are tracked and stored until the player
+// dies. If the accumulated slag points are greater than the persisted "best slag run" value, the new
+// slag points value is stored as the "best slag run".
+enum GameMode {
+  case freestyle, slagrun
+}
+
 enum SettingsKeys {
   static let music = "musicsetting"
   static let sounds = "soundssetting"

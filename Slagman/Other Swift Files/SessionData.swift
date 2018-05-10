@@ -11,11 +11,22 @@ import Foundation
 class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
-  var currentChallenge = 0
-  var currentSlagRun = 0 {
+  var gameMode = GameMode.freestyle {
     didSet {
-      if currentSlagRun > bestSlagRun {
-        bestSlagRun = currentSlagRun
+      if gameMode == .slagrun {
+        slagrunChallenge = 1
+        slagRun = 0
+      }
+    }
+  }
+  
+  var freestyleChallenge = 0
+  var slagrunChallenge = 1
+  
+  var slagRun = 0 {
+    didSet {
+      if (gameMode == .slagrun) && (slagRun > bestSlagRun) {
+        bestSlagRun = slagRun
       }
     }
   }
@@ -29,14 +40,12 @@ class SessionData: NSObject, NSCoding {
   required init?(coder aDecoder: NSCoder) {
     print("SessionData init coder")
     
-    currentChallenge = aDecoder.decodeInteger(forKey: "currentchallenge")
-    currentSlagRun = aDecoder.decodeInteger(forKey: "currentslagrun")
+    freestyleChallenge = aDecoder.decodeInteger(forKey: "freestylechallenge")
     bestSlagRun = aDecoder.decodeInteger(forKey: "bestslagrun")
   }
   
   func encode(with aCoder: NSCoder) {
-    aCoder.encode(currentChallenge, forKey: "currentchallenge")
-    aCoder.encode(currentSlagRun, forKey: "currentslagrun")
+    aCoder.encode(freestyleChallenge, forKey: "freestylechallenge")
     aCoder.encode(bestSlagRun, forKey: "bestslagrun")
   }
   

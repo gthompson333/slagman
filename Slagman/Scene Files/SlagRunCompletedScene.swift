@@ -1,5 +1,5 @@
 //
-//  ChallengeCompleted.swift
+//  SlagRunCompletedScene.swift
 //  Jetpack McFlax
 //
 //  Created by Greg M. Thompson on 3/15/18.
@@ -8,7 +8,10 @@
 
 import SpriteKit
 
-class ChallengeCompletedScene: SKScene {
+class SlagRunCompletedScene: SKScene {
+  var completedLabel: SKLabelNode!
+  var slagLabel: SKLabelNode!
+  var bestSlagRunLabel: SKLabelNode!
   weak var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
@@ -26,26 +29,24 @@ class ChallengeCompletedScene: SKScene {
                               }}]))
     }
     
-    SessionData.sharedInstance.freestyleChallenge += 1
-    print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
+    slagLabel = childNode(withName: "slaglabel") as! SKLabelNode
+    slagLabel.text = "Current Slag Run: \(SessionData.sharedInstance.slagRun)"
     
+    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
+    bestSlagRunLabel.text = "Best Slag Run: \(SessionData.sharedInstance.bestSlagRun)"
+
     SessionData.saveData()
   }
   
   deinit {
-    print("Deinit ChallengeCompletedScene")
+    print("Deinit SlagRunCompletedScene")
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.freestyleChallenge) {
-      scene.scaleMode = .aspectFill
-      
-      if gameViewController != nil {
-        let gameScene = scene as! GameScene
-        gameScene.gameViewController = gameViewController!
-      }
-      
-      view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
+    // If player is in a Slag Run and died, then the Slag Run is over and player will be returned
+    // back to the home view.
+    if gameViewController != nil {
+      gameViewController!.transitionToHome()
     }
   }
   

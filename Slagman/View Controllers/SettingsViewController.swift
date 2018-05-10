@@ -64,10 +64,10 @@ class SettingsViewController: UIViewController {
     
     alert.addAction(UIAlertAction(title: "Slag Yeah!", style: .default, handler: { _ in
       print("Saving to session data, challenge number 1.")
-      SessionData.sharedInstance.currentChallenge = 0
+      SessionData.sharedInstance.freestyleChallenge = 0
       
       print("Saving to session data, current slag run: 0.")
-      SessionData.sharedInstance.currentSlagRun = 0
+      SessionData.sharedInstance.slagRun = 0
       
       print("Saving to session data, best slag run: 0.")
       SessionData.sharedInstance.bestSlagRun = 0

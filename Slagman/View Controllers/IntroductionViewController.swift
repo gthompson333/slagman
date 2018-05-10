@@ -26,8 +26,22 @@ class IntroductionViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    SessionData.sharedInstance.gameMode = .freestyle
+  }
+  
   deinit {
     print("Deinit IntroductionViewController")
+  }
+  
+  @IBAction func freeStyleButtonTapped(_ sender: UIButton) {
+    performSegue(withIdentifier: "introductiontogame", sender: self)
+  }
+  
+  @IBAction func slagRunButtonTapped(_ sender: UIButton) {
+    SessionData.sharedInstance.gameMode = .slagrun
+    performSegue(withIdentifier: "introductiontogame", sender: self)
   }
   
   @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue)

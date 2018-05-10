@@ -1,5 +1,5 @@
 //
-//  ChallengeCompleted.swift
+//  TutorialCompletedScene.swift
 //  Jetpack McFlax
 //
 //  Created by Greg M. Thompson on 3/15/18.
@@ -11,23 +11,23 @@ import SpriteKit
 class TutorialCompletedScene: SKScene {
   var currentSlagRunLabel: SKLabelNode!
   var bestSlagRunLabel: SKLabelNode!
-  var gameViewController: GameViewController?
+  weak var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
     currentSlagRunLabel = childNode(withName: "currentslagrunlabel") as! SKLabelNode
-    currentSlagRunLabel.text = "Current Slag Run: \(SessionData.sharedInstance.currentSlagRun)"
+    currentSlagRunLabel.text = "Current Slag Run: \(SessionData.sharedInstance.slagRun)"
     
     bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
     bestSlagRunLabel.text = "Best Slag Run: \(SessionData.sharedInstance.bestSlagRun)"
     
-    SessionData.sharedInstance.currentChallenge += 1
-    print("Saving to session data, challenge number: \(SessionData.sharedInstance.currentChallenge)")
+    SessionData.sharedInstance.freestyleChallenge += 1
+    print("Saving to session data, challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
     
     SessionData.saveData()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.currentChallenge) {
+    if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.freestyleChallenge) {
       scene.scaleMode = .aspectFill
       
       if gameViewController != nil {
