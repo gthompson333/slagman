@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-CA-zuj">
-                                <rect key="frame" x="70" y="511" width="235" height="64"/>
+                                <rect key="frame" x="100" y="511" width="175" height="64"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                                 <state key="normal" title="Free Style">
                                     <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -298,22 +298,46 @@
                                     <action selector="slagRunButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="2jc-Ea-cN8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-Vh-mue">
+                                <rect key="frame" x="50" y="518" width="30" height="51"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="💡">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ght-hh-v1m" kind="show" id="oSe-RM-B3c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-cZ-Bnw">
+                                <rect key="frame" x="50" y="590" width="30" height="51"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="💡">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NB1-NO-Zs0" kind="show" id="ACa-wY-eoj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="top" secondItem="6Po-CA-zuj" secondAttribute="bottom" constant="8" id="9Xh-ZL-fXD"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="Abr-HK-95k"/>
-                            <constraint firstItem="6Po-CA-zuj" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="70" id="DJT-bJ-DWW"/>
+                            <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="Twg-cZ-Bnw" secondAttribute="bottom" constant="26" id="CX3-Lb-mpB"/>
+                            <constraint firstItem="6Po-CA-zuj" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="100" id="DJT-bJ-DWW"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="tZT-Js-6Z2" secondAttribute="bottom" constant="20" id="FkQ-CP-B6j"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="PeR-Wb-3nD" secondAttribute="bottom" id="Kw3-4y-zLF"/>
+                            <constraint firstItem="Twg-cZ-Bnw" firstAttribute="leading" secondItem="a96-Vh-mue" secondAttribute="leading" id="PuX-A8-9d0"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="v0c-PF-J3c" secondAttribute="trailing" constant="10" id="Ru2-9j-U4r"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="112" id="Sek-2V-mFD"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="10" id="X2n-8g-FSD"/>
+                            <constraint firstItem="Twg-cZ-Bnw" firstAttribute="top" secondItem="a96-Vh-mue" secondAttribute="bottom" constant="21" id="ZDS-u6-Gbh"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" id="lOx-Eg-EAK"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="tZT-Js-6Z2" secondAttribute="trailing" constant="112" id="lWn-b9-W9a"/>
                             <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="leg-YP-U2V"/>
-                            <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="6Po-CA-zuj" secondAttribute="trailing" constant="70" id="nXU-ZD-8JX"/>
+                            <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="6Po-CA-zuj" secondAttribute="trailing" constant="100" id="nXU-ZD-8JX"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="qhq-Yd-0i4"/>
+                            <constraint firstItem="6Po-CA-zuj" firstAttribute="leading" secondItem="a96-Vh-mue" secondAttribute="trailing" constant="20" id="rpW-lV-LQ5"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="vmU-8t-UY4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="36p-BL-qFc"/>
@@ -323,11 +347,91 @@
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="124.58770614692655"/>
         </scene>
+        <!--Free Style Info-->
+        <scene sceneID="50I-KG-EVo">
+            <objects>
+                <viewController title="Free Style Info" id="ght-hh-v1m" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPL-dk-1w2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freestyle" translatesAutoresizingMaskIntoConstraints="NO" id="WDZ-kM-cwc">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5e-pf-U7d">
+                                <rect key="frame" x="10" y="20" width="30" height="51"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="👍">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iYz-hS-RK5" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="jR4-rV-fnj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VZl-KU-cEC" firstAttribute="bottom" secondItem="WDZ-kM-cwc" secondAttribute="bottom" id="A89-N3-Orc"/>
+                            <constraint firstItem="g5e-pf-U7d" firstAttribute="leading" secondItem="VZl-KU-cEC" secondAttribute="leading" constant="10" id="Ba4-q2-SfI"/>
+                            <constraint firstItem="VZl-KU-cEC" firstAttribute="trailing" secondItem="WDZ-kM-cwc" secondAttribute="trailing" id="C0Z-sJ-mLf"/>
+                            <constraint firstItem="WDZ-kM-cwc" firstAttribute="leading" secondItem="VZl-KU-cEC" secondAttribute="leading" id="CGU-iz-gWJ"/>
+                            <constraint firstItem="WDZ-kM-cwc" firstAttribute="top" secondItem="VZl-KU-cEC" secondAttribute="top" constant="40" id="UVd-rl-JEH"/>
+                            <constraint firstItem="g5e-pf-U7d" firstAttribute="top" secondItem="VZl-KU-cEC" secondAttribute="top" id="mf9-NO-vzJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VZl-KU-cEC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Wr-md-e8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iYz-hS-RK5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-445.60000000000002" y="933.28335832083962"/>
+        </scene>
+        <!--Slag Run Info-->
+        <scene sceneID="Zsn-ca-iHX">
+            <objects>
+                <viewController title="Slag Run Info" id="NB1-NO-Zs0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aLu-OE-QXF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slagrun" translatesAutoresizingMaskIntoConstraints="NO" id="7YE-6A-goK">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK2-uN-LWY">
+                                <rect key="frame" x="10" y="20" width="30" height="51"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="👍">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jEl-JY-GWN" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="mCQ-x6-laC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SK2-uN-LWY" firstAttribute="top" secondItem="vKe-uI-NKK" secondAttribute="top" id="6cl-bf-KTA"/>
+                            <constraint firstAttribute="bottom" secondItem="7YE-6A-goK" secondAttribute="bottom" id="C9U-Rz-Lv6"/>
+                            <constraint firstItem="7YE-6A-goK" firstAttribute="leading" secondItem="vKe-uI-NKK" secondAttribute="leading" id="SyV-Q9-CXo"/>
+                            <constraint firstAttribute="trailing" secondItem="7YE-6A-goK" secondAttribute="trailing" id="Ti1-jf-rTa"/>
+                            <constraint firstItem="SK2-uN-LWY" firstAttribute="leading" secondItem="vKe-uI-NKK" secondAttribute="leading" constant="10" id="YbZ-le-qtc"/>
+                            <constraint firstItem="7YE-6A-goK" firstAttribute="top" secondItem="vKe-uI-NKK" secondAttribute="top" constant="40" id="sXU-HJ-3T8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vKe-uI-NKK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-GL-421" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jEl-JY-GWN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="380" y="931"/>
+        </scene>
     </scenes>
     <resources>
         <image name="challenges" width="100" height="100"/>
+        <image name="freestyle" width="900" height="1300"/>
         <image name="gregoriust" width="900" height="1300"/>
         <image name="settings" width="100" height="100"/>
+        <image name="slagrun" width="900" height="1300"/>
         <image name="tutorialsplash" width="900" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>

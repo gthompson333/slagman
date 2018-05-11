@@ -16,10 +16,17 @@ private enum HUDSettings {
 
 class HUD: SKNode {
   private var slagRunLabel: SKLabelNode!
+  private var powerNodeCountLabel: SKLabelNode!
   
   var slagAmount: Int = 0 {
     didSet {
       updateSlagLabel(slag: slagAmount)
+    }
+  }
+  
+  var powerNodeCount: (Int, Int) = (0, 0) {
+    didSet {
+      updatePowerNodeCountLabel(currentCount: powerNodeCount.0, totalCount: powerNodeCount.1)
     }
   }
   
@@ -42,13 +49,17 @@ class HUD: SKNode {
     slagRunLabel?.text = "Slag Run: \(slag)"
   }
   
+  private func updatePowerNodeCountLabel(currentCount: Int, totalCount: Int) {
+    powerNodeCountLabel?.text = "Power Nodes: \(currentCount) of \(totalCount)"
+  }
+  
   func createDisplay() {
     guard let scene = scene else { return }
     
     slagRunLabel = SKLabelNode(fontNamed: HUDSettings.font)
     slagRunLabel.fontSize = HUDSettings.fontSize
     slagRunLabel.fontColor = HUDSettings.fontColor
-    slagRunLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
+    slagRunLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 135)
     slagRunLabel.zPosition = 5
     addChild(slagRunLabel)
     
@@ -56,6 +67,13 @@ class HUD: SKNode {
     if SessionData.sharedInstance.gameMode == .freestyle {
       slagRunLabel.isHidden = true
     }
+    
+    powerNodeCountLabel = SKLabelNode(fontNamed: HUDSettings.font)
+    powerNodeCountLabel.fontSize = HUDSettings.fontSize
+    powerNodeCountLabel.fontColor = HUDSettings.fontColor
+    powerNodeCountLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
+    powerNodeCountLabel.zPosition = 5
+    addChild(powerNodeCountLabel)
     
     homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"

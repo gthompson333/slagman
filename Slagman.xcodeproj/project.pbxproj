@@ -88,6 +88,11 @@
 		37D1DC8320A2194D00034FB4 /* Challenge22.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8220A2194D00034FB4 /* Challenge22.sks */; };
 		37D1DC8520A3815E00034FB4 /* SlagRunCompleted.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8420A3815D00034FB4 /* SlagRunCompleted.sks */; };
 		37D1DC8720A3817200034FB4 /* SlagRunCompletedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1DC8620A3817200034FB4 /* SlagRunCompletedScene.swift */; };
+		37D1DC8A20A56DD700034FB4 /* LaunchPlatformBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8820A56DD600034FB4 /* LaunchPlatformBlue.sks */; };
+		37D1DC8B20A56DD700034FB4 /* FinishGateBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8920A56DD700034FB4 /* FinishGateBlue.sks */; };
+		37D1DC8F20A56E9D00034FB4 /* BoostGateRightBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8C20A56E9C00034FB4 /* BoostGateRightBlue.sks */; };
+		37D1DC9020A56E9D00034FB4 /* BoostGateCenterBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8D20A56E9D00034FB4 /* BoostGateCenterBlue.sks */; };
+		37D1DC9120A56E9D00034FB4 /* BoostGateLeftBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8E20A56E9D00034FB4 /* BoostGateLeftBlue.sks */; };
 		37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9DB2062C1EE00C7523B /* Challenge1.sks */; };
 		37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */; };
 		37D2E9E420635B9200C7523B /* Challenge3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E320635B9100C7523B /* Challenge3.sks */; };
@@ -196,6 +201,11 @@
 		37D1DC8220A2194D00034FB4 /* Challenge22.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge22.sks; sourceTree = "<group>"; };
 		37D1DC8420A3815D00034FB4 /* SlagRunCompleted.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SlagRunCompleted.sks; sourceTree = "<group>"; };
 		37D1DC8620A3817200034FB4 /* SlagRunCompletedScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlagRunCompletedScene.swift; sourceTree = "<group>"; };
+		37D1DC8820A56DD600034FB4 /* LaunchPlatformBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaunchPlatformBlue.sks; sourceTree = "<group>"; };
+		37D1DC8920A56DD700034FB4 /* FinishGateBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinishGateBlue.sks; sourceTree = "<group>"; };
+		37D1DC8C20A56E9C00034FB4 /* BoostGateRightBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateRightBlue.sks; sourceTree = "<group>"; };
+		37D1DC8D20A56E9D00034FB4 /* BoostGateCenterBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateCenterBlue.sks; sourceTree = "<group>"; };
+		37D1DC8E20A56E9D00034FB4 /* BoostGateLeftBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoostGateLeftBlue.sks; sourceTree = "<group>"; };
 		37D2E9DB2062C1EE00C7523B /* Challenge1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge1.sks; sourceTree = "<group>"; };
 		37D2E9E12062DA4100C7523B /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		37D2E9E320635B9100C7523B /* Challenge3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge3.sks; sourceTree = "<group>"; };
@@ -304,10 +314,13 @@
 				37068AEA209CADCA00003187 /* TransportGateLeft.sks */,
 				375A391B2097F93600136A63 /* TransportGateRight.sks */,
 				375A39092094D78000136A63 /* BoostGateRightRed.sks */,
+				37D1DC8C20A56E9C00034FB4 /* BoostGateRightBlue.sks */,
 				3793FA39208FC65C00827990 /* BoostGateRightSilver.sks */,
 				375A39082094D77F00136A63 /* BoostGateLeftRed.sks */,
+				37D1DC8E20A56E9D00034FB4 /* BoostGateLeftBlue.sks */,
 				3793FA3A208FC65C00827990 /* BoostGateLeftSilver.sks */,
 				375A390A2094D78000136A63 /* BoostGateCenterRed.sks */,
+				37D1DC8D20A56E9D00034FB4 /* BoostGateCenterBlue.sks */,
 				3793FA38208FC65B00827990 /* BoostGateCenterSilver.sks */,
 				377F593720897031005F0B84 /* RotatingGateLeft.sks */,
 				377F593620897030005F0B84 /* RotatingGateRight.sks */,
@@ -372,8 +385,10 @@
 				375EFC2820864A58008CCA70 /* Gates */,
 				37D2E9DA2062C1B800C7523B /* Travels */,
 				375A390F2094D79600136A63 /* LaunchPlatformRed.sks */,
+				37D1DC8820A56DD600034FB4 /* LaunchPlatformBlue.sks */,
 				3793FA30208EB72700827990 /* LaunchPlatformSilver.sks */,
 				375A390E2094D79600136A63 /* FinishGateRed.sks */,
+				37D1DC8920A56DD700034FB4 /* FinishGateBlue.sks */,
 				3793FA32208EB7FC00827990 /* FinishGateSilver.sks */,
 				37146503205AFE9200D574D4 /* ChallengeCompleted.sks */,
 				37D1DC8420A3815D00034FB4 /* SlagRunCompleted.sks */,
@@ -539,12 +554,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */,
+				37D1DC9020A56E9D00034FB4 /* BoostGateCenterBlue.sks in Resources */,
 				37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */,
 				37D2E9E420635B9200C7523B /* Challenge3.sks in Resources */,
 				37E7F58E205238F20076E828 /* boost.wav in Resources */,
 				374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */,
 				374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */,
 				375EFC16207F068A008CCA70 /* bustaslagmove.m4a in Resources */,
+				37D1DC8B20A56DD700034FB4 /* FinishGateBlue.sks in Resources */,
 				374506B2206F58F500AEF948 /* linktheslag.m4a in Resources */,
 				377F593B2089764C005F0B84 /* Challenge11.sks in Resources */,
 				375EFC1C207FB90D008CCA70 /* smallboostparticles.sks in Resources */,
@@ -556,6 +573,7 @@
 				37D1DC8120A0EB7B00034FB4 /* playertransporteffect.sks in Resources */,
 				375EFBEE206FEBB9008CCA70 /* slumsofrage.wav in Resources */,
 				377F593920897031005F0B84 /* RotatingGateLeft.sks in Resources */,
+				37D1DC8F20A56E9D00034FB4 /* BoostGateRightBlue.sks in Resources */,
 				375EFBF02071C46C008CCA70 /* Challenge10.sks in Resources */,
 				37D1DC7F20A0C0C800034FB4 /* transport.wav in Resources */,
 				375A39112094D79600136A63 /* LaunchPlatformRed.sks in Resources */,
@@ -598,11 +616,13 @@
 				375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */,
 				375A390D2094D78000136A63 /* BoostGateCenterRed.sks in Resources */,
 				374506AF206F58F500AEF948 /* gravtotheslag.m4a in Resources */,
+				37D1DC8A20A56DD700034FB4 /* LaunchPlatformBlue.sks in Resources */,
 				376F708F2054B07600A9785D /* boostparticles.sks in Resources */,
 				377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */,
 				375EFC18207F068A008CCA70 /* mrslaggysayshello.m4a in Resources */,
 				375EFC19207F068A008CCA70 /* letsslag.m4a in Resources */,
 				3793FA452092921A00827990 /* Challenge16.sks in Resources */,
+				37D1DC9120A56E9D00034FB4 /* BoostGateLeftBlue.sks in Resources */,
 				375EFC2420812499008CCA70 /* eightballcafe.wav in Resources */,
 				3793FA472092C22700827990 /* Challenge17.sks in Resources */,
 				375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */,

@@ -9,17 +9,9 @@
 import SpriteKit
 
 class TutorialCompletedScene: SKScene {
-  var currentSlagRunLabel: SKLabelNode!
-  var bestSlagRunLabel: SKLabelNode!
   weak var gameViewController: GameViewController?
   
   override func didMove(to view: SKView) {
-    currentSlagRunLabel = childNode(withName: "currentslagrunlabel") as! SKLabelNode
-    currentSlagRunLabel.text = "Current Slag Run: \(SessionData.sharedInstance.slagRun)"
-    
-    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
-    bestSlagRunLabel.text = "Best Slag Run: \(SessionData.sharedInstance.bestSlagRun)"
-    
     SessionData.sharedInstance.freestyleChallenge += 1
     print("Saving to session data, challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
     

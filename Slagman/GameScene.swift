@@ -24,9 +24,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
+  var powerNodeTotal = 0
+  var countOfPowerNodes = 0
   static var theme: String?
   
   var gameState = GameState.starting
+  var transportInProgress = false
   
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
@@ -56,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupNodes()
     setupHUD()
     
+    // Background Music and Sounds
     let backgroundMusic = userData?["backgroundmusic"] as? String
     let introVoice = userData?["introvoice"] as? String
     GameScene.theme = userData?["theme"] as? String
@@ -76,7 +80,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       })
     }
+    
+    // Addresses a SceneKit bug, where node animations sometimes start in a paused state.
     UnPauseAnimations()
+    
+    if SessionData.sharedInstance.gameMode == .slagrun {
+      SessionData.saveData()
+    }
+    
+    if let powerNodeCount = userData?["powernodecount"] as? Int,
+      let sceneLayerCount = userData?["layercount"] as? Int {
+      powerNodeTotal = powerNodeCount * sceneLayerCount
+      hud.powerNodeCount = (0, powerNodeTotal)
+    }
   }
   
   deinit {
@@ -107,8 +123,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           if name == "homebutton"
           {
             if gameViewController != nil {
-              gameViewController!.transitionToHome()
-              return
+              if SessionData.sharedInstance.gameMode == .freestyle {
+                gameViewController!.transitionToHome()
+                return
+              } else {
+                if let slagRunCompleted = SlagRunCompletedScene(fileNamed: "SlagRunCompleted") {
+                  slagRunCompleted.scaleMode = .aspectFill
+                  slagRunCompleted.gameViewController = self.gameViewController
+                  self.view!.presentScene(slagRunCompleted, transition: SKTransition.doorway(withDuration:1))
+                  return
+                }
+              }
             }
           }
         }
@@ -335,6 +360,9 @@ extension GameScene {
           
           SessionData.sharedInstance.slagRun += 10
           boostNode.explode()
+          
+          countOfPowerNodes += 1
+          hud.powerNodeCount = (countOfPowerNodes, powerNodeTotal)
         }
         player.powerBoost()
         // SlagNode
@@ -373,16 +401,19 @@ extension GameScene {
     }
   }
   
+  
+  
   func didEnd(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
     switch other.categoryBitMask {
     case PhysicsCategory.Contactable:
       if other.node?.name == "transporternode", let transportNode = other.node as? SKSpriteNode {
-        if transportNode.parent == nil {
+        if transportNode.parent == nil || transportInProgress {
           return
         }
         
+        transportInProgress = true
         let parentNode = transportNode.parent
         let slagNode = createSlagNode(for: transportNode)
         
@@ -390,10 +421,14 @@ extension GameScene {
           assert(parentNode != nil, "Transport parent node is nil.")
           parentNode?.addChild(slagNode)
           transportNode.removeFromParent()
+          self.transportInProgress = false
         }))
         
         SessionData.sharedInstance.slagRun += 10
         player.transport(from: transportNode)
+        
+        countOfPowerNodes += 1
+        hud.powerNodeCount = (countOfPowerNodes, powerNodeTotal)
       }
     default:
       break
