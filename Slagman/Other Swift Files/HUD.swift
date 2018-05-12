@@ -59,7 +59,7 @@ class HUD: SKNode {
     slagRunLabel = SKLabelNode(fontNamed: HUDSettings.font)
     slagRunLabel.fontSize = HUDSettings.fontSize
     slagRunLabel.fontColor = HUDSettings.fontColor
-    slagRunLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 135)
+    slagRunLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
     slagRunLabel.zPosition = 5
     addChild(slagRunLabel)
     
@@ -74,6 +74,10 @@ class HUD: SKNode {
     powerNodeCountLabel.position = CGPoint(x: scene.frame.midX, y: scene.frame.height/2 - 80)
     powerNodeCountLabel.zPosition = 5
     addChild(powerNodeCountLabel)
+    
+    if SessionData.sharedInstance.gameMode == .slagrun {
+      powerNodeCountLabel.isHidden = true
+    }
     
     homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"

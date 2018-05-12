@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var levelPositionY: CGFloat = 0.0
   
   var countOfSceneLayers = 1
-  var powerNodeTotal = 0
+  var powerNodesTotal = 0
   var countOfPowerNodes = 0
   static var theme: String?
   
@@ -90,8 +90,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     if let powerNodeCount = userData?["powernodecount"] as? Int,
       let sceneLayerCount = userData?["layercount"] as? Int {
-      powerNodeTotal = powerNodeCount * sceneLayerCount
-      hud.powerNodeCount = (0, powerNodeTotal)
+      powerNodesTotal = powerNodeCount * sceneLayerCount
+      hud.powerNodeCount = (0, powerNodesTotal)
     }
   }
   
@@ -311,6 +311,10 @@ extension GameScene {
           if SessionData.sharedInstance.gameMode == .slagrun {
             SessionData.sharedInstance.slagrunChallenge = SessionData.sharedInstance.slagrunChallenge + 1
             
+            if countOfPowerNodes == powerNodesTotal {
+              SessionData.sharedInstance.challengesTotallySlagged += 1
+            }
+            
             run(SKAction.afterDelay(1.5, runBlock: {
               if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.slagrunChallenge) {
                 scene.scaleMode = .aspectFill
@@ -325,23 +329,15 @@ extension GameScene {
               
             }))
           } else {
-            if SessionData.sharedInstance.freestyleChallenge > 0 {
-              run(SKAction.afterDelay(1.5, runBlock: {
-                if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
-                  challengeCompleted.scaleMode = .aspectFill
-                  challengeCompleted.gameViewController = self.gameViewController
-                  self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
-                }
-              }))
-            } else {
-              run(SKAction.afterDelay(1.5, runBlock: {
-                if let tutorialCompleted = TutorialCompletedScene(fileNamed: "TutorialCompleted") {
-                  tutorialCompleted.scaleMode = .aspectFill
-                  tutorialCompleted.gameViewController = self.gameViewController
-                  self.view!.presentScene(tutorialCompleted, transition: SKTransition.doorway(withDuration:1))
-                }
-              }))
-            }
+            run(SKAction.afterDelay(1.5, runBlock: {
+              if let challengeCompleted = ChallengeCompletedScene(fileNamed: "ChallengeCompleted") {
+                challengeCompleted.scaleMode = .aspectFill
+                challengeCompleted.powerNodesTotal = self.powerNodesTotal
+                challengeCompleted.countOfPowerNodes = self.countOfPowerNodes
+                challengeCompleted.gameViewController = self.gameViewController
+                self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
+              }
+            }))
           }
           
           boostNode.finishExplosion()
@@ -362,7 +358,7 @@ extension GameScene {
           boostNode.explode()
           
           countOfPowerNodes += 1
-          hud.powerNodeCount = (countOfPowerNodes, powerNodeTotal)
+          hud.powerNodeCount = (countOfPowerNodes, powerNodesTotal)
         }
         player.powerBoost()
         // SlagNode
@@ -401,8 +397,6 @@ extension GameScene {
     }
   }
   
-  
-  
   func didEnd(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
@@ -428,7 +422,7 @@ extension GameScene {
         player.transport(from: transportNode)
         
         countOfPowerNodes += 1
-        hud.powerNodeCount = (countOfPowerNodes, powerNodeTotal)
+        hud.powerNodeCount = (countOfPowerNodes, powerNodesTotal)
       }
     default:
       break

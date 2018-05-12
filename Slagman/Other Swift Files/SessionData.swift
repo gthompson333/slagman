@@ -16,6 +16,7 @@ class SessionData: NSObject, NSCoding {
       if gameMode == .slagrun {
         slagrunChallenge = 1
         slagRun = 0
+        challengesTotallySlagged = 0
       }
     }
   }
@@ -31,6 +32,7 @@ class SessionData: NSObject, NSCoding {
     }
   }
   var bestSlagRun = 0
+  var challengesTotallySlagged = 0
 
   override init() {
     super.init()

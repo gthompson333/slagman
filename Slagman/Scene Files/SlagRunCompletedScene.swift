@@ -9,10 +9,21 @@
 import SpriteKit
 
 class SlagRunCompletedScene: SKScene {
-  var completedLabel: SKLabelNode!
-  var slagLabel: SKLabelNode!
+  var nodesSlagLabel: SKLabelNode!
+  var nodesSlagTotalLabel: SKLabelNode!
+  var challengesSlagLabel: SKLabelNode!
+  var challengesSlagTotalLabel: SKLabelNode!
+  var slagTotalLabel: SKLabelNode!
   var bestSlagRunLabel: SKLabelNode!
+  var newBestSlagRunLabel: SKLabelNode!
+  
   weak var gameViewController: GameViewController?
+  
+  var nodesSlag: Int {
+    get {
+      return SessionData.sharedInstance.slagRun / 10
+    }
+  }
   
   override func didMove(to view: SKView) {
     let backgroundMusic = userData?["backgroundmusic"] as? String
@@ -29,12 +40,34 @@ class SlagRunCompletedScene: SKScene {
                               }}]))
     }
     
-    slagLabel = childNode(withName: "slaglabel") as! SKLabelNode
-    slagLabel.text = "Current Slag Run: \(SessionData.sharedInstance.slagRun)"
+    nodesSlagLabel = childNode(withName: "nodesslaglabel") as! SKLabelNode
+    nodesSlagLabel.text = "\(nodesSlag) Power Nodes Slagged"
     
-    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
-    bestSlagRunLabel.text = "Best Slag Run: \(SessionData.sharedInstance.bestSlagRun)"
+    nodesSlagTotalLabel = childNode(withName: "nodesslagtotallabel") as! SKLabelNode
+    nodesSlagTotalLabel.text = "\(nodesSlag) x 10 = \(SessionData.sharedInstance.slagRun) Slag"
+    
+    challengesSlagLabel = childNode(withName: "challengesslaglabel") as! SKLabelNode
+    challengesSlagLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) Challenges Completedly Slagged"
+    
+    challengesSlagTotalLabel = childNode(withName: "challengesslagtotallabel") as! SKLabelNode
+    challengesSlagTotalLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) x 100 = \(SessionData.sharedInstance.challengesTotallySlagged * 100)"
 
+    slagTotalLabel = childNode(withName: "slagtotallabel") as! SKLabelNode
+    slagTotalLabel.text = "Slag Total: \(SessionData.sharedInstance.slagRun + (SessionData.sharedInstance.challengesTotallySlagged * 100))"
+    SessionData.sharedInstance.slagRun = SessionData.sharedInstance.slagRun + (SessionData.sharedInstance.challengesTotallySlagged * 100)
+
+    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
+    bestSlagRunLabel.text = "Your Best Run: \(SessionData.sharedInstance.bestSlagRun)"
+
+    newBestSlagRunLabel = childNode(withName: "newbestslagrunlabel") as! SKLabelNode
+    
+    if SessionData.sharedInstance.slagRun == SessionData.sharedInstance.bestSlagRun {
+      newBestSlagRunLabel.text = "Your Best Run Yet!"
+      pulseNewBestSlagRunLabel()
+    } else {
+      newBestSlagRunLabel.text = "Bummer, Dude! You've Done Better"
+    }
+    
     SessionData.saveData()
   }
   
@@ -48,6 +81,13 @@ class SlagRunCompletedScene: SKScene {
     if gameViewController != nil {
       gameViewController!.transitionToHome()
     }
+  }
+  
+  func pulseNewBestSlagRunLabel() {
+    let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
+                                        SKAction.scale(to: 1.0, duration: 0.5)])
+    
+    newBestSlagRunLabel.run(SKAction.repeatForever(scalePulse))
   }
   
   func playBackgroundMusic(name: String) {

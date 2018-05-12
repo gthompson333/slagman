@@ -9,7 +9,13 @@
 import SpriteKit
 
 class ChallengeCompletedScene: SKScene {
+  var nodesSlagLabel: SKLabelNode!
+  var allNodesSlagLabel: SKLabelNode!
+  
   weak var gameViewController: GameViewController?
+  
+  var powerNodesTotal = 0
+  var countOfPowerNodes = 0
   
   override func didMove(to view: SKView) {
     let backgroundMusic = userData?["backgroundmusic"] as? String
@@ -24,6 +30,17 @@ class ChallengeCompletedScene: SKScene {
                               if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
                                 self.playBackgroundMusic(name: bgMusic)
                               }}]))
+    }
+    
+    nodesSlagLabel = childNode(withName: "nodesslaglabel") as! SKLabelNode
+    nodesSlagLabel.text = "\(countOfPowerNodes) Out of \(powerNodesTotal)"
+    
+    allNodesSlagLabel = childNode(withName: "allnodesslaglabel") as! SKLabelNode
+    
+    if countOfPowerNodes == powerNodesTotal {
+      allNodesSlagLabel.text = "SUCCESS!  All Power Nodes Slagged!"
+    } else {
+      allNodesSlagLabel.text = "FAIL!  Not All Power Nodes Slagged!"
     }
     
     SessionData.sharedInstance.freestyleChallenge += 1
@@ -48,6 +65,13 @@ class ChallengeCompletedScene: SKScene {
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
   }
+  
+  /*func pulseNewBestSlagRunLabel() {
+   let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
+   SKAction.scale(to: 1.0, duration: 0.5)])
+   
+   newBestSlagRunLabel.run(SKAction.repeatForever(scalePulse))
+   }*/
   
   func playBackgroundMusic(name: String) {
     if let _ = childNode(withName: "backgroundmusic") {
