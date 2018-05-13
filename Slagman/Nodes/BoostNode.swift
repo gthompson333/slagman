@@ -9,6 +9,24 @@
 import SpriteKit
 
 class BoostNode: SKSpriteNode {
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    
+    if let patrolDistance = userData?["patrols"] as? Int {
+      patrolling(distance: patrolDistance)
+    }
+  }
+  
+  override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    super.init(texture: texture, color: color, size: size)
+  }
+  
+  func patrolling(distance: Int) {
+    let move = SKAction.moveBy(x: CGFloat(distance), y: 0, duration: 2.0)
+    let repeatMove = SKAction.repeatForever(SKAction.sequence([move, move.reversed()]))
+    run(repeatMove)
+  }
+  
   func finishExplosion() {
     let explode = explosion(intensity: 1.0)
     explode.position = position

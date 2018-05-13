@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  Jetpack McFlax
+//  Slagman
 //
 //  Created by Greg M. Thompson on 3/5/18.
 //  Copyright © 2018 Gregorius T. All rights reserved.
@@ -16,9 +16,9 @@ class GameViewController: UIViewController {
     
     if let view = self.view as! SKView? {
       var challengeNumber = SessionData.sharedInstance.freestyleChallenge
-      print("Challenge number \(challengeNumber) retrieved from session data.")
+      print("Free Style challenge number \(challengeNumber) retrieved from session data.")
       
-      // Slag Run mode always starts with the first challenge.
+      // If a Slag Run is starting.
       if SessionData.sharedInstance.gameMode == .slagrun {
         challengeNumber = SessionData.sharedInstance.slagrunChallenge
         print("Slag Run challenge number \(challengeNumber) retrieved from session data.")

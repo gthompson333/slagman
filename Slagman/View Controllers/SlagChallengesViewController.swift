@@ -14,7 +14,7 @@ class SlagChallengesViewController: UITableViewController {
                     ["name" : "Link The Slag!", "locked" : false],
                     ["name" : "Power to The Slag!", "locked" : false],
                     ["name" : "Watch for Slag Mines!", "locked" : false],
-                    ["name" : "Grav to The Slag!", "locked" : false],
+                    ["name" : "Slag Gravity!", "locked" : false],
                     ["name" : "Are You Feeling Slaggy?!", "locked" : false],
                     ["name" : "Little Grabby Slags!", "locked" : false],
                     ["name" : "Mr. Slaggy Says Hello!", "locked" : false],
@@ -32,7 +32,9 @@ class SlagChallengesViewController: UITableViewController {
                    ["name" : "Guardians of The Slag!", "locked" : false]],
                   [["name" : "Slag Warp!", "locked" : false],
                    ["name" : "Transport the Slag!", "locked" : false],
-                   ["name" : "The Slag Principle!", "locked" : false]]]
+                   ["name" : "The Slag Principle!", "locked" : false],
+                   ["name" : "The Symmetry of Slag!", "locked" : false],
+                   ["name" : "The Slag Paradox!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {
