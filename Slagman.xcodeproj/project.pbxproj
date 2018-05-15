@@ -121,6 +121,8 @@
 		37E7F5B5205330830076E828 /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F5A9205330820076E828 /* SKTTimingFunctions.swift */; };
 		37E7F5B6205330830076E828 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F5AA205330820076E828 /* Vector3.swift */; };
 		37E7F5C42054AA710076E828 /* spacegame.caf in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F5C32054AA710076E828 /* spacegame.caf */; };
+		37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8852C20A8EB9400B1100F /* Challenge26.sks */; };
+		37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8852F20A93C5E00B1100F /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +242,8 @@
 		37E7F5A9205330820076E828 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		37E7F5AA205330820076E828 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		37E7F5C32054AA710076E828 /* spacegame.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacegame.caf; sourceTree = "<group>"; };
+		37F8852C20A8EB9400B1100F /* Challenge26.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge26.sks; sourceTree = "<group>"; };
+		37F8852F20A93C5E00B1100F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +266,7 @@
 				37D1DC9E20A5F5E400034FB4 /* Challenge23.sks */,
 				37D1DCA020A75C7000034FB4 /* Challenge24.sks */,
 				37285E2420A896B90064E856 /* Challenge25.sks */,
+				37F8852C20A8EB9400B1100F /* Challenge26.sks */,
 			);
 			path = "Travels 2";
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 			children = (
 				37B4FFBB204D9E6500FAEC3E /* Slagman */,
 				37B4FFBA204D9E6500FAEC3E /* Products */,
+				37F8852E20A93C5E00B1100F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -560,6 +567,14 @@
 			path = SKTUtils;
 			sourceTree = "<group>";
 		};
+		37F8852E20A93C5E00B1100F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37F8852F20A93C5E00B1100F /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -593,6 +608,11 @@
 					37B4FFB8204D9E6500FAEC3E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -668,6 +688,7 @@
 				3793FA3C208FC65C00827990 /* BoostGateRightSilver.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				37285E2520A896B90064E856 /* Challenge25.sks in Resources */,
+				37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */,
 				37D1DC8520A3815E00034FB4 /* SlagRunCompleted.sks in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
 				375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */,

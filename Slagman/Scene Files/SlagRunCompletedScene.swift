@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameKit
 
 class SlagRunCompletedScene: SKScene {
   var nodesSlagLabel: SKLabelNode!
@@ -69,6 +70,18 @@ class SlagRunCompletedScene: SKScene {
     }
     
     SessionData.saveData()
+    
+    if GKLocalPlayer.localPlayer().isAuthenticated {
+      let gkscore = GKScore(leaderboardIdentifier: "slagruns")
+      gkscore.value = Int64(SessionData.sharedInstance.slagRun)
+      
+      // Attempt to send the new slag run score to Game Center.
+      GKScore.report([gkscore]) { (error) in
+        if error == nil {
+          print("GKScore successfully reported.")
+        }
+      }
+    }
   }
   
   deinit {
