@@ -126,6 +126,8 @@
 		37F8853420AB6C2800B1100F /* Challenge27.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853320AB6C2800B1100F /* Challenge27.sks */; };
 		37F8853620AB982B00B1100F /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8853520AB982B00B1100F /* UnityAds.framework */; };
 		37F8853820ABDD6000B1100F /* Challenge28.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853720ABDD6000B1100F /* Challenge28.sks */; };
+		37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853920AC81EB00B1100F /* Challenge30.sks */; };
+		37F8853C20AC81EB00B1100F /* Challenge29.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853A20AC81EB00B1100F /* Challenge29.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +252,8 @@
 		37F8853320AB6C2800B1100F /* Challenge27.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge27.sks; sourceTree = "<group>"; };
 		37F8853520AB982B00B1100F /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		37F8853720ABDD6000B1100F /* Challenge28.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge28.sks; sourceTree = "<group>"; };
+		37F8853920AC81EB00B1100F /* Challenge30.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge30.sks; sourceTree = "<group>"; };
+		37F8853A20AC81EB00B1100F /* Challenge29.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge29.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,8 @@
 				37F8852C20A8EB9400B1100F /* Challenge26.sks */,
 				37F8853320AB6C2800B1100F /* Challenge27.sks */,
 				37F8853720ABDD6000B1100F /* Challenge28.sks */,
+				37F8853A20AC81EB00B1100F /* Challenge29.sks */,
+				37F8853920AC81EB00B1100F /* Challenge30.sks */,
 			);
 			path = "Travels 2";
 			sourceTree = "<group>";
@@ -694,7 +700,9 @@
 				37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */,
 				3793FA412090CF8300827990 /* Challenge14.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge6.sks in Resources */,
+				37F8853C20AC81EB00B1100F /* Challenge29.sks in Resources */,
 				3793FA3B208FC65C00827990 /* BoostGateCenterSilver.sks in Resources */,
+				37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */,
 				375EFC2020802E54008CCA70 /* smallboost.wav in Resources */,
 				3793FA3C208FC65C00827990 /* BoostGateRightSilver.sks in Resources */,
 				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,

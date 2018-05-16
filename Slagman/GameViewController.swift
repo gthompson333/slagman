@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
   }
   
   func transitionToHome() {
-    print("transitioning to home")
+    print("Transitioning to Home.")
     performSegue(withIdentifier: "unwindFromGameToIntroduction", sender: self)
   }
   

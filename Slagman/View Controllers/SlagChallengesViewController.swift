@@ -37,7 +37,9 @@ class SlagChallengesViewController: UITableViewController {
                    ["name" : "The Slag Paradox!", "locked" : false],
                    ["name" : "Slag = MC^2!", "locked" : false],
                    ["name" : "The Slag Particle!", "locked" : false],
-                   ["name" : "A Slag Reaction!", "locked" : false]]]
+                   ["name" : "The Slag Continuum!", "locked" : false],
+                   ["name" : "Quantum Slag!", "locked" : false],
+                   ["name" : "The Theory of Slag!", "locked" : false]]]
   
   var selectedTravelsIndex = 0 {
     didSet {

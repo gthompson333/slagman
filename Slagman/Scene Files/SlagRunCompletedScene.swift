@@ -116,6 +116,10 @@ class SlagRunCompletedScene: SKScene, UnityAdsDelegate {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if UnityAds.isReady() == true && gameViewController != nil {
       UnityAds.show(gameViewController!, placementId: "video")
+    } else {
+      if gameViewController != nil {
+        gameViewController!.transitionToHome()
+      }
     }
   }
   
