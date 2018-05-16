@@ -14,6 +14,8 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   var slagmanVoiceSound: AVAudioPlayer?
   let gamekitPlayer = GKLocalPlayer.localPlayer()
   
+  @IBOutlet weak var gameCenterButton: UIButton!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -22,9 +24,10 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
       if controller != nil {
         self.show(controller!, sender: self)
       } else if self.gamekitPlayer.isAuthenticated {
-        print("Player successfully authenticated.")
+        print("GameKit player successfully authenticated.")
+        self.gameCenterButton.isHidden = false
       } else {
-        print("Disable gamecenter")
+        print("Unable to authenticate GameKit player. GameKit disabled.")
       }
     }
     

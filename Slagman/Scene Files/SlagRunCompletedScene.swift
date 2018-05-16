@@ -8,8 +8,9 @@
 
 import SpriteKit
 import GameKit
+import UnityAds
 
-class SlagRunCompletedScene: SKScene {
+class SlagRunCompletedScene: SKScene, UnityAdsDelegate {
   var nodesSlagLabel: SKLabelNode!
   var nodesSlagTotalLabel: SKLabelNode!
   var challengesSlagLabel: SKLabelNode!
@@ -71,6 +72,8 @@ class SlagRunCompletedScene: SKScene {
     
     SessionData.saveData()
     
+    UnityAds.initialize("1797668", delegate: self)
+    
     if GKLocalPlayer.localPlayer().isAuthenticated {
       let gkscore = GKScore(leaderboardIdentifier: "slagruns")
       gkscore.value = Int64(SessionData.sharedInstance.slagRun)
@@ -78,7 +81,7 @@ class SlagRunCompletedScene: SKScene {
       // Attempt to send the new slag run score to Game Center.
       GKScore.report([gkscore]) { (error) in
         if error == nil {
-          print("GKScore successfully reported.")
+          print("GameKit score successfully reported: \(gkscore.value).")
         }
       }
     }
@@ -88,11 +91,31 @@ class SlagRunCompletedScene: SKScene {
     print("Deinit SlagRunCompletedScene")
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+  func unityAdsReady(_ placementId: String) {
+    print("Unity Ads are ready.")
+  }
+  
+  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
+    print("Unity Ads Error: \(error)")
+  }
+  
+  func unityAdsDidStart(_ placementId: String) {
+    print("Unity Ads starting.")
+  }
+  
+  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
+    print("Unity Ads finished.")
+    
     // If player is in a Slag Run and died, then the Slag Run is over and player will be returned
     // back to the home view.
     if gameViewController != nil {
       gameViewController!.transitionToHome()
+    }
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if UnityAds.isReady() == true && gameViewController != nil {
+      UnityAds.show(gameViewController!, placementId: "video")
     }
   }
   

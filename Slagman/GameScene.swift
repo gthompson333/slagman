@@ -127,6 +127,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 gameViewController!.transitionToHome()
                 return
               } else {
+                if SessionData.sharedInstance.slagRun == 0 {
+                  gameViewController!.transitionToHome()
+                  return
+                }
+                
                 if let slagRunCompleted = SlagRunCompletedScene(fileNamed: "SlagRunCompleted") {
                   slagRunCompleted.scaleMode = .aspectFill
                   slagRunCompleted.gameViewController = self.gameViewController

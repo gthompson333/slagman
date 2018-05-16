@@ -7,8 +7,9 @@
 //
 
 import SpriteKit
+import UnityAds
 
-class ChallengeCompletedScene: SKScene {
+class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
   var nodesSlagLabel: SKLabelNode!
   var allNodesSlagLabel: SKLabelNode!
   
@@ -47,13 +48,39 @@ class ChallengeCompletedScene: SKScene {
     print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
     
     SessionData.saveData()
+    
+    UnityAds.initialize("1797668", delegate: self)
   }
   
   deinit {
     print("Deinit ChallengeCompletedScene")
   }
   
+  func unityAdsReady(_ placementId: String) {
+    print("Unity Ads are ready.")
+  }
+  
+  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
+    print("Unity Ads Error: \(error)")
+  }
+  
+  func unityAdsDidStart(_ placementId: String) {
+    print("Unity Ads starting.")
+  }
+  
+  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
+    print("Unity Ads finished.")
+  }
+  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if UnityAds.isReady() == true {
+      UnityAds.show(gameViewController!, placementId: "video")
+    }
+    
+    presentNextScene()
+  }
+  
+  func presentNextScene() {
     if let scene = GameScene.sceneFor(challengeNumber: SessionData.sharedInstance.freestyleChallenge) {
       scene.scaleMode = .aspectFill
       
@@ -65,13 +92,6 @@ class ChallengeCompletedScene: SKScene {
       view!.presentScene(scene, transition: SKTransition.doorway(withDuration:1))
     }
   }
-  
-  /*func pulseNewBestSlagRunLabel() {
-   let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
-   SKAction.scale(to: 1.0, duration: 0.5)])
-   
-   newBestSlagRunLabel.run(SKAction.repeatForever(scalePulse))
-   }*/
   
   func playBackgroundMusic(name: String) {
     if let _ = childNode(withName: "backgroundmusic") {

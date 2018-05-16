@@ -9,11 +9,19 @@
 import SpriteKit
 
 class BoostNode: SKSpriteNode {
+  var originalPosition: CGPoint!
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
+    originalPosition = position
+    
     if let patrolDistance = userData?["patrols"] as? Int {
       patrolling(distance: patrolDistance)
+    }
+    
+    if let distance = userData?["wanders"] as? Int {
+      wandering(distance: distance)
     }
   }
   
@@ -24,6 +32,16 @@ class BoostNode: SKSpriteNode {
   func patrolling(distance: Int) {
     let move = SKAction.moveBy(x: CGFloat(distance), y: 0, duration: 2.0)
     let repeatMove = SKAction.repeatForever(SKAction.sequence([move, move.reversed()]))
+    run(repeatMove)
+  }
+  
+  func wandering(distance: Int) {
+    let move1 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y + CGFloat(distance)), duration: 1.5)
+    let move2 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(2*distance), y: originalPosition.y), duration: 1.5)
+    let move3 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y - CGFloat(distance)), duration: 1.5)
+    let move4 = SKAction.move(to: CGPoint(x: originalPosition.x, y: originalPosition.y), duration: 1.5)
+    
+    let repeatMove = SKAction.repeatForever(SKAction.sequence([move1, move2, move3, move4]))
     run(repeatMove)
   }
   
