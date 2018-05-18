@@ -266,17 +266,6 @@
                                     <segue destination="Ric-i1-7ds" kind="show" id="B7W-CM-dGX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="challengesButton">
-                                <rect key="frame" x="320" y="30" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="5hK-op-MDT"/>
-                                    <constraint firstAttribute="height" constant="45" id="d2D-5h-kHI"/>
-                                </constraints>
-                                <state key="normal" image="challenges"/>
-                                <connections>
-                                    <segue destination="Zxm-XF-8uc" kind="show" id="Ebi-Z4-9gM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-CA-zuj">
                                 <rect key="frame" x="100" y="511" width="175" height="64"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
@@ -285,7 +274,6 @@
                                 </state>
                                 <connections>
                                     <action selector="freeStyleButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="OHp-Uh-4xi"/>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="introductiontogame" id="vBY-Ln-Mo6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-Js-6Z2">
@@ -335,26 +323,36 @@
                                     <segue destination="ght-hh-v1m" kind="show" id="oSe-RM-B3c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="challengesButton">
+                                <rect key="frame" x="263" y="20" width="112" height="60"/>
+                                <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.0" colorSpace="deviceRGB"/>
+                                <state key="normal" image="challenges">
+                                    <color key="titleShadowColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.0" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Zxm-XF-8uc" kind="show" id="Ebi-Z4-9gM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="S41-hc-C3t" firstAttribute="top" secondItem="XJl-rm-u0c" secondAttribute="top" id="8xM-Tp-PPt"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="top" secondItem="6Po-CA-zuj" secondAttribute="bottom" constant="8" id="9Xh-ZL-fXD"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="Abr-HK-95k"/>
+                            <constraint firstItem="v0c-PF-J3c" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="D8k-ms-1TV"/>
                             <constraint firstItem="6Po-CA-zuj" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="100" id="DJT-bJ-DWW"/>
                             <constraint firstItem="6Po-CA-zuj" firstAttribute="leading" secondItem="a96-Vh-mue" secondAttribute="trailing" constant="21" id="EkU-dH-9yY"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="tZT-Js-6Z2" secondAttribute="bottom" constant="20" id="FkQ-CP-B6j"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="PeR-Wb-3nD" secondAttribute="bottom" id="Kw3-4y-zLF"/>
-                            <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="S41-hc-C3t" secondAttribute="top" id="QZC-ve-4tx"/>
-                            <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="v0c-PF-J3c" secondAttribute="trailing" constant="10" id="Ru2-9j-U4r"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="112" id="Sek-2V-mFD"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="10" id="X2n-8g-FSD"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="Twg-cZ-Bnw" secondAttribute="bottom" constant="29" id="ZaF-2u-fq1"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="leading" secondItem="Twg-cZ-Bnw" secondAttribute="trailing" constant="33" id="hdl-2n-wLf"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" id="lOx-Eg-EAK"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="tZT-Js-6Z2" secondAttribute="trailing" constant="112" id="lWn-b9-W9a"/>
-                            <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="leg-YP-U2V"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="trailing" secondItem="6Po-CA-zuj" secondAttribute="trailing" constant="100" id="nXU-ZD-8JX"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="qhq-Yd-0i4"/>
+                            <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="r5C-r2-wXW"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="vmU-8t-UY4"/>
                             <constraint firstItem="S41-hc-C3t" firstAttribute="centerX" secondItem="e2a-c9-lzM" secondAttribute="centerX" id="xL2-KI-Wf8"/>
                             <constraint firstItem="Twg-cZ-Bnw" firstAttribute="top" secondItem="a96-Vh-mue" secondAttribute="bottom" constant="27" id="z6I-bV-KiR"/>
@@ -363,6 +361,8 @@
                     </view>
                     <connections>
                         <outlet property="gameCenterButton" destination="S41-hc-C3t" id="Gbd-Bs-mOM"/>
+                        <segue destination="UMw-7o-9Wl" kind="show" identifier="presenthelpadudeview" id="Sp9-Q6-mDo"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="introductiontogame" id="gts-kk-kFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI6-gL-nOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -406,7 +406,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wr-md-e8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iYz-hS-RK5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-445.60000000000002" y="933.28335832083962"/>
+            <point key="canvasLocation" x="-1036" y="931"/>
         </scene>
         <!--Slag Run Info-->
         <scene sceneID="Zsn-ca-iHX">
@@ -445,20 +445,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-GL-421" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jEl-JY-GWN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="380" y="931"/>
+            <point key="canvasLocation" x="-226" y="931"/>
+        </scene>
+        <!--HelpA Dude View Controller-->
+        <scene sceneID="0kh-4r-ntv">
+            <objects>
+                <viewController id="UMw-7o-9Wl" customClass="HelpADudeViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C2o-CY-6ON">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpadude" translatesAutoresizingMaskIntoConstraints="NO" id="nuD-2i-BSH">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUn-Ls-rVb">
+                                <rect key="frame" x="100" y="493" width="175" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="Watch">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="watchButtonTapped:" destination="UMw-7o-9Wl" eventType="touchUpInside" id="m3L-sW-0Ca"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoR-bZ-RZn">
+                                <rect key="frame" x="100" y="565" width="175" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="Slag No!">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="slagNoButtonTapped:" destination="UMw-7o-9Wl" eventType="touchUpInside" id="TBE-Uf-UEv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nuD-2i-BSH" firstAttribute="top" secondItem="bHs-fs-UmW" secondAttribute="top" constant="40" id="L1F-iw-r0H"/>
+                            <constraint firstItem="nuD-2i-BSH" firstAttribute="trailing" secondItem="bHs-fs-UmW" secondAttribute="trailing" id="OW4-hq-gi3"/>
+                            <constraint firstItem="bHs-fs-UmW" firstAttribute="bottom" secondItem="nuD-2i-BSH" secondAttribute="bottom" id="UEg-0t-9d7"/>
+                            <constraint firstItem="nuD-2i-BSH" firstAttribute="leading" secondItem="bHs-fs-UmW" secondAttribute="leading" id="uuR-Ec-jAR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bHs-fs-UmW"/>
+                    </view>
+                    <connections>
+                        <outlet property="slagNoButton" destination="FoR-bZ-RZn" id="6up-vT-Boz"/>
+                        <outlet property="watchButton" destination="GUn-Ls-rVb" id="PwC-UI-4Ug"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="helpadudetogame" id="fTa-6d-5tR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gx3-Pa-v38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616.79999999999995" y="935.98200899550227"/>
         </scene>
     </scenes>
     <resources>
-        <image name="challenges" width="100" height="100"/>
+        <image name="challenges" width="112" height="60"/>
         <image name="freestyle" width="900" height="1300"/>
-        <image name="gamecenter" width="100" height="100"/>
+        <image name="gamecenter" width="50" height="50"/>
         <image name="gregoriust" width="900" height="1300"/>
+        <image name="helpadude" width="900" height="1300"/>
         <image name="question" width="110" height="110"/>
-        <image name="settings" width="100" height="100"/>
+        <image name="settings" width="50" height="50"/>
         <image name="slagrun" width="900" height="1300"/>
         <image name="tutorialsplash" width="900" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vBY-Ln-Mo6"/>
+        <segue reference="fTa-6d-5tR"/>
     </inferredMetricsTieBreakers>
 </document>

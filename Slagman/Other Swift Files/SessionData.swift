@@ -33,6 +33,7 @@ class SessionData: NSObject, NSCoding {
   }
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
+  var countOfSlagrunAttempts = 0
 
   override init() {
     super.init()

@@ -84,10 +84,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Addresses a SceneKit bug, where node animations sometimes start in a paused state.
     UnPauseAnimations()
     
-    if SessionData.sharedInstance.gameMode == .slagrun {
-      SessionData.saveData()
-    }
-    
     if let powerNodeCount = userData?["powernodecount"] as? Int,
       let sceneLayerCount = userData?["layercount"] as? Int {
       powerNodesTotal = powerNodeCount * sceneLayerCount

@@ -26,6 +26,7 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
       } else if self.gamekitPlayer.isAuthenticated {
         print("GameKit player successfully authenticated.")
         self.gameCenterButton.isHidden = false
+        self.reconcileHighScore()
       } else {
         print("Unable to authenticate GameKit player. GameKit disabled.")
       }
@@ -57,7 +58,14 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   
   @IBAction func slagRunButtonTapped(_ sender: UIButton) {
     SessionData.sharedInstance.gameMode = .slagrun
-    performSegue(withIdentifier: "introductiontogame", sender: self)
+    SessionData.sharedInstance.countOfSlagrunAttempts += 1
+    
+    if SessionData.sharedInstance.countOfSlagrunAttempts > 3 {
+      SessionData.sharedInstance.countOfSlagrunAttempts = 0
+      performSegue(withIdentifier: "presenthelpadudeview", sender: self)
+    } else {
+      performSegue(withIdentifier: "introductiontogame", sender: self)
+    }
   }
   
   @IBAction func gameCenterButtonTapped(_ sender: UIButton) {
@@ -72,6 +80,34 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   
   func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
     gameCenterViewController.dismiss(animated: true, completion: nil)
+    reconcileHighScore()
+  }
+  
+  func reconcileHighScore()  {
+    let leaderboard = GKLeaderboard()
+    leaderboard.identifier = "slagruns"
+    leaderboard.range = NSMakeRange(1, 1)
+    
+    leaderboard.loadScores { (scores, error) in
+      if let gkHighScore = scores?[0] {
+        let gkHighScoreInt = Int(gkHighScore.value)
+        
+        if gkHighScoreInt > SessionData.sharedInstance.bestSlagRun {
+          print("Session Data best slag run updated with GameKit best score: \(gkHighScoreInt)")
+          SessionData.sharedInstance.bestSlagRun = gkHighScoreInt
+        } else if SessionData.sharedInstance.bestSlagRun > gkHighScoreInt {
+          let gkscore = GKScore(leaderboardIdentifier: "slagruns")
+          gkscore.value = Int64(SessionData.sharedInstance.bestSlagRun)
+          
+          // Attempt to send the best slag run score to Game Center.
+          GKScore.report([gkscore]) { (error) in
+            if error == nil {
+              print("GameKit score updated with Session Data best slag run: \(gkscore.value)")
+            }
+          }
+        }
+      }
+    }
   }
   
   @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue)

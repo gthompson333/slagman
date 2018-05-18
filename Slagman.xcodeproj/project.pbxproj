@@ -128,6 +128,7 @@
 		37F8853820ABDD6000B1100F /* Challenge28.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853720ABDD6000B1100F /* Challenge28.sks */; };
 		37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853920AC81EB00B1100F /* Challenge30.sks */; };
 		37F8853C20AC81EB00B1100F /* Challenge29.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853A20AC81EB00B1100F /* Challenge29.sks */; };
+		37F8854020ADE07600B1100F /* HelpADudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,6 +255,7 @@
 		37F8853720ABDD6000B1100F /* Challenge28.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge28.sks; sourceTree = "<group>"; };
 		37F8853920AC81EB00B1100F /* Challenge30.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge30.sks; sourceTree = "<group>"; };
 		37F8853A20AC81EB00B1100F /* Challenge29.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge29.sks; sourceTree = "<group>"; };
+		37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpADudeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +561,7 @@
 				375EFBF120729402008CCA70 /* SettingsViewController.swift */,
 				375EFBF9207477EF008CCA70 /* SlagTravelsViewController.swift */,
 				375EFBFB20754D41008CCA70 /* SlagChallengesViewController.swift */,
+				37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				37D2E9EA2064103B00C7523B /* SlagNode.swift in Sources */,
 				375EFBFE207805E7008CCA70 /* SessionData.swift in Sources */,
 				37E7F59C205330710076E828 /* GregoriusViewController.swift in Sources */,
+				37F8854020ADE07600B1100F /* HelpADudeViewController.swift in Sources */,
 				37E7F5B2205330830076E828 /* SKNode+Extensions.swift in Sources */,
 				37E7F5AF205330830076E828 /* SKAction+Extensions.swift in Sources */,
 				37E7F59D205330710076E828 /* Utilities.swift in Sources */,
