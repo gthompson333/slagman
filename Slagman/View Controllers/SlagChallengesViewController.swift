@@ -27,7 +27,7 @@ class SlagChallengesViewController: UITableViewController {
                    ["name" : "Escape from New Slag", "locked" : false],
                    ["name" : "Slag Wars", "locked" : false],
                    ["name" : "The Good, The Bad, and The Slag", "locked" : false],
-                   ["name" : "The Big Slagski", "locked" : false],
+                   ["name" : "The Big Slagowski", "locked" : false],
                    ["name" : "Pulp Slag", "locked" : false],
                    ["name" : "Guardians of The Slag", "locked" : false]],
                   [["name" : "Slag Warp", "locked" : false],
