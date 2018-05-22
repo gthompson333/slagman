@@ -72,7 +72,7 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     let gameCenterController = GKGameCenterViewController()
     
     gameCenterController.gameCenterDelegate = self
-    gameCenterController.viewState = .leaderboards
+    gameCenterController.viewState = .achievements
     gameCenterController.leaderboardTimeScope = .allTime
     gameCenterController.leaderboardIdentifier = "slagruns"
     show(gameCenterController, sender: self)

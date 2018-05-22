@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameKit
 
 class SettingsViewController: UIViewController {
   class func initializeSettings() {
@@ -73,6 +74,15 @@ class SettingsViewController: UIViewController {
       SessionData.sharedInstance.bestSlagRun = 0
       
       SessionData.saveData()
+      
+      if GKLocalPlayer.localPlayer().isAuthenticated {
+        GKAchievement.resetAchievements(completionHandler: { (error) in
+          if error == nil {
+            print("GameKit achievements successfully reset.")
+          }
+        })
+      }
+      
       self.performSegue(withIdentifier: "settingstointroduction", sender: self)
     }))
     

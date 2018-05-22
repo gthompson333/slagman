@@ -8,6 +8,7 @@
 
 import SpriteKit
 import CoreMotion
+import GameKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   weak var gameViewController: GameViewController?
@@ -287,6 +288,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       node.isPaused = false
     }
   }
+  
+  func checkAchievementCompletion() {
+    if GKLocalPlayer.localPlayer().isAuthenticated && (countOfPowerNodes == powerNodesTotal) {
+      if let achievementid = userData?["achievementid"] as? String {
+        let gkachievement = GKAchievement(identifier: achievementid)
+        gkachievement.percentComplete = 100.0
+        gkachievement.showsCompletionBanner = true
+        
+        // Attempt to send the completed achievement to Game Center.
+        GKAchievement.report([gkachievement]) { (error) in
+          if error == nil {
+            print("GameKit achievement successfully reported: \(gkachievement).")
+          }
+        }
+      }
+    }
+  }
 }
 
 // MARK: - SKPhysicsContactDelegate
@@ -339,6 +357,8 @@ extension GameScene {
                 self.view!.presentScene(challengeCompleted, transition: SKTransition.doorway(withDuration:1))
               }
             }))
+            
+            checkAchievementCompletion()
           }
           
           boostNode.finishExplosion()

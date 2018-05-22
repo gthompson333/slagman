@@ -9,9 +9,9 @@
 import UIKit
 
 class SlagTravelsViewController: UITableViewController {
-  let travelItems = [["name" : "Slag Challenges 1", "locked" : false],
-                     ["name" : "Slag Challenges 2", "locked" : false],
-                     ["name" : "Slag Challenges 3", "locked" : false]]
+  let travelItems = [["name" : "The Slag Journeys", "locked" : false],
+                     ["name" : "The Chronicles of Slagman", "locked" : false],
+                     ["name" : "Slag Physics", "locked" : false]]
   
   deinit {
     print("Deinit SlagTravels")

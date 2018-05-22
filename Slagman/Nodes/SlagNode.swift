@@ -73,8 +73,16 @@ class SlagNode: SKSpriteNode {
   }
   
   func proximityAnimation() {
+    var color = UIColor.red
+    
+    if let theme = GameScene.theme {
+      if theme == "firestorm" {
+        color = UIColor.blue
+      }
+    }
+    
     let colorPulse = SKAction.sequence([
-      SKAction.colorize(with: .purple , colorBlendFactor: 1.0, duration: 0.5),
+      SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
     
     run(SKAction.repeatForever(colorPulse))

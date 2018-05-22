@@ -56,22 +56,6 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
     print("Deinit ChallengeCompletedScene")
   }
   
-  func unityAdsReady(_ placementId: String) {
-    print("Unity Ads are ready.")
-  }
-  
-  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
-    print("Unity Ads Error: \(error)")
-  }
-  
-  func unityAdsDidStart(_ placementId: String) {
-    print("Unity Ads starting.")
-  }
-  
-  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
-    print("Unity Ads finished.")
-  }
-  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if UnityAds.isReady() == true {
       UnityAds.show(gameViewController!, placementId: "video")
@@ -102,6 +86,23 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
     music.name = "backgroundmusic"
     music.autoplayLooped = true
     addChild(music)
+  }
+  
+  // UnityAdsDelegate
+  func unityAdsReady(_ placementId: String) {
+    print("Unity Ads are ready.")
+  }
+  
+  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
+    print("Unity Ads Error: \(error)")
+  }
+  
+  func unityAdsDidStart(_ placementId: String) {
+    print("Unity Ads starting.")
+  }
+  
+  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
+    print("Unity Ads finished.")
   }
 }
 
