@@ -9,10 +9,6 @@
 import UIKit
 
 class SlagTravelsViewController: UITableViewController {
-  let travelItems = [["name" : "The Slag Journeys", "locked" : false],
-                     ["name" : "The Chronicles of Slagman", "locked" : false],
-                     ["name" : "Slag Physics", "locked" : false]]
-  
   deinit {
     print("Deinit SlagTravels")
   }
@@ -31,21 +27,23 @@ class SlagTravelsViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return travelItems.count
+    return SessionData.sharedInstance.travels.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "travelcell", for: indexPath)
     let nameLabel = cell.viewWithTag(1) as! UILabel
+    let lockImageview = cell.viewWithTag(2) as! UIImageView
     
-    let item = travelItems[indexPath.row]
+    let item = SessionData.sharedInstance.travels[indexPath.row]
     nameLabel.text = (item["name"] as! String)
     
     if (item["locked"] as! Bool) == true {
       cell.isUserInteractionEnabled = false
-      nameLabel.textColor = .gray
+      lockImageview.isHidden = false
     } else {
       cell.isUserInteractionEnabled = true
+      lockImageview.isHidden = true
     }
     
     return cell

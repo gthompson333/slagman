@@ -104,7 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       addLayers()
       
       // Slag amount is only used in Slag Run mode.
-      if (SessionData.sharedInstance.gameMode == .slagrun) && (hud.slagAmount < SessionData.sharedInstance.slagRun) {
+      if (SessionData.sharedInstance.gameMode == .slagrun) && (hud.slagAmount < SessionData.sharedInstance.slagRunPoints) {
         hud.slagAmount += 1
       }
     }
@@ -124,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 gameViewController!.transitionToHome()
                 return
               } else {
-                if SessionData.sharedInstance.slagRun == 0 {
+                if SessionData.sharedInstance.slagRunPoints == 0 {
                   gameViewController!.transitionToHome()
                   return
                 }
@@ -223,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func setupHUD() {
     camera?.addChild(hud)
-    hud.slagAmount = SessionData.sharedInstance.slagRun
+    hud.slagAmount = SessionData.sharedInstance.slagRunPoints
   }
   
   // MARK: - Update Methods
@@ -375,7 +375,7 @@ extension GameScene {
             boostParentNode?.addChild(slagNode)
           }))
           
-          SessionData.sharedInstance.slagRun += 10
+          SessionData.sharedInstance.slagRunPoints += 10
           boostNode.explode()
           
           countOfPowerNodes += 1
@@ -439,7 +439,7 @@ extension GameScene {
           self.transportInProgress = false
         }))
         
-        SessionData.sharedInstance.slagRun += 10
+        SessionData.sharedInstance.slagRunPoints += 10
         player.transport(from: transportNode)
         
         countOfPowerNodes += 1

@@ -22,7 +22,7 @@ class SlagRunCompletedScene: SKScene {
   
   var nodesSlag: Int {
     get {
-      return SessionData.sharedInstance.slagRun / 10
+      return SessionData.sharedInstance.slagRunPoints / 10
     }
   }
   
@@ -45,7 +45,7 @@ class SlagRunCompletedScene: SKScene {
     nodesSlagLabel.text = "\(nodesSlag) Power Nodes Slagged"
     
     nodesSlagTotalLabel = childNode(withName: "nodesslagtotallabel") as! SKLabelNode
-    nodesSlagTotalLabel.text = "\(nodesSlag) x 10 = \(SessionData.sharedInstance.slagRun) Slag"
+    nodesSlagTotalLabel.text = "\(nodesSlag) x 10 = \(SessionData.sharedInstance.slagRunPoints) Slag"
     
     challengesSlagLabel = childNode(withName: "challengesslaglabel") as! SKLabelNode
     challengesSlagLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) Challenges Completedly Slagged"
@@ -54,15 +54,15 @@ class SlagRunCompletedScene: SKScene {
     challengesSlagTotalLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) x 100 = \(SessionData.sharedInstance.challengesTotallySlagged * 100)"
 
     slagTotalLabel = childNode(withName: "slagtotallabel") as! SKLabelNode
-    slagTotalLabel.text = "Slag Total: \(SessionData.sharedInstance.slagRun + (SessionData.sharedInstance.challengesTotallySlagged * 100))"
-    SessionData.sharedInstance.slagRun = SessionData.sharedInstance.slagRun + (SessionData.sharedInstance.challengesTotallySlagged * 100)
+    slagTotalLabel.text = "Slag Total: \(SessionData.sharedInstance.slagRunPoints + (SessionData.sharedInstance.challengesTotallySlagged * 100))"
+    SessionData.sharedInstance.slagRunPoints = SessionData.sharedInstance.slagRunPoints + (SessionData.sharedInstance.challengesTotallySlagged * 100)
 
     bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
     bestSlagRunLabel.text = "Your Best Run: \(SessionData.sharedInstance.bestSlagRun)"
 
     newBestSlagRunLabel = childNode(withName: "newbestslagrunlabel") as! SKLabelNode
     
-    if SessionData.sharedInstance.slagRun == SessionData.sharedInstance.bestSlagRun {
+    if SessionData.sharedInstance.slagRunPoints == SessionData.sharedInstance.bestSlagRun {
       newBestSlagRunLabel.text = "Your Best Run Yet!"
       pulseNewBestSlagRunLabel()
     } else {
@@ -73,7 +73,7 @@ class SlagRunCompletedScene: SKScene {
     
     if GKLocalPlayer.localPlayer().isAuthenticated {
       let gkscore = GKScore(leaderboardIdentifier: "slagruns")
-      gkscore.value = Int64(SessionData.sharedInstance.slagRun)
+      gkscore.value = Int64(SessionData.sharedInstance.slagRunPoints)
       
       // Attempt to send the new slag run score to Game Center.
       GKScore.report([gkscore]) { (error) in

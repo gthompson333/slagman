@@ -11,29 +11,74 @@ import Foundation
 class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
+  var travels = [["name" : "The Slag Journeys", "locked" : false],
+                     ["name" : "The Chronicles of Slagman", "locked" : true],
+                     ["name" : "Slag Physics", "locked" : true]]
+  
+  var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
+                  ["name" : "Let's Slag", "locked" : true],
+                  ["name" : "Link The Slag", "locked" : true],
+                  ["name" : "Power to The Slag", "locked" : true],
+                  ["name" : "Watch for Slag Mines", "locked" : true],
+                  ["name" : "Slag Gravity", "locked" : true],
+                  ["name" : "Are You Feeling Slaggy?", "locked" : true],
+                  ["name" : "Little Grabby Slags", "locked" : true],
+                  ["name" : "Mr. Slaggy Says Hello", "locked" : true],
+                  ["name" : "Time to Slag Up", "locked" : true],
+                  ["name" : "Bust a Slag Move", "locked" : true]],
+                 [["name" : "It's a Good Day to Slag", "locked" : true],
+                  ["name" : "Slag Hard", "locked" : true],
+                  ["name" : "Slag Harder", "locked" : true],
+                  ["name" : "For a Few Slag More", "locked" : true],
+                  ["name" : "Escape from New Slag", "locked" : true],
+                  ["name" : "Slag Wars", "locked" : true],
+                  ["name" : "The Good, The Bad, and The Slag", "locked" : true],
+                  ["name" : "The Big Slagowski", "locked" : true],
+                  ["name" : "Pulp Slag", "locked" : true],
+                  ["name" : "Guardians of The Slag", "locked" : true]],
+                 [["name" : "Slag Warp", "locked" : true],
+                  ["name" : "Transport the Slag", "locked" : true],
+                  ["name" : "The Slag Principle", "locked" : true],
+                  ["name" : "The Symmetry of Slag", "locked" : true],
+                  ["name" : "The Slag Paradox", "locked" : true],
+                  ["name" : "Slag = MC^Slagged", "locked" : true],
+                  ["name" : "The Slag Particle", "locked" : true],
+                  ["name" : "The Slag Continuum", "locked" : true],
+                  ["name" : "The Quantum Slag", "locked" : true],
+                  ["name" : "The Theory of Slag", "locked" : true]]]
+  
   var gameMode = GameMode.freestyle {
     didSet {
       if gameMode == .slagrun {
         slagrunChallenge = 1
-        slagRun = 0
+        slagRunPoints = 0
         challengesTotallySlagged = 0
       }
     }
   }
   
-  var freestyleChallenge = 0
+  var freestyleChallenge = 0 {
+    didSet {
+      if freestyleChallenge > maximumFreestyleChallengeIndex {
+        slagRunModeEnabled = true
+      }
+    }
+  }
+  
   var slagrunChallenge = 1
   
-  var slagRun = 0 {
+  var slagRunPoints = 0 {
     didSet {
-      if (gameMode == .slagrun) && (slagRun > bestSlagRun) {
-        bestSlagRun = slagRun
+      if (gameMode == .slagrun) && (slagRunPoints > bestSlagRun) {
+        bestSlagRun = slagRunPoints
       }
     }
   }
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
   var countOfSlagrunAttempts = 0
+  var slagRunModeEnabled = false
+  let maximumFreestyleChallengeIndex = 30
 
   override init() {
     super.init()
@@ -45,11 +90,23 @@ class SessionData: NSObject, NSCoding {
     
     freestyleChallenge = aDecoder.decodeInteger(forKey: "freestylechallenge")
     bestSlagRun = aDecoder.decodeInteger(forKey: "bestslagrun")
+    slagRunModeEnabled = aDecoder.decodeBool(forKey: "slagrunmodeenabled")
+    
+    if let decodedTravelChallenges = aDecoder.decodeObject(forKey: "travelchallenges") as? [[[String : Any]]] {
+      travelChallenges = decodedTravelChallenges
+    }
+    
+    if let decodedTravels = aDecoder.decodeObject(forKey: "travels") as? [[String : Any]] {
+      travels = decodedTravels
+    }
   }
   
   func encode(with aCoder: NSCoder) {
     aCoder.encode(freestyleChallenge, forKey: "freestylechallenge")
     aCoder.encode(bestSlagRun, forKey: "bestslagrun")
+    aCoder.encode(travelChallenges, forKey: "travelchallenges")
+    aCoder.encode(travels, forKey: "travels")
+    aCoder.encode(slagRunModeEnabled, forKey: "slagrunmodeenabled")
   }
   
   class func saveData() {

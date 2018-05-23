@@ -90,11 +90,7 @@ class PlayerNode: SKSpriteNode {
   
   // MARK: - Actions
   func boosting() {
-    if SessionData.sharedInstance.freestyleChallenge == 0 {
-      numBoosts = 1
-    } else {
-      numBoosts += 1
-    }
+    numBoosts += 1
     
     if numBoosts > 3 {
       return

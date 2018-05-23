@@ -14,7 +14,9 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   var slagmanVoiceSound: AVAudioPlayer?
   let gamekitPlayer = GKLocalPlayer.localPlayer()
   
+  @IBOutlet weak var slagRunLockImage: UIImageView!
   @IBOutlet weak var gameCenterButton: UIButton!
+  @IBOutlet weak var slagRunButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,6 +48,11 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     SessionData.sharedInstance.gameMode = .freestyle
+    
+    if SessionData.sharedInstance.slagRunModeEnabled {
+      slagRunButton.isEnabled = true
+      slagRunLockImage.isHidden = true
+    }
   }
   
   deinit {

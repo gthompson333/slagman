@@ -68,7 +68,7 @@ class SettingsViewController: UIViewController {
       SessionData.sharedInstance.freestyleChallenge = 0
       
       print("Saving to session data, current slag run: 0.")
-      SessionData.sharedInstance.slagRun = 0
+      SessionData.sharedInstance.slagRunPoints = 0
       
       print("Saving to session data, best slag run: 0.")
       SessionData.sharedInstance.bestSlagRun = 0

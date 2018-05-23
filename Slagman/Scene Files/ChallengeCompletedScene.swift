@@ -40,14 +40,29 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
     
     if countOfPowerNodes == powerNodesTotal {
       allNodesSlagLabel.text = "SUCCESS!  All Power Nodes Slagged!"
+      
+      SessionData.sharedInstance.freestyleChallenge += 1
+      
+      var travelsIndex = SessionData.sharedInstance.freestyleChallenge / 10
+      var challengeIndex = SessionData.sharedInstance.freestyleChallenge % 10
+      
+      if challengeIndex == 0 {
+        travelsIndex -= 1
+        challengeIndex = SessionData.sharedInstance.freestyleChallenge
+      } else if travelsIndex > 0 {
+        challengeIndex -= 1
+      }
+      
+      if travelsIndex < SessionData.sharedInstance.travels.count {
+        SessionData.sharedInstance.travelChallenges[travelsIndex][challengeIndex]["locked"] = false
+        SessionData.sharedInstance.travels[travelsIndex]["locked"] = false
+      }
+      
+      print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
+      SessionData.saveData()
     } else {
       allNodesSlagLabel.text = "FAIL!  Not All Power Nodes Slagged!"
     }
-    
-    SessionData.sharedInstance.freestyleChallenge += 1
-    print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
-    
-    SessionData.saveData()
     
     UnityAds.initialize("1797668", delegate: self)
   }
@@ -57,9 +72,9 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if UnityAds.isReady() == true {
+    /*if UnityAds.isReady() == true {
       UnityAds.show(gameViewController!, placementId: "video")
-    }
+    }*/
     
     presentNextScene()
   }

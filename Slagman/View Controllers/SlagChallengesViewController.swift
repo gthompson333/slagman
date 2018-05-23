@@ -9,41 +9,9 @@
 import UIKit
 
 class SlagChallengesViewController: UITableViewController {
-  let travels = [[["name" : "Learn to Slag", "locked" : false],
-                    ["name" : "Let's Slag", "locked" : false],
-                    ["name" : "Link The Slag", "locked" : false],
-                    ["name" : "Power to The Slag", "locked" : false],
-                    ["name" : "Watch for Slag Mines", "locked" : false],
-                    ["name" : "Slag Gravity", "locked" : false],
-                    ["name" : "Are You Feeling Slaggy?", "locked" : false],
-                    ["name" : "Little Grabby Slags", "locked" : false],
-                    ["name" : "Mr. Slaggy Says Hello", "locked" : false],
-                    ["name" : "Time to Slag Up", "locked" : false],
-                    ["name" : "Bust a Slag Move", "locked" : false]],
-                  [["name" : "It's a Good Day to Slag", "locked" : false],
-                   ["name" : "Slag Hard", "locked" : false],
-                   ["name" : "Slag Harder", "locked" : false],
-                   ["name" : "For a Few Slag More", "locked" : false],
-                   ["name" : "Escape from New Slag", "locked" : false],
-                   ["name" : "Slag Wars", "locked" : false],
-                   ["name" : "The Good, The Bad, and The Slag", "locked" : false],
-                   ["name" : "The Big Slagowski", "locked" : false],
-                   ["name" : "Pulp Slag", "locked" : false],
-                   ["name" : "Guardians of The Slag", "locked" : false]],
-                  [["name" : "Slag Warp", "locked" : false],
-                   ["name" : "Transport the Slag", "locked" : false],
-                   ["name" : "The Slag Principle", "locked" : false],
-                   ["name" : "The Symmetry of Slag", "locked" : false],
-                   ["name" : "The Slag Paradox", "locked" : false],
-                   ["name" : "Slag = MC^Slagged", "locked" : false],
-                   ["name" : "The Slag Particle", "locked" : false],
-                   ["name" : "The Slag Continuum", "locked" : false],
-                   ["name" : "The Quantum Slag", "locked" : false],
-                   ["name" : "The Theory of Slag", "locked" : false]]]
-  
   var selectedTravelsIndex = 0 {
     didSet {
-      assert(selectedTravelsIndex < travels.count)
+      assert(selectedTravelsIndex < SessionData.sharedInstance.travelChallenges.count)
     }
   }
   
@@ -57,21 +25,23 @@ class SlagChallengesViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return travels[selectedTravelsIndex].count
+    return SessionData.sharedInstance.travelChallenges[selectedTravelsIndex].count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "challengecell", for: indexPath)
     let nameLabel = cell.viewWithTag(1) as! UILabel
+    let lockImageview = cell.viewWithTag(2) as! UIImageView
     
-    let item = travels[selectedTravelsIndex][indexPath.row]
+    let item = SessionData.sharedInstance.travelChallenges[selectedTravelsIndex][indexPath.row]
     nameLabel.text = (item["name"] as! String)
     
     if (item["locked"] as! Bool) == true {
       cell.isUserInteractionEnabled = false
-      nameLabel.textColor = .gray
+      lockImageview.isHidden = false
     } else {
       cell.isUserInteractionEnabled = true
+      lockImageview.isHidden = true
     }
     
     return cell
