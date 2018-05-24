@@ -54,11 +54,11 @@ class SlagNode: SKSpriteNode {
   }
   
   func deadlyAnimation() {
-    var color = UIColor.red
+    var color = UIColor.lightGray
     
     if let theme = GameScene.theme {
       if theme == "firestorm" {
-        color = UIColor.blue
+        color = UIColor.lightGray
       }
     }
     
@@ -66,14 +66,14 @@ class SlagNode: SKSpriteNode {
       SKAction.colorize(with: color, colorBlendFactor: 1.0, duration: 0.5),
       SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.5)])
     
-    let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
-                                        SKAction.scale(to: 1.0, duration: 0.5)])
+    let scalePulse = SKAction.sequence([SKAction.scale(to: 1.0, duration: 0.5),
+                                        SKAction.scale(to: 0.8, duration: 0.5)])
     
     run(SKAction.repeatForever(SKAction.group([colorPulse, scalePulse])))
   }
   
   func proximityAnimation() {
-    var color = UIColor.red
+    var color = UIColor.green
     
     if let theme = GameScene.theme {
       if theme == "firestorm" {

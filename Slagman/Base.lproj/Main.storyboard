@@ -339,7 +339,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="challengesButton">
-                                <rect key="frame" x="263" y="20" width="112" height="60"/>
+                                <rect key="frame" x="309" y="20" width="66" height="66"/>
                                 <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <state key="normal" image="challenges">
                                     <color key="titleShadowColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.0" colorSpace="deviceRGB"/>
@@ -529,13 +529,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="challenges" width="112" height="60"/>
+        <image name="challenges" width="66" height="66"/>
         <image name="freestyle" width="900" height="1300"/>
         <image name="gamecenter" width="50" height="50"/>
         <image name="gregoriust" width="900" height="1300"/>
         <image name="helpadude" width="900" height="1300"/>
         <image name="lock" width="64" height="64"/>
-        <image name="question" width="110" height="110"/>
+        <image name="question" width="55" height="55"/>
         <image name="settings" width="50" height="50"/>
         <image name="slagrun" width="900" height="1300"/>
         <image name="tutorialsplash" width="900" height="1300"/>
