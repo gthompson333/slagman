@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameKit
 
 class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
@@ -61,6 +62,19 @@ class SessionData: NSObject, NSCoding {
     didSet {
       if freestyleChallenge > maximumFreestyleChallengeIndex {
         slagRunModeEnabled = true
+        
+        if GKLocalPlayer.localPlayer().isAuthenticated {
+            let gkachievement = GKAchievement(identifier: "theslaggraduate")
+            gkachievement.percentComplete = 100.0
+            gkachievement.showsCompletionBanner = true
+            
+            // Attempt to send the completed achievement to Game Center.
+            GKAchievement.report([gkachievement]) { (error) in
+              if error == nil {
+                print("GameKit achievement successfully reported: \(gkachievement).")
+              }
+            }
+        }
       }
     }
   }

@@ -15,6 +15,11 @@ class SlagChallengesViewController: UITableViewController {
     }
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationController?.navigationBar.tintColor = UIColor.orange
+  }
+  
   deinit {
     print("Deinit SlagTravelChallenges")
   }

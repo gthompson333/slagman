@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationController?.navigationBar.isHidden = true
+    
     if let view = self.view as! SKView? {
       var challengeNumber = SessionData.sharedInstance.freestyleChallenge
       print("Free Style challenge number \(challengeNumber) retrieved from session data.")
