@@ -7,9 +7,8 @@
 //
 
 import SpriteKit
-import UnityAds
 
-class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
+class ChallengeCompletedScene: SKScene {
   var nodesSlagLabel: SKLabelNode!
   var allNodesSlagLabel: SKLabelNode!
   
@@ -63,8 +62,6 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
     } else {
       allNodesSlagLabel.text = "FAIL!  Not All Power Nodes Slagged!"
     }
-    
-    UnityAds.initialize("1797668", delegate: self)
   }
   
   deinit {
@@ -72,10 +69,6 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    /*if UnityAds.isReady() == true {
-      UnityAds.show(gameViewController!, placementId: "video")
-    }*/
-    
     presentNextScene()
   }
   
@@ -101,23 +94,6 @@ class ChallengeCompletedScene: SKScene, UnityAdsDelegate {
     music.name = "backgroundmusic"
     music.autoplayLooped = true
     addChild(music)
-  }
-  
-  // UnityAdsDelegate
-  func unityAdsReady(_ placementId: String) {
-    print("Unity Ads are ready.")
-  }
-  
-  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
-    print("Unity Ads Error: \(error)")
-  }
-  
-  func unityAdsDidStart(_ placementId: String) {
-    print("Unity Ads starting.")
-  }
-  
-  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
-    print("Unity Ads finished.")
   }
 }
 

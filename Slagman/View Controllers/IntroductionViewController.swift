@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 import GameKit
+import UnityAds
 
-class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate {
+class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate, UnityAdsDelegate {
   var slagmanVoiceSound: AVAudioPlayer?
   let gamekitPlayer = GKLocalPlayer.localPlayer()
   
@@ -43,13 +44,15 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     } catch {
       assertionFailure("Missing slagmanvoice.m4a file.")
     }
+    
+    UnityAds.initialize("1797668", delegate: self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     SessionData.sharedInstance.gameMode = .freestyle
     
-    if SessionData.sharedInstance.slagRunModeEnabled {
+    if SessionData.sharedInstance.slagRunModeEnabled == false {
       slagRunButton.isEnabled = true
       slagRunLockImage.isHidden = true
     }
@@ -67,7 +70,7 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     SessionData.sharedInstance.gameMode = .slagrun
     SessionData.sharedInstance.countOfSlagrunAttempts += 1
     
-    if SessionData.sharedInstance.countOfSlagrunAttempts > 3 {
+    if SessionData.sharedInstance.countOfSlagrunAttempts > 2 {
       SessionData.sharedInstance.countOfSlagrunAttempts = 0
       performSegue(withIdentifier: "presenthelpadudeview", sender: self)
     } else {
@@ -77,7 +80,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   
   @IBAction func gameCenterButtonTapped(_ sender: UIButton) {
     let gameCenterController = GKGameCenterViewController()
-    
     gameCenterController.gameCenterDelegate = self
     gameCenterController.viewState = .achievements
     gameCenterController.leaderboardTimeScope = .allTime
@@ -88,6 +90,10 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
     gameCenterViewController.dismiss(animated: true, completion: nil)
     reconcileHighScore()
+    
+    if UnityAds.isReady() == true {
+      UnityAds.show(self, placementId: "video")
+    }
   }
   
   func reconcileHighScore()  {
@@ -117,15 +123,38 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     }
   }
   
-  @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue)
-  {
+  @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue) {
+    if UnityAds.isReady() == true {
+      UnityAds.show(self, placementId: "video")
+    }
   }
   
-  @IBAction func unwindFromGameToIntroduction(sender: UIStoryboardSegue)
-  {
+  @IBAction func unwindFromGameToIntroduction(sender: UIStoryboardSegue) {
+    if SessionData.sharedInstance.gameMode == .freestyle && UnityAds.isReady() == true {
+      UnityAds.show(self, placementId: "video")
+    }
   }
   
-  @IBAction func unwindToIntroduction(sender: UIStoryboardSegue)
-  {
+  @IBAction func unwindToIntroduction(sender: UIStoryboardSegue) {
+    if UnityAds.isReady() == true {
+      UnityAds.show(self, placementId: "video")
+    }
+  }
+  
+  // UnityAdsDelegate
+  func unityAdsReady(_ placementId: String) {
+    print("Unity Ads are ready.")
+  }
+  
+  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
+    print("Unity Ads Error: \(error)")
+  }
+  
+  func unityAdsDidStart(_ placementId: String) {
+    print("Unity Ads starting.")
+  }
+  
+  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
+    print("Unity Ads finished.")
   }
 }

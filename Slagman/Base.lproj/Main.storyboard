@@ -201,7 +201,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="OAn-m4-Ndb">
-                        <barButtonItem key="leftBarButtonItem" title="Slagman" id="Cfb-Ks-tZA">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="Cfb-Ks-tZA">
                             <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="mCk-oT-1Ym" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="3QM-zf-s4G"/>
@@ -568,6 +568,6 @@
         <image name="tutorialsplash" width="900" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9QR-zu-rlz"/>
+        <segue reference="gts-kk-kFy"/>
     </inferredMetricsTieBreakers>
 </document>
