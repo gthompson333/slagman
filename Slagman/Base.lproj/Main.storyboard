@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -149,7 +149,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7F-GA-ByV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HYJ-IO-UUy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-186.40000000000001" y="-674.21289355322347"/>
+            <point key="canvasLocation" x="752.79999999999995" y="-674.21289355322347"/>
         </scene>
         <!--Slag Travels-->
         <scene sceneID="gnU-71-pZT">
@@ -212,7 +212,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sez-WC-1vS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mCk-oT-1Ym" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="-674.21289355322347"/>
+            <point key="canvasLocation" x="2607.1999999999998" y="-674.21289355322347"/>
         </scene>
         <!--Slag Challenges View Controller-->
         <scene sceneID="Gco-RL-qWT">
@@ -266,7 +266,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfe-tw-9Fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.8000000000002" y="-674.21289355322347"/>
+            <point key="canvasLocation" x="3532" y="-674.21289355322347"/>
         </scene>
         <!--Introduction View Controller-->
         <scene sceneID="TaW-VJ-YBg">
@@ -279,7 +279,7 @@
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorialsplash" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-Wb-3nD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJl-rm-u0c" userLabel="settingsButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJl-rm-u0c" userLabel="Settings Button">
                                 <rect key="frame" x="10" y="30" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="eG8-B0-pVJ"/>
@@ -288,39 +288,6 @@
                                 <state key="normal" image="settings"/>
                                 <connections>
                                     <segue destination="Ric-i1-7ds" kind="show" id="B7W-CM-dGX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-CA-zuj">
-                                <rect key="frame" x="101.5" y="511" width="172" height="64"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                <state key="normal" title="Free Style">
-                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="freeStyleButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="OHp-Uh-4xi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-Js-6Z2">
-                                <rect key="frame" x="112" y="583" width="151" height="64"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                <state key="normal" title="Slag Run">
-                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="slagRunButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="2jc-Ea-cN8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-cZ-Bnw">
-                                <rect key="frame" x="34" y="593" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="FBa-oQ-1BR"/>
-                                    <constraint firstAttribute="width" constant="45" id="I23-Gi-Rj7"/>
-                                </constraints>
-                                <state key="normal" image="question">
-                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NB1-NO-Zs0" kind="show" id="ACa-wY-eoj"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S41-hc-C3t">
@@ -334,7 +301,17 @@
                                     <action selector="gameCenterButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="o4g-lJ-BXe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-Vh-mue">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Po-CA-zuj" userLabel="Free Style Button">
+                                <rect key="frame" x="101.5" y="511" width="172" height="64"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="Free Style">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="freeStyleButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="OHp-Uh-4xi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-Vh-mue" userLabel="Free Style Question">
                                 <rect key="frame" x="34" y="521" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="1Ge-H7-0B6"/>
@@ -347,7 +324,30 @@
                                     <segue destination="ght-hh-v1m" kind="show" id="oSe-RM-B3c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="challengesButton">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-Js-6Z2">
+                                <rect key="frame" x="112" y="583" width="151" height="64"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                <state key="normal" title="Slag Run">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="slagRunButtonTapped:" destination="Uto-fM-6AD" eventType="touchUpInside" id="2jc-Ea-cN8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-cZ-Bnw" userLabel="Slag Run Question">
+                                <rect key="frame" x="34" y="593" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FBa-oQ-1BR"/>
+                                    <constraint firstAttribute="width" constant="45" id="I23-Gi-Rj7"/>
+                                </constraints>
+                                <state key="normal" image="question">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NB1-NO-Zs0" kind="show" id="ACa-wY-eoj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="Travels Button">
                                 <rect key="frame" x="309" y="20" width="66" height="66"/>
                                 <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.0" colorSpace="deviceRGB"/>
                                 <state key="normal" image="challenges">
@@ -364,13 +364,24 @@
                                     <constraint firstAttribute="height" constant="32" id="ETC-em-z9G"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATM-x3-1oF" userLabel="Shopping Button">
+                                <rect key="frame" x="88" y="30" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6Ui-rv-Lu6"/>
+                                    <constraint firstAttribute="width" constant="45" id="dZw-C5-gFw"/>
+                                </constraints>
+                                <state key="normal" image="shopping"/>
+                                <connections>
+                                    <segue destination="QeT-4C-HIp" kind="show" id="I7h-cD-7kQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="84O-DC-E8m" firstAttribute="centerY" secondItem="tZT-Js-6Z2" secondAttribute="centerY" id="2kH-IO-O7l"/>
                             <constraint firstItem="6Po-CA-zuj" firstAttribute="centerX" secondItem="e2a-c9-lzM" secondAttribute="centerX" id="5DJ-AL-SlS"/>
+                            <constraint firstItem="ATM-x3-1oF" firstAttribute="leading" secondItem="XJl-rm-u0c" secondAttribute="trailing" constant="33" id="6ah-S0-2A9"/>
                             <constraint firstItem="Twg-cZ-Bnw" firstAttribute="centerY" secondItem="tZT-Js-6Z2" secondAttribute="centerY" id="7d7-qQ-7WL"/>
-                            <constraint firstItem="S41-hc-C3t" firstAttribute="top" secondItem="XJl-rm-u0c" secondAttribute="top" id="8xM-Tp-PPt"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="top" secondItem="6Po-CA-zuj" secondAttribute="bottom" constant="8" id="9Xh-ZL-fXD"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="Abr-HK-95k"/>
                             <constraint firstItem="v0c-PF-J3c" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="D8k-ms-1TV"/>
@@ -378,15 +389,17 @@
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="tZT-Js-6Z2" secondAttribute="bottom" constant="20" id="FkQ-CP-B6j"/>
                             <constraint firstItem="Twg-cZ-Bnw" firstAttribute="leading" secondItem="a96-Vh-mue" secondAttribute="leading" id="KqN-i8-4Rj"/>
                             <constraint firstItem="36p-BL-qFc" firstAttribute="bottom" secondItem="PeR-Wb-3nD" secondAttribute="bottom" id="Kw3-4y-zLF"/>
+                            <constraint firstItem="ATM-x3-1oF" firstAttribute="top" secondItem="XJl-rm-u0c" secondAttribute="top" id="V9j-Ba-yex"/>
                             <constraint firstItem="84O-DC-E8m" firstAttribute="leading" secondItem="tZT-Js-6Z2" secondAttribute="trailing" constant="33" id="WEG-6l-bhy"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" constant="10" id="X2n-8g-FSD"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="leading" secondItem="36p-BL-qFc" secondAttribute="leading" id="lOx-Eg-EAK"/>
                             <constraint firstItem="tZT-Js-6Z2" firstAttribute="leading" secondItem="Twg-cZ-Bnw" secondAttribute="trailing" constant="33" id="lc4-as-mbT"/>
+                            <constraint firstItem="S41-hc-C3t" firstAttribute="leading" secondItem="ATM-x3-1oF" secondAttribute="trailing" constant="32" id="plg-Jb-JVI"/>
                             <constraint firstItem="XJl-rm-u0c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" constant="10" id="qhq-Yd-0i4"/>
                             <constraint firstItem="v0c-PF-J3c" firstAttribute="top" secondItem="36p-BL-qFc" secondAttribute="top" id="r5C-r2-wXW"/>
                             <constraint firstItem="PeR-Wb-3nD" firstAttribute="trailing" secondItem="36p-BL-qFc" secondAttribute="trailing" id="vmU-8t-UY4"/>
-                            <constraint firstItem="S41-hc-C3t" firstAttribute="centerX" secondItem="e2a-c9-lzM" secondAttribute="centerX" id="xL2-KI-Wf8"/>
                             <constraint firstItem="Twg-cZ-Bnw" firstAttribute="top" secondItem="a96-Vh-mue" secondAttribute="bottom" constant="27" id="z6I-bV-KiR"/>
+                            <constraint firstItem="S41-hc-C3t" firstAttribute="top" secondItem="ATM-x3-1oF" secondAttribute="top" id="zFq-Xz-pmn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="36p-BL-qFc"/>
                     </view>
@@ -394,7 +407,6 @@
                         <outlet property="gameCenterButton" destination="S41-hc-C3t" id="Gbd-Bs-mOM"/>
                         <outlet property="slagRunButton" destination="tZT-Js-6Z2" id="vna-dL-Y6p"/>
                         <outlet property="slagRunLockImage" destination="84O-DC-E8m" id="Ouo-Np-8jU"/>
-                        <segue destination="UMw-7o-9Wl" kind="show" identifier="presenthelpadudeview" id="Sp9-Q6-mDo"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="introductiontogame" id="gts-kk-kFy"/>
                     </connections>
                 </viewController>
@@ -439,7 +451,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wr-md-e8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iYz-hS-RK5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1036" y="931"/>
+            <point key="canvasLocation" x="-657" y="931"/>
         </scene>
         <!--Slag Run Info-->
         <scene sceneID="Zsn-ca-iHX">
@@ -478,63 +490,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-GL-421" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jEl-JY-GWN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-226" y="931"/>
-        </scene>
-        <!--HelpA Dude View Controller-->
-        <scene sceneID="0kh-4r-ntv">
-            <objects>
-                <viewController id="UMw-7o-9Wl" customClass="HelpADudeViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="C2o-CY-6ON">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpadude" translatesAutoresizingMaskIntoConstraints="NO" id="nuD-2i-BSH">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUn-Ls-rVb">
-                                <rect key="frame" x="100" y="493" width="175" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                <state key="normal" title="Watch">
-                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="watchButtonTapped:" destination="UMw-7o-9Wl" eventType="touchUpInside" id="m3L-sW-0Ca"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoR-bZ-RZn">
-                                <rect key="frame" x="100" y="565" width="175" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                <state key="normal" title="Slag No!">
-                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="slagNoButtonTapped:" destination="UMw-7o-9Wl" eventType="touchUpInside" id="TBE-Uf-UEv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nuD-2i-BSH" firstAttribute="top" secondItem="bHs-fs-UmW" secondAttribute="top" constant="40" id="L1F-iw-r0H"/>
-                            <constraint firstItem="nuD-2i-BSH" firstAttribute="trailing" secondItem="bHs-fs-UmW" secondAttribute="trailing" id="OW4-hq-gi3"/>
-                            <constraint firstItem="bHs-fs-UmW" firstAttribute="bottom" secondItem="nuD-2i-BSH" secondAttribute="bottom" id="UEg-0t-9d7"/>
-                            <constraint firstItem="nuD-2i-BSH" firstAttribute="leading" secondItem="bHs-fs-UmW" secondAttribute="leading" id="uuR-Ec-jAR"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="bHs-fs-UmW"/>
-                    </view>
-                    <connections>
-                        <outlet property="slagNoButton" destination="FoR-bZ-RZn" id="6up-vT-Boz"/>
-                        <outlet property="watchButton" destination="GUn-Ls-rVb" id="PwC-UI-4Ug"/>
-                        <segue destination="BV1-FR-VrT" kind="show" identifier="helpadudetogame" id="fTa-6d-5tR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gx3-Pa-v38" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="935.98200899550227"/>
+            <point key="canvasLocation" x="348" y="931"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WVy-Tr-jdN">
@@ -552,7 +508,177 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYq-A5-ueK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728.79999999999995" y="-674.21289355322347"/>
+            <point key="canvasLocation" x="1668" y="-674.21289355322347"/>
+        </scene>
+        <!--Slag Product Details-->
+        <scene sceneID="LlS-qO-K9v">
+            <objects>
+                <viewController title="Slag Product Details" id="ZDu-p3-QYt" customClass="SlagProductDetailsViewController" customModule="Slagman" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eKE-pI-iKM"/>
+                        <viewControllerLayoutGuide type="bottom" id="8xR-2X-fkX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2AX-IX-ylL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6s-TL-CIy">
+                                <rect key="frame" x="16" y="72" width="343" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="kSx-ft-BBc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfP-wa-DVC">
+                                <rect key="frame" x="16" y="246" width="343" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22.5" id="pUm-is-up3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSa-g7-qbd">
+                                <rect key="frame" x="165" y="280" width="46" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blU-X4-hXK">
+                                <rect key="frame" x="161.5" y="314" width="52" height="45"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <state key="normal" title="BUY!">
+                                    <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buyButtonTapped:" destination="ZDu-p3-QYt" eventType="touchUpInside" id="vEI-4N-r2C"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XfP-wa-DVC" firstAttribute="leading" secondItem="B7g-AI-04e" secondAttribute="leading" constant="16" id="0IX-aW-1ZA"/>
+                            <constraint firstItem="B7g-AI-04e" firstAttribute="trailing" secondItem="h6s-TL-CIy" secondAttribute="trailing" constant="16" id="2hM-eb-rVM"/>
+                            <constraint firstItem="B7g-AI-04e" firstAttribute="trailing" secondItem="XfP-wa-DVC" secondAttribute="trailing" constant="16" id="4sb-dc-KJL"/>
+                            <constraint firstItem="XfP-wa-DVC" firstAttribute="top" secondItem="h6s-TL-CIy" secondAttribute="bottom" constant="8" id="5ap-OS-xCM"/>
+                            <constraint firstItem="h6s-TL-CIy" firstAttribute="leading" secondItem="B7g-AI-04e" secondAttribute="leading" constant="16" id="ReO-UU-m1q"/>
+                            <constraint firstItem="blU-X4-hXK" firstAttribute="centerX" secondItem="2AX-IX-ylL" secondAttribute="centerX" id="V4U-wD-KDq"/>
+                            <constraint firstItem="B7g-AI-04e" firstAttribute="trailing" secondItem="rSa-g7-qbd" secondAttribute="trailing" constant="164" id="VAo-d1-wIL"/>
+                            <constraint firstItem="8xR-2X-fkX" firstAttribute="top" relation="lessThanOrEqual" secondItem="blU-X4-hXK" secondAttribute="bottom" constant="308" id="cfa-2V-fo9"/>
+                            <constraint firstItem="rSa-g7-qbd" firstAttribute="leading" secondItem="B7g-AI-04e" secondAttribute="leading" constant="165" id="gmR-3M-Kx2"/>
+                            <constraint firstItem="h6s-TL-CIy" firstAttribute="top" secondItem="eKE-pI-iKM" secondAttribute="bottom" constant="8" id="oRk-vP-PZG"/>
+                            <constraint firstItem="blU-X4-hXK" firstAttribute="top" secondItem="rSa-g7-qbd" secondAttribute="bottom" constant="8" id="y48-Br-ADc"/>
+                            <constraint firstItem="rSa-g7-qbd" firstAttribute="top" secondItem="XfP-wa-DVC" secondAttribute="bottom" constant="8" id="yfU-WU-FXH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B7g-AI-04e"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sRh-gg-c7e">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gWo-aO-9Om">
+                            <connections>
+                                <segue destination="f8L-cr-Nq9" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="pme-Ua-oAF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buyButton" destination="blU-X4-hXK" id="10j-VH-BC5"/>
+                        <outlet property="imageView" destination="h6s-TL-CIy" id="vt0-Mp-1R3"/>
+                        <outlet property="priceLabel" destination="rSa-g7-qbd" id="DeZ-tx-hqC"/>
+                        <outlet property="productDescriptionLabel" destination="XfP-wa-DVC" id="02Z-fg-xby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64f-hx-SWR" sceneMemberID="firstResponder"/>
+                <exit id="f8L-cr-Nq9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-114.40000000000001" y="-674.21289355322347"/>
+        </scene>
+        <!--Slag Products-->
+        <scene sceneID="hho-Xn-raA">
+            <objects>
+                <tableViewController title="Slag Products" id="DDI-a7-MEQ" customClass="SlagProductsViewController" customModule="Slagman" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ger-l4-sze">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="slagproductcell" rowHeight="115" id="cEb-jB-F8P" customClass="SlagProductCell" customModule="Slagman" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="115"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cEb-jB-F8P" id="ulh-s4-slZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slag Physics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jv-gh-JOA">
+                                            <rect key="frame" x="107.5" y="26" width="160.5" height="39"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                            <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idv-mD-jWA">
+                                            <rect key="frame" x="165" y="73" width="45.5" height="26"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                            <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2jv-gh-JOA" firstAttribute="top" secondItem="ulh-s4-slZ" secondAttribute="topMargin" constant="15" id="0Qv-Ye-ej5"/>
+                                        <constraint firstAttribute="bottom" secondItem="idv-mD-jWA" secondAttribute="bottom" constant="16" id="bIh-Md-SOo"/>
+                                        <constraint firstItem="2jv-gh-JOA" firstAttribute="centerX" secondItem="ulh-s4-slZ" secondAttribute="centerX" id="dgk-aA-8af"/>
+                                        <constraint firstItem="idv-mD-jWA" firstAttribute="centerX" secondItem="ulh-s4-slZ" secondAttribute="centerX" id="jq2-Zu-K6C"/>
+                                        <constraint firstItem="idv-mD-jWA" firstAttribute="top" secondItem="2jv-gh-JOA" secondAttribute="bottom" constant="8" id="o7j-Ym-0G4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="2jv-gh-JOA" id="RFV-A5-1xj"/>
+                                    <outlet property="priceLabel" destination="idv-mD-jWA" id="9ML-me-ogA"/>
+                                    <segue destination="ZDu-p3-QYt" kind="show" identifier="showproductdetails" id="neJ-da-fpi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DDI-a7-MEQ" id="PRG-y8-BI3"/>
+                            <outlet property="delegate" destination="DDI-a7-MEQ" id="MPJ-bE-D3I"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="BNb-pp-xlF">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="Min-q8-bEO">
+                            <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="4cp-wI-CYt" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="4IG-xH-ikQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Restore" id="mrv-X9-Qo9">
+                            <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="restoreButtonTapped:" destination="DDI-a7-MEQ" id="VDz-qd-Ssa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="restoreBarButton" destination="mrv-X9-Qo9" id="2q9-M8-K0I"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9D9-8F-Hqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4cp-wI-CYt" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-965.60000000000002" y="-674.21289355322347"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QWf-Dy-Gpk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QeT-4C-HIp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QEw-ba-pcY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DDI-a7-MEQ" kind="relationship" relationship="rootViewController" id="N1u-Tm-hwh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1az-8c-XpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1906.4000000000001" y="-674.21289355322347"/>
         </scene>
     </scenes>
     <resources>
@@ -560,10 +686,10 @@
         <image name="freestyle" width="900" height="1300"/>
         <image name="gamecenter" width="50" height="50"/>
         <image name="gregoriust" width="900" height="1300"/>
-        <image name="helpadude" width="900" height="1300"/>
         <image name="lock" width="64" height="64"/>
         <image name="question" width="55" height="55"/>
         <image name="settings" width="50" height="50"/>
+        <image name="shopping" width="64" height="64"/>
         <image name="slagrun" width="900" height="1300"/>
         <image name="tutorialsplash" width="900" height="1300"/>
     </resources>

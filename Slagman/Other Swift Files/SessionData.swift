@@ -13,40 +13,40 @@ class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
   var travels = [["name" : "The Slag Journeys", "locked" : false],
-                     ["name" : "The Chronicles of Slagman", "locked" : true],
-                     ["name" : "Slag Physics", "locked" : true]]
+                     ["name" : "The Chronicles of Slagman", "locked" : false],
+                     ["name" : "Slag Physics", "locked" : false]]
   
   var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
-                  ["name" : "Let's Slag", "locked" : true],
-                  ["name" : "Link The Slag", "locked" : true],
-                  ["name" : "Power to The Slag", "locked" : true],
-                  ["name" : "Watch for Slag Mines", "locked" : true],
-                  ["name" : "Slag Gravity", "locked" : true],
-                  ["name" : "Are You Feeling Slaggy?", "locked" : true],
-                  ["name" : "Little Grabby Slags", "locked" : true],
-                  ["name" : "Mr. Slaggy Says Hello", "locked" : true],
-                  ["name" : "Time to Slag Up", "locked" : true],
-                  ["name" : "Bust a Slag Move", "locked" : true]],
-                 [["name" : "It's a Good Day to Slag", "locked" : true],
-                  ["name" : "Slag Hard", "locked" : true],
-                  ["name" : "Slag Harder", "locked" : true],
-                  ["name" : "For a Few Slag More", "locked" : true],
-                  ["name" : "Escape from New Slag", "locked" : true],
-                  ["name" : "Slag Wars", "locked" : true],
-                  ["name" : "The Good, The Bad, and The Slag", "locked" : true],
-                  ["name" : "The Big Slagowski", "locked" : true],
-                  ["name" : "Pulp Slag", "locked" : true],
-                  ["name" : "Guardians of The Slag", "locked" : true]],
-                 [["name" : "Slag Warp", "locked" : true],
-                  ["name" : "Transport the Slag", "locked" : true],
-                  ["name" : "The Slag Principle", "locked" : true],
-                  ["name" : "The Symmetry of Slag", "locked" : true],
-                  ["name" : "The Slag Paradox", "locked" : true],
-                  ["name" : "Slag = MC^Slagged", "locked" : true],
-                  ["name" : "The Slag Particle", "locked" : true],
-                  ["name" : "The Slag Continuum", "locked" : true],
-                  ["name" : "The Quantum Slag", "locked" : true],
-                  ["name" : "The Theory of Slag", "locked" : true]]]
+                  ["name" : "Let's Slag", "locked" : false],
+                  ["name" : "Link The Slag", "locked" : false],
+                  ["name" : "Power to The Slag", "locked" : false],
+                  ["name" : "Watch for Slag Mines", "locked" : false],
+                  ["name" : "Slag Gravity", "locked" : false],
+                  ["name" : "Are You Feeling Slaggy?", "locked" : false],
+                  ["name" : "Little Grabby Slags", "locked" : false],
+                  ["name" : "Mr. Slaggy Says Hello", "locked" : false],
+                  ["name" : "Time to Slag Up", "locked" : false],
+                  ["name" : "Bust a Slag Move", "locked" : false]],
+                 [["name" : "It's a Good Day to Slag", "locked" : false],
+                  ["name" : "Slag Hard", "locked" : false],
+                  ["name" : "Slag Harder", "locked" : false],
+                  ["name" : "For a Few Slag More", "locked" : false],
+                  ["name" : "Escape from New Slag", "locked" : false],
+                  ["name" : "Slag Wars", "locked" : false],
+                  ["name" : "The Good, The Bad, and The Slag", "locked" : false],
+                  ["name" : "The Big Slagowski", "locked" : false],
+                  ["name" : "Pulp Slag", "locked" : false],
+                  ["name" : "Guardians of The Slag", "locked" : false]],
+                 [["name" : "Slag Warp", "locked" : false],
+                  ["name" : "Transport the Slag", "locked" : false],
+                  ["name" : "The Slag Principle", "locked" : false],
+                  ["name" : "The Symmetry of Slag", "locked" : false],
+                  ["name" : "The Slag Paradox", "locked" : false],
+                  ["name" : "Slag = MC^Slagged", "locked" : false],
+                  ["name" : "The Slag Particle", "locked" : false],
+                  ["name" : "The Slag Continuum", "locked" : false],
+                  ["name" : "The Quantum Slag", "locked" : false],
+                  ["name" : "The Theory of Slag", "locked" : false]]]
   
   var gameMode = GameMode.freestyle {
     didSet {
@@ -58,27 +58,7 @@ class SessionData: NSObject, NSCoding {
     }
   }
   
-  var freestyleChallenge = 0 {
-    didSet {
-      if freestyleChallenge > maximumFreestyleChallengeIndex {
-        slagRunModeEnabled = true
-        
-        if GKLocalPlayer.localPlayer().isAuthenticated {
-            let gkachievement = GKAchievement(identifier: "theslaggraduate")
-            gkachievement.percentComplete = 100.0
-            gkachievement.showsCompletionBanner = true
-            
-            // Attempt to send the completed achievement to Game Center.
-            GKAchievement.report([gkachievement]) { (error) in
-              if error == nil {
-                print("GameKit achievement successfully reported: \(gkachievement).")
-              }
-            }
-        }
-      }
-    }
-  }
-  
+  var freestyleChallenge = 0
   var slagrunChallenge = 1
   
   var slagRunPoints = 0 {
@@ -90,9 +70,8 @@ class SessionData: NSObject, NSCoding {
   }
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
-  var countOfSlagrunAttempts = 0
   var slagRunModeEnabled = false
-  let maximumFreestyleChallengeIndex = 30
+  var unityAdsOn = false
 
   override init() {
     super.init()
@@ -104,11 +83,6 @@ class SessionData: NSObject, NSCoding {
     
     freestyleChallenge = aDecoder.decodeInteger(forKey: "freestylechallenge")
     bestSlagRun = aDecoder.decodeInteger(forKey: "bestslagrun")
-    slagRunModeEnabled = aDecoder.decodeBool(forKey: "slagrunmodeenabled")
-    
-    if let decodedTravelChallenges = aDecoder.decodeObject(forKey: "travelchallenges") as? [[[String : Any]]] {
-      travelChallenges = decodedTravelChallenges
-    }
     
     if let decodedTravels = aDecoder.decodeObject(forKey: "travels") as? [[String : Any]] {
       travels = decodedTravels
@@ -118,9 +92,7 @@ class SessionData: NSObject, NSCoding {
   func encode(with aCoder: NSCoder) {
     aCoder.encode(freestyleChallenge, forKey: "freestylechallenge")
     aCoder.encode(bestSlagRun, forKey: "bestslagrun")
-    aCoder.encode(travelChallenges, forKey: "travelchallenges")
     aCoder.encode(travels, forKey: "travels")
-    aCoder.encode(slagRunModeEnabled, forKey: "slagrunmodeenabled")
   }
   
   class func saveData() {

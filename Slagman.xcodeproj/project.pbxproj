@@ -125,6 +125,12 @@
 		37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37D2E9E7206408E400C7523B /* slagmanvoice.m4a */; };
 		37D2E9EA2064103B00C7523B /* SlagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2E9E92064103B00C7523B /* SlagNode.swift */; };
 		37D3F7342057042A00820D83 /* playerdeadexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D3F7322057042A00820D83 /* playerdeadexplosion.sks */; };
+		37E0277920BC79AB00DE173B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E0277820BC79AB00DE173B /* StoreKit.framework */; };
+		37E0278020BCF08300DE173B /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0277B20BCF08300DE173B /* IAPHelper.swift */; };
+		37E0278120BCF08300DE173B /* SlagProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0277C20BCF08300DE173B /* SlagProductDetailsViewController.swift */; };
+		37E0278220BCF08300DE173B /* SlagProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0277D20BCF08300DE173B /* SlagProductCell.swift */; };
+		37E0278320BCF08300DE173B /* SlagProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0277E20BCF08300DE173B /* SlagProducts.swift */; };
+		37E0278420BCF08300DE173B /* SlagProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0277F20BCF08300DE173B /* SlagProductsViewController.swift */; };
 		37E7F58E205238F20076E828 /* boost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F58D205238F20076E828 /* boost.wav */; };
 		37E7F59C205330710076E828 /* GregoriusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F599205330700076E828 /* GregoriusViewController.swift */; };
 		37E7F59D205330710076E828 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F59A205330710076E828 /* Utilities.swift */; };
@@ -148,7 +154,6 @@
 		37F8853820ABDD6000B1100F /* Challenge28.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853720ABDD6000B1100F /* Challenge28.sks */; };
 		37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853920AC81EB00B1100F /* Challenge30.sks */; };
 		37F8853C20AC81EB00B1100F /* Challenge29.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853A20AC81EB00B1100F /* Challenge29.sks */; };
-		37F8854020ADE07600B1100F /* HelpADudeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -272,6 +277,12 @@
 		37D2E9E7206408E400C7523B /* slagmanvoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagmanvoice.m4a; sourceTree = "<group>"; };
 		37D2E9E92064103B00C7523B /* SlagNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagNode.swift; sourceTree = "<group>"; };
 		37D3F7322057042A00820D83 /* playerdeadexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerdeadexplosion.sks; sourceTree = "<group>"; };
+		37E0277820BC79AB00DE173B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		37E0277B20BCF08300DE173B /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		37E0277C20BCF08300DE173B /* SlagProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlagProductDetailsViewController.swift; sourceTree = "<group>"; };
+		37E0277D20BCF08300DE173B /* SlagProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlagProductCell.swift; sourceTree = "<group>"; };
+		37E0277E20BCF08300DE173B /* SlagProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlagProducts.swift; sourceTree = "<group>"; };
+		37E0277F20BCF08300DE173B /* SlagProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlagProductsViewController.swift; sourceTree = "<group>"; };
 		37E7F58D205238F20076E828 /* boost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boost.wav; sourceTree = "<group>"; };
 		37E7F599205330700076E828 /* GregoriusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GregoriusViewController.swift; sourceTree = "<group>"; };
 		37E7F59A205330710076E828 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -295,7 +306,6 @@
 		37F8853720ABDD6000B1100F /* Challenge28.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge28.sks; sourceTree = "<group>"; };
 		37F8853920AC81EB00B1100F /* Challenge30.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge30.sks; sourceTree = "<group>"; };
 		37F8853A20AC81EB00B1100F /* Challenge29.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge29.sks; sourceTree = "<group>"; };
-		37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpADudeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E0277920BC79AB00DE173B /* StoreKit.framework in Frameworks */,
 				37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */,
 				37F8853620AB982B00B1100F /* UnityAds.framework in Frameworks */,
 			);
@@ -530,6 +541,7 @@
 				376F708D2054B05100A9785D /* Particles */,
 				37A0DBF0204F12300046715C /* Sounds */,
 				37E7F59E205330820076E828 /* SKTUtils */,
+				37E0277A20BCEFF500DE173B /* InAppPurchase */,
 			);
 			path = Slagman;
 			sourceTree = "<group>";
@@ -613,6 +625,18 @@
 			path = Travels;
 			sourceTree = "<group>";
 		};
+		37E0277A20BCEFF500DE173B /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				37E0277B20BCF08300DE173B /* IAPHelper.swift */,
+				37E0277E20BCF08300DE173B /* SlagProducts.swift */,
+				37E0277F20BCF08300DE173B /* SlagProductsViewController.swift */,
+				37E0277C20BCF08300DE173B /* SlagProductDetailsViewController.swift */,
+				37E0277D20BCF08300DE173B /* SlagProductCell.swift */,
+			);
+			path = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		37E7F597205330700076E828 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,7 +645,6 @@
 				375EFBF120729402008CCA70 /* SettingsViewController.swift */,
 				375EFBF9207477EF008CCA70 /* SlagTravelsViewController.swift */,
 				375EFBFB20754D41008CCA70 /* SlagChallengesViewController.swift */,
-				37F8853F20ADE07600B1100F /* HelpADudeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -648,6 +671,7 @@
 		37F8852E20A93C5E00B1100F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37E0277820BC79AB00DE173B /* StoreKit.framework */,
 				37F8853520AB982B00B1100F /* UnityAds.framework */,
 				37F8852F20A93C5E00B1100F /* GameKit.framework */,
 			);
@@ -689,6 +713,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -839,17 +866,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E0278320BCF08300DE173B /* SlagProducts.swift in Sources */,
 				37D2E9E22062DA4100C7523B /* IntroductionViewController.swift in Sources */,
+				37E0278420BCF08300DE173B /* SlagProductsViewController.swift in Sources */,
 				37E7F5AD205330830076E828 /* CGVector+Extensions.swift in Sources */,
 				37D2E9EA2064103B00C7523B /* SlagNode.swift in Sources */,
 				375EFBFE207805E7008CCA70 /* SessionData.swift in Sources */,
 				37E7F59C205330710076E828 /* GregoriusViewController.swift in Sources */,
-				37F8854020ADE07600B1100F /* HelpADudeViewController.swift in Sources */,
 				37E7F5B2205330830076E828 /* SKNode+Extensions.swift in Sources */,
 				37E7F5AF205330830076E828 /* SKAction+Extensions.swift in Sources */,
 				37E7F59D205330710076E828 /* Utilities.swift in Sources */,
 				37B4FFC3204D9E6500FAEC3E /* GameScene.swift in Sources */,
 				37E7F5AC205330830076E828 /* CGPoint+Extensions.swift in Sources */,
+				37E0278220BCF08300DE173B /* SlagProductCell.swift in Sources */,
 				37E7F5B0205330830076E828 /* SKAction+SpecialEffects.swift in Sources */,
 				37B4FFC5204D9E6500FAEC3E /* GameViewController.swift in Sources */,
 				37E7F5B5205330830076E828 /* SKTTimingFunctions.swift in Sources */,
@@ -863,9 +892,11 @@
 				375EFBFC20754D41008CCA70 /* SlagChallengesViewController.swift in Sources */,
 				37E7F5B4205330830076E828 /* SKTEffects.swift in Sources */,
 				37B02F84206C21B400F0F921 /* HUD.swift in Sources */,
+				37E0278020BCF08300DE173B /* IAPHelper.swift in Sources */,
 				375EFBFA207477EF008CCA70 /* SlagTravelsViewController.swift in Sources */,
 				37E7F5B6205330830076E828 /* Vector3.swift in Sources */,
 				375EFBF220729402008CCA70 /* SettingsViewController.swift in Sources */,
+				37E0278120BCF08300DE173B /* SlagProductDetailsViewController.swift in Sources */,
 				37146506205B0BEA00D574D4 /* ChallengeCompletedScene.swift in Sources */,
 				37B4FFBD204D9E6500FAEC3E /* AppDelegate.swift in Sources */,
 			);

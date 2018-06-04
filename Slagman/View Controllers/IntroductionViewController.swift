@@ -52,7 +52,7 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     super.viewWillAppear(animated)
     SessionData.sharedInstance.gameMode = .freestyle
     
-    if SessionData.sharedInstance.slagRunModeEnabled == false {
+    if SessionData.sharedInstance.slagRunModeEnabled == true {
       slagRunButton.isEnabled = true
       slagRunLockImage.isHidden = true
     }
@@ -68,14 +68,7 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   
   @IBAction func slagRunButtonTapped(_ sender: UIButton) {
     SessionData.sharedInstance.gameMode = .slagrun
-    SessionData.sharedInstance.countOfSlagrunAttempts += 1
-    
-    if SessionData.sharedInstance.countOfSlagrunAttempts > 2 {
-      SessionData.sharedInstance.countOfSlagrunAttempts = 0
-      performSegue(withIdentifier: "presenthelpadudeview", sender: self)
-    } else {
-      performSegue(withIdentifier: "introductiontogame", sender: self)
-    }
+    performSegue(withIdentifier: "introductiontogame", sender: self)
   }
   
   @IBAction func gameCenterButtonTapped(_ sender: UIButton) {
@@ -90,10 +83,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
     gameCenterViewController.dismiss(animated: true, completion: nil)
     reconcileHighScore()
-    
-    if UnityAds.isReady() == true {
-      UnityAds.show(self, placementId: "video")
-    }
   }
   
   func reconcileHighScore()  {
@@ -124,21 +113,15 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   }
   
   @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue) {
-    if UnityAds.isReady() == true {
-      UnityAds.show(self, placementId: "video")
-    }
   }
   
   @IBAction func unwindFromGameToIntroduction(sender: UIStoryboardSegue) {
-    if SessionData.sharedInstance.gameMode == .freestyle && UnityAds.isReady() == true {
+    if UnityAds.isReady() && SessionData.sharedInstance.unityAdsOn {
       UnityAds.show(self, placementId: "video")
     }
   }
   
   @IBAction func unwindToIntroduction(sender: UIStoryboardSegue) {
-    if UnityAds.isReady() == true {
-      UnityAds.show(self, placementId: "video")
-    }
   }
   
   // UnityAdsDelegate
