@@ -16,7 +16,6 @@ class SlagProductDetailsViewController: UIViewController {
   @IBOutlet weak var buyButton: UIButton!
   
   var productDescription: String?
-  var price: String?
   var product: SKProduct?
   
   override func viewDidLoad() {
@@ -28,10 +27,18 @@ class SlagProductDetailsViewController: UIViewController {
     }
     
     imageView?.image =  UIImage(named: name)
-    SlagProducts.priceFormatter.locale = product.priceLocale
-    price = SlagProducts.priceFormatter.string(from: product.price)
+    
+    if SlagProducts.inAppHelper.isProductPurchased(product.productIdentifier) {
+      priceLabel.text = "Purchased"
+    } else if IAPHelper.canMakePayments() {
+      SlagProducts.priceFormatter.locale = product.priceLocale
+      priceLabel.text = SlagProducts.priceFormatter.string(from: product.price)
+      buyButton.isHidden = false
+    } else {
+      priceLabel.text = "Not available"
+    }
+    
     productDescriptionLabel.text = productDescription
-    priceLabel.text = price
     
     NotificationCenter.default.addObserver(self, selector: #selector(SlagProductDetailsViewController.handlePurchaseNotification(_:)),
                                            name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
@@ -43,6 +50,7 @@ class SlagProductDetailsViewController: UIViewController {
   }
   
   @objc func handlePurchaseNotification(_ notification: Notification) {
-    print("Purchase successful!")
+    
+    
   }
 }

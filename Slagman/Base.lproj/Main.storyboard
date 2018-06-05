@@ -543,7 +543,7 @@
                                 <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blU-X4-hXK">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blU-X4-hXK">
                                 <rect key="frame" x="161.5" y="314" width="52" height="45"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                                 <state key="normal" title="BUY!">
@@ -562,10 +562,9 @@
                             <constraint firstItem="XfP-wa-DVC" firstAttribute="top" secondItem="h6s-TL-CIy" secondAttribute="bottom" constant="8" id="5ap-OS-xCM"/>
                             <constraint firstItem="h6s-TL-CIy" firstAttribute="leading" secondItem="B7g-AI-04e" secondAttribute="leading" constant="16" id="ReO-UU-m1q"/>
                             <constraint firstItem="blU-X4-hXK" firstAttribute="centerX" secondItem="2AX-IX-ylL" secondAttribute="centerX" id="V4U-wD-KDq"/>
-                            <constraint firstItem="B7g-AI-04e" firstAttribute="trailing" secondItem="rSa-g7-qbd" secondAttribute="trailing" constant="164" id="VAo-d1-wIL"/>
                             <constraint firstItem="8xR-2X-fkX" firstAttribute="top" relation="lessThanOrEqual" secondItem="blU-X4-hXK" secondAttribute="bottom" constant="308" id="cfa-2V-fo9"/>
-                            <constraint firstItem="rSa-g7-qbd" firstAttribute="leading" secondItem="B7g-AI-04e" secondAttribute="leading" constant="165" id="gmR-3M-Kx2"/>
                             <constraint firstItem="h6s-TL-CIy" firstAttribute="top" secondItem="eKE-pI-iKM" secondAttribute="bottom" constant="8" id="oRk-vP-PZG"/>
+                            <constraint firstItem="rSa-g7-qbd" firstAttribute="centerX" secondItem="2AX-IX-ylL" secondAttribute="centerX" id="qCO-Vv-1ai"/>
                             <constraint firstItem="blU-X4-hXK" firstAttribute="top" secondItem="rSa-g7-qbd" secondAttribute="bottom" constant="8" id="y48-Br-ADc"/>
                             <constraint firstItem="rSa-g7-qbd" firstAttribute="top" secondItem="XfP-wa-DVC" secondAttribute="bottom" constant="8" id="yfU-WU-FXH"/>
                         </constraints>

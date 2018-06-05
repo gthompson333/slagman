@@ -157,7 +157,6 @@ extension IAPHelper: SKPaymentTransactionObserver {
     
     purchasedProductIdentifiers.insert(identifier)
     UserDefaults.standard.set(true, forKey: identifier)
-    UserDefaults.standard.synchronize()
     NotificationCenter.default.post(name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification), object: identifier)
   }
 }

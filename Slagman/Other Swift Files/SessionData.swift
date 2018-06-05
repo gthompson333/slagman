@@ -14,7 +14,7 @@ class SessionData: NSObject, NSCoding {
   
   var travels = [["name" : "The Slag Journeys", "locked" : false],
                      ["name" : "The Chronicles of Slagman", "locked" : false],
-                     ["name" : "Slag Physics", "locked" : false]]
+                     ["name" : "Slag Physics", "locked" : true]]
   
   var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
                   ["name" : "Let's Slag", "locked" : false],
@@ -71,10 +71,11 @@ class SessionData: NSObject, NSCoding {
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
   var slagRunModeEnabled = false
-  var unityAdsOn = false
+  var unityAdsOn = true
 
   override init() {
     super.init()
+    loadInAppPurchaseState()
     print("SessionData init")
   }
   
@@ -93,6 +94,20 @@ class SessionData: NSObject, NSCoding {
     aCoder.encode(freestyleChallenge, forKey: "freestylechallenge")
     aCoder.encode(bestSlagRun, forKey: "bestslagrun")
     aCoder.encode(travels, forKey: "travels")
+  }
+  
+  func loadInAppPurchaseState() {
+    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagPhysicsChallengesProductID) {
+      travels[2]["locked"] = false
+    } else {
+      travels[2]["locked"] = true
+    }
+    
+    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.removeAdsProductID) {
+      unityAdsOn = false
+    } else {
+      unityAdsOn = true
+    }
   }
   
   class func saveData() {
