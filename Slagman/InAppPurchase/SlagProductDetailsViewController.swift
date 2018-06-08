@@ -12,8 +12,8 @@ import StoreKit
 class SlagProductDetailsViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var productDescriptionLabel: UILabel!
+  @IBOutlet weak var unlockButton: UIButton!
   @IBOutlet weak var priceLabel: UILabel!
-  @IBOutlet weak var buyButton: UIButton!
   
   var productDescription: String?
   var product: SKProduct?
@@ -28,16 +28,7 @@ class SlagProductDetailsViewController: UIViewController {
     
     imageView?.image =  UIImage(named: name)
     
-    if SlagProducts.inAppHelper.isProductPurchased(product.productIdentifier) {
-      priceLabel.text = "Purchased"
-    } else if IAPHelper.canMakePayments() {
-      SlagProducts.priceFormatter.locale = product.priceLocale
-      priceLabel.text = SlagProducts.priceFormatter.string(from: product.price)
-      buyButton.isHidden = false
-    } else {
-      priceLabel.text = "Not available"
-    }
-    
+    setPurchaseState()
     productDescriptionLabel.text = productDescription
     
     NotificationCenter.default.addObserver(self, selector: #selector(SlagProductDetailsViewController.handlePurchaseNotification(_:)),
@@ -45,12 +36,31 @@ class SlagProductDetailsViewController: UIViewController {
                                            object: nil)
   }
   
-  @IBAction func buyButtonTapped(_ sender: UIButton) {
+  private func setPurchaseState() {
+    guard let product = product else { return }
+    
+    if SlagProducts.inAppHelper.isProductPurchased(product.productIdentifier) {
+      priceLabel.text = "Purchased"
+      unlockButton.isHidden = true
+    } else if IAPHelper.canMakePayments() {
+      SlagProducts.priceFormatter.locale = product.priceLocale
+      priceLabel.text = SlagProducts.priceFormatter.string(from: product.price)
+      unlockButton.isHidden = false
+    } else {
+      priceLabel.text = "Not Available"
+      unlockButton.isHidden = true
+    }
+  }
+  
+  @IBAction func unlockButtonTapped(_ sender: UIButton) {
     SlagProducts.inAppHelper.buyProduct(product!)
   }
   
+  @IBAction func dismissButtonTapped(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
+  }
+  
   @objc func handlePurchaseNotification(_ notification: Notification) {
-    
-    
+    setPurchaseState()
   }
 }

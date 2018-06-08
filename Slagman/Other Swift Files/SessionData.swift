@@ -75,7 +75,6 @@ class SessionData: NSObject, NSCoding {
 
   override init() {
     super.init()
-    loadInAppPurchaseState()
     print("SessionData init")
   }
   

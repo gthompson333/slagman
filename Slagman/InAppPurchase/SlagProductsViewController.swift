@@ -12,11 +12,10 @@ import StoreKit
 class SlagProductsViewController: UITableViewController {
   @IBOutlet weak var restoreBarButton: UIBarButtonItem!
   
-  let showDetailSegueIdentifier = "showproductdetails"
   var products = [SKProduct]()
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == showDetailSegueIdentifier {
+    if segue.identifier == "showproductdetails" {
       guard let indexPath = tableView.indexPathForSelectedRow else { return }
       
       let product = products[(indexPath as NSIndexPath).row]
@@ -37,6 +36,14 @@ class SlagProductsViewController: UITableViewController {
     
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self, action: #selector(SlagProductsViewController.reload), for: .valueChanged)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(SlagProductDetailsViewController.handlePurchaseNotification(_:)),
+                                           name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                           object: nil)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(SlagProductsViewController.handlePurchaseRestoreNotification(_:)),
+                                           name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseRestoreNotification),
+                                           object: nil)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +65,16 @@ class SlagProductsViewController: UITableViewController {
       
       self.refreshControl?.endRefreshing()
     }
+  }
+  
+  @objc func handlePurchaseNotification(_ notification: Notification) {
+    reload()
+    SessionData.sharedInstance.loadInAppPurchaseState()
+  }
+  
+  @objc func handlePurchaseRestoreNotification(_ notification: Notification) {
+    reload()
+    SessionData.sharedInstance.loadInAppPurchaseState()
   }
 }
 

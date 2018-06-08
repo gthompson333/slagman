@@ -22,6 +22,8 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    SessionData.sharedInstance.loadInAppPurchaseState()
+    
     // iOS Game Center authentication and sign-in.
     gamekitPlayer.authenticateHandler = { (controller, error) in
       if controller != nil {
