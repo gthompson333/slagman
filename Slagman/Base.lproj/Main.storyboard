@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="travelcell" rowHeight="90" id="xmV-jL-yf6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="travelcell" rowHeight="90" id="xmV-jL-yf6" customClass="SlagTravelCell" customModule="Slagman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xmV-jL-yf6" id="bzh-3s-GiK">
@@ -180,10 +180,23 @@
                                                 <constraint firstAttribute="width" constant="32" id="zrc-qM-Sbt"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouq-fH-ZDc">
+                                            <rect key="frame" x="308" y="22.5" width="51" height="45"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                            <state key="normal" title="Buy!">
+                                                <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buyButtonTapped:" destination="xmV-jL-yf6" eventType="touchUpInside" id="tp6-GT-TY4"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Gi8-GM-jhj" firstAttribute="centerY" secondItem="tjd-b7-6tz" secondAttribute="centerY" id="11U-1a-pd0"/>
+                                        <constraint firstItem="Ouq-fH-ZDc" firstAttribute="leading" secondItem="tjd-b7-6tz" secondAttribute="trailing" constant="13" id="1k4-JG-Jod"/>
+                                        <constraint firstItem="Ouq-fH-ZDc" firstAttribute="centerY" secondItem="bzh-3s-GiK" secondAttribute="centerY" id="WvT-9b-svA"/>
                                         <constraint firstItem="tjd-b7-6tz" firstAttribute="top" secondItem="bzh-3s-GiK" secondAttribute="topMargin" constant="15" id="cv7-rW-dcn"/>
+                                        <constraint firstItem="Ouq-fH-ZDc" firstAttribute="trailing" secondItem="bzh-3s-GiK" secondAttribute="trailingMargin" id="eQA-yy-M2s"/>
                                         <constraint firstItem="tjd-b7-6tz" firstAttribute="centerX" secondItem="bzh-3s-GiK" secondAttribute="centerX" id="ph8-ZV-CkC"/>
                                         <constraint firstItem="tjd-b7-6tz" firstAttribute="leading" secondItem="Gi8-GM-jhj" secondAttribute="trailing" constant="32" id="vfX-pA-tft"/>
                                         <constraint firstItem="Gi8-GM-jhj" firstAttribute="leading" secondItem="bzh-3s-GiK" secondAttribute="leadingMargin" id="wAA-qn-hbc"/>
@@ -191,6 +204,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buyButton" destination="Ouq-fH-ZDc" id="mYc-Fl-8d2"/>
+                                    <outlet property="lockImageView" destination="Gi8-GM-jhj" id="Sd6-tr-R6i"/>
+                                    <outlet property="nameLabel" destination="tjd-b7-6tz" id="Dub-zG-EJ6"/>
                                     <segue destination="iMM-bU-gLc" kind="show" identifier="showtravelchallenges" id="FUE-Qc-k5R"/>
                                 </connections>
                             </tableViewCell>
@@ -223,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="challengecell" rowHeight="90" id="GyW-x5-nih">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="challengecell" rowHeight="90" id="GyW-x5-nih">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GyW-x5-nih" id="ZPG-Tw-BSg">
@@ -532,13 +548,13 @@
                                         </constraints>
                                     </imageView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blU-X4-hXK">
-                                        <rect key="frame" x="123" y="63" width="75" height="45"/>
+                                        <rect key="frame" x="123" y="63" width="49" height="45"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                                        <state key="normal" title="Unlock">
+                                        <state key="normal" title="Buy!">
                                             <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="unlockButtonTapped:" destination="ZDu-p3-QYt" eventType="touchUpInside" id="vEI-4N-r2C"/>
+                                            <action selector="buyButtonTapped:" destination="ZDu-p3-QYt" eventType="touchUpInside" id="vEI-4N-r2C"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAM-KV-GAj">
@@ -596,10 +612,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="gWo-aO-9Om"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buyButton" destination="blU-X4-hXK" id="10j-VH-BC5"/>
                         <outlet property="imageView" destination="h6s-TL-CIy" id="vt0-Mp-1R3"/>
                         <outlet property="priceLabel" destination="fLa-Qb-aWe" id="eHa-ON-cn9"/>
                         <outlet property="productDescriptionLabel" destination="XfP-wa-DVC" id="02Z-fg-xby"/>
-                        <outlet property="unlockButton" destination="blU-X4-hXK" id="10j-VH-BC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64f-hx-SWR" sceneMemberID="firstResponder"/>

@@ -7,10 +7,42 @@
 //
 
 import UIKit
+import StoreKit
 
-class SlagTravelsViewController: UITableViewController {
+class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
+  var products = [SKProduct]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(SlagTravelsViewController.handlePurchaseNotification(_:)),
+                                           name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                           object: nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    loadProducts()
+    tableView.reloadData()
+  }
+  
+  @objc func handlePurchaseNotification(_ notification: Notification) {
+    SessionData.sharedInstance.loadInAppPurchaseState()
+    tableView.reloadData()
+  }
+  
   deinit {
     print("Deinit SlagTravels")
+  }
+  
+  func loadProducts() {
+    products = []
+    
+    SlagProducts.inAppHelper.requestProducts{success, products in
+      if success {
+        self.products = products!
+      }
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -20,7 +52,35 @@ class SlagTravelsViewController: UITableViewController {
       }
     }
   }
-
+  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    if identifier == "showtravelchallenges" {
+      if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        let item = SessionData.sharedInstance.travels[selectedIndexPath.row]
+        
+        if (item["locked"] as! Bool) == true {
+          return false
+        }
+      }
+    }
+    return true
+  }
+  
+  func buyButtonTapped(cell: SlagTravelCell) {
+    var travelProduct: SKProduct?
+    
+    for product in products {
+      if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
+        travelProduct = product
+        break
+      }
+    }
+    
+    if let travelProduct = travelProduct {
+      SlagProducts.inAppHelper.buyProduct(travelProduct)
+    }
+  }
+  
   // MARK: - Table view data source
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -31,21 +91,12 @@ class SlagTravelsViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "travelcell", for: indexPath)
-    let nameLabel = cell.viewWithTag(1) as! UILabel
-    let lockImageview = cell.viewWithTag(2) as! UIImageView
-    
-    let item = SessionData.sharedInstance.travels[indexPath.row]
-    nameLabel.text = (item["name"] as! String)
-    
-    if (item["locked"] as! Bool) == true {
-      cell.isUserInteractionEnabled = false
-      lockImageview.isHidden = false
-    } else {
-      cell.isUserInteractionEnabled = true
-      lockImageview.isHidden = true
-    }
+    let cell = tableView.dequeueReusableCell(withIdentifier: "travelcell", for: indexPath) as! SlagTravelCell
+    cell.delegate = self
+    cell.travelIndex = indexPath.row
     
     return cell
   }
+  
+  
 }

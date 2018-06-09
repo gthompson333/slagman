@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import StoreKit
 
 class ChallengeCompletedScene: SKScene {
   var nodesSlagLabel: SKLabelNode!
@@ -17,7 +18,11 @@ class ChallengeCompletedScene: SKScene {
   var powerNodesTotal = 0
   var countOfPowerNodes = 0
   
+  var products = [SKProduct]()
+  
   override func didMove(to view: SKView) {
+    loadProducts()
+    
     let backgroundMusic = userData?["backgroundmusic"] as? String
     let introVoice = userData?["introvoice"] as? String
     
@@ -47,6 +52,26 @@ class ChallengeCompletedScene: SKScene {
     print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
     
     SessionData.saveData()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(ChallengeCompletedScene.handlePurchaseNotification(_:)),
+                                           name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                           object: nil)
+
+  }
+  
+  func loadProducts() {
+    products = []
+    
+    SlagProducts.inAppHelper.requestProducts{success, products in
+      if success {
+        self.products = products!
+      }
+    }
+  }
+  
+  @objc func handlePurchaseNotification(_ notification: Notification) {
+    SessionData.sharedInstance.loadInAppPurchaseState()
+    presentNextScene()
   }
   
   deinit {
@@ -54,7 +79,39 @@ class ChallengeCompletedScene: SKScene {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    presentNextScene()
+    switch SessionData.sharedInstance.freestyleChallenge {
+    case 21 ... 30:
+      let item = SessionData.sharedInstance.travels[2]
+      
+      if (item["locked"] as! Bool) == true {
+        let alert = UIAlertController(title: "Paid Content", message: "The next challenge is of the first of ten challenges, in the travel known as Slag Physics. Do you wish to purchase?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
+          var travelProduct: SKProduct?
+          
+          for product in self.products {
+            if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
+              travelProduct = product
+              break
+            }
+          }
+          
+          if let travelProduct = travelProduct {
+            SlagProducts.inAppHelper.buyProduct(travelProduct)
+          }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No!", style: .default, handler: { _ in
+          self.gameViewController?.transitionToHome()
+        }))
+        
+        gameViewController?.present(alert, animated: true, completion: nil)
+      } else {
+        presentNextScene()
+      }
+    default:
+      presentNextScene()
+    }
   }
   
   func presentNextScene() {

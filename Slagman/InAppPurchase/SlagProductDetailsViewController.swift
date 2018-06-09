@@ -12,7 +12,7 @@ import StoreKit
 class SlagProductDetailsViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var productDescriptionLabel: UILabel!
-  @IBOutlet weak var unlockButton: UIButton!
+  @IBOutlet weak var buyButton: UIButton!
   @IBOutlet weak var priceLabel: UILabel!
   
   var productDescription: String?
@@ -41,18 +41,18 @@ class SlagProductDetailsViewController: UIViewController {
     
     if SlagProducts.inAppHelper.isProductPurchased(product.productIdentifier) {
       priceLabel.text = "Purchased"
-      unlockButton.isHidden = true
+      buyButton.isHidden = true
     } else if IAPHelper.canMakePayments() {
       SlagProducts.priceFormatter.locale = product.priceLocale
       priceLabel.text = SlagProducts.priceFormatter.string(from: product.price)
-      unlockButton.isHidden = false
+      buyButton.isHidden = false
     } else {
       priceLabel.text = "Not Available"
-      unlockButton.isHidden = true
+      buyButton.isHidden = true
     }
   }
   
-  @IBAction func unlockButtonTapped(_ sender: UIButton) {
+  @IBAction func buyButtonTapped(_ sender: UIButton) {
     SlagProducts.inAppHelper.buyProduct(product!)
   }
   
