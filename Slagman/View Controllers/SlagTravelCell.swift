@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-protocol SlagTravelCellDelegate {
+protocol SlagTravelCellDelegate: class {
   func buyButtonTapped(cell: SlagTravelCell)
 }
 
@@ -18,7 +18,7 @@ class SlagTravelCell: UITableViewCell {
   @IBOutlet weak var lockImageView: UIImageView!
   @IBOutlet weak var buyButton: UIButton!
   
-  var delegate: SlagTravelCellDelegate?
+  weak var delegate: SlagTravelCellDelegate?
   
   var travelIndex: Int? {
     didSet {

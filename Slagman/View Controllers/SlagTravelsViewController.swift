@@ -10,8 +10,6 @@ import UIKit
 import StoreKit
 
 class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
-  var products = [SKProduct]()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -22,7 +20,6 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    loadProducts()
     tableView.reloadData()
   }
   
@@ -32,17 +29,7 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
   }
   
   deinit {
-    print("Deinit SlagTravels")
-  }
-  
-  func loadProducts() {
-    products = []
-    
-    SlagProducts.inAppHelper.requestProducts{success, products in
-      if success {
-        self.products = products!
-      }
-    }
+    print("Deinit SlagTravelsViewController")
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,7 +56,7 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
   func buyButtonTapped(cell: SlagTravelCell) {
     var travelProduct: SKProduct?
     
-    for product in products {
+    for product in SlagProducts.inAppHelper.products {
       if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
         travelProduct = product
         break

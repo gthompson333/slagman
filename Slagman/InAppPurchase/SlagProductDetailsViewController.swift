@@ -36,6 +36,10 @@ class SlagProductDetailsViewController: UIViewController {
                                            object: nil)
   }
   
+  deinit {
+    print("Deinit SlagProductDetailsViewController")
+  }
+  
   private func setPurchaseState() {
     guard let product = product else { return }
     

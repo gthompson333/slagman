@@ -125,6 +125,7 @@
                             <constraint firstItem="PU2-nM-jN1" firstAttribute="top" secondItem="dJu-8a-ocu" secondAttribute="top" id="1Bi-UU-vph"/>
                             <constraint firstItem="PU2-nM-jN1" firstAttribute="trailing" secondItem="O1Q-wv-rZj" secondAttribute="trailing" id="2ZK-hL-XyR"/>
                             <constraint firstItem="dJu-8a-ocu" firstAttribute="top" secondItem="kaT-ws-blp" secondAttribute="bottom" constant="45" id="5km-iC-xmP"/>
+                            <constraint firstItem="O1Q-wv-rZj" firstAttribute="leading" secondItem="kaT-ws-blp" secondAttribute="trailing" constant="123" id="6Ho-kg-tGq"/>
                             <constraint firstItem="O74-0d-ifD" firstAttribute="centerX" secondItem="zZJ-j1-Cwq" secondAttribute="centerX" id="JqO-ga-5Pk"/>
                             <constraint firstItem="O1Q-wv-rZj" firstAttribute="top" secondItem="kaT-ws-blp" secondAttribute="top" id="KaZ-3B-d8Q"/>
                             <constraint firstItem="PU2-nM-jN1" firstAttribute="leading" secondItem="dJu-8a-ocu" secondAttribute="trailing" constant="112" id="MB2-f0-72g"/>
@@ -135,7 +136,6 @@
                             <constraint firstItem="O1Q-wv-rZj" firstAttribute="top" secondItem="O74-0d-ifD" secondAttribute="bottom" constant="45" id="ecL-7r-kXS"/>
                             <constraint firstItem="dJu-8a-ocu" firstAttribute="leading" secondItem="kaT-ws-blp" secondAttribute="leading" id="lTA-04-CZR"/>
                             <constraint firstItem="PU2-nM-jN1" firstAttribute="trailing" secondItem="8Z9-IH-JJN" secondAttribute="trailing" id="pWo-7A-uIX"/>
-                            <constraint firstItem="8Z9-IH-JJN" firstAttribute="leading" secondItem="dJu-8a-ocu" secondAttribute="leading" id="tDv-vg-wCl"/>
                             <constraint firstItem="RvL-7n-0Mn" firstAttribute="centerX" secondItem="zZJ-j1-Cwq" secondAttribute="centerX" id="zT3-fb-5p4"/>
                             <constraint firstItem="8Z9-IH-JJN" firstAttribute="top" secondItem="dJu-8a-ocu" secondAttribute="bottom" constant="45" id="zV9-sy-LCZ"/>
                         </constraints>
@@ -217,7 +217,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="OAn-m4-Ndb">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="Cfb-Ks-tZA">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="Cfb-Ks-tZA">
                             <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="mCk-oT-1Ym" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="3QM-zf-s4G"/>
@@ -672,7 +672,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BNb-pp-xlF">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="Min-q8-bEO">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="Min-q8-bEO">
                             <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="4cp-wI-CYt" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="4IG-xH-ikQ"/>

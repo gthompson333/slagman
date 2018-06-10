@@ -70,7 +70,22 @@ class SessionData: NSObject, NSCoding {
   }
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
-  var slagRunModeEnabled = false
+  
+  var slagRunModeEnabled: Bool {
+    get {
+      var enabled = true
+      
+      for travel in travels {
+        if (travel["locked"] as! Bool) == true {
+          enabled = false
+          break
+        }
+      }
+      
+      return enabled
+    }
+  }
+  
   var unityAdsOn = true
 
   override init() {

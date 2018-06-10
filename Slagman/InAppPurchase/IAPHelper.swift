@@ -33,6 +33,7 @@ open class IAPHelper : NSObject  {
   fileprivate var purchasedProductIdentifiers = Set<ProductIdentifier>()
   fileprivate var productsRequest: SKProductsRequest?
   fileprivate var productsRequestCompletionHandler: ProductsRequestCompletionHandler?
+  var products = [SKProduct]()
   
   public init(productIds: Set<ProductIdentifier>) {
     productIdentifiers = productIds
@@ -51,6 +52,9 @@ open class IAPHelper : NSObject  {
     SKPaymentQueue.default().add(self)
   }
   
+  deinit {
+    print("Deinit IAPHelper")
+  }
 }
 
 // MARK: - StoreKit API
@@ -86,7 +90,7 @@ extension IAPHelper {
 // MARK: - SKProductsRequestDelegate
 extension IAPHelper: SKProductsRequestDelegate {
   public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-    let products = response.products
+    products = response.products
     productsRequestCompletionHandler?(true, products)
     clearRequestAndHandler()
     

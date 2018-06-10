@@ -18,11 +18,7 @@ class ChallengeCompletedScene: SKScene {
   var powerNodesTotal = 0
   var countOfPowerNodes = 0
   
-  var products = [SKProduct]()
-  
   override func didMove(to view: SKView) {
-    loadProducts()
-    
     let backgroundMusic = userData?["backgroundmusic"] as? String
     let introVoice = userData?["introvoice"] as? String
     
@@ -50,23 +46,12 @@ class ChallengeCompletedScene: SKScene {
     
     SessionData.sharedInstance.freestyleChallenge += 1
     print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
-    
     SessionData.saveData()
     
     NotificationCenter.default.addObserver(self, selector: #selector(ChallengeCompletedScene.handlePurchaseNotification(_:)),
                                            name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
                                            object: nil)
 
-  }
-  
-  func loadProducts() {
-    products = []
-    
-    SlagProducts.inAppHelper.requestProducts{success, products in
-      if success {
-        self.products = products!
-      }
-    }
   }
   
   @objc func handlePurchaseNotification(_ notification: Notification) {
@@ -89,7 +74,7 @@ class ChallengeCompletedScene: SKScene {
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           var travelProduct: SKProduct?
           
-          for product in self.products {
+          for product in SlagProducts.inAppHelper.products {
             if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
               travelProduct = product
               break
@@ -102,6 +87,9 @@ class ChallengeCompletedScene: SKScene {
         }))
         
         alert.addAction(UIAlertAction(title: "No!", style: .default, handler: { _ in
+          SessionData.sharedInstance.freestyleChallenge -= 1
+          print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
+          SessionData.saveData()
           self.gameViewController?.transitionToHome()
         }))
         

@@ -21,7 +21,7 @@ class SlagChallengesViewController: UITableViewController {
   }
   
   deinit {
-    print("Deinit SlagTravelChallenges")
+    print("Deinit SlagChallengesViewController")
   }
   
   // MARK: - Table view data source

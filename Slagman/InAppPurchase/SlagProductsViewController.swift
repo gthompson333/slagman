@@ -12,13 +12,11 @@ import StoreKit
 class SlagProductsViewController: UITableViewController {
   @IBOutlet weak var restoreBarButton: UIBarButtonItem!
   
-  var products = [SKProduct]()
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showproductdetails" {
       guard let indexPath = tableView.indexPathForSelectedRow else { return }
       
-      let product = products[(indexPath as NSIndexPath).row]
+      let product = SlagProducts.inAppHelper.products[(indexPath as NSIndexPath).row]
       
       if let detailViewController = segue.destination as? SlagProductDetailsViewController {
         detailViewController.product = product
@@ -51,15 +49,15 @@ class SlagProductsViewController: UITableViewController {
     reload()
   }
   
+  deinit {
+    print("Deinit SlagProductsViewController")
+  }
+  
   @objc func reload() {
-    products = []
-    
     tableView.reloadData()
     
     SlagProducts.inAppHelper.requestProducts{success, products in
       if success {
-        self.products = products!
-        
         self.tableView.reloadData()
       }
       
@@ -85,11 +83,11 @@ extension SlagProductsViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return products.count
+    return SlagProducts.inAppHelper.products.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let product = products[(indexPath as NSIndexPath).row]
+    let product = SlagProducts.inAppHelper.products[(indexPath as NSIndexPath).row]
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "slagproductcell", for: indexPath) as! SlagProductCell
     cell.product = product

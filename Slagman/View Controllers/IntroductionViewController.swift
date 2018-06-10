@@ -22,7 +22,18 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    SessionData.sharedInstance.loadInAppPurchaseState()
+    SlagProducts.inAppHelper.requestProducts{success, products in
+      if success {
+        SessionData.sharedInstance.loadInAppPurchaseState()
+        
+        if SessionData.sharedInstance.slagRunModeEnabled == true {
+          self.slagRunButton.isEnabled = true
+          self.slagRunLockImage.isHidden = true
+        }
+      } else {
+        print("FAILED to load In-App products.")
+      }
+    }
     
     // iOS Game Center authentication and sign-in.
     gamekitPlayer.authenticateHandler = { (controller, error) in
