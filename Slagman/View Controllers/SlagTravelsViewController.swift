@@ -54,17 +54,30 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
   }
   
   func buyButtonTapped(cell: SlagTravelCell) {
-    var travelProduct: SKProduct?
+    var productID: String?
     
-    for product in SlagProducts.inAppHelper.products {
-      if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
-        travelProduct = product
-        break
-      }
+    switch cell.travelIndex {
+    case 1:
+      productID = SlagProducts.chroniclesSlagmanProductID
+    case 2:
+      productID = SlagProducts.slagPhysicsProductID
+    default:
+      break
     }
     
-    if let travelProduct = travelProduct {
-      SlagProducts.inAppHelper.buyProduct(travelProduct)
+    if let productID = productID {
+      var travelProduct: SKProduct?
+      
+      for product in SlagProducts.inAppHelper.products {
+        if product.productIdentifier == productID {
+          travelProduct = product
+          break
+        }
+      }
+      
+      if let travelProduct = travelProduct {
+        SlagProducts.inAppHelper.buyProduct(travelProduct)
+      }
     }
   }
   

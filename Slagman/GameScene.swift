@@ -290,16 +290,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func checkAchievementCompletion() {
-    if GKLocalPlayer.localPlayer().isAuthenticated && (countOfPowerNodes == powerNodesTotal) {
-      if let achievementid = userData?["achievementid"] as? String {
-        let gkachievement = GKAchievement(identifier: achievementid)
-        gkachievement.percentComplete = 100.0
-        gkachievement.showsCompletionBanner = true
-        
-        // Attempt to send the completed achievement to Game Center.
-        GKAchievement.report([gkachievement]) { (error) in
-          if error == nil {
-            print("GameKit achievement successfully reported: \(gkachievement).")
+    if GKLocalPlayer.localPlayer().isAuthenticated {
+      // Free Style Mode
+      if SessionData.sharedInstance.gameMode == .freestyle {
+        // Successful challenge completion.
+        if (countOfPowerNodes == powerNodesTotal) {
+          if let achievementid = userData?["achievementid"] as? String {
+            let gkachievement = GKAchievement(identifier: achievementid)
+            gkachievement.percentComplete = 100.0
+            gkachievement.showsCompletionBanner = true
+            
+            // Attempt to send the completed achievement to Game Center.
+            GKAchievement.report([gkachievement]) { (error) in
+              if error == nil {
+                print("GameKit achievement successfully reported: \(gkachievement).")
+              }
+            }
           }
         }
       }

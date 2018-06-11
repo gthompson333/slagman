@@ -13,7 +13,7 @@ class SessionData: NSObject, NSCoding {
   static let sharedInstance = SessionData.loadData()
   
   var travels = [["name" : "The Slag Journeys", "locked" : false],
-                     ["name" : "The Chronicles of Slagman", "locked" : false],
+                     ["name" : "The Chronicles of Slagman", "locked" : true],
                      ["name" : "Slag Physics", "locked" : true]]
   
   var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
@@ -111,7 +111,13 @@ class SessionData: NSObject, NSCoding {
   }
   
   func loadInAppPurchaseState() {
-    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagPhysicsChallengesProductID) {
+    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.chroniclesSlagmanProductID) {
+      travels[1]["locked"] = false
+    } else {
+      travels[1]["locked"] = true
+    }
+    
+    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagPhysicsProductID) {
       travels[2]["locked"] = false
     } else {
       travels[2]["locked"] = true

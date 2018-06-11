@@ -9,12 +9,15 @@
 import Foundation
 
 public struct SlagProducts {
-  static let slagPhysicsChallengesProductID = "slagphysicschallenges"
   static let removeAdsProductID = "com.gregoriust.removeads"
-  private static let productIdentifiers: Set<ProductIdentifier> = [slagPhysicsChallengesProductID, removeAdsProductID]
+  static let chroniclesSlagmanProductID = "com.gregoriust.chroniclesslagman"
+  static let slagPhysicsProductID = "com.gregoriust.slagphysics"
   
-  public static let productDescriptions = [slagPhysicsChallengesProductID : "Slag Physics! The next chapter in the travels of Slagman! These 10 challenges will test your slagging abilities to the limits! Introducing a new teleportation obstacle! It will slag your mind!",
-                                           removeAdsProductID : "Slag them annoying ads!"]
+  private static let productIdentifiers: Set<ProductIdentifier> = [removeAdsProductID, chroniclesSlagmanProductID, slagPhysicsProductID]
+  
+  public static let productDescriptions = [removeAdsProductID : "Slag them annoying ads!",
+                                           chroniclesSlagmanProductID : "The Chronicles of Slagman!  10 brand new challenges that will test your slagging abilities to the limits!  Introducing a new theme, a new rotating gate obstacle, and other new obstacles.",
+                                           slagPhysicsProductID : "Slag Physics!  10 brand new challenges that will time warp your mind!  Is Slagman here, or is he there? Purchase this collection of challenges, and find out! "]
   
   public static let inAppHelper = IAPHelper(productIds: SlagProducts.productIdentifiers)
   

@@ -65,17 +65,49 @@ class ChallengeCompletedScene: SKScene {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     switch SessionData.sharedInstance.freestyleChallenge {
-    case 21 ... 30:
-      let item = SessionData.sharedInstance.travels[2]
+    case 11 ... 20:
+      let item = SessionData.sharedInstance.travels[1]
       
       if (item["locked"] as! Bool) == true {
-        let alert = UIAlertController(title: "Paid Content", message: "The next challenge is of the first of ten challenges, in the travel known as Slag Physics. Do you wish to purchase?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as The Chronicles of Slagman. Do you wish to purchase?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           var travelProduct: SKProduct?
           
           for product in SlagProducts.inAppHelper.products {
-            if product.productIdentifier == SlagProducts.slagPhysicsChallengesProductID {
+            if product.productIdentifier == SlagProducts.chroniclesSlagmanProductID {
+              travelProduct = product
+              break
+            }
+          }
+          
+          if let travelProduct = travelProduct {
+            SlagProducts.inAppHelper.buyProduct(travelProduct)
+          }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No!", style: .default, handler: { _ in
+          SessionData.sharedInstance.freestyleChallenge -= 1
+          print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
+          SessionData.saveData()
+          self.gameViewController?.transitionToHome()
+        }))
+        
+        gameViewController?.present(alert, animated: true, completion: nil)
+      } else {
+        presentNextScene()
+      }
+    case 21 ... 30:
+      let item = SessionData.sharedInstance.travels[2]
+      
+      if (item["locked"] as! Bool) == true {
+        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as Slag Physics. Do you wish to purchase?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
+          var travelProduct: SKProduct?
+          
+          for product in SlagProducts.inAppHelper.products {
+            if product.productIdentifier == SlagProducts.slagPhysicsProductID {
               travelProduct = product
               break
             }

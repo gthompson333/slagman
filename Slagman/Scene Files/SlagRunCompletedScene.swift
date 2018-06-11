@@ -81,6 +81,36 @@ class SlagRunCompletedScene: SKScene {
           print("GameKit score successfully reported: \(gkscore.value).")
         }
       }
+      
+      reportAchievement(identifier: "newbslagrunner")
+      
+      if SessionData.sharedInstance.slagRunPoints >= 2000 {
+         reportAchievement(identifier: "slagrunner2k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 5000 {
+        reportAchievement(identifier: "slagrunner5k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 10000 {
+        reportAchievement(identifier: "slagrunner10k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 20000 {
+        reportAchievement(identifier: "slagrunner20k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 30000 {
+        reportAchievement(identifier: "slagrunner30k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 40000 {
+        reportAchievement(identifier: "slagrunner40k")
+      }
+      
+      if SessionData.sharedInstance.slagRunPoints >= 50000 {
+        reportAchievement(identifier: "slagrunner50k")
+      }
     }
   }
   
@@ -96,14 +126,14 @@ class SlagRunCompletedScene: SKScene {
     }
   }
   
-  func pulseNewBestSlagRunLabel() {
+  private func pulseNewBestSlagRunLabel() {
     let scalePulse = SKAction.sequence([SKAction.scale(to: 1.3, duration: 0.5),
                                         SKAction.scale(to: 1.0, duration: 0.5)])
     
     newBestSlagRunLabel.run(SKAction.repeatForever(scalePulse))
   }
   
-  func playBackgroundMusic(name: String) {
+  private func playBackgroundMusic(name: String) {
     if let _ = childNode(withName: "backgroundmusic") {
       return
     }
@@ -112,6 +142,19 @@ class SlagRunCompletedScene: SKScene {
     music.name = "backgroundmusic"
     music.autoplayLooped = true
     addChild(music)
+  }
+  
+  private func reportAchievement(identifier: String) {
+    let gkachievement = GKAchievement(identifier: identifier)
+    gkachievement.percentComplete = 100.0
+    gkachievement.showsCompletionBanner = true
+    
+    // Attempt to send the completed achievement to Game Center.
+    GKAchievement.report([gkachievement]) { (error) in
+      if error == nil {
+        print("GameKit achievement successfully reported: \(gkachievement).")
+      }
+    }
   }
 }
 
