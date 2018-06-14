@@ -111,6 +111,19 @@ class SlagRunCompletedScene: SKScene {
       if SessionData.sharedInstance.slagRunPoints >= 50000 {
         reportAchievement(identifier: "slagrunner50k")
       }
+      
+      if SessionData.sharedInstance.challengesTotallySlagged == 30 {
+        let gkachievement = GKAchievement(identifier: "slagrunnergod")
+        gkachievement.percentComplete = 100.0
+        gkachievement.showsCompletionBanner = true
+        
+        // Attempt to send the completed achievement to Game Center.
+        GKAchievement.report([gkachievement]) { (error) in
+          if error == nil {
+            print("GameKit achievement successfully reported: \(gkachievement).")
+          }
+        }
+      }
     }
   }
   

@@ -54,6 +54,13 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
   }
   
   func buyButtonTapped(cell: SlagTravelCell) {
+    guard SlagProducts.inAppHelper.products.count > 0 else {
+      let alert = UIAlertController(title: "Are You Online?", message: "Unable to complete the purchase.  Please ensure you are connected to the internet.", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    }
+    
     var productID: String?
     
     switch cell.travelIndex {

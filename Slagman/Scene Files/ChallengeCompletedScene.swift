@@ -72,17 +72,23 @@ class ChallengeCompletedScene: SKScene {
         let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as The Chronicles of Slagman. Do you wish to purchase?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
-          var travelProduct: SKProduct?
-          
-          for product in SlagProducts.inAppHelper.products {
-            if product.productIdentifier == SlagProducts.chroniclesSlagmanProductID {
-              travelProduct = product
-              break
+          if SlagProducts.inAppHelper.products.count > 0 {
+            var travelProduct: SKProduct?
+            
+            for product in SlagProducts.inAppHelper.products {
+              if product.productIdentifier == SlagProducts.chroniclesSlagmanProductID {
+                travelProduct = product
+                break
+              }
             }
-          }
-          
-          if let travelProduct = travelProduct {
-            SlagProducts.inAppHelper.buyProduct(travelProduct)
+            
+            if let travelProduct = travelProduct {
+              SlagProducts.inAppHelper.buyProduct(travelProduct)
+            }
+          } else {
+            let alert = UIAlertController(title: "Are You Online?", message: "Unable to complete the purchase.  Please ensure you are connected to the internet.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.gameViewController?.present(alert, animated: true, completion: nil)
           }
         }))
         
@@ -104,17 +110,23 @@ class ChallengeCompletedScene: SKScene {
         let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as Slag Physics. Do you wish to purchase?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
-          var travelProduct: SKProduct?
-          
-          for product in SlagProducts.inAppHelper.products {
-            if product.productIdentifier == SlagProducts.slagPhysicsProductID {
-              travelProduct = product
-              break
+          if SlagProducts.inAppHelper.products.count > 0 {
+            var travelProduct: SKProduct?
+            
+            for product in SlagProducts.inAppHelper.products {
+              if product.productIdentifier == SlagProducts.slagPhysicsProductID {
+                travelProduct = product
+                break
+              }
             }
-          }
-          
-          if let travelProduct = travelProduct {
-            SlagProducts.inAppHelper.buyProduct(travelProduct)
+            
+            if let travelProduct = travelProduct {
+              SlagProducts.inAppHelper.buyProduct(travelProduct)
+            }
+          } else {
+            let alert = UIAlertController(title: "Are You Online?", message: "Unable to complete the purchase.  Please ensure you are connected to the internet.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.gameViewController?.present(alert, animated: true, completion: nil)
           }
         }))
         

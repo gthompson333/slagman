@@ -59,6 +59,10 @@ class SlagProductsViewController: UITableViewController {
     SlagProducts.inAppHelper.requestProducts{success, products in
       if success {
         self.tableView.reloadData()
+      } else {
+        let alert = UIAlertController(title: "Are You Online?", message: "Unable to load the In-App products.  Please ensure you are connected to the internet.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
       }
       
       self.refreshControl?.endRefreshing()
