@@ -157,6 +157,8 @@
 		37FF895120CAD5EF003F6F00 /* SlagTravelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF895020CAD5EF003F6F00 /* SlagTravelCell.swift */; };
 		37FF895320CF2936003F6F00 /* restrictedarea.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37FF895220CF2935003F6F00 /* restrictedarea.wav */; };
 		37FF895520CF2D46003F6F00 /* shapeshift.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37FF895420CF2D46003F6F00 /* shapeshift.wav */; };
+		37FF895720D2CE15003F6F00 /* itsablast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37FF895620D2CE15003F6F00 /* itsablast.wav */; };
+		37FF895920D425F0003F6F00 /* acpulife.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37FF895820D425F0003F6F00 /* acpulife.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -312,6 +314,8 @@
 		37FF895020CAD5EF003F6F00 /* SlagTravelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlagTravelCell.swift; sourceTree = "<group>"; };
 		37FF895220CF2935003F6F00 /* restrictedarea.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = restrictedarea.wav; sourceTree = "<group>"; };
 		37FF895420CF2D46003F6F00 /* shapeshift.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shapeshift.wav; sourceTree = "<group>"; };
+		37FF895620D2CE15003F6F00 /* itsablast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = itsablast.wav; sourceTree = "<group>"; };
+		37FF895820D425F0003F6F00 /* acpulife.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acpulife.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,8 @@
 		375EFBEB206FEB2B008CCA70 /* Background Music */ = {
 			isa = PBXGroup;
 			children = (
+				37FF895820D425F0003F6F00 /* acpulife.wav */,
+				37FF895620D2CE15003F6F00 /* itsablast.wav */,
 				37FF895420CF2D46003F6F00 /* shapeshift.wav */,
 				37FF895220CF2935003F6F00 /* restrictedarea.wav */,
 				375EFC2320812499008CCA70 /* eightballcafe.wav */,
@@ -790,6 +796,7 @@
 				375A39112094D79600136A63 /* LaunchPlatformRed.sks in Resources */,
 				37F8853420AB6C2800B1100F /* Challenge27.sks in Resources */,
 				370F681D20B873E000074D8B /* slagharder.m4a in Resources */,
+				37FF895920D425F0003F6F00 /* acpulife.wav in Resources */,
 				375EFC15207F068A008CCA70 /* powertotheslag.m4a in Resources */,
 				375EFBF52074314B008CCA70 /* timetoslagup.m4a in Resources */,
 				37A0DBF2204F12300046715C /* powerboost.wav in Resources */,
@@ -838,6 +845,7 @@
 				37CB242C2056DA37001742D8 /* boostexplosion.sks in Resources */,
 				3793FA33208EB7FC00827990 /* FinishGateSilver.sks in Resources */,
 				375A391C2097F93600136A63 /* TransportGateRight.sks in Resources */,
+				37FF895720D2CE15003F6F00 /* itsablast.wav in Resources */,
 				3793FA492092C7BC00827990 /* Challenge18.sks in Resources */,
 				37F8853820ABDD6000B1100F /* Challenge28.sks in Resources */,
 				37D1DC9F20A5F5E400034FB4 /* Challenge23.sks in Resources */,

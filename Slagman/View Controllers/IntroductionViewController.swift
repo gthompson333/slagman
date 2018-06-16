@@ -27,7 +27,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
         SessionData.sharedInstance.loadInAppPurchaseState()
         
         if SessionData.sharedInstance.slagRunModeEnabled == true {
-          self.slagRunButton.isEnabled = true
           self.slagRunLockImage.isHidden = true
         }
       } else {
@@ -66,7 +65,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     SessionData.sharedInstance.gameMode = .freestyle
     
     if SessionData.sharedInstance.slagRunModeEnabled == true {
-      slagRunButton.isEnabled = true
       slagRunLockImage.isHidden = true
     }
   }
@@ -80,8 +78,14 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   }
   
   @IBAction func slagRunButtonTapped(_ sender: UIButton) {
-    SessionData.sharedInstance.gameMode = .slagrun
-    performSegue(withIdentifier: "introductiontogame", sender: self)
+    if SessionData.sharedInstance.slagRunModeEnabled {
+      SessionData.sharedInstance.gameMode = .slagrun
+      performSegue(withIdentifier: "introductiontogame", sender: self)
+    } else {
+      let alert = UIAlertController(title: "Are All Challenges Unlocked?", message: "This feature requires all the challenges to be unlocked.", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      present(alert, animated: true, completion: nil)
+    }
   }
   
   @IBAction func gameCenterButtonTapped(_ sender: UIButton) {

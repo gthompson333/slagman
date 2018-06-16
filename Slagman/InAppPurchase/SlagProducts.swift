@@ -16,8 +16,8 @@ public struct SlagProducts {
   private static let productIdentifiers: Set<ProductIdentifier> = [removeAdsProductID, chroniclesSlagmanProductID, slagPhysicsProductID]
   
   public static let productDescriptions = [removeAdsProductID : "Slag them annoying ads!",
-                                           chroniclesSlagmanProductID : "The Chronicles of Slagman!  10 brand new challenges that will test your slagging abilities to the limits!  Introducing a new theme, a new rotating gate obstacle, and other new obstacles.",
-                                           slagPhysicsProductID : "Slag Physics!  10 brand new challenges that will time warp your mind!  Is Slagman here, or is he there? Purchase this collection of challenges, and find out! "]
+                                           chroniclesSlagmanProductID : "The Chronicles of Slagman!  A collection of carefully handcrafted challenges that will test your slagging abilities to the limits!  Introducing a new theme, new obstacles, new music, and other slagging goodness.",
+                                           slagPhysicsProductID : "Slag Physics!  A collection of carefully handcrafted challenges that will warp your mind!  Is Slagman here, or is he there? Purchase this collection, and find out!  Introducing a new theme, new obstacles, new music, and other slagging goodness."]
   
   public static let inAppHelper = IAPHelper(productIds: SlagProducts.productIdentifiers)
   
