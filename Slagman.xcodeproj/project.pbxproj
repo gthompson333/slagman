@@ -69,7 +69,6 @@
 		375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC14207F068A008CCA70 /* littlegrabbyslags.m4a */; };
 		375EFC1C207FB90D008CCA70 /* smallboostparticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1B207FB90C008CCA70 /* smallboostparticles.sks */; };
 		375EFC1E207FC5AF008CCA70 /* fizzleboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */; };
-		375EFC2020802E54008CCA70 /* smallboost.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC1F20802E53008CCA70 /* smallboost.wav */; };
 		375EFC2220803020008CCA70 /* challengevoice.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2120803020008CCA70 /* challengevoice.m4a */; };
 		375EFC2420812499008CCA70 /* eightballcafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2320812499008CCA70 /* eightballcafe.wav */; };
 		375EFC2720864A0D008CCA70 /* Challenge12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 375EFC2620864A0D008CCA70 /* Challenge12.sks */; };
@@ -146,7 +145,6 @@
 		37E7F5B4205330830076E828 /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F5A8205330820076E828 /* SKTEffects.swift */; };
 		37E7F5B5205330830076E828 /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F5A9205330820076E828 /* SKTTimingFunctions.swift */; };
 		37E7F5B6205330830076E828 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7F5AA205330820076E828 /* Vector3.swift */; };
-		37E7F5C42054AA710076E828 /* spacegame.caf in Resources */ = {isa = PBXBuildFile; fileRef = 37E7F5C32054AA710076E828 /* spacegame.caf */; };
 		37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8852C20A8EB9400B1100F /* Challenge26.sks */; };
 		37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8852F20A93C5E00B1100F /* GameKit.framework */; };
 		37F8853420AB6C2800B1100F /* Challenge27.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853320AB6C2800B1100F /* Challenge27.sks */; };
@@ -224,7 +222,6 @@
 		375EFC14207F068A008CCA70 /* littlegrabbyslags.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = littlegrabbyslags.m4a; sourceTree = "<group>"; };
 		375EFC1B207FB90C008CCA70 /* smallboostparticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smallboostparticles.sks; sourceTree = "<group>"; };
 		375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fizzleboost.wav; sourceTree = "<group>"; };
-		375EFC1F20802E53008CCA70 /* smallboost.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smallboost.wav; sourceTree = "<group>"; };
 		375EFC2120803020008CCA70 /* challengevoice.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = challengevoice.m4a; sourceTree = "<group>"; };
 		375EFC2320812499008CCA70 /* eightballcafe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = eightballcafe.wav; sourceTree = "<group>"; };
 		375EFC2620864A0D008CCA70 /* Challenge12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge12.sks; sourceTree = "<group>"; };
@@ -303,7 +300,6 @@
 		37E7F5A8205330820076E828 /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		37E7F5A9205330820076E828 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		37E7F5AA205330820076E828 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
-		37E7F5C32054AA710076E828 /* spacegame.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spacegame.caf; sourceTree = "<group>"; };
 		37F8852C20A8EB9400B1100F /* Challenge26.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge26.sks; sourceTree = "<group>"; };
 		37F8852F20A93C5E00B1100F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		37F8853320AB6C2800B1100F /* Challenge27.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge27.sks; sourceTree = "<group>"; };
@@ -511,9 +507,7 @@
 				37B02F7D2069ADA600F0F921 /* proximity.wav */,
 				37C10D4A2058362300DAF46E /* explosion.wav */,
 				37D1DC7E20A0C0C700034FB4 /* transport.wav */,
-				37E7F5C32054AA710076E828 /* spacegame.caf */,
 				37E7F58D205238F20076E828 /* boost.wav */,
-				375EFC1F20802E53008CCA70 /* smallboost.wav */,
 				375EFC1D207FC5AF008CCA70 /* fizzleboost.wav */,
 				37A0DBF1204F12300046715C /* powerboost.wav */,
 			);
@@ -822,9 +816,7 @@
 				370F681020B873E000074D8B /* theslagprinciple.m4a in Resources */,
 				370F681E20B873E000074D8B /* thebigslagowski.m4a in Resources */,
 				37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */,
-				375EFC2020802E54008CCA70 /* smallboost.wav in Resources */,
 				3793FA3C208FC65C00827990 /* BoostGateRightSilver.sks in Resources */,
-				37E7F5C42054AA710076E828 /* spacegame.caf in Resources */,
 				37285E2520A896B90064E856 /* Challenge25.sks in Resources */,
 				37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */,
 				37D1DC8520A3815E00034FB4 /* SlagRunCompleted.sks in Resources */,

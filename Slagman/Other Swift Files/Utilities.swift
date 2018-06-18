@@ -1,6 +1,6 @@
 //
 //  Utilities.swift
-//  Jetpack McFlax
+//  Slagman
 //
 //  Created by Greg M. Thompson on 1/31/18.
 //  Copyright © 2018 Gregorius T. All rights reserved.

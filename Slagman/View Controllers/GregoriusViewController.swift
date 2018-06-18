@@ -1,6 +1,6 @@
 //
 //  GregoriusViewController.swift
-//  Jetpack McFlax
+//  Slagman
 //
 //  Created by Greg M. Thompson on 2/22/18.
 //  Copyright © 2018 Gregorius T. All rights reserved.
