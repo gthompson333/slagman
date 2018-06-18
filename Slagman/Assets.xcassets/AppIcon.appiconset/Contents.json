@@ -3,109 +3,109 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_40.png",
+      "filename" : "SlagmanAppIcon40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_60.png",
+      "filename" : "SlagmanAppIcon60-1.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_58.png",
+      "filename" : "SlagmanAppIcon58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_87.png",
+      "filename" : "SlagmanAppIcon87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_80.png",
+      "filename" : "SlagmanAppIcon80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_120.png",
+      "filename" : "SlagmanAppIcon120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_120-1.png",
+      "filename" : "SlagmanAppIcon120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SpaceMarine_180.png",
+      "filename" : "SlagmanAppIcon180.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_20.png",
+      "filename" : "SlagmanAppIcon20.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_40-1.png",
+      "filename" : "SlagmanAppIcon40-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_29.png",
+      "filename" : "SlagmanAppIcon29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_58-1.png",
+      "filename" : "SlagmanAppIcon58-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_40-2.png",
+      "filename" : "SlagmanAppIcon40-2.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_80-1.png",
+      "filename" : "SlagmanAppIcon80-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_76.png",
+      "filename" : "SlagmanAppIcon76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_152.png",
+      "filename" : "SlagmanAppIcon152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "SpaceMarine_167.png",
+      "filename" : "SlagmanAppIcon167.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "SpaceMarine_1024.png",
+      "filename" : "SlagmanAppIcon1024.png",
       "scale" : "1x"
     }
   ],

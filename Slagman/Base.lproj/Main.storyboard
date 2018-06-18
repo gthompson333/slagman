@@ -41,17 +41,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gregoriust" translatesAutoresizingMaskIntoConstraints="NO" id="OPI-zW-ZJ1">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slag:  Stony waste matter separated from metals during smelting or refining of ore." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URT-Au-OMs">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="35"/>
+                                <color key="textColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OPI-zW-ZJ1" firstAttribute="leading" secondItem="eOR-g9-N8g" secondAttribute="leading" id="ASv-mb-Id5"/>
                             <constraint firstItem="OPI-zW-ZJ1" firstAttribute="top" secondItem="eOR-g9-N8g" secondAttribute="top" id="TzZ-Le-vGx"/>
+                            <constraint firstItem="URT-Au-OMs" firstAttribute="top" secondItem="eOR-g9-N8g" secondAttribute="top" id="VJ2-wq-Qu2"/>
                             <constraint firstItem="eOR-g9-N8g" firstAttribute="trailing" secondItem="OPI-zW-ZJ1" secondAttribute="trailing" id="YRy-8m-6Hi"/>
+                            <constraint firstItem="URT-Au-OMs" firstAttribute="leading" secondItem="eOR-g9-N8g" secondAttribute="leading" id="a40-Gq-chj"/>
+                            <constraint firstItem="eOR-g9-N8g" firstAttribute="bottom" secondItem="URT-Au-OMs" secondAttribute="bottom" id="h4Y-28-PeI"/>
+                            <constraint firstItem="eOR-g9-N8g" firstAttribute="trailing" secondItem="URT-Au-OMs" secondAttribute="trailing" id="pp4-d2-Wi2"/>
                             <constraint firstItem="eOR-g9-N8g" firstAttribute="bottom" secondItem="OPI-zW-ZJ1" secondAttribute="bottom" id="ttQ-Nl-O80"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eOR-g9-N8g"/>
                     </view>
                     <connections>
+                        <outlet property="gregoriusImageView" destination="OPI-zW-ZJ1" id="Dxo-ss-RY4"/>
+                        <outlet property="slagDefinitionLabel" destination="URT-Au-OMs" id="2Kl-1a-uFu"/>
                         <segue destination="Uto-fM-6AD" kind="show" identifier="gregoriustotapstart" id="m1Q-Cj-9AB"/>
                     </connections>
                 </viewController>

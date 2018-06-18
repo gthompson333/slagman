@@ -9,12 +9,24 @@
 import UIKit
 
 class GregoriusViewController: UIViewController {
+  @IBOutlet weak var gregoriusImageView: UIImageView!
+  @IBOutlet weak var slagDefinitionLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    DispatchQueue.main.asyncAfter(deadline:.now() + 2.0, execute: {
-      self.performSegue(withIdentifier:"gregoriustotapstart",sender: self)
+    let animator = UIViewPropertyAnimator(duration: 2.5, curve: .easeInOut, animations: {
+      self.gregoriusImageView?.alpha = 0.0
+      self.slagDefinitionLabel?.alpha = 1.0
     })
+    
+    animator.addCompletion { (finalPosition) in
+      DispatchQueue.main.asyncAfter(deadline:.now() + 3.5, execute: {
+        self.performSegue(withIdentifier:"gregoriustotapstart",sender: self)
+      })
+    }
+    
+    animator.startAnimation(afterDelay: 2.0)
   }
   
   deinit {
