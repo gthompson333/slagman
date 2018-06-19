@@ -307,19 +307,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
               }
             }
           }
-          
-          if SessionData.sharedInstance.freestyleChallenge == 30 {
-            let gkachievement = GKAchievement(identifier: "theslaggraduate")
-            gkachievement.percentComplete = 100.0
-            gkachievement.showsCompletionBanner = true
-            
-            // Attempt to send the completed achievement to Game Center.
-            GKAchievement.report([gkachievement]) { (error) in
-              if error == nil {
-                print("GameKit achievement successfully reported: \(gkachievement).")
-              }
-            }
-          }
         }
       }
     }

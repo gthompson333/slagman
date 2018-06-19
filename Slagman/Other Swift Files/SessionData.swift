@@ -43,8 +43,8 @@ class SessionData: NSObject, NSCoding {
                   ["name" : "The Symmetry of Slag", "locked" : false],
                   ["name" : "The Slag Paradox", "locked" : false],
                   ["name" : "Slag = MC^Slagged", "locked" : false],
-                  ["name" : "The Slag Particle", "locked" : false],
                   ["name" : "The Slag Continuum", "locked" : false],
+                  ["name" : "The Slag Particle", "locked" : false],
                   ["name" : "The Quantum Slag", "locked" : false],
                   ["name" : "The Theory of Slag", "locked" : false]]]
   
