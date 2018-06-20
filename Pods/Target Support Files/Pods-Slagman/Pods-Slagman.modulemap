@@ -1,0 +1,6 @@
+framework module Pods_Slagman {
+  umbrella header "Pods-Slagman-umbrella.h"
+
+  export *
+  module * { export * }
+}

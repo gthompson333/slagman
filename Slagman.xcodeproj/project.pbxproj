@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0988BBE104A6733B7426AAA3 /* Pods_Slagman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670D50CD04EA32762D15FD68 /* Pods_Slagman.framework */; };
 		37068AEB209CADCA00003187 /* TransportGateLeft.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37068AEA209CADCA00003187 /* TransportGateLeft.sks */; };
 		370F680A20B873E000074D8B /* theslagparticle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 370F67F420B873D200074D8B /* theslagparticle.m4a */; };
 		370F680B20B873E000074D8B /* slaggravity.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 370F67F520B873D300074D8B /* slaggravity.m4a */; };
@@ -77,6 +78,7 @@
 		377F593820897031005F0B84 /* RotatingGateRight.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593620897030005F0B84 /* RotatingGateRight.sks */; };
 		377F593920897031005F0B84 /* RotatingGateLeft.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593720897031005F0B84 /* RotatingGateLeft.sks */; };
 		377F593B2089764C005F0B84 /* Challenge11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 377F593A2089764B005F0B84 /* Challenge11.sks */; };
+		37803A6F20DAAB56008CF0EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37803A6E20DAAB56008CF0EB /* GoogleService-Info.plist */; };
 		378E8ECE2051A89F006FCF4D /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E8ECD2051A89F006FCF4D /* PlayerNode.swift */; };
 		3793FA31208EB72800827990 /* LaunchPlatformSilver.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA30208EB72700827990 /* LaunchPlatformSilver.sks */; };
 		3793FA33208EB7FC00827990 /* FinishGateSilver.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3793FA32208EB7FC00827990 /* FinishGateSilver.sks */; };
@@ -160,6 +162,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AA7EEE70C54900BD43C0F20 /* Pods-Slagman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slagman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slagman/Pods-Slagman.release.xcconfig"; sourceTree = "<group>"; };
 		37068AEA209CADCA00003187 /* TransportGateLeft.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TransportGateLeft.sks; sourceTree = "<group>"; };
 		370F67F420B873D200074D8B /* theslagparticle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = theslagparticle.m4a; sourceTree = "<group>"; };
 		370F67F520B873D300074D8B /* slaggravity.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slaggravity.m4a; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		377F593620897030005F0B84 /* RotatingGateRight.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGateRight.sks; sourceTree = "<group>"; };
 		377F593720897031005F0B84 /* RotatingGateLeft.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RotatingGateLeft.sks; sourceTree = "<group>"; };
 		377F593A2089764B005F0B84 /* Challenge11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge11.sks; sourceTree = "<group>"; };
+		37803A6E20DAAB56008CF0EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		378E8ECD2051A89F006FCF4D /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		3793FA30208EB72700827990 /* LaunchPlatformSilver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaunchPlatformSilver.sks; sourceTree = "<group>"; };
 		3793FA32208EB7FC00827990 /* FinishGateSilver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FinishGateSilver.sks; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 		37FF895420CF2D46003F6F00 /* shapeshift.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shapeshift.wav; sourceTree = "<group>"; };
 		37FF895620D2CE15003F6F00 /* itsablast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = itsablast.wav; sourceTree = "<group>"; };
 		37FF895820D425F0003F6F00 /* acpulife.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acpulife.wav; sourceTree = "<group>"; };
+		670D50CD04EA32762D15FD68 /* Pods_Slagman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slagman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C480A71F9B9C6F3525B39269 /* Pods-Slagman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slagman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slagman/Pods-Slagman.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +328,7 @@
 				37E0277920BC79AB00DE173B /* StoreKit.framework in Frameworks */,
 				37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */,
 				37F8853620AB982B00B1100F /* UnityAds.framework in Frameworks */,
+				0988BBE104A6733B7426AAA3 /* Pods_Slagman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +527,7 @@
 				37B4FFBB204D9E6500FAEC3E /* Slagman */,
 				37B4FFBA204D9E6500FAEC3E /* Products */,
 				37F8852E20A93C5E00B1100F /* Frameworks */,
+				7E4145505D1C3536848E5B48 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -541,6 +549,7 @@
 				37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */,
 				37B4FFCB204D9E6500FAEC3E /* LaunchScreen.storyboard */,
 				37B4FFCE204D9E6500FAEC3E /* Info.plist */,
+				37803A6E20DAAB56008CF0EB /* GoogleService-Info.plist */,
 				375EFC06207A9277008CCA70 /* Scene Files */,
 				37E7F597205330700076E828 /* View Controllers */,
 				375EFC30208794CA008CCA70 /* Other Swift Files */,
@@ -683,8 +692,18 @@
 				37E0277820BC79AB00DE173B /* StoreKit.framework */,
 				37F8853520AB982B00B1100F /* UnityAds.framework */,
 				37F8852F20A93C5E00B1100F /* GameKit.framework */,
+				670D50CD04EA32762D15FD68 /* Pods_Slagman.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E4145505D1C3536848E5B48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C480A71F9B9C6F3525B39269 /* Pods-Slagman.debug.xcconfig */,
+				0AA7EEE70C54900BD43C0F20 /* Pods-Slagman.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -694,9 +713,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37B4FFD1204D9E6500FAEC3E /* Build configuration list for PBXNativeTarget "Slagman" */;
 			buildPhases = (
+				4F62750BA263AE738C5B3211 /* [CP] Check Pods Manifest.lock */,
 				37B4FFB5204D9E6500FAEC3E /* Sources */,
 				37B4FFB6204D9E6500FAEC3E /* Frameworks */,
 				37B4FFB7204D9E6500FAEC3E /* Resources */,
+				B73F2E5C1D6045B1FF6D3E9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -765,6 +786,7 @@
 				374506A0206EB36E00AEF948 /* Challenge9.sks in Resources */,
 				374506B4206F58F500AEF948 /* watchforslagmines.m4a in Resources */,
 				375EFC16207F068A008CCA70 /* bustaslagmove.m4a in Resources */,
+				37803A6F20DAAB56008CF0EB /* GoogleService-Info.plist in Resources */,
 				37D1DC8B20A56DD700034FB4 /* FinishGateBlue.sks in Resources */,
 				370F680B20B873E000074D8B /* slaggravity.m4a in Resources */,
 				370F681920B873E000074D8B /* guardiansoftheslag.m4a in Resources */,
@@ -871,6 +893,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F62750BA263AE738C5B3211 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Slagman-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B73F2E5C1D6045B1FF6D3E9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Slagman/Pods-Slagman-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slagman/Pods-Slagman-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		37B4FFB5204D9E6500FAEC3E /* Sources */ = {
@@ -1049,6 +1112,7 @@
 		};
 		37B4FFD2204D9E6500FAEC3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C480A71F9B9C6F3525B39269 /* Pods-Slagman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1069,6 +1133,7 @@
 		};
 		37B4FFD3204D9E6500FAEC3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AA7EEE70C54900BD43C0F20 /* Pods-Slagman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

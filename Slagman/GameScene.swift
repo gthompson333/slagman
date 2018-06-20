@@ -9,6 +9,7 @@
 import SpriteKit
 import CoreMotion
 import GameKit
+import Firebase
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   weak var gameViewController: GameViewController?
@@ -306,6 +307,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("GameKit achievement successfully reported: \(gkachievement).")
               }
             }
+            
+            Analytics.logEvent(AnalyticsEventUnlockAchievement, parameters: [
+              AnalyticsParameterAchievementID : achievementid
+              ])
           }
         }
       }
