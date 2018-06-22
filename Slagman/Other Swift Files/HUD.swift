@@ -81,7 +81,7 @@ class HUD: SKNode {
     
     homeButton = SKSpriteNode(imageNamed: "homeicon")
     homeButton.name = "homebutton"
-    homeButton.position = CGPoint(x: -490, y: scene.frame.height/2 - 90)
+    homeButton.position = CGPoint(x: -460, y: scene.frame.height/2 - 90)
     
     /*if #available(iOS 11.0, *) {
      if let view = scene.view {
