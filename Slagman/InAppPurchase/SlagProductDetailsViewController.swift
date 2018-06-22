@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import Firebase
 
 class SlagProductDetailsViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
@@ -34,6 +35,10 @@ class SlagProductDetailsViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(SlagProductDetailsViewController.handlePurchaseNotification(_:)),
                                            name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
                                            object: nil)
+    
+    Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+      AnalyticsParameterItemID : product.productIdentifier
+      ])
   }
   
   deinit {
