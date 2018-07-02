@@ -14,7 +14,8 @@ class SessionData: NSObject, NSCoding {
   
   var travels = [["name" : "The Slag Journeys", "locked" : false],
                      ["name" : "The Chronicles of Slagman", "locked" : true],
-                     ["name" : "Slag Physics", "locked" : true]]
+                     ["name" : "Slag Physics", "locked" : true],
+                     ["name" : "The Slag Recipes", "locked" : false]]
   
   var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
                   ["name" : "Let's Slag", "locked" : false],
@@ -46,7 +47,9 @@ class SessionData: NSObject, NSCoding {
                   ["name" : "The Slag Continuum", "locked" : false],
                   ["name" : "The Slag Particle", "locked" : false],
                   ["name" : "The Quantum Slag", "locked" : false],
-                  ["name" : "The Theory of Slag", "locked" : false]]]
+                  ["name" : "The Theory of Slag", "locked" : false]],
+                 [["name" : "Slag Burger", "locked" : false]
+                  ]]
   
   var gameMode = GameMode.freestyle {
     didSet {

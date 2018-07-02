@@ -35,6 +35,8 @@
 		37146504205AFE9200D574D4 /* ChallengeCompleted.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37146503205AFE9200D574D4 /* ChallengeCompleted.sks */; };
 		37146506205B0BEA00D574D4 /* ChallengeCompletedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37146505205B0BEA00D574D4 /* ChallengeCompletedScene.swift */; };
 		3714650E205C84E100D574D4 /* lunarlove.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3714650D205C84E100D574D4 /* lunarlove.wav */; };
+		3718FBCF20E5445E00A35C6E /* Challenge31.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3718FBCE20E5445E00A35C6E /* Challenge31.sks */; };
+		3718FBD320E5680200A35C6E /* DropGate.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3718FBD220E5680200A35C6E /* DropGate.sks */; };
 		37285E2120A769A80064E856 /* TransportGateCenterLeft.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37285E2020A769A80064E856 /* TransportGateCenterLeft.sks */; };
 		37285E2320A79ED90064E856 /* TransportGateCenterRight.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37285E2220A79ED90064E856 /* TransportGateCenterRight.sks */; };
 		37285E2520A896B90064E856 /* Challenge25.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37285E2420A896B90064E856 /* Challenge25.sks */; };
@@ -190,6 +192,8 @@
 		37146503205AFE9200D574D4 /* ChallengeCompleted.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChallengeCompleted.sks; sourceTree = "<group>"; };
 		37146505205B0BEA00D574D4 /* ChallengeCompletedScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompletedScene.swift; sourceTree = "<group>"; };
 		3714650D205C84E100D574D4 /* lunarlove.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lunarlove.wav; sourceTree = "<group>"; };
+		3718FBCE20E5445E00A35C6E /* Challenge31.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Challenge31.sks; path = "Slagman/Scenes/Travels/Travels 3/Challenge31.sks"; sourceTree = SOURCE_ROOT; };
+		3718FBD220E5680200A35C6E /* DropGate.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DropGate.sks; sourceTree = "<group>"; };
 		37285E2020A769A80064E856 /* TransportGateCenterLeft.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TransportGateCenterLeft.sks; sourceTree = "<group>"; };
 		37285E2220A79ED90064E856 /* TransportGateCenterRight.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TransportGateCenterRight.sks; sourceTree = "<group>"; };
 		37285E2420A896B90064E856 /* Challenge25.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge25.sks; sourceTree = "<group>"; };
@@ -335,6 +339,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3718FBCD20E5440300A35C6E /* Travels 3 */ = {
+			isa = PBXGroup;
+			children = (
+				3718FBCE20E5445E00A35C6E /* Challenge31.sks */,
+			);
+			name = "Travels 3";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		3718FBD120E5661500A35C6E /* Drop */ = {
+			isa = PBXGroup;
+			children = (
+				3718FBD220E5680200A35C6E /* DropGate.sks */,
+			);
+			path = Drop;
+			sourceTree = "<group>";
+		};
 		375A3916209544BC00136A63 /* Travels 2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +457,7 @@
 		375EFC2820864A58008CCA70 /* Gates */ = {
 			isa = PBXGroup;
 			children = (
+				3718FBD120E5661500A35C6E /* Drop */,
 				37D1DC9C20A5F2B900034FB4 /* Finish */,
 				37D1DC9A20A5F28200034FB4 /* Rotating */,
 				37D1DC9920A5F26500034FB4 /* Boost */,
@@ -638,6 +660,7 @@
 				375EFC252084F6FB008CCA70 /* Travels 0 */,
 				375EFC2B20867E50008CCA70 /* Travels 1 */,
 				375A3916209544BC00136A63 /* Travels 2 */,
+				3718FBCD20E5440300A35C6E /* Travels 3 */,
 			);
 			path = Travels;
 			sourceTree = "<group>";
@@ -845,6 +868,7 @@
 				370F680F20B873E000074D8B /* forafewslagmore.m4a in Resources */,
 				370F681420B873E000074D8B /* transporttheslag.m4a in Resources */,
 				37B02F80206AE6B700F0F921 /* Challenge7.sks in Resources */,
+				3718FBCF20E5445E00A35C6E /* Challenge31.sks in Resources */,
 				370F680E20B873E000074D8B /* pulpslag.m4a in Resources */,
 				370F681820B873E000074D8B /* slagwars.m4a in Resources */,
 				375EFC1A207F068A008CCA70 /* littlegrabbyslags.m4a in Resources */,
@@ -862,6 +886,7 @@
 				37FF895720D2CE15003F6F00 /* itsablast.wav in Resources */,
 				3793FA492092C7BC00827990 /* Challenge18.sks in Resources */,
 				37F8853820ABDD6000B1100F /* Challenge27.sks in Resources */,
+				3718FBD320E5680200A35C6E /* DropGate.sks in Resources */,
 				37D1DC9F20A5F5E400034FB4 /* Challenge23.sks in Resources */,
 				370F680A20B873E000074D8B /* theslagparticle.m4a in Resources */,
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,

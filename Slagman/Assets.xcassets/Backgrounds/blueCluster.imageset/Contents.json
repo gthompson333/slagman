@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "finished.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "challenges.png",
       "scale" : "2x"
     },
     {

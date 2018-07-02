@@ -29,6 +29,10 @@ class GregoriusViewController: UIViewController {
     animator.startAnimation(afterDelay: 2.0)
   }
   
+  @IBAction func exitButtonTapped(_ sender: UIButton) {
+    self.performSegue(withIdentifier:"gregoriustotapstart",sender: self)
+  }
+  
   deinit {
     print("Deinit GregoriusViewController")
   }

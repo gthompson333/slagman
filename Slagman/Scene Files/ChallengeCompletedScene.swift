@@ -141,6 +141,44 @@ class ChallengeCompletedScene: SKScene {
       } else {
         presentNextScene()
       }
+    case 31 ... 40:
+      let item = SessionData.sharedInstance.travels[3]
+      
+      if (item["locked"] as! Bool) == true {
+        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as Slag Recipes. Do you wish to purchase?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
+          if SlagProducts.inAppHelper.products.count > 0 {
+            var travelProduct: SKProduct?
+            
+            for product in SlagProducts.inAppHelper.products {
+              if product.productIdentifier == SlagProducts.slagRecipesProductID {
+                travelProduct = product
+                break
+              }
+            }
+            
+            if let travelProduct = travelProduct {
+              SlagProducts.inAppHelper.buyProduct(travelProduct)
+            }
+          } else {
+            let alert = UIAlertController(title: "Are You Online?", message: "Unable to complete the purchase.  Please ensure you are connected to the internet.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.gameViewController?.present(alert, animated: true, completion: nil)
+          }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No!", style: .default, handler: { _ in
+          SessionData.sharedInstance.freestyleChallenge -= 1
+          print("Saving to session data, freestyle challenge number: \(SessionData.sharedInstance.freestyleChallenge)")
+          SessionData.saveData()
+          self.gameViewController?.transitionToHome()
+        }))
+        
+        gameViewController?.present(alert, animated: true, completion: nil)
+      } else {
+        presentNextScene()
+      }
     default:
       presentNextScene()
     }
