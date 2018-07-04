@@ -29,13 +29,13 @@ class BoostNode: SKSpriteNode {
     super.init(texture: texture, color: color, size: size)
   }
   
-  func patrolling(distance: Int) {
+  private func patrolling(distance: Int) {
     let move = SKAction.moveBy(x: CGFloat(distance), y: 0, duration: 2.0)
     let repeatMove = SKAction.repeatForever(SKAction.sequence([move, move.reversed()]))
     run(repeatMove)
   }
   
-  func wandering(distance: Int) {
+  private func wandering(distance: Int) {
     let move1 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y + CGFloat(distance)), duration: 1.5)
     let move2 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(2*distance), y: originalPosition.y), duration: 1.5)
     let move3 = SKAction.move(to: CGPoint(x: originalPosition.x + CGFloat(distance), y: originalPosition.y - CGFloat(distance)), duration: 1.5)
@@ -45,14 +45,7 @@ class BoostNode: SKSpriteNode {
     run(repeatMove)
   }
   
-  func finishExplosion() {
-    let explode = explosion(intensity: 1.0)
-    explode.position = position
-    parent?.addChild(explode)
-    removeFromParent()
-  }
-  
-  func explosion(intensity: CGFloat) -> SKEmitterNode {
+  private func explosion(intensity: CGFloat) -> SKEmitterNode {
     let emitter = SKEmitterNode()
     let particleTexture = SKTexture(imageNamed: "spark")
     
@@ -85,15 +78,52 @@ class BoostNode: SKSpriteNode {
     return emitter
   }
   
-  func explode() {
-    guard let explode = SKEmitterNode(fileNamed: "boostexplosion") else {
-      assertionFailure("Missing boostexplosion.sks particles file.")
-      return
-    }
-    
+  func finishExplosion() {
+    let explode = explosion(intensity: 1.0)
     explode.position = position
     parent?.addChild(explode)
-    
     removeFromParent()
+  }
+  
+  func applyEffects() {
+    var explode: SKEmitterNode? = nil
+    
+    // A finish gate power node.
+    if userData?["finish"] != nil {
+      explode = explosion(intensity: 1.0)
+    }
+    // Regular power node.
+    else {
+      if userData?["blockgate"] != nil {
+        if let parentNode = parent {
+          for child in parentNode.children {
+            if child.userData?["gravity"] != nil {
+              if let physics = child.physicsBody {
+                physics.isDynamic = true
+                physics.affectedByGravity = true
+              }
+            }
+          }
+        }
+        
+        guard let emitterNode = SKEmitterNode(fileNamed: "crumbleexplosion") else {
+          assertionFailure("Missing crumbleexplosion.sks particles file.")
+          return
+        }
+        explode = emitterNode
+      } else {
+        guard let emitterNode = SKEmitterNode(fileNamed: "boostexplosion") else {
+          assertionFailure("Missing boostexplosion.sks particles file.")
+          return
+        }
+        explode = emitterNode
+      }
+    } // Regular power node.
+    
+    if explode != nil {
+      explode!.position = position
+      parent?.addChild(explode!)
+      removeFromParent()
+    }
   }
 }

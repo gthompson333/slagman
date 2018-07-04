@@ -177,6 +177,26 @@ class PlayerNode: SKSpriteNode {
     setJumpVelocity(900)
   }
   
+  func crumbleBoost() {
+    numBoosts = 0
+    
+    if abs(physicsBody!.velocity.dx) > 100.0 {
+      if physicsBody!.velocity.dx > 0 {
+        run(actions["steeringright"]!)
+      } else {
+        run(actions["steeringleft"]!)
+      }
+    } else {
+      run(actions["boost"]!)
+    }
+    
+    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
+      run(actions["crumblesound"]!)
+    }
+    
+    setJumpVelocity(800)
+  }
+  
   func transport(from node: SKSpriteNode) {
     guard let scene = scene as? GameScene else {
       return
@@ -247,6 +267,7 @@ class PlayerNode: SKSpriteNode {
     
     actions["boostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["powerboostsound"] = SKAction.playSoundFileNamed("powerboost.wav", waitForCompletion: false)
+    actions["crumblesound"] = SKAction.playSoundFileNamed("crumble.wav", waitForCompletion: false)
     actions["smallboostsound"] = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
     actions["fizzleboostsound"] = SKAction.playSoundFileNamed("fizzleboost.wav", waitForCompletion: false)
     actions["explosionsound"] = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)

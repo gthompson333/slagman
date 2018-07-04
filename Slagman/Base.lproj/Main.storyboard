@@ -387,11 +387,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="Travels Button">
-                                <rect key="frame" x="315" y="54" width="50" height="50"/>
+                                <rect key="frame" x="320" y="54" width="45" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="H2B-RG-Wco"/>
-                                    <constraint firstAttribute="height" constant="50" id="iOc-73-0eg"/>
+                                    <constraint firstAttribute="width" constant="45" id="H2B-RG-Wco"/>
+                                    <constraint firstAttribute="height" constant="45" id="iOc-73-0eg"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="challenges">

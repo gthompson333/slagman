@@ -378,7 +378,8 @@ extension GameScene {
             checkAchievementCompletion()
           }
           
-          boostNode.finishExplosion()
+          boostNode.applyEffects()
+          player.powerBoost()
           // It's just a regular power node.
         } else {
           if boostParentNode == nil {
@@ -393,12 +394,17 @@ extension GameScene {
           }))
           
           SessionData.sharedInstance.slagRunPoints += 10
-          boostNode.explode()
+          boostNode.applyEffects()
           
           countOfPowerNodes += 1
           hud.powerNodeCount = (countOfPowerNodes, powerNodesTotal)
+          
+          if boostNode.userData?["blockgate"] != nil {
+            player.crumbleBoost()
+          } else {
+            player.powerBoost()
+          }
         }
-        player.powerBoost()
         // SlagNode
       } else if let slagNode = other.node as? SlagNode, let _ = other.node?.userData?["proximity"] {
         slagNode.contactWithProximitySlag(player: player)
