@@ -49,7 +49,10 @@ class SessionData: NSObject, NSCoding {
                   ["name" : "The Quantum Slag", "locked" : false],
                   ["name" : "The Theory of Slag", "locked" : false]],
                  [["name" : "Slag Burger", "locked" : false],
-                  ["name" : "Beef Slaganoff", "locked" : false]
+                  ["name" : "Beef Slaganoff", "locked" : false],
+                  ["name" : "Mac and Slag", "locked" : false],
+                  ["name" : "Slag Stew", "locked" : false],
+                  ["name" : "Slaghetti", "locked" : false]
                   ]]
   
   var gameMode = GameMode.freestyle {

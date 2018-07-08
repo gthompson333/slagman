@@ -94,13 +94,17 @@ class BoostNode: SKSpriteNode {
     }
     // Regular power node.
     else {
-      if userData?["blockgate"] != nil {
+      if userData?["blockbucket"] != nil || userData?["blockgate"] != nil {
         if let parentNode = parent {
           for child in parentNode.children {
-            if child.userData?["gravity"] != nil {
+            if child.userData?["gravityprone"] != nil {
               if let physics = child.physicsBody {
-                physics.isDynamic = true
                 physics.affectedByGravity = true
+                
+                if let xvelocity = child.userData?["xvelocity"] as? CGFloat, let yvelocity = child.userData?["yvelocity"] as? CGFloat {
+                  physics.velocity.dy = yvelocity
+                  physics.velocity.dx = xvelocity
+                }
               }
             }
           }

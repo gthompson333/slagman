@@ -399,7 +399,7 @@ extension GameScene {
           countOfPowerNodes += 1
           hud.powerNodeCount = (countOfPowerNodes, powerNodesTotal)
           
-          if boostNode.userData?["blockgate"] != nil {
+          if boostNode.userData?["blockbucket"] != nil {
             player.crumbleBoost()
           } else {
             player.powerBoost()
