@@ -49,10 +49,12 @@ class SessionData: NSObject, NSCoding {
                   ["name" : "The Quantum Slag", "locked" : false],
                   ["name" : "The Theory of Slag", "locked" : false]],
                  [["name" : "Slag Burger", "locked" : false],
-                  ["name" : "Beef Slaganoff", "locked" : false],
+                  ["name" : "Slag Slaganoff", "locked" : false],
                   ["name" : "Mac and Slag", "locked" : false],
                   ["name" : "Slag Stew", "locked" : false],
-                  ["name" : "Slaghetti", "locked" : false]
+                  ["name" : "Slaghetti", "locked" : false],
+                  ["name" : "Slag and Beans", "locked" : false],
+                  ["name" : "Prime Slag", "locked" : false]
                   ]]
   
   var gameMode = GameMode.freestyle {
@@ -105,16 +107,11 @@ class SessionData: NSObject, NSCoding {
     
     freestyleChallenge = aDecoder.decodeInteger(forKey: "freestylechallenge")
     bestSlagRun = aDecoder.decodeInteger(forKey: "bestslagrun")
-    
-    if let decodedTravels = aDecoder.decodeObject(forKey: "travels") as? [[String : Any]] {
-      travels = decodedTravels
-    }
   }
   
   func encode(with aCoder: NSCoder) {
     aCoder.encode(freestyleChallenge, forKey: "freestylechallenge")
     aCoder.encode(bestSlagRun, forKey: "bestslagrun")
-    aCoder.encode(travels, forKey: "travels")
   }
   
   func loadInAppPurchaseState() {

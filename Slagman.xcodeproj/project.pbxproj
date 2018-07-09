@@ -158,6 +158,8 @@
 		37F7DEDF20EEDF06004081E9 /* BlockGateRightSilver.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F7DEDE20EEDF06004081E9 /* BlockGateRightSilver.sks */; };
 		37F7DEE120EFB007004081E9 /* Challenge34.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F7DEE020EFB006004081E9 /* Challenge34.sks */; };
 		37F7DEE320F102C3004081E9 /* Challenge35.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F7DEE220F102C3004081E9 /* Challenge35.sks */; };
+		37F7DEE520F24D00004081E9 /* Challenge36.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F7DEE420F24D00004081E9 /* Challenge36.sks */; };
+		37F7DEE720F3AAA0004081E9 /* Challenge37.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F7DEE620F3AA9F004081E9 /* Challenge37.sks */; };
 		37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8852C20A8EB9400B1100F /* Challenge26.sks */; };
 		37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8852F20A93C5E00B1100F /* GameKit.framework */; };
 		37F8853420AB6C2800B1100F /* Challenge28.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853320AB6C2800B1100F /* Challenge28.sks */; };
@@ -326,6 +328,8 @@
 		37F7DEDE20EEDF06004081E9 /* BlockGateRightSilver.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlockGateRightSilver.sks; sourceTree = "<group>"; };
 		37F7DEE020EFB006004081E9 /* Challenge34.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Challenge34.sks; path = "Slagman/Scenes/Travels/Travels 3/Challenge34.sks"; sourceTree = SOURCE_ROOT; };
 		37F7DEE220F102C3004081E9 /* Challenge35.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Challenge35.sks; path = "Slagman/Scenes/Travels/Travels 3/Challenge35.sks"; sourceTree = SOURCE_ROOT; };
+		37F7DEE420F24D00004081E9 /* Challenge36.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Challenge36.sks; path = "Slagman/Scenes/Travels/Travels 3/Challenge36.sks"; sourceTree = SOURCE_ROOT; };
+		37F7DEE620F3AA9F004081E9 /* Challenge37.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Challenge37.sks; path = "Slagman/Scenes/Travels/Travels 3/Challenge37.sks"; sourceTree = SOURCE_ROOT; };
 		37F8852C20A8EB9400B1100F /* Challenge26.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge26.sks; sourceTree = "<group>"; };
 		37F8852F20A93C5E00B1100F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		37F8853320AB6C2800B1100F /* Challenge28.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge28.sks; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 				37F7DED620ED3E45004081E9 /* Challenge33.sks */,
 				37F7DEE020EFB006004081E9 /* Challenge34.sks */,
 				37F7DEE220F102C3004081E9 /* Challenge35.sks */,
+				37F7DEE420F24D00004081E9 /* Challenge36.sks */,
+				37F7DEE620F3AA9F004081E9 /* Challenge37.sks */,
 			);
 			name = "Travels 3";
 			path = "New Group";
@@ -871,6 +877,7 @@
 				37D1DC9720A5F23700034FB4 /* RotatingGateLeftBlue.sks in Resources */,
 				375EFC2720864A0D008CCA70 /* Challenge12.sks in Resources */,
 				37146502205A07ED00D574D4 /* Challenge2.sks in Resources */,
+				37F7DEE520F24D00004081E9 /* Challenge36.sks in Resources */,
 				37F7DED320EBC9C4004081E9 /* crumbleexplosion.sks in Resources */,
 				37D1DC8320A2194D00034FB4 /* Challenge21.sks in Resources */,
 				37285E2120A769A80064E856 /* TransportGateCenterLeft.sks in Resources */,
@@ -882,6 +889,7 @@
 				375EFC0A207B2384008CCA70 /* Challenge4.sks in Resources */,
 				375A39182095450A00136A63 /* Challenge22.sks in Resources */,
 				370F680C20B873E000074D8B /* itsagooddaytoslag.m4a in Resources */,
+				37F7DEE720F3AAA0004081E9 /* Challenge37.sks in Resources */,
 				37D2E9DC2062C1EE00C7523B /* Challenge1.sks in Resources */,
 				3793FA412090CF8300827990 /* Challenge14.sks in Resources */,
 				374F4BF2206DB642004ED85D /* Challenge6.sks in Resources */,
