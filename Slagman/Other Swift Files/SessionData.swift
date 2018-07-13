@@ -54,7 +54,10 @@ class SessionData: NSObject, NSCoding {
                   ["name" : "Slag Stew", "locked" : false],
                   ["name" : "Slaghetti", "locked" : false],
                   ["name" : "Slag and Beans", "locked" : false],
-                  ["name" : "Prime Slag", "locked" : false]
+                  ["name" : "Prime Slag", "locked" : false],
+                  ["name" : "Slag Souffle", "locked" : false],
+                  ["name" : "Fried Slag", "locked" : false],
+                  ["name" : "Mushy Slags", "locked" : false]
                   ]]
   
   var gameMode = GameMode.freestyle {
