@@ -116,6 +116,7 @@
 		37B5E87B20F9138000063408 /* slagburger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87120F9138000063408 /* slagburger.m4a */; };
 		37B5E87C20F9138000063408 /* primeslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87220F9138000063408 /* primeslag.m4a */; };
 		37B5E87D20F9138000063408 /* slaghetti.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87320F9138000063408 /* slaghetti.m4a */; };
+		37B5E87F20FBC25200063408 /* rocketman.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87E20FBC25200063408 /* rocketman.wav */; };
 		37C10D4B2058362300DAF46E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D4A2058362300DAF46E /* explosion.wav */; };
 		37CB242A2056D989001742D8 /* BoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* BoostNode.swift */; };
 		37D1DC7F20A0C0C800034FB4 /* transport.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC7E20A0C0C700034FB4 /* transport.wav */; };
@@ -300,6 +301,7 @@
 		37B5E87120F9138000063408 /* slagburger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagburger.m4a; sourceTree = "<group>"; };
 		37B5E87220F9138000063408 /* primeslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = primeslag.m4a; sourceTree = "<group>"; };
 		37B5E87320F9138000063408 /* slaghetti.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slaghetti.m4a; sourceTree = "<group>"; };
+		37B5E87E20FBC25200063408 /* rocketman.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rocketman.wav; sourceTree = "<group>"; };
 		37C10D4A2058362300DAF46E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		37CB24292056D989001742D8 /* BoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostNode.swift; sourceTree = "<group>"; };
 		37D1DC7E20A0C0C700034FB4 /* transport.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = transport.wav; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 		375EFBEB206FEB2B008CCA70 /* Background Music */ = {
 			isa = PBXGroup;
 			children = (
+				37B5E87E20FBC25200063408 /* rocketman.wav */,
 				37B5E86620F822B600063408 /* nightinmotion.wav */,
 				37FF895820D425F0003F6F00 /* acpulife.wav */,
 				37FF895620D2CE15003F6F00 /* itsablast.wav */,
@@ -888,6 +891,7 @@
 				37B5E87920F9138000063408 /* mushyslags.m4a in Resources */,
 				37B5E87720F9138000063408 /* macandslag.m4a in Resources */,
 				37D1DC8B20A56DD700034FB4 /* FinishGateBlue.sks in Resources */,
+				37B5E87F20FBC25200063408 /* rocketman.wav in Resources */,
 				370F680B20B873E000074D8B /* slaggravity.m4a in Resources */,
 				370F681920B873E000074D8B /* guardiansoftheslag.m4a in Resources */,
 				37F7DED920EE842C004081E9 /* BlockGateCenterSilver.sks in Resources */,

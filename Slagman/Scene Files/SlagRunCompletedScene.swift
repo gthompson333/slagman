@@ -117,8 +117,13 @@ class SlagRunCompletedScene: SKScene {
         reportAchievement(identifier: "slagrunner50k")
       }
       
-      if SessionData.sharedInstance.challengesTotallySlagged == 30 {
-        let gkachievement = GKAchievement(identifier: "slagrunnergod")
+      if SessionData.sharedInstance.challengesTotallySlagged == 30 || SessionData.sharedInstance.challengesTotallySlagged == 40 {
+        var gkachievement = GKAchievement(identifier: "slagrunnergod")
+        
+        if SessionData.sharedInstance.challengesTotallySlagged == 40 {
+          gkachievement = GKAchievement(identifier: "slagrunnermegagod")
+        }
+        
         gkachievement.percentComplete = 100.0
         gkachievement.showsCompletionBanner = true
         

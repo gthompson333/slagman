@@ -68,6 +68,8 @@ class SlagTravelsViewController: UITableViewController, SlagTravelCellDelegate {
       productID = SlagProducts.chroniclesSlagmanProductID
     case 2:
       productID = SlagProducts.slagPhysicsProductID
+    case 3:
+      productID = SlagProducts.slagRecipesProductID
     default:
       break
     }

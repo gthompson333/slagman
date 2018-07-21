@@ -15,7 +15,7 @@ class SessionData: NSObject, NSCoding {
   var travels = [["name" : "The Slag Journeys", "locked" : false],
                      ["name" : "The Chronicles of Slagman", "locked" : true],
                      ["name" : "Slag Physics", "locked" : true],
-                     ["name" : "The Slag Recipes", "locked" : false]]
+                     ["name" : "The Slag Recipes", "locked" : true]]
   
   var travelChallenges = [[["name" : "Learn to Slag", "locked" : false],
                   ["name" : "Let's Slag", "locked" : false],
@@ -128,6 +128,12 @@ class SessionData: NSObject, NSCoding {
       travels[2]["locked"] = false
     } else {
       travels[2]["locked"] = true
+    }
+    
+    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagRecipesProductID) {
+      travels[3]["locked"] = false
+    } else {
+      travels[3]["locked"] = false
     }
     
     if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.removeAdsProductID) {

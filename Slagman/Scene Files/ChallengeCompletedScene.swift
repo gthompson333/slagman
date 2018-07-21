@@ -65,11 +65,11 @@ class ChallengeCompletedScene: SKScene {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     switch SessionData.sharedInstance.freestyleChallenge {
-    case 11 ... 20:
+    case 12 ... 20:
       let item = SessionData.sharedInstance.travels[1]
       
       if (item["locked"] as! Bool) == true {
-        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as The Chronicles of Slagman. Do you wish to purchase?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Show me the money!", message: "Do you wish to purchase the rest of the collection of challenges known as The Chronicles of Slagman?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           if SlagProducts.inAppHelper.products.count > 0 {
@@ -103,11 +103,11 @@ class ChallengeCompletedScene: SKScene {
       } else {
         presentNextScene()
       }
-    case 21 ... 30:
+    case 22 ... 30:
       let item = SessionData.sharedInstance.travels[2]
       
       if (item["locked"] as! Bool) == true {
-        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as Slag Physics. Do you wish to purchase?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Show me the money!", message: "Do you wish to purchase the rest of the collection of challenges known as Slag Physics?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           if SlagProducts.inAppHelper.products.count > 0 {
@@ -141,11 +141,11 @@ class ChallengeCompletedScene: SKScene {
       } else {
         presentNextScene()
       }
-    case 31 ... 40:
+    case 32 ... 40:
       let item = SessionData.sharedInstance.travels[3]
       
       if (item["locked"] as! Bool) == true {
-        let alert = UIAlertController(title: "Show me the money!", message: "The next challenge is the first of 10 challenges, known as Slag Recipes. Do you wish to purchase?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Show me the money!", message: "Do you wish to purchase the rest of the collection of challenges known as Slag Recipes?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           if SlagProducts.inAppHelper.products.count > 0 {

@@ -14,7 +14,7 @@ public struct SlagProducts {
   static let slagPhysicsProductID = "com.gregoriust.slagphysics"
   static let slagRecipesProductID = "com.gregoriust.slagrecipes"
   
-  private static let productIdentifiers: Set<ProductIdentifier> = [removeAdsProductID, chroniclesSlagmanProductID, slagPhysicsProductID]
+  private static let productIdentifiers: Set<ProductIdentifier> = [removeAdsProductID, chroniclesSlagmanProductID, slagPhysicsProductID, slagRecipesProductID]
   
   public static let productDescriptions = [removeAdsProductID : "Slag them annoying ads!",
                                            chroniclesSlagmanProductID : "The Chronicles of Slagman!  A collection of carefully handcrafted challenges that will test your slagging abilities to the limits!  Introducing a new theme, new obstacles, new music, and other slagging goodness.",
