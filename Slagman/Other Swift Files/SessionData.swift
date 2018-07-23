@@ -133,7 +133,7 @@ class SessionData: NSObject, NSCoding {
     if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagRecipesProductID) {
       travels[3]["locked"] = false
     } else {
-      travels[3]["locked"] = false
+      travels[3]["locked"] = true
     }
     
     if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.removeAdsProductID) {

@@ -104,7 +104,6 @@
 		37B4FFC8204D9E6500FAEC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC6204D9E6500FAEC3E /* Main.storyboard */; };
 		37B4FFCA204D9E6500FAEC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */; };
 		37B4FFCD204D9E6500FAEC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B4FFCB204D9E6500FAEC3E /* LaunchScreen.storyboard */; };
-		37B5E86720F822B600063408 /* nightinmotion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E86620F822B600063408 /* nightinmotion.wav */; };
 		37B5E86920F8FB4C00063408 /* challengefinishexplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E86820F8FB4C00063408 /* challengefinishexplosion.sks */; };
 		37B5E87420F9138000063408 /* friedslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E86A20F9137F00063408 /* friedslag.m4a */; };
 		37B5E87520F9138000063408 /* slagsouffle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E86B20F9137F00063408 /* slagsouffle.m4a */; };
@@ -116,9 +115,10 @@
 		37B5E87B20F9138000063408 /* slagburger.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87120F9138000063408 /* slagburger.m4a */; };
 		37B5E87C20F9138000063408 /* primeslag.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87220F9138000063408 /* primeslag.m4a */; };
 		37B5E87D20F9138000063408 /* slaghetti.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87320F9138000063408 /* slaghetti.m4a */; };
-		37B5E87F20FBC25200063408 /* rocketman.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37B5E87E20FBC25200063408 /* rocketman.wav */; };
 		37C10D4B2058362300DAF46E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37C10D4A2058362300DAF46E /* explosion.wav */; };
 		37CB242A2056D989001742D8 /* BoostNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB24292056D989001742D8 /* BoostNode.swift */; };
+		37D0A2C42103AD270023DFC1 /* undergroundarmy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37D0A2C22103AD260023DFC1 /* undergroundarmy.wav */; };
+		37D0A2C52103AD270023DFC1 /* spinninggears.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37D0A2C32103AD260023DFC1 /* spinninggears.wav */; };
 		37D1DC7F20A0C0C800034FB4 /* transport.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC7E20A0C0C700034FB4 /* transport.wav */; };
 		37D1DC8120A0EB7B00034FB4 /* playertransporteffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8020A0EB7B00034FB4 /* playertransporteffect.sks */; };
 		37D1DC8320A2194D00034FB4 /* Challenge21.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37D1DC8220A2194D00034FB4 /* Challenge21.sks */; };
@@ -289,7 +289,6 @@
 		37B4FFC9204D9E6500FAEC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B4FFCC204D9E6500FAEC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B4FFCE204D9E6500FAEC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37B5E86620F822B600063408 /* nightinmotion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nightinmotion.wav; sourceTree = "<group>"; };
 		37B5E86820F8FB4C00063408 /* challengefinishexplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = challengefinishexplosion.sks; sourceTree = "<group>"; };
 		37B5E86A20F9137F00063408 /* friedslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = friedslag.m4a; sourceTree = "<group>"; };
 		37B5E86B20F9137F00063408 /* slagsouffle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagsouffle.m4a; sourceTree = "<group>"; };
@@ -301,9 +300,10 @@
 		37B5E87120F9138000063408 /* slagburger.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slagburger.m4a; sourceTree = "<group>"; };
 		37B5E87220F9138000063408 /* primeslag.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = primeslag.m4a; sourceTree = "<group>"; };
 		37B5E87320F9138000063408 /* slaghetti.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = slaghetti.m4a; sourceTree = "<group>"; };
-		37B5E87E20FBC25200063408 /* rocketman.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = rocketman.wav; sourceTree = "<group>"; };
 		37C10D4A2058362300DAF46E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		37CB24292056D989001742D8 /* BoostNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostNode.swift; sourceTree = "<group>"; };
+		37D0A2C22103AD260023DFC1 /* undergroundarmy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = undergroundarmy.wav; sourceTree = "<group>"; };
+		37D0A2C32103AD260023DFC1 /* spinninggears.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spinninggears.wav; sourceTree = "<group>"; };
 		37D1DC7E20A0C0C700034FB4 /* transport.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = transport.wav; sourceTree = "<group>"; };
 		37D1DC8020A0EB7B00034FB4 /* playertransporteffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playertransporteffect.sks; sourceTree = "<group>"; };
 		37D1DC8220A2194D00034FB4 /* Challenge21.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge21.sks; sourceTree = "<group>"; };
@@ -440,8 +440,8 @@
 		375EFBEB206FEB2B008CCA70 /* Background Music */ = {
 			isa = PBXGroup;
 			children = (
-				37B5E87E20FBC25200063408 /* rocketman.wav */,
-				37B5E86620F822B600063408 /* nightinmotion.wav */,
+				37D0A2C32103AD260023DFC1 /* spinninggears.wav */,
+				37D0A2C22103AD260023DFC1 /* undergroundarmy.wav */,
 				37FF895820D425F0003F6F00 /* acpulife.wav */,
 				37FF895620D2CE15003F6F00 /* itsablast.wav */,
 				37FF895420CF2D46003F6F00 /* shapeshift.wav */,
@@ -877,6 +877,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D2E9E8206408E400C7523B /* slagmanvoice.m4a in Resources */,
+				37D0A2C52103AD270023DFC1 /* spinninggears.wav in Resources */,
 				37D1DC9020A56E9D00034FB4 /* BoostGateCenterBlue.sks in Resources */,
 				37B02F7C2068C93C00F0F921 /* proximityexplosion.sks in Resources */,
 				370F681A20B873E000074D8B /* escapefromnewslag.m4a in Resources */,
@@ -891,7 +892,6 @@
 				37B5E87920F9138000063408 /* mushyslags.m4a in Resources */,
 				37B5E87720F9138000063408 /* macandslag.m4a in Resources */,
 				37D1DC8B20A56DD700034FB4 /* FinishGateBlue.sks in Resources */,
-				37B5E87F20FBC25200063408 /* rocketman.wav in Resources */,
 				370F680B20B873E000074D8B /* slaggravity.m4a in Resources */,
 				370F681920B873E000074D8B /* guardiansoftheslag.m4a in Resources */,
 				37F7DED920EE842C004081E9 /* BlockGateCenterSilver.sks in Resources */,
@@ -931,6 +931,7 @@
 				37F7DEE520F24D00004081E9 /* Challenge36.sks in Resources */,
 				37F7DED320EBC9C4004081E9 /* powerboostexplosion.sks in Resources */,
 				37D1DC8320A2194D00034FB4 /* Challenge21.sks in Resources */,
+				37D0A2C42103AD270023DFC1 /* undergroundarmy.wav in Resources */,
 				37285E2120A769A80064E856 /* TransportGateCenterLeft.sks in Resources */,
 				37285E2320A79ED90064E856 /* TransportGateCenterRight.sks in Resources */,
 				375EFC17207F068A008CCA70 /* learntoslag.m4a in Resources */,
@@ -988,7 +989,6 @@
 				37B02F7E2069ADA600F0F921 /* proximity.wav in Resources */,
 				37B5E87B20F9138000063408 /* slagburger.m4a in Resources */,
 				37F7DEEB20F64E0B004081E9 /* Challenge39.sks in Resources */,
-				37B5E86720F822B600063408 /* nightinmotion.wav in Resources */,
 				3793FA3D208FC65C00827990 /* BoostGateLeftSilver.sks in Resources */,
 				375EFC2D2086C2C2008CCA70 /* RotatingGateCenter.sks in Resources */,
 				375A390D2094D78000136A63 /* BoostGateCenterRed.sks in Resources */,
