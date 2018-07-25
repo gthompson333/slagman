@@ -145,7 +145,7 @@ class ChallengeCompletedScene: SKScene {
       let item = SessionData.sharedInstance.travels[3]
       
       if (item["locked"] as! Bool) == true {
-        let alert = UIAlertController(title: "Show me the money!", message: "Do you wish to purchase the rest of the collection of challenges known as Slag Recipes?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Show me the money!", message: "Do you wish to purchase the rest of the collection of challenges known as The Slag Recipes?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yeah!", style: .default, handler: { _ in
           if SlagProducts.inAppHelper.products.count > 0 {
