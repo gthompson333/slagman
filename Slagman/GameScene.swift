@@ -9,7 +9,6 @@
 import SpriteKit
 import CoreMotion
 import GameKit
-import Firebase
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   weak var gameViewController: GameViewController?
@@ -151,12 +150,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
       if let startLabel = fgNode.childNode(withName: "taplabel") as? SKLabelNode {
         startLabel.run(SKAction.scale(to: 0, duration: 0.5))
-      }
-      
-      if let achievementid = userData?["achievementid"] as? String {
-        Analytics.logEvent("challenge_started", parameters: [
-          "achievement_id": achievementid
-          ])
       }
     }
     
@@ -313,10 +306,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("GameKit achievement successfully reported: \(gkachievement).")
               }
             }
-            
-            Analytics.logEvent(AnalyticsEventUnlockAchievement, parameters: [
-              AnalyticsParameterAchievementID : achievementid
-              ])
           }
         }
       }

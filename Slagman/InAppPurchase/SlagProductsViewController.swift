@@ -8,7 +8,6 @@
 
 import UIKit
 import StoreKit
-import Firebase
 
 class SlagProductsViewController: UITableViewController {
   @IBOutlet weak var restoreBarButton: UIBarButtonItem!
@@ -48,10 +47,6 @@ class SlagProductsViewController: UITableViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     reload()
-    
-    Analytics.logEvent(AnalyticsEventViewItemList, parameters: [
-      AnalyticsParameterItemCategory : "products"
-      ])
   }
   
   deinit {

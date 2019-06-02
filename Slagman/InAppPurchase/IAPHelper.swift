@@ -21,7 +21,6 @@
 */
 
 import StoreKit
-import Firebase
 
 public typealias ProductIdentifier = String
 public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> ()
@@ -73,10 +72,6 @@ extension IAPHelper {
     print("Purchasing product with ID: \(product.productIdentifier)")
     let payment = SKPayment(product: product)
     SKPaymentQueue.default().add(payment)
-    
-    Analytics.logEvent(AnalyticsEventBeginCheckout, parameters: [
-      AnalyticsParameterValue : product.price
-      ])
   }
   
   public func isProductPurchased(_ productIdentifier: ProductIdentifier) -> Bool {
@@ -147,10 +142,6 @@ extension IAPHelper: SKPaymentTransactionObserver {
     print("Purchase completed for product with ID: \(transaction.payment.productIdentifier)")
     deliverPurchaseNotificationFor(identifier: transaction.payment.productIdentifier)
     SKPaymentQueue.default().finishTransaction(transaction)
-    
-    Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
-      AnalyticsParameterTransactionID : transaction.transactionIdentifier as Any
-      ])
   }
   
   private func restore(transaction: SKPaymentTransaction) {

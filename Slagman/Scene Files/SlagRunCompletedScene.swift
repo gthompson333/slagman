@@ -8,7 +8,6 @@
 
 import SpriteKit
 import GameKit
-import Firebase
 
 class SlagRunCompletedScene: SKScene {
   var nodesSlagLabel: SKLabelNode!
@@ -82,10 +81,6 @@ class SlagRunCompletedScene: SKScene {
           print("GameKit score successfully reported: \(gkscore.value).")
         }
       }
-      
-      Analytics.logEvent(AnalyticsEventPostScore, parameters: [
-        AnalyticsParameterScore : SessionData.sharedInstance.slagRunPoints
-        ])
       
       reportAchievement(identifier: "newbslagrunner")
       
@@ -178,10 +173,6 @@ class SlagRunCompletedScene: SKScene {
         print("GameKit achievement successfully reported: \(gkachievement).")
       }
     }
-    
-    Analytics.logEvent(AnalyticsEventUnlockAchievement, parameters: [
-      AnalyticsParameterAchievementID : identifier
-      ])
   }
 }
 
