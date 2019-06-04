@@ -193,10 +193,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     }
     
-    originalFGLayerNode = fgLayerNode.copy() as! SKSpriteNode
+    originalFGLayerNode = fgLayerNode.copy() as? SKSpriteNode
     lastFGLayerPosition = originalFGLayerNode.position
     
-    player = fgNode.childNode(withName: "player") as! PlayerNode
+    player = fgNode.childNode(withName: "player") as? PlayerNode
     topBGNode = worldNode.childNode(withName: "backgroundtop")
     
     let cameraNode = SKCameraNode()

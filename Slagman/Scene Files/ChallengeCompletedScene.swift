@@ -33,10 +33,10 @@ class ChallengeCompletedScene: SKScene {
                               }}]))
     }
     
-    nodesSlagLabel = childNode(withName: "nodesslaglabel") as! SKLabelNode
+    nodesSlagLabel = childNode(withName: "nodesslaglabel") as? SKLabelNode
     nodesSlagLabel.text = "\(countOfPowerNodes) Out of \(powerNodesTotal)"
     
-    allNodesSlagLabel = childNode(withName: "allnodesslaglabel") as! SKLabelNode
+    allNodesSlagLabel = childNode(withName: "allnodesslaglabel") as? SKLabelNode
     
     if countOfPowerNodes == powerNodesTotal {
       allNodesSlagLabel.text = "SUCCESS!  All Power Nodes Slagged!"

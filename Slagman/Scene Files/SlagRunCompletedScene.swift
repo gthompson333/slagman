@@ -41,26 +41,26 @@ class SlagRunCompletedScene: SKScene {
                               }}]))
     }
     
-    nodesSlagLabel = childNode(withName: "nodesslaglabel") as! SKLabelNode
+    nodesSlagLabel = childNode(withName: "nodesslaglabel") as? SKLabelNode
     nodesSlagLabel.text = "\(nodesSlag) Power Nodes Slagged"
     
-    nodesSlagTotalLabel = childNode(withName: "nodesslagtotallabel") as! SKLabelNode
+    nodesSlagTotalLabel = childNode(withName: "nodesslagtotallabel") as? SKLabelNode
     nodesSlagTotalLabel.text = "\(nodesSlag) x 10 = \(SessionData.sharedInstance.slagRunPoints) Slag"
     
-    challengesSlagLabel = childNode(withName: "challengesslaglabel") as! SKLabelNode
+    challengesSlagLabel = childNode(withName: "challengesslaglabel") as? SKLabelNode
     challengesSlagLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) Challenges Completedly Slagged"
     
-    challengesSlagTotalLabel = childNode(withName: "challengesslagtotallabel") as! SKLabelNode
+    challengesSlagTotalLabel = childNode(withName: "challengesslagtotallabel") as? SKLabelNode
     challengesSlagTotalLabel.text = "\(SessionData.sharedInstance.challengesTotallySlagged) x 100 = \(SessionData.sharedInstance.challengesTotallySlagged * 100)"
 
-    slagTotalLabel = childNode(withName: "slagtotallabel") as! SKLabelNode
+    slagTotalLabel = childNode(withName: "slagtotallabel") as? SKLabelNode
     slagTotalLabel.text = "Slag Total: \(SessionData.sharedInstance.slagRunPoints + (SessionData.sharedInstance.challengesTotallySlagged * 100))"
     SessionData.sharedInstance.slagRunPoints = SessionData.sharedInstance.slagRunPoints + (SessionData.sharedInstance.challengesTotallySlagged * 100)
 
-    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as! SKLabelNode
+    bestSlagRunLabel = childNode(withName: "bestslagrunlabel") as? SKLabelNode
     bestSlagRunLabel.text = "Your Best Run: \(SessionData.sharedInstance.bestSlagRun)"
 
-    newBestSlagRunLabel = childNode(withName: "newbestslagrunlabel") as! SKLabelNode
+    newBestSlagRunLabel = childNode(withName: "newbestslagrunlabel") as? SKLabelNode
     
     if SessionData.sharedInstance.slagRunPoints == SessionData.sharedInstance.bestSlagRun {
       newBestSlagRunLabel.text = "Your Best Run Yet!"
