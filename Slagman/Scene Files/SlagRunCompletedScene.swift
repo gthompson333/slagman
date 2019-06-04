@@ -71,7 +71,7 @@ class SlagRunCompletedScene: SKScene {
     
     SessionData.saveData()
     
-    if GKLocalPlayer.localPlayer().isAuthenticated {
+    if GKLocalPlayer.local.isAuthenticated {
       let gkscore = GKScore(leaderboardIdentifier: "slagruns")
       gkscore.value = Int64(SessionData.sharedInstance.slagRunPoints)
       

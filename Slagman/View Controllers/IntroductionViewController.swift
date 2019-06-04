@@ -13,7 +13,7 @@ import UnityAds
 
 class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate, UnityAdsDelegate {
   var slagmanVoiceSound: AVAudioPlayer?
-  let gamekitPlayer = GKLocalPlayer.localPlayer()
+  let gamekitPlayer = GKLocalPlayer.local
   
   @IBOutlet weak var slagRunLockImage: UIImageView!
   @IBOutlet weak var gameCenterButton: UIButton!

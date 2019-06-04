@@ -75,7 +75,7 @@ class SettingsViewController: UIViewController {
       
       SessionData.saveData()
       
-      if GKLocalPlayer.localPlayer().isAuthenticated {
+      if GKLocalPlayer.local.isAuthenticated {
         GKAchievement.resetAchievements(completionHandler: { (error) in
           if error == nil {
             print("GameKit achievements successfully reset.")

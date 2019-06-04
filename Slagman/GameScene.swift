@@ -290,7 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func checkAchievementCompletion() {
-    if GKLocalPlayer.localPlayer().isAuthenticated {
+    if GKLocalPlayer.local.isAuthenticated {
       // Free Style Mode
       if SessionData.sharedInstance.gameMode == .freestyle {
         // Successful challenge completion.
