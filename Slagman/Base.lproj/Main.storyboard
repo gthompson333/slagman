@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Y-ba-bu7">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +18,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <navigationItem key="navigationItem" id="3KM-oO-IGH"/>
                     <connections>
                         <segue destination="phi-U4-mvj" kind="unwind" identifier="unwindFromGameToIntroduction" unwindAction="unwindFromGameToIntroductionWithSender:" id="eVW-FX-rKh"/>
                     </connections>
@@ -28,7 +26,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <exit id="phi-U4-mvj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="729" y="125"/>
+            <point key="canvasLocation" x="1116" y="180"/>
         </scene>
         <!--Gregorius View Controller-->
         <scene sceneID="Q0O-aL-ast">
@@ -75,7 +73,7 @@
                     <connections>
                         <outlet property="gregoriusImageView" destination="OPI-zW-ZJ1" id="Dxo-ss-RY4"/>
                         <outlet property="slagDefinitionLabel" destination="URT-Au-OMs" id="2Kl-1a-uFu"/>
-                        <segue destination="Uto-fM-6AD" kind="show" identifier="gregoriustotapstart" id="m1Q-Cj-9AB"/>
+                        <segue destination="Uto-fM-6AD" kind="presentation" identifier="gregoriustotapstart" modalPresentationStyle="fullScreen" id="m1Q-Cj-9AB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rK-Bf-94S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,6 +162,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fmO-Bh-VNW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Pyc-n3-l98"/>
                     <connections>
                         <outlet property="musicSwitch" destination="O1Q-wv-rZj" id="Rq1-vm-9MX"/>
                         <outlet property="soundsSwitch" destination="PU2-nM-jN1" id="0T3-7l-Ibg"/>
@@ -299,6 +298,7 @@
                             <outlet property="delegate" destination="iMM-bU-gLc" id="qND-G3-Pj9"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="jeq-mA-dWj"/>
                     <connections>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="segueFromChallengesToGame" id="9QR-zu-rlz"/>
                     </connections>
@@ -326,7 +326,7 @@
                                 </constraints>
                                 <state key="normal" image="settings"/>
                                 <connections>
-                                    <segue destination="Ric-i1-7ds" kind="show" id="B7W-CM-dGX"/>
+                                    <segue destination="Ric-i1-7ds" kind="presentation" modalPresentationStyle="fullScreen" id="B7W-CM-dGX"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S41-hc-C3t">
@@ -351,7 +351,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-Vh-mue" userLabel="Free Style Question">
-                                <rect key="frame" x="35" y="632" width="45" height="45"/>
+                                <rect key="frame" x="35" y="631.66666666666663" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="1Ge-H7-0B6"/>
                                     <constraint firstAttribute="width" constant="45" id="9VU-hR-htu"/>
@@ -360,7 +360,7 @@
                                     <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ght-hh-v1m" kind="show" id="oSe-RM-B3c"/>
+                                    <segue destination="ght-hh-v1m" kind="presentation" modalPresentationStyle="fullScreen" id="oSe-RM-B3c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-Js-6Z2">
@@ -374,7 +374,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-cZ-Bnw" userLabel="Slag Run Question">
-                                <rect key="frame" x="35" y="704" width="45" height="45"/>
+                                <rect key="frame" x="35" y="703.66666666666663" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="FBa-oQ-1BR"/>
                                     <constraint firstAttribute="width" constant="45" id="I23-Gi-Rj7"/>
@@ -383,7 +383,7 @@
                                     <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NB1-NO-Zs0" kind="show" id="ACa-wY-eoj"/>
+                                    <segue destination="NB1-NO-Zs0" kind="presentation" modalPresentationStyle="fullScreen" id="ACa-wY-eoj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-PF-J3c" userLabel="Travels Button">
@@ -398,7 +398,7 @@
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lz0-KJ-1Bh" kind="show" id="Ebi-Z4-9gM"/>
+                                    <segue destination="lz0-KJ-1Bh" kind="presentation" modalPresentationStyle="fullScreen" id="Ebi-Z4-9gM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="84O-DC-E8m">
@@ -416,7 +416,7 @@
                                 </constraints>
                                 <state key="normal" image="shopping"/>
                                 <connections>
-                                    <segue destination="QeT-4C-HIp" kind="show" id="I7h-cD-7kQ"/>
+                                    <segue destination="QeT-4C-HIp" kind="presentation" modalPresentationStyle="fullScreen" id="I7h-cD-7kQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -451,7 +451,7 @@
                         <outlet property="gameCenterButton" destination="S41-hc-C3t" id="Gbd-Bs-mOM"/>
                         <outlet property="slagRunButton" destination="tZT-Js-6Z2" id="vna-dL-Y6p"/>
                         <outlet property="slagRunLockImage" destination="84O-DC-E8m" id="Ouo-Np-8jU"/>
-                        <segue destination="BV1-FR-VrT" kind="show" identifier="introductiontogame" id="gts-kk-kFy"/>
+                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="introductiontogame" modalPresentationStyle="fullScreen" id="gts-kk-kFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI6-gL-nOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -491,6 +491,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VZl-KU-cEC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wtM-BL-hPF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wr-md-e8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iYz-hS-RK5" userLabel="Exit" sceneMemberID="exit"/>
@@ -531,6 +532,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKe-uI-NKK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="s02-vi-qzR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipq-GL-421" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jEl-JY-GWN" userLabel="Exit" sceneMemberID="exit"/>
@@ -542,6 +544,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lz0-KJ-1Bh" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="D3g-SB-wCw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s16-PO-pKR">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -728,6 +731,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QeT-4C-HIp" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gsy-eC-w6m"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QEw-ba-pcY">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -756,6 +760,6 @@
         <image name="tutorialsplash" width="900" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gts-kk-kFy"/>
+        <segue reference="9QR-zu-rlz"/>
     </inferredMetricsTieBreakers>
 </document>
