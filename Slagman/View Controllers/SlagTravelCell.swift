@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-protocol SlagTravelCellDelegate: class {
+protocol SlagTravelCellDelegate: AnyObject {
   func buyButtonTapped(cell: SlagTravelCell)
 }
 
