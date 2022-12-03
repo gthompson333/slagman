@@ -176,7 +176,6 @@
 		37F8852D20A8EB9500B1100F /* Challenge26.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8852C20A8EB9400B1100F /* Challenge26.sks */; };
 		37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8852F20A93C5E00B1100F /* GameKit.framework */; };
 		37F8853420AB6C2800B1100F /* Challenge28.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853320AB6C2800B1100F /* Challenge28.sks */; };
-		37F8853620AB982B00B1100F /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F8853520AB982B00B1100F /* UnityAds.framework */; };
 		37F8853820ABDD6000B1100F /* Challenge27.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853720ABDD6000B1100F /* Challenge27.sks */; };
 		37F8853B20AC81EB00B1100F /* Challenge30.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853920AC81EB00B1100F /* Challenge30.sks */; };
 		37F8853C20AC81EB00B1100F /* Challenge29.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37F8853A20AC81EB00B1100F /* Challenge29.sks */; };
@@ -359,7 +358,6 @@
 		37F8852C20A8EB9400B1100F /* Challenge26.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge26.sks; sourceTree = "<group>"; };
 		37F8852F20A93C5E00B1100F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		37F8853320AB6C2800B1100F /* Challenge28.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge28.sks; sourceTree = "<group>"; };
-		37F8853520AB982B00B1100F /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		37F8853720ABDD6000B1100F /* Challenge27.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge27.sks; sourceTree = "<group>"; };
 		37F8853920AC81EB00B1100F /* Challenge30.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge30.sks; sourceTree = "<group>"; };
 		37F8853A20AC81EB00B1100F /* Challenge29.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Challenge29.sks; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 			files = (
 				37E0277920BC79AB00DE173B /* StoreKit.framework in Frameworks */,
 				37F8853020A93C5E00B1100F /* GameKit.framework in Frameworks */,
-				37F8853620AB982B00B1100F /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,7 +779,6 @@
 			isa = PBXGroup;
 			children = (
 				37E0277820BC79AB00DE173B /* StoreKit.framework */,
-				37F8853520AB982B00B1100F /* UnityAds.framework */,
 				37F8852F20A93C5E00B1100F /* GameKit.framework */,
 			);
 			name = Frameworks;
@@ -815,7 +811,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "Gregorius T";
 				TargetAttributes = {
 					37B4FFB8204D9E6500FAEC3E = {
@@ -1091,6 +1087,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1116,7 +1113,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1150,6 +1147,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1169,7 +1167,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1188,9 +1186,9 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Slagman/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1209,9 +1207,9 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Slagman/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregoriust.slagman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

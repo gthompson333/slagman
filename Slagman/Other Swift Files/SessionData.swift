@@ -118,7 +118,12 @@ class SessionData: NSObject, NSCoding {
   }
   
   func loadInAppPurchaseState() {
-    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.chroniclesSlagmanProductID) {
+    travels[1]["locked"] = false
+    travels[2]["locked"] = false
+    travels[3]["locked"] = false
+    unityAdsOn = false
+    
+    /*if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.chroniclesSlagmanProductID) {
       travels[1]["locked"] = false
     } else {
       travels[1]["locked"] = true
@@ -140,7 +145,7 @@ class SessionData: NSObject, NSCoding {
       unityAdsOn = false
     } else {
       unityAdsOn = true
-    }
+    }*/
   }
   
   class func saveData() {

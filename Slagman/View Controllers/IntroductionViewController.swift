@@ -9,9 +9,8 @@
 import UIKit
 import AVFoundation
 import GameKit
-import UnityAds
 
-class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate, UnityAdsDelegate {
+class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate {
   var slagmanVoiceSound: AVAudioPlayer?
   let gamekitPlayer = GKLocalPlayer.local
   
@@ -56,8 +55,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
     } catch {
       assertionFailure("Missing slagmanvoice.m4a file.")
     }
-    
-    UnityAds.initialize("1797668", delegate: self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -132,29 +129,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue) {
   }
   
-  @IBAction func unwindFromGameToIntroduction(sender: UIStoryboardSegue) {
-    if UnityAds.isReady() && SessionData.sharedInstance.unityAdsOn {
-      UnityAds.show(self, placementId: "video")
-    }
-  }
-  
   @IBAction func unwindToIntroduction(sender: UIStoryboardSegue) {
-  }
-  
-  // UnityAdsDelegate
-  func unityAdsReady(_ placementId: String) {
-    print("Unity Ads are ready.")
-  }
-  
-  func unityAdsDidError(_ error: UnityAdsError, withMessage message: String) {
-    print("Unity Ads Error: \(error)")
-  }
-  
-  func unityAdsDidStart(_ placementId: String) {
-    print("Unity Ads starting.")
-  }
-  
-  func unityAdsDidFinish(_ placementId: String, with state: UnityAdsFinishState) {
-    print("Unity Ads finished.")
   }
 }
