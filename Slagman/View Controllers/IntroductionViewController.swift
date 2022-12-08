@@ -11,7 +11,6 @@ import AVFoundation
 import GameKit
 
 class IntroductionViewController: UIViewController, GKGameCenterControllerDelegate {
-  var slagmanVoiceSound: AVAudioPlayer?
   let gamekitPlayer = GKLocalPlayer.local
   
   @IBOutlet weak var slagRunLockImage: UIImageView!
@@ -26,7 +25,9 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
         SessionData.sharedInstance.loadInAppPurchaseState()
         
         if SessionData.sharedInstance.slagRunModeEnabled == true {
-          self.slagRunLockImage.isHidden = true
+          DispatchQueue.main.async {
+            self.slagRunLockImage.isHidden = true
+          }
         }
       } else {
         print("FAILED to load In-App products.")
@@ -44,16 +45,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
       } else {
         print("Unable to authenticate GameKit player. GameKit disabled.")
       }
-    }
-    
-    let path = Bundle.main.path(forResource: "slagmanvoice.m4a", ofType:nil)!
-    let url = URL(fileURLWithPath: path)
-    
-    do {
-      slagmanVoiceSound = try AVAudioPlayer(contentsOf: url)
-      slagmanVoiceSound?.play()
-    } catch {
-      assertionFailure("Missing slagmanvoice.m4a file.")
     }
   }
   
@@ -86,11 +77,8 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
   }
   
   @IBAction func gameCenterButtonTapped(_ sender: UIButton) {
-    let gameCenterController = GKGameCenterViewController()
+    let gameCenterController = GKGameCenterViewController(leaderboardID: "slagruns", playerScope: .global, timeScope: .allTime)
     gameCenterController.gameCenterDelegate = self
-    gameCenterController.viewState = .achievements
-    gameCenterController.leaderboardTimeScope = .allTime
-    gameCenterController.leaderboardIdentifier = "slagruns"
     show(gameCenterController, sender: self)
   }
   
@@ -124,9 +112,6 @@ class IntroductionViewController: UIViewController, GKGameCenterControllerDelega
         }
       }
     }
-  }
-  
-  @IBAction func unwindFromSettingsToIntroduction(sender: UIStoryboardSegue) {
   }
   
   @IBAction func unwindToIntroduction(sender: UIStoryboardSegue) {

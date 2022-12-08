@@ -60,27 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupNodes()
     setupHUD()
     
-    // Background Music and Sounds
-    let backgroundMusic = userData?["backgroundmusic"] as? String
-    let introVoice = userData?["introvoice"] as? String
     GameScene.theme = userData?["theme"] as? String
-    
-    let bgMusic = backgroundMusic != nil ? backgroundMusic! : "lunarlove.wav"
-    let iVoice = introVoice != nil ? introVoice! : "slagmanvoice.m4a"
-    
-    if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
-      run(SKAction.sequence([SKAction.playSoundFileNamed(iVoice, waitForCompletion: true),
-                             SKAction.run {
-                              if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
-                                self.playBackgroundMusic(name: bgMusic)
-                              }}]))
-    } else {
-      run(SKAction.run {
-        if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
-          self.playBackgroundMusic(name: bgMusic)
-        }
-      })
-    }
     
     // Addresses a SceneKit bug, where node animations sometimes start in a paused state.
     UnPauseAnimations()
@@ -270,17 +250,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let scaledWidth = size.width * scale
     let scaledOverlap = scaledWidth - view!.bounds.size.width
     return scaledOverlap / scale
-  }
-  
-  func playBackgroundMusic(name: String) {
-    if let _ = childNode(withName: "backgroundmusic") {
-      return
-    }
-    
-    let music = SKAudioNode(fileNamed: name)
-    music.name = "backgroundmusic"
-    music.autoplayLooped = true
-    addChild(music)
   }
   
   func UnPauseAnimations() {

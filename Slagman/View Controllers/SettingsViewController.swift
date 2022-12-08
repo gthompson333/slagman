@@ -11,26 +11,15 @@ import GameKit
 
 class SettingsViewController: UIViewController {
   class func initializeSettings() {
-    if UserDefaults.standard.object(forKey: SettingsKeys.music) == nil {
-      UserDefaults.standard.set(true, forKey: SettingsKeys.music)
-    }
-    
     if UserDefaults.standard.object(forKey: SettingsKeys.sounds) == nil {
       UserDefaults.standard.set(true, forKey: SettingsKeys.sounds)
     }
   }
   
-  @IBOutlet weak var musicSwitch: UISwitch!
   @IBOutlet weak var soundsSwitch: UISwitch!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if UserDefaults.standard.bool(forKey: SettingsKeys.music) == true {
-      musicSwitch.isOn = true
-    } else {
-      musicSwitch.isOn = false
-    }
     
     if UserDefaults.standard.bool(forKey: SettingsKeys.sounds) == true {
       soundsSwitch.isOn = true
@@ -42,15 +31,6 @@ class SettingsViewController: UIViewController {
   deinit {
     print("Deinit SettingsViewController")
   }
-  
-  @IBAction func musicSwitchTapped(_ sender: UISwitch) {
-    if sender.isOn {
-      UserDefaults.standard.set(true, forKey: SettingsKeys.music)
-    } else {
-      UserDefaults.standard.set(false, forKey: SettingsKeys.music)
-    }
-  }
-  
   
   @IBAction func soundsSwitchTapped(_ sender: UISwitch) {
     if sender.isOn {

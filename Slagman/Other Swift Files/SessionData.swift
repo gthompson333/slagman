@@ -82,23 +82,8 @@ class SessionData: NSObject, NSCoding {
   }
   var bestSlagRun = 0
   var challengesTotallySlagged = 0
-  
-  var slagRunModeEnabled: Bool {
-    get {
-      var enabled = true
-      
-      for travel in travels {
-        if (travel["locked"] as! Bool) == true {
-          enabled = false
-          break
-        }
-      }
-      
-      return enabled
-    }
-  }
-  
-  var unityAdsOn = true
+  let slagRunModeEnabled = true
+  var unityAdsOn = false
 
   override init() {
     super.init()
@@ -122,30 +107,6 @@ class SessionData: NSObject, NSCoding {
     travels[2]["locked"] = false
     travels[3]["locked"] = false
     unityAdsOn = false
-    
-    /*if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.chroniclesSlagmanProductID) {
-      travels[1]["locked"] = false
-    } else {
-      travels[1]["locked"] = true
-    }
-    
-    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagPhysicsProductID) {
-      travels[2]["locked"] = false
-    } else {
-      travels[2]["locked"] = true
-    }
-    
-    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.slagRecipesProductID) {
-      travels[3]["locked"] = false
-    } else {
-      travels[3]["locked"] = true
-    }
-    
-    if SlagProducts.inAppHelper.isProductPurchased(SlagProducts.removeAdsProductID) {
-      unityAdsOn = false
-    } else {
-      unityAdsOn = true
-    }*/
   }
   
   class func saveData() {
