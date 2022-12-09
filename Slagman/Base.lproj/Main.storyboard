@@ -114,7 +114,7 @@
                                     <color key="titleColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HYJ-IO-UUy" kind="unwind" unwindAction="unwindToIntroductionWithSender:" id="Yan-PU-hFx"/>
+                                    <segue destination="HYJ-IO-UUy" kind="unwind" identifier="unwindFromSettingsToIntroduction" unwindAction="unwindToIntroductionWithSender:" id="Yan-PU-hFx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z9-IH-JJN">

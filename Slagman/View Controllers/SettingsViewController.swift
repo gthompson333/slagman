@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
         })
       }
       
-      self.performSegue(withIdentifier: "settingstointroduction", sender: self)
+      self.performSegue(withIdentifier: "unwindFromSettingsToIntroduction", sender: self)
     }))
     
     alert.addAction(UIAlertAction(title: "Slag No!", style: .cancel, handler: nil))
